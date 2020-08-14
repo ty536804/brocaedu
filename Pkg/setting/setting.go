@@ -40,7 +40,7 @@ func init() {
 // 开启调试模式
 func LoadBase() {
 	RunMode = Cfg.Section("").Key("RUN_MODE").MustString("debug")
-	Domain = Cfg.Section("").Key("HOST_NAME").MustString("127.0.0.0.1:8080")
+	Domain = Cfg.Section("").Key("HOST_NAME").MustString("127.0.0.0.1:80")
 }
 
 // 加载服务器初始配置
@@ -50,7 +50,7 @@ func LoadServer() {
 		log.Fatalf("Fail to get section 'server':%v", err)
 	}
 
-	HTTPPort = sec.Key("HTTP_PORT").MustInt(8080)
+	HTTPPort = sec.Key("HTTP_PORT").MustInt(80)
 	ReadTimeout = time.Duration(sec.Key("READ_TIMEOUT").MustInt(60)) * time.Second
 	WriteTimeout = time.Duration(sec.Key("WRITE_TIMEOUT").MustInt(60)) * time.Second
 }
