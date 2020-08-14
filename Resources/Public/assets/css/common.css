@@ -1,0 +1,338 @@
+body {
+    background:#fff ;
+}
+dt{
+    font-weight: normal;
+}
+.carousel-inner img {
+    width:100%;
+}
+span,div,section,p,h3,h1,h2,h4,h5,h6,section,ul li,ul,dl,dt,dd{
+    margin: 0;
+    padding: 0 !important;
+}
+ul li,li{
+    float: left;
+    list-style: none;
+}
+*{margin:0; padding:0;}
+.pub{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.tit{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    height:55px;
+    font-size:36px;
+    font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+    font-weight:bold;
+    color:rgba(9,57,105,1);
+    line-height:55px;
+}
+.tit_icon{
+    background: url("../images/ico_slash_l@2x.png") no-repeat 0 0;
+    width: 55px;
+    height: 55px;
+    background-size: 55px 55px;
+}
+.tit span:first-child{
+    margin-right: 35px;
+}
+.tit span:last-child{
+    margin-left:35px;
+}
+.system_list{
+    width: 100%;
+    margin: 0 auto;
+    height: 55px;
+    overflow: hidden;
+}
+
+
+.banner_form_warp{
+    width: 376px;
+    margin:0 auto;
+    height:390px;
+    position: absolute;
+    right: 10%;
+}
+.banner_form{
+    width:376px;
+    height:390px;
+    background:#fff;
+    box-shadow:0px 2px 16px 0px #756e6e;
+    border-radius:20px;
+    z-index: 1;
+    right: 0;
+}
+.form_tit{
+    width:323px;
+    height:50px;
+    background:rgba(244,245,246,1);
+    border-radius:35px;
+    margin:0 auto 15px auto;
+}
+.submit{
+    width:323px;
+    height:50px;
+    background:linear-gradient(180deg,rgba(227,58,48,1) 0%,rgba(184,53,45,1) 100%);
+    box-shadow:0px 3px 10px 0px rgba(220,66,54,0.29);
+    border-radius:35px;
+    margin: 0 auto;
+    color: #fff;
+    display: flow-root;
+}
+.promise{
+    width:100%;
+    height:24px;
+    font-size:12px;
+    font-family:MicrosoftYaHei;
+    color:rgba(102,102,102,1);
+    line-height:19px;
+    text-align: center;
+    margin: 17px auto 0;
+}
+.join_tit{
+    width: 100%;
+    text-align: center;
+    height:31px;
+    font-size:24px;
+    font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+    font-weight:bold;
+    color:rgba(23,45,120,1);
+    line-height:31px;
+    margin: 31px 0 28px;
+}
+.form_tit span{
+    width:42px;
+    height:19px;
+    font-size:14px;
+    font-family:MicrosoftYaHei;
+    color:rgba(51,51,51,1);
+    line-height:19px;
+    margin: 16px 0 15px 17px;
+    display: inline-block;
+}
+.form_tit input{
+    width: 200px;
+    border: none;
+    background: #F5F5F5;
+    outline: none;
+}
+.form_tit input:focus{
+    outline: none;
+}
+
+footer{
+    background-size:contain;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background: url("http://img.mofashuxue.com/bg.png?imageslim") no-repeat top center;
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+.footer_con{
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+.footer_left{
+    margin-top: 47px;
+}
+.ico_logo{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.ico_logo img{
+    width: 292px;
+    height: 102px;
+}
+.footer_about{
+    flex: 1;
+    flex-flow: column;
+}
+.footer_about dl{
+    width: 135px;
+}
+.footer_about dl dt{
+    width:100%;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:#fff;
+    height: 28px;
+}
+.bottom_con{
+    text-align: left;
+    line-height:24px;
+    width: 100%;
+    display: inline-block;
+}
+.bottom_line{
+    width:32px;
+    height:2px;
+    background:#fff;
+    border-radius:1px;
+    float: left;
+    display: inline-block;
+    margin-top: 1px;
+}
+.footer_about dl dd{
+    margin-top: 10px;
+}
+.footer_about dl dd img{
+    width: 135px;
+    height: 135px;
+}
+.gzh{
+    width:100%;
+    display: inline-block;
+    height:24px;
+    font-size:12px;
+    font-family:MicrosoftYaHei;
+    color:#fff;
+    line-height:24px;
+    text-align: center;
+}
+.footer_left_con{
+    color: #fff;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+.sqdh{
+    width: 100%;
+    height: 28px;
+}
+.bottom_phone{
+    margin-top: 9px;
+}
+.bottom_phone img{
+    width: 33px;
+    height: 33px;
+    float: left;
+    margin-right: 10px;
+}
+
+.bottom_phone p{
+    width:100%;
+    text-align: left;
+    height:37px;
+    font-size:28px;
+    font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+    font-weight:bold;
+    line-height:37px;
+}
+.zbdz{
+    margin-top: 21px;
+}
+.bottom_address{
+    margin-top: 8px;
+}
+.bottom_address img{
+    width: 31px;
+    height: 32px;
+    float: left;
+    margin-right: 10px;
+}
+.bottom_address p{
+    width:100%;
+    text-align: left;
+    height:30px;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(255,255,255,1);
+    line-height:30px;
+}
+.footer_right_con{
+    margin-left: 37px;
+    width: 350px;
+}
+.footer_right .join_tit{
+
+    color: #333 !important;
+    display: inline-block;
+    font-size: 36px;
+}
+
+.footer_right{
+    margin-top: -30px;
+}
+.copyright{
+    width:100%;
+    height:19px;
+    font-size:14px;
+    font-family:MicrosoftYaHei;
+    color:#fff;
+    line-height:19px;
+    padding: 30px 0 31px 0 !important;
+    background: #A62D25;
+    justify-content: center;
+    text-align: center;
+}
+.bottom_submit{
+    height: 50px;
+    background: linear-gradient(180deg,rgba(227,58,48,1) 0%,rgba(184,53,45,1) 100%);
+    box-shadow: 0px 3px 10px 0px rgba(220,66,54,0.29);
+    border-radius: 35px;
+    margin: 30px auto 0;
+    color: #fff;
+    display: flow-root;
+    width:140px !important;
+}
+.bottom_submit:hover,.submit:hover{
+    color: #fff;
+}
+.footer_right .banner_form{
+    box-shadow: 0px 2px 16px 0px #c1a19838 !important;
+}
+/* 头部 */
+.nav{
+    width: 1200px;
+    margin: 0 auto;
+    height: 80px;
+}
+.nav p{
+    margin-top: 20px;
+    margin-right: 41px;
+    width: 146px;
+}
+.nav_slogan{
+    font-size: 14px;
+}
+.nav p img{
+    float: left;
+    width: 146px;
+    border: 0;
+}
+.nav .links{
+    float: left;
+}
+.nav .links a{
+    float: left;
+    height:21px;
+    font-size:16px;
+    color:#333;
+    margin-top: 29px;
+    line-height:21px;
+    padding: 0 20px;
+    text-align: center;
+    position: relative;
+}
+.nav .links a:hover{
+    text-decoration: none;
+}
+p.nav_line{
+    width: 100%;
+    display: inline-block;
+    margin: 0 auto !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height:3px;
+    text-align: center;
+}

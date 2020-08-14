@@ -1,0 +1,132 @@
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] Loaded HTML Templates (59): 
+	- omo.html
+	- header
+	- tongji.html
+	- home.html
+	- admin/user.html
+	- banner/list.html
+	- campus.html
+	- index/index.html
+	- admin/power.html
+	- list.html
+	- subject.html
+	- banner
+	- head
+	- index.html
+	- learn.html
+	- down.html
+	- nav/index.html
+	- admin/welcome.html
+	- campus/index.html
+	- index/subject.html
+	- login.html
+	- detail.html
+	- admin/home.html
+	- tongji
+	- message/message.html
+	- index/down.html
+	- index/ai.html
+	- header.html
+	- menu
+	- message.html
+	- index/detail.html
+	- footer
+	- article/detail.html
+	- footer.html
+	- welcome.html
+	- banner/detail.html
+	- about.html
+	- new.html
+	- banner.html
+	- nav
+	- 
+	- admin/login.html
+	- index/campus.html
+	- index/join.html
+	- research.html
+	- index/research.html
+	- nav.html
+	- user.html
+	- article/index.html
+	- index/about.html
+	- join.html
+	- index/new.html
+	- .DS_Store
+	- head.html
+	- site.html
+	- admin/site.html
+	- menu.html
+	- power.html
+	- index/omo.html
+
+[GIN-debug] GET    /                         --> brocaedu/Frontend/Controllers.Index (3 handlers)
+[GIN-debug] GET    /about                    --> brocaedu/Frontend/Controllers.About (3 handlers)
+[GIN-debug] GET    /aboutData                --> brocaedu/Frontend/Controllers.AboutData (3 handlers)
+[GIN-debug] GET    /index                    --> brocaedu/Frontend/Controllers.FrontEnd (3 handlers)
+[GIN-debug] GET    /subject                  --> brocaedu/Frontend/Controllers.Subject (3 handlers)
+[GIN-debug] GET    /research                 --> brocaedu/Frontend/Controllers.Research (3 handlers)
+[GIN-debug] GET    /learn                    --> brocaedu/Frontend/Controllers.Learn (3 handlers)
+[GIN-debug] GET    /news                     --> brocaedu/Frontend/Controllers.News (3 handlers)
+[GIN-debug] GET    /newList                  --> brocaedu/Frontend/Controllers.NewList (3 handlers)
+[GIN-debug] GET    /detail                   --> brocaedu/Frontend/Controllers.NewDetail (3 handlers)
+[GIN-debug] GET    /newDetail                --> brocaedu/Frontend/Controllers.NewDetailData (3 handlers)
+[GIN-debug] GET    /join                     --> brocaedu/Frontend/Controllers.Authorize (3 handlers)
+[GIN-debug] GET    /joinData                 --> brocaedu/Frontend/Controllers.JoinData (3 handlers)
+[GIN-debug] GET    /omo                      --> brocaedu/Frontend/Controllers.Omo (3 handlers)
+[GIN-debug] GET    /campus                   --> brocaedu/Frontend/Controllers.Campus (3 handlers)
+[GIN-debug] GET    /down                     --> brocaedu/Frontend/Controllers.Down (3 handlers)
+[GIN-debug] POST   /api/v1/upload            --> brocaedu/Backend.UploadFile (4 handlers)
+[GIN-debug] GET    /admin                    --> brocaedu/Router.InitRouter.func1 (3 handlers)
+[GIN-debug] GET    /api/v1/powerShow         --> brocaedu/Backend/Controllers/Admin.PowerShow (4 handlers)
+[GIN-debug] GET    /api/v1/show              --> brocaedu/Backend/Controllers/Admin.Show (4 handlers)
+[GIN-debug] POST   /login                    --> brocaedu/Backend/Controllers/Admin.Login (3 handlers)
+[GIN-debug] GET    /api/v1/index             --> brocaedu/Backend/Controllers/Admin.BackEndIndex (4 handlers)
+[GIN-debug] GET    /api/v1/userList          --> brocaedu/Backend/Controllers/Admin.UserList (4 handlers)
+[GIN-debug] GET    /api/v1/userData          --> brocaedu/Backend/Controllers/Admin.UserData (4 handlers)
+[GIN-debug] POST   /api/v1/AddUser           --> brocaedu/Backend/Controllers/Admin.AddUser (4 handlers)
+[GIN-debug] POST   /api/v1/GetUser           --> brocaedu/Backend/Controllers/Admin.GetUser (4 handlers)
+[GIN-debug] GET    /api/v1/logout            --> brocaedu/Backend/Controllers/Admin.LogOut (4 handlers)
+[GIN-debug] POST   /api/v1/editUser          --> brocaedu/Backend/Controllers/Admin.UpdateUser (4 handlers)
+[GIN-debug] GET    /api/v1/detailsUser       --> brocaedu/Backend/Controllers/Admin.DetailsUser (4 handlers)
+[GIN-debug] GET    /api/v1/siteInfo          --> brocaedu/Backend/Controllers/Admin.SiteInfo (4 handlers)
+[GIN-debug] POST   /api/v1/addSite           --> brocaedu/Backend/Controllers/Admin.AddSite (4 handlers)
+[GIN-debug] GET    /api/v1/getSite           --> brocaedu/Backend/Controllers/Admin.GetSite (4 handlers)
+[GIN-debug] GET    /api/v1/bannerList        --> brocaedu/Backend/Controllers/Banner.List (4 handlers)
+[GIN-debug] GET    /api/v1/getBanners        --> brocaedu/Backend/Controllers/Banner.GetBanners (4 handlers)
+[GIN-debug] GET    /api/v1/bannerDetail      --> brocaedu/Backend/Controllers/Banner.Detail (4 handlers)
+[GIN-debug] POST   /api/v1/AddBanner         --> brocaedu/Backend/Controllers/Banner.AddBanner (4 handlers)
+[GIN-debug] GET    /api/v1/getBanner         --> brocaedu/Backend/Controllers/Banner.GetBanner (4 handlers)
+[GIN-debug] POST   /api/v1/delBanner         --> brocaedu/Backend/Controllers/Banner.DelBanner (4 handlers)
+[GIN-debug] GET    /api/v1/messageList       --> brocaedu/Backend/Controllers/Message.List (4 handlers)
+[GIN-debug] GET    /api/v1/messageData       --> brocaedu/Backend/Controllers/Message.ListData (4 handlers)
+[GIN-debug] POST   /AddMessage               --> brocaedu/Backend/Controllers/Message.AddMessage (3 handlers)
+[GIN-debug] GET    /api/v1/getNavs           --> brocaedu/Backend/Controllers/Navs.GetNavs (4 handlers)
+[GIN-debug] POST   /api/v1/getNav            --> brocaedu/Backend/Controllers/Navs.GetNav (4 handlers)
+[GIN-debug] GET    /api/v1/navList           --> brocaedu/Backend/Controllers/Navs.Show (4 handlers)
+[GIN-debug] POST   /api/v1/addNav            --> brocaedu/Backend/Controllers/Navs.AddNav (4 handlers)
+[GIN-debug] POST   /getNavList               --> brocaedu/Backend/Controllers/Navs.GetNavList (3 handlers)
+[GIN-debug] GET    /api/v1/article           --> brocaedu/Backend/Controllers/Article.Show (4 handlers)
+[GIN-debug] POST   /api/v1/articleList       --> brocaedu/Backend/Controllers/Article.ShowList (4 handlers)
+[GIN-debug] GET    /api/v1/articleDetail     --> brocaedu/Backend/Controllers/Article.Detail (4 handlers)
+[GIN-debug] POST   /api/v1/getArticle        --> brocaedu/Backend/Controllers/Article.GetArticle (4 handlers)
+[GIN-debug] POST   /api/v1/addArticle        --> brocaedu/Backend/Controllers/Article.AddArticle (4 handlers)
+[GIN-debug] GET    /api/v1/single            --> brocaedu/Backend/Controllers/Single.List (4 handlers)
+[GIN-debug] POST   /api/v1/singleList        --> brocaedu/Backend/Controllers/Single.ListData (4 handlers)
+[GIN-debug] GET    /api/v1/list              --> brocaedu/Backend/Controllers/Single.List (4 handlers)
+[GIN-debug] POST   /api/v1/getSingle         --> brocaedu/Backend/Controllers/Single.GetSingle (4 handlers)
+[GIN-debug] POST   /api/v1/addSingle         --> brocaedu/Backend/Controllers/Single.AddSingle (4 handlers)
+[GIN-debug] GET    /api/v1/singleDetail      --> brocaedu/Backend/Controllers/Single.DetailSingle (4 handlers)
+[GIN-debug] GET    /api/v1/campus            --> brocaedu/Backend/Controllers/Campus.Index (4 handlers)
+[GIN-debug] POST   /api/v1/campusList        --> brocaedu/Backend/Controllers/Campus.GetCampus (4 handlers)
+[GIN-debug] POST   /api/v1/campusDetail      --> brocaedu/Backend/Controllers/Campus.DetailCampus (4 handlers)
+[GIN-debug] POST   /groupCampuses            --> brocaedu/Backend/Controllers/Campus.GroupCampuses (3 handlers)
+[GIN-debug] POST   /campusData               --> brocaedu/Backend/Controllers/Campus.GetCampuses (3 handlers)
+[GIN-debug] POST   /api/v1/addCampuses       --> brocaedu/Backend/Controllers/Campus.AddCampuses (4 handlers)
+[GIN] 2020/08/14 - 15:09:07 | 200 |     6.56856ms |       127.0.0.1 | GET      "/subject"
+[GIN] 2020/08/14 - 15:09:07 | 304 |     236.522µs |       127.0.0.1 | GET      "/static/assets/css/subject.css"
