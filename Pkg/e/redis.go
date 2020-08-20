@@ -59,3 +59,12 @@ func SetAccessToken(val string) bool {
 	}
 	return true
 }
+
+func SetQiNiuToken(val string) bool {
+	redisCon := Conn()
+	if err := redisCon.Set("qiniu_token", val, time.Duration(8*time.Hour)); err.Err() != nil {
+		fmt.Println("reids:", err)
+		return false
+	}
+	return true
+}
