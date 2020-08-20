@@ -14,28 +14,43 @@
     </head>
     <body>
     {{template "nav"}}
-    <section class="school_map_bg">
-        <img src="/static/assets/img/school_bg.png" />
+    <!-- banner -->
+    <div id="myCarousel" class="carousel slide banner" data-ride="carousel" data-interval="2000">
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/static/assets/images/banner22.png">
+            </div>
+        </div>
+    </div>
+    <section class="pub school">
+        <img src="/static/assets/images/text@2x.png" />
     </section>
-    <div id="chart-panel" class="pub_style"></div>
-    <section class="school_ul pub_style">
-        <dl>
-            <dt>
-                <h3>
-                    上海易乐学学校
-                </h3>
-                <span class="shcool_line"></span>
-                <p class="tel">电话：400-175-9669</p>
-                <p class="work">工作日： 9:00-18:00</p>
-                <p class="address">地址：上海市静安区临汾路57号 易乐学学校</p>
-                </p>
-            </dt>
-            <dd></dd>
-        </dl>
+    <section class="all pub">
+        <section class="all_tit">
+            <h3>全国中心</h3>
+        </section>
+        <section class="map">
+            <div style="padding: 100px 100px 10px;">
+                <div class="input-group search">
+						<span class="input-group-addon">
+							城市
+						</span>
+                    <select class="form-control selectpicker">
+                        <option value="1">广东省</option>
+                        <option value="2">广西省</option>
+                        <option value="3">福建省</option>
+                        <option value="4">湖南省</option>
+                        <option value="5">山东省</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class="school_ul pub">
     </section>
     <!-- 版权 -->
-    {{template "index_footer"}}
-    <script type="text/javascript" src="/static/assets/js/echarts.min.js"></script>
+    {{template "footer"}}
     <script type="text/javascript" src="/static/index/campus.js"></script>
     </body>
     </html>

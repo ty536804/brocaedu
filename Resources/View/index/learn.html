@@ -12,96 +12,165 @@
     </head>
     <body>
     {{template "nav"}}
-    <section class="ai_banner">
-        <img src="/static/assets/img/ai_banner.jpg" />
-    </section>
-    <!-- 在线测评系统 -->
-    <section class="ai test pub_style">
+    <!-- banner -->
+    <div id="myCarousel" class="carousel slide banner" data-ride="carousel" data-interval="2000">
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/static/assets/images/banner.png">
+            </div>
+        </div>
+    </div>
+    <section class="ai pub">
         <dl>
-            <dt class="ai_img">
-            </dt>
-            <dd>
-                <span class="circle"></span>
-                <span class="circle_rule circle_img"></span>
-                <h3 class="online_test">在线测评系统
-                    <span></span>
-                </h3>
-                <p class="online_desc">魔数思维以大数据为依托，自主研发了专业、严谨的AI智能测评系统，根据学员所学阶段与内容，每月对其进行定级测评、专题测评、阶段测评，精准掌握孩子学习效果。</p>
-            </dd>
+            <dt><img src="/static/assets/images/ico_ai@2x.png"></dt>
+            <dd>AI自适应系统</dd>
+        </dl>
+        <dl>
+            <dt><img src="/static/assets/images/ico_dimension@2x.png"></dt>
+            <dd>AI多维度梯度式练习</dd>
+        </dl>
+        <dl>
+            <dt><img src="/static/assets/images/ico_proportion@2x.png"></dt>
+            <dd>AI针对性突破练习</dd>
+        </dl>
+        <dl>
+            <dt><img src="/static/assets/images/ico_analysis@2x.png"></dt>
+            <dd>智能分析反馈学情</dd>
+        </dl>
+        <dl>
+            <dt><img src="/static/assets/images/ico_teaching@2x.png"></dt>
+            <dd>教师调整教学</dd>
+        </dl>
+        <dl>
+            <dt><img src="/static/assets/images/ico_leve.png"></dt>
+            <dd>分层次学习</dd>
         </dl>
     </section>
-    <!-- 录播课系统 -->
-    <section class="record pub_style">
-        <section class="record_warp">
-            <dl>
-                <dt>
-                    <h3 class="record_test">在线测评系统
-                        <span class="circle_img"></span>
-                    </h3>
-                    <p class="record_desc">储备海量优质课程，方便孩子随时巩固复习，反复回看，学习更扎实！</p>
-                </dt>
-                <dd class="ai_img"></dd>
+    <section class="sys pub">
+        <section class="sys_warp">
+            <section class="sys_con">
+                <section class="sys_con_img">
+                    <img src="/static/assets/images/pic_aizsyxt@2x.png" />
+                </section>
+                <dl class="sys_con_c">
+                    <dt>AI自适应系统</dt>
+                    <dd>
+                        <li>改变传统教育模式，</li>
+                        <li>突破时间和地域限制，</li>
+                        <li>共享优质教育资源。</li>
+                        <li>更能因材施教，</li>
+                        <li>提供千人千面的学习内容。</li>
+                    </dd>
+                </dl>
+            </section>
+            <section class="mid">
+                <img src="/static/assets/images/line_1@2x.png" />
+            </section>
+        </section>
+    </section>
+    <section class="sys_h pub">
+        <section class="sys_con_h_warp">
+            <section class="sys_con">
+                <dl class="sys_con_c">
+                    <dt>多维度梯度式练习</dt>
+                    <dd>
+                        <li>教学覆盖听、说、读、写、思维培养等多个维度，</li>
+                        <li>全面提升孩子英语能力。</li>
+                        <li>梯度式内容安排，</li>
+                        <li>由易到难、由浅至深，</li>
+                        <li>帮助孩子一步一步打好英语基础。</li>
+                    </dd>
+                </dl>
+                <section class="sys_con_img">
+                    <img src="/static/assets/images/pic_dwdtdslx@2x.png" />
+                </section>
+            </section>
+            <section class="mid">
+                <img src="/static/assets/images/line_2@2x.png" />
+            </section>
+        </section>
+    </section>
+    <section class="pub lianxi">
+        <section class="sys_con">
+            <section class="sys_con_img">
+                <img src="/static/assets/images/pic_3@2x.png" />
+            </section>
+            <dl class="sys_con_c">
+                <dt>针对性突破练习</dt>
+                <dd>
+                    <li>根据孩子课堂表现和学习数据分配复习比例，</li>
+                    <li>对于已经熟练掌握的知识点降低复习占比，</li>
+                    <li>未能熟练掌握的知识点则进行针对性突破练习，</li>
+                    <li> 实现事半功倍、高效学习的目标。</li>
+                </dd>
             </dl>
         </section>
     </section>
-    <!-- 预复习辅学系统 -->
-    <section class="ai test prep pub_style">
-        <dl>
-            <dt class="ai_img">
-            </dt>
-            <dd>
-                <span class="circle"></span>
-                <span class="circle_rule circle_img"></span>
-                <h3 class="online_test">预复习辅学系统
-                    <span></span>
-                </h3>
-                <p class="online_desc">根据私人课程排期同步课堂内容，智能匹配课程要点及习题，帮助孩子在线预习、复习，学习效果翻倍。</p>
-            </dd>
-        </dl>
-    </section>
-    <!-- 在线思维训练游戏 -->
-    <section class="record sw pub_style">
-        <section class="record_warp">
-            <dl>
-                <dt>
-                    <h3 class="record_test">在线思维训练游戏
-                        <span class="circle_img"></span>
-                    </h3>
-                    <p class="record_desc">根据私人课程排期同步课堂内容，智能匹配课程要点及习题，帮助孩子在线预习、复习，学习效果翻倍。</p>
-                </dt>
-                <dd class="ai_img"></dd>
-            </dl>
+    <section class="znfx pub">
+        <section class="znfx_warp">
+            <section class="sys_con">
+                <dl class="sys_con_c">
+                    <dt>智能分析反馈学情</dt>
+                    <dd>
+                        <li>留存、记录孩子学习数据，</li>
+                        <li>通过智能分析定期向老师、家长反馈孩子学习情况，</li>
+                        <li>对各个模块做出评校，</li>
+                        <li>孩子的掌握程度、优势劣势一目了然。</li>
+                    </dd>
+                </dl>
+                <section class="sys_con_img">
+                    <img src="/static/assets/images/pic_znfxxkxq@2x.png" />
+                </section>
+            </section>
+            <section class="mid">
+                <img src="/static/assets/images/line_4@2x.png" />
+            </section>
         </section>
     </section>
-    <!-- AI学练题库 -->
-    <section class="ai test lx pub_style">
-        <dl>
-            <dt class="ai_img">
-            </dt>
-            <dd>
-                <span class="circle"></span>
-                <span class="circle_rule circle_img"></span>
-                <h3 class="online_test">AI学习平台
-                    <span></span>
-                </h3>
-                <p class="online_desc">包含海量数理思维题型，个性化推荐智练习题，同时支持家长与孩子共同DIY题目，自动生成习题，提高学习的参与性、互动性。</p>
-            </dd>
-        </dl>
+    <section class="pub teach">
+        <section class="teach_warp">
+            <section class="sys_con">
+                <section class="sys_con_img">
+                    <img src="/static/assets/images/pic_jstzjx@2x.png" />
+                </section>
+                <dl class="sys_con_c">
+                    <dt>教师调整教学</dt>
+                    <dd>
+                        <li>根据每个孩子学习进度情况的不同，</li>
+                        <li>教师适时调整教学方式及教学路径，</li>
+                        <li>制定个性化教学方案，</li>
+                        <li>帮助孩子将时间有效地花在薄弱的知识点上。</li>
+                    </dd>
+                </dl>
+            </section>
+        </section>
+    </section>
+    <section class="moreLevel pub">
+        <section class="moreLevel_warp">
+            <section class="sys_con">
+                <dl class="sys_con_c">
+                    <dt>分层次学习</dt>
+                    <dd>
+                        <li>根据孩子的接受程度，</li>
+                        <li>实时调控学习难度，</li>
+                        <li>让基础扎实、成绩优异的孩子学习具有挑战的内容，</li>
+                        <li>有效拔高现有水平；</li>
+                        <li>让成绩一般或者成绩不佳的孩子学习容易听懂并接受的知识点，</li>
+                        <li>打好基础再进阶突破。</li>
+                    </dd>
+                </dl>
+                <section class="sys_con_img">
+                    <img src="/static/assets/images/pic_fccxx@2x.png" />
+                </section>
+            </section>
+            <section class="mid">
+                <img src="/static/assets/images/line_5@2x.png" />
+            </section>
+        </section>
     </section>
     <!-- 版权 -->
-    {{template "index_footer"}}
-    <script>
-        var mobileAgent = new Array("iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire");
-        var browser = navigator.userAgent.toLowerCase();
-        var isMobile = false;
-        for (var i=0; i<mobileAgent.length; i++) {
-            if (browser.indexOf(mobileAgent[i])!=-1){
-                isMobile = true;
-                location.href = '/le';
-                break;
-            }
-        }
-    </script>
+    {{template "footer"}}
     </body>
     </html>
 {{end}}

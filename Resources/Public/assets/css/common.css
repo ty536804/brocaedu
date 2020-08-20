@@ -336,6 +336,14 @@ p.nav_line{
     height:3px;
     text-align: center;
 }
+span.nav_line {
+    width: 22px;
+    height: 3px;
+    background: rgba(51,51,51,1);
+    border-radius: 2px;
+    display: inline-block;
+    margin: 0 auto;
+}
 
 #cnzz_stat_icon_1278531036{
     display: none;
