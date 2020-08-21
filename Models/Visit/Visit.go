@@ -2,9 +2,7 @@ package Visit
 
 import (
 	db "brocaedu/Database"
-	"brocaedu/Pkg/setting"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"strings"
 	"time"
 )
@@ -20,30 +18,20 @@ type Visit struct {
 }
 
 // @Summer 新增浏览记录
-func AddVisit(c *gin.Context) {
-	reqURI := c.Request.URL.RequestURI()
-	FromUrl := c.Request.Host + reqURI //来源页
+func AddVisit(data map[string]interface{}) {
 
-	uid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")[0]
-
-	FirstUrl := ""
-	if c.Request.Referer() == "" {
-		FirstUrl = setting.ReplaceSiteUrl(c.Request.Host) + reqURI //来源页
-	} else {
-		FirstUrl = c.Request.Referer()
-	}
 	result := db.Db.Create(&Visit{
-		Uuid:       uid,
-		FirstUrl:   FirstUrl,
-		Ip:         c.Request.RemoteAddr,
-		FromUrl:    FromUrl,
+		Uuid:       data["uuid"].(string),
+		FirstUrl:   data["FirstUrl"].(string),
+		Ip:         data["Ip"].(string),
+		FromUrl:    data["FromUrl"].(string),
 		CreateTime: time.Now().Format("2006-01-02 15:04:05"),
 	})
 
 	if result.Error != nil {
 		fmt.Printf("brocaedu 浏览记录失败：%s", result.Error)
 	} else {
-		fmt.Print("brocaedu 浏览记录OK", c.Request.Referer())
+		fmt.Print("brocaedu 浏览记录OK")
 	}
 }
 
@@ -54,27 +42,23 @@ func GetVisit(uid string) (visit Visit) {
 }
 
 // @Summer 更新数据
-func UpdateVisit(c *gin.Context) {
-	splitUid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")
-	uid := splitUid[0]
+func UpdateVisit(uid, visitHistory string) {
 	m1 := map[string]interface{}{}
 
 	visit := GetVisit(uid)
 
-	if !strings.Contains(visit.VisitHistory, c.Request.Referer()) {
+	if !strings.Contains(visit.VisitHistory, visitHistory) {
 		if visit.VisitHistory == "" {
-			m1["visit_history"] = c.Request.Referer()
+			m1["visit_history"] = visitHistory
 		} else {
-			m1["visit_history"] = visit.VisitHistory + "<br/>" + c.Request.Referer()
+			m1["visit_history"] = visit.VisitHistory + "<br/>" + visitHistory
 		}
 	} else {
-		m1["visit_history"] = c.Request.Referer()
+		m1["visit_history"] = visitHistory
 	}
 
-	if c.Request.Referer() != "" {
+	if visitHistory != "" {
 		result := db.Db.Model(&Visit{}).Where("uuid = ? ", uid).Update(m1)
-		//result := db.Db.Save(&visit)
-
 		if result.Error != nil {
 			fmt.Printf("浏览记录更新 faild：%s", result.Error)
 		} else {
