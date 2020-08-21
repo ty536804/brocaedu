@@ -12,7 +12,7 @@ import (
 func Index(c *gin.Context) {
 	Services.AddVisit(c)
 	c.HTML(e.SUCCESS, "index/index.html", gin.H{
-		"title":  "首页",
+		"title": "首页",
 	})
 }
 
@@ -20,13 +20,9 @@ func Index(c *gin.Context) {
 func FrontEnd(c *gin.Context) {
 	var data = make(map[string]interface{})
 	list := Article.GetArticles(1, data)
-	if len(list) > 5 {
-		list = list[0:4]
-	}
-
 	banner := Banner.GetBannerData(1)
-	data["list"] = list
-	data["banner"] = banner
+	data["list"] = list[0:4] //新闻列表
+	data["banner"] = banner  //轮播图
 	data["magic"] = Services.GetCon(1)
 	e.Success(c, "首页", data)
 }

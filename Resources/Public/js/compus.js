@@ -125,7 +125,7 @@ function member_restore(id) {
                 console.log(result.data.detail.province)
                 $("#addform #province").val(result.data.detail.province)
                 if (result.data.detail.school_img != "") {
-                    let _imgURL = '/static/upload/'+result.data.detail.school_img
+                    let _imgURL = result.data.detail.school_img
                     $("#imgurl").val(_imgURL)
                     $("#demo1").show();
                     $('#demo1').attr('src', _imgURL);

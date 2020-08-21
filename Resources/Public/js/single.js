@@ -14,7 +14,7 @@ function getAjax(page)
                 $.each(result.data.list,function (k,v) {
                     _html += "<tr><td class='w5'>"+v.id+"</td><td>"+v.nav.name+"</td><td class='title'>"+v.name+"</td><td class='summary w20'>"+v.summary+"</td>"
                     if (v.thumb_img !="") {
-                        _html += "<td class='thumb_img'><img src=/static/upload/"+v.thumb_img+"></td>"
+                        _html += "<td class='thumb_img'><img src="+v.thumb_img+"></td>"
                     } else {
                         _html += "<td class='thumb_img'></td>"
                     }

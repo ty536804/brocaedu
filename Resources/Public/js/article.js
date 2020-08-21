@@ -12,7 +12,7 @@ function getAjax(page)
             let _html= "";
             if (Number(result.code) == 200) {
                 $.each(result.data.list,function (k,v) {
-                    _html += "<tr><td class='w5'>"+v.id+"</td><td class='title'>"+v.title+"</td><td class='summary w20'>"+v.summary+"</td><td class='thumb_img'><img src=/static/upload/"+v.thumb_img+"></td><td>"+v.admin+"</td>"
+                    _html += "<tr><td class='w5'>"+v.id+"</td><td class='title'>"+v.title+"</td><td class='summary w20'>"+v.summary+"</td><td class='thumb_img'><img src="+v.thumb_img+"></td><td>"+v.admin+"</td>"
                     _html += "<td>"+v.com+"</td><td>"+(v.is_show == 1 ? "是": "否")+"</td><td class='content w20'>"+v.content+"</td>"
                     _html += "<td>"+(v.hot ==1 ? '是' : '否')+"</td>"
                     _html += '<td class="td-manage">' +

@@ -59,10 +59,9 @@ function getAjax()
                 $("#base_url").val(result.data.detail.base_url)
                 $("#bname").val(result.data.detail.bname)
                 if (result.data.detail.imgurl != "") {
-                    let _imgURL = '/static/upload/'+result.data.detail.imgurl
-                    $("#imgurl").val(_imgURL)
+                    $("#imgurl").val(result.data.detail.imgurl)
                     $("#demo1").show();
-                    $('#demo1').attr('src', _imgURL);
+                    $('#demo1').attr('src', result.data.detail.imgurl);
                 }
             }
             $("#bposition").empty().append(_html)

@@ -84,7 +84,7 @@ function getAjax()
                 $('#content').val(result.data.detail.content);
                 $(".panel-body").html(result.data.detail.content)
                 if (result.data.detail.thumb_img != "") {
-                    let _imgURL = '/static/upload/'+result.data.detail.thumb_img
+                    let _imgURL = result.data.detail.thumb_img
                     $("#imgurl").val(_imgURL)
                     $("#demo1").show();
                     $('#demo1').attr('src', _imgURL);
