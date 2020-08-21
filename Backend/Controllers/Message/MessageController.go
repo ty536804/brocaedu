@@ -25,7 +25,6 @@ func ListData(c *gin.Context) {
 
 // @Summer 添加留言
 func AddMessage(c *gin.Context) {
-	Services.AddMessage(c)
-	data := make(map[string]interface{})
-	e.Success(c, "留言成功", data)
+	_, msg := Services.AddMessage(c)
+	e.Success(c, msg, "")
 }

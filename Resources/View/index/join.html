@@ -31,21 +31,22 @@
     <!--加盟资料-->
     <section class="banner_form_warp pub" id="banner_form" style="top: 100px">
         <section class="banner_form">
-            <form method="post" action="/Index/english.html" name="myform">
+            <form method="post" action="" name="myform" id="banner_form">
                 <h3 class="join_tit">免费领取加盟资料</h3>
+                <input type="hidden" name="com" class="com">
                 <section class="form_tit">
                     <span>姓名：</span>
-                    <input type="text" placeholder="" name="name">
+                    <input type="text" placeholder="" name="mname" class="c-area">
                 </section>
                 <section class="form_tit">
                     <span>电话：</span>
-                    <input type="text" placeholder="" name="tel">
+                    <input type="text" placeholder="" name="tel" class="c-tel">
                 </section>
                 <section class="form_tit">
                     <span>地区：</span>
-                    <input type="text" placeholder="" name="content" >
+                    <input type="text" placeholder="" name="area" class="c-city">
                 </section>
-                <button class="submit btn">立即领取</button>
+                <button class="submit btn lj_btn">立即领取</button>
                 <p class="promise">我们承诺您的信息将严格保密请放心填写</p>
             </form>
         </section>
@@ -582,6 +583,7 @@
         </section>
     </section>
     {{template "footer"}}
+    <script type="text/javascript" src="/static/index/join.js"></script>
     </body>
     </html>
 {{end}}

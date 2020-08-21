@@ -40,19 +40,20 @@
                 </section>
                 <section class="footer_right">
                     <section class="banner_form">
-                        <form method="post" action="/Index/english.html" name="myform">
+                        <form method="post" action="" name="myform" class="footer_con_right" id="myform">
+                            <input type="hidden" name="com" class="c-com">
                             <h3 class="join_tit">填写表单</h3>
                             <section class="form_tit">
                                 <span>姓名：</span>
-                                <input type="text" placeholder="" name="name">
+                                <input type="text" placeholder="" name="mname" class="c-area">
                             </section>
                             <section class="form_tit">
                                 <span>电话：</span>
-                                <input type="text" placeholder="" name="tel">
+                                <input type="text" placeholder="" name="tel" class="c-tel">
                             </section>
                             <section class="form_tit">
                                 <span>地区：</span>
-                                <input type="text" placeholder="" name="content">
+                                <input type="text" placeholder="" name="area" class="c-city">
                             </section>
                             <button class="bottom_submit btn">提交</button>
                         </form>
@@ -65,6 +66,7 @@
     <script type="text/javascript" src="/static/assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="/static/assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/static/assets/js/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="/static/js/layer.js"></script>
     <script type="text/javascript" src="/static/assets/js/jquery.cookie.js"></script>
     <script type="text/javascript" src="/static/index/common.js"></script>
 {{end}}

@@ -51,7 +51,7 @@ func SendSms(mobile, msg string) {
 func SendSmsToClient(area, name, tel string) {
 	msg := "我们已收到您的留言。我们的招商经理会在24小时内联系您，请您注意接听来自北京的电话，谢谢。"
 	SendSms(tel, msg)
-	msg = area + "的" + name + "留言了。联系" + tel
+	msg = area + "的" + name + "留言了。联系" + tel + "留言来源布罗卡斯"
 	SendSms("13811384847", msg)
 	SendSms("13811221394", msg)
 }
