@@ -10,6 +10,7 @@ import (
 	nav "brocaedu/Backend/Controllers/Navs"
 	v4 "brocaedu/Backend/Controllers/Single"
 	frontend "brocaedu/Frontend/Controllers"
+	"brocaedu/Frontend/Controllers/Wap"
 	"brocaedu/Middleware/jwt"
 	"brocaedu/Pkg/e"
 	"brocaedu/Services"
@@ -51,7 +52,12 @@ func InitRouter() *gin.Engine {
 	r.GET("/omo", frontend.Omo)
 	r.GET("/campus", frontend.Campus) //全国校区
 	r.GET("/down", frontend.Down)
-
+	//移动端
+	r.GET("/wap", Wap.Index)
+	r.GET("/sub", Wap.Subject)
+	r.GET("/le", Wap.Learn)
+	r.GET("/om", Wap.Omo)
+	r.GET("/authorize", Wap.Authorize)
 	//Backend
 	apiv1 := r.Group("/api/v1")
 	apiv1.Use(jwt.JWT())

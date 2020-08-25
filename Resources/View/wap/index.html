@@ -1,0 +1,283 @@
+{{define "wap/index.html"}}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>北京易学教育科技有限公司</title>
+        {{template "wap_header"}}
+        <link rel="stylesheet" href="/static/wap/css/wap.css">
+    </head>
+    <body>
+    {{template "wap_nav"}}
+    <!-- 顶部轮播图 -->
+    <div class="banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="/static/wap/img/banner.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="/static/wap/img/banner.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 你正在面临的学习问题 -->
+    <section class="pub elearn">
+        <section class="system_list">
+            <h3 class="tit">
+                <span class="tit_icon"></span>
+                你正在面临的学习问题
+                <span class="tit_icon"></span>
+            </h3>
+        </section>
+        <section class="elearn_img">
+            <img src="/static/wap/img/WechatIMG250.png" />
+        </section>
+    </section>
+    <!-- AI智能解决方案 -->
+    <section class="pub ai">
+        <section class="system_list">
+            <h3 class="tit">
+                <span class="tit_icon"></span>
+                AI智能解决方案
+                <span class="tit_icon"></span>
+            </h3>
+        </section>
+        <h3 class="smallTit">智能学习，轻松提分</h3>
+        <dl class="online">
+            <dt class="small_img">
+                <img src="/static/wap/img/ico_xsxx.png" />
+            </dt>
+            <dd class="small_con">
+                <h3 class="small_tit">线上线下</h3>
+                <p class="small_p">线下老师面授，<br/>线上智能学练</p>
+            </dd>
+        </dl>
+        <dl class="people">
+            <dt class="small_img">
+                <img src="/static/wap/img/ico_rjhd@2x.png" />
+            </dt>
+            <dd class="small_con">
+                <h3 class="small_tit">人机交互</h3>
+                <p class="small_p">专属电脑老师1v1辅导</p>
+            </dd>
+        </dl>
+        <dl class="study">
+            <dt class="small_img">
+                <img src="/static/wap/img/ico_xxbg@2x.png" />
+            </dt>
+            <dd class="small_con">
+                <h3 class="small_tit">学习报告</h3>
+                <p class="small_p">收集学习数据，<br/>定期反馈学情</p>
+            </dd>
+        </dl>
+        <dl class="curr">
+            <dt class="small_img">
+                <img src="/static/wap/img/ico_gxhxx@2x.png" />
+            </dt>
+            <dd class="small_con">
+                <h3 class="small_tit">个性化学习</h3>
+                <p class="small_p">根据掌握程度，<br/>针对性推送学习内容</p>
+            </dd>
+        </dl>
+        <dl class="hour">
+            <dt class="small_img">
+                <img src="/static/wap/img/ico_24h.png" />
+            </dt>
+            <dd class="small_con">
+                <h3 class="small_tit">24小时待命</h3>
+                <p class="small_p">保证学员随时随地灵活使用</p>
+            </dd>
+        </dl>
+    </section>
+    <!-- AI智能多维情景教学 -->
+    <section class="pub more">
+        <section class="system_list">
+            <h3 class="tit">
+                <span class="tit_icon"></span>
+                AI智能多维情景教学
+                <span class="tit_icon"></span>
+            </h3>
+        </section>
+        <section class="pic_aizndw">
+            <img src="/static/wap/img/pic_aizndw@2x.png" />
+        </section>
+    </section>
+    <!-- 课程设置 -->
+    <section class="pub setting">
+        <section class="system_list">
+            <h3 class="tit">
+                <span class="tit_icon"></span>
+                课程设置
+                <span class="tit_icon"></span>
+            </h3>
+        </section>
+        <section class="setting_con setting_setting_con">
+            <div class="setting_banner">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="/static/wap/img/pic_class_3-6@2x.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="six_aab">
+                <section class="six">
+                    <h3>3-6岁幼儿英语</h3>
+                    <p>激发兴趣，奠定基础</p>
+                </section>
+                <section class="aab">
+                    <img src="/static/wap/img/ico_aab.png" />
+                </section>
+            </section>
+            <section class="six_con">
+                <h3 class="six_con_tit">中外教面授+智能点读+APP+外教直播课</h3>
+                <ul>
+                    <li>互动电子课件、趣味教具，激发孩子学习主动性</li>
+                    <li>智能点读笔，生词拼读释义瞬间get</li>
+                    <li>APP包含海量学习资源，拓展知识结构</li>
+                    <li>课堂游戏式互动其乐无穷，以兴趣为引导</li>
+                </ul>
+            </section>
+        </section>
+        <!-- 7-15岁少儿英语 -->
+        <section class="setting_con english">
+            <div class="setting_banner">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="/static/wap/img/pic_class_7-12@2x.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="six_aab">
+                <section class="six">
+                    <h3>7-15岁少儿英语</h3>
+                    <p>快速提分，一路领先</p>
+                </section>
+                <section class="aab">
+                    <img src="/static/wap/img/ico_ddb@2x.png" />
+                </section>
+            </section>
+            <section class="six_con">
+                <h3 class="six_con_tit">英语学练系统+随堂人机双师多维度题库练习</h3>
+                <ul>
+                    <li>专属AI老师，定位孩子学习薄弱点重点提升</li>
+                    <li>专业英语老师+“最强大脑”智能老师，实现1+1>2的教学效果</li>
+                    <li>根据学习数据定制个性化辅导方案，因材施教</li>
+                </ul>
+            </section>
+        </section>
+    </section>
+    <!-- 强大的线上系统 -->
+    <section class="sys pub">
+        <section class="system_list">
+            <h3 class="tit">
+                <span class="tit_icon"></span>
+                强大的线上系统
+                <span class="tit_icon"></span>
+            </h3>
+        </section>
+        <section class="sys_warp">
+            <dl>
+                <dt><img src="/static/wap/img/pic_app@2x.png"></dt>
+                <dd>
+                    <h3>AI小程序</h3>
+                    <ul>
+                        <li>24小时随时随地学</li>
+                        <li>预习复习双重保障</li>
+                        <li>游戏闯关趣味练习</li>
+                        <li>锻炼孩子自主独立</li>
+                        <li>高效学习家长无忧</li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl class="sys_warp_dl">
+                <dt><img src="/static/wap/img/pic_ai@2x.png"></dt>
+                <dd>
+                    <h3>BROCA智能学练系统</h3>
+                    <ul>
+                        <li>1v1定制针对性训练</li>
+                        <li>满足个性学习需求</li>
+                        <li>智能分析查漏补缺</li>
+                        <li>定期反馈学情报告</li>
+                        <li>协助老师因材施教</li>
+                    </ul>
+                </dd>
+            </dl>
+        </section>
+    </section>
+    <!-- 选择布罗卡斯的理由 -->
+    <section class="checked pub">
+        <section class="system_list">
+            <h3 class="tit">
+                <span class="tit_icon"></span>
+                选择布罗卡斯的理由
+                <span class="tit_icon"></span>
+            </h3>
+        </section>
+        <section class="checked_con">
+            <dl>
+                <dt><img src="/static/wap/img/pic_reason1@2x.png"></dt>
+                <dd>
+                    <h3>科学原理</h3>
+                    <p>遵循儿童脑科学原理，集科学性、系统性、趣味性于一体</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt><img src="/static/wap/img/pic_reason2@2x.png"></dt>
+                <dd>
+                    <h3>国际标准</h3>
+                    <p>同步美国幼儿教育协会NAEYC课程标准，中国教育学会十二五科研项目成果</p>
+                </dd>
+            </dl>
+        </section>
+        <section class="checked_con checked_con_s">
+            <dl>
+                <dt><img src="/static/wap/img/pic_reason3@2x.png"></dt>
+                <dd>
+                    <h3>真实情景</h3>
+                    <p>纯正美语幼儿发音、课件动画，儿歌、身临其境感受美国幼儿生活</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt><img src="/static/wap/img/pic_reason4@2x.png"></dt>
+                <dd>
+                    <h3>内容丰富</h3>
+                    <p>四大主题、五大幼儿学习版块，涵盖全领域，超过2000+人机互动游戏、练习</p>
+                </dd>
+            </dl>
+        </section>
+    </section>
+    <!-- 品牌介绍 -->
+    <section class="pub brand">
+        <section class="system_list">
+            <h3 class="tit">
+                <span class="tit_icon"></span>
+                品牌介绍
+                <span class="tit_icon"></span>
+            </h3>
+        </section>
+        <dl class="brand_con">
+            <dt><img src="/static/wap/img/pic_brand@2x.png"></dt>
+            <dd>布罗卡斯智能英语隶属于易乐教育科技集团，是全国首家AI智能人机互教英语品牌，专注于3-15岁多维智能情景英语教学。
+                <p> 布罗卡斯智能英语依据哈佛教育研究学院、康奈尔大学教育理论，联合《走遍美国》《BBC英语》等优质英语教育资源，参照美国幼儿教育协会NAEYC教育标准，自主研发了全体系、创新型AI智能英语课程体系，并与美国、台湾技术团队及语言专家联合打造了“BROCA智能学”在线AI学练系统。</p>
+            </dd>
+        </dl>
+    </section>
+    {{template "wap_footer"}}
+    <script>
+        var swiper = new Swiper('.banner .swiper-container', {
+            loop: true,
+            autoplay:true,
+        });
+        var swiper = new Swiper('.setting_banner .swiper-container', {
+            loop: true,
+            autoplay:true,
+        });
+    </script>
+    </body>
+{{end}}

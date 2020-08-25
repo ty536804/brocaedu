@@ -1,0 +1,363 @@
+.banner{
+	width: 46.875rem;
+	height: 25rem;
+	text-align: center;
+	margin: 0 auto;
+}
+.banner img{
+	width: 46.875rem;
+	height: 25rem;
+}
+.brand{
+	background:#FFFAEF url(../img/bg_Introduction@2x.png) no-repeat bottom 45px center;
+	background-size:43.125rem 75.25rem;
+	height: 87.75rem;
+	margin: 0 auto;
+	width: 100%;
+}
+.brand .system_list{
+	margin: 66px auto 34px auto;
+}
+.brand_con{
+	width: 43.125rem;
+	margin: 18.375rem auto 0 auto;
+	overflow: hidden;
+	font-size:1.75rem;
+	font-family:PingFangSC-Regular,PingFang SC;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	line-height:2.875rem;
+}
+.brand_con p{
+	width: 100%;
+	margin-top: 0.9375rem;
+	padding: 0 2.375rem 0 2.5rem !important;
+	box-sizing: border-box;
+}
+/* 品牌起源 */
+.brand_com{
+	background:#EEF9FF url(../img/bg_origin@2x.png) no-repeat bottom 50px center;
+	background-size:43.125rem 45rem;
+	height: 57.875rem;
+	margin: 0 auto;
+	width: 100%;
+}
+.brand_com .system_list{
+	margin: 4.125rem auto 2.125rem auto;
+}
+.com_tit{
+	width:100%;
+	height:44px;
+	font-size:32px;
+	font-family:PingFangSC-Medium,PingFang SC;
+	font-weight:500;
+	color:rgba(203,22,29,1);
+	line-height:44px;
+	text-align: center;
+	margin-top: 24rem;
+	display: inline-block;
+}
+.brand_com_con{
+	width: 43.125rem;
+	margin: 0 auto;
+}
+.com_con{
+	width:100%;
+	height:248px;
+	font-size:28px;
+	font-family:PingFangSC-Regular,PingFang SC;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	line-height:46px;
+	margin:1.25rem auto 1.875rem auto;
+	padding: 0 2.5rem !important;
+	display: inline-block;
+	box-sizing: border-box;
+}
+/* 品牌荣誉 */
+.honor {
+	width: 100%;
+}
+.honor .system_list{
+	margin: 4.125rem auto 2.125rem auto;
+}
+.brand_ul{
+	background: url(../img/bg_blur.png) no-repeat top center;
+	background-size: 46.875rem 21.25rem;
+	height: 340px;
+	width: 100%;
+	overflow: hidden;
+}
+
+/* 轮播图 */
+.pc-banner {
+	width: 100%;
+	float: left;
+}
+/* .swiper-slide{
+	width: 268px !important;
+} */
+@media screen and (max-width: 668px) {
+	.pc-banner {
+		background-size: auto 100%;
+	}
+}
+
+.swiper-container {
+	width: 100%;
+	margin: 35px 0;
+}
+
+@media screen and (max-width: 668px) {
+	.swiper-container {
+		margin: 20px 0 15px;
+	}
+}
+
+.swiper-slide {
+	-webkit-transition: transform 1.0s;
+	-moz-transition: transform 1.0s;
+	-ms-transition: transform 1.0s;
+	-o-transition: transform 1.0s;
+	-webkit-transform: scale(0.7);
+	transform: scale(0.7);
+}
+
+@media screen and (max-width: 668px) {
+	.swiper-slide {
+		-webkit-transform: scale(0.97);
+		transform: scale(0.97);
+	}
+}
+
+.swiper-slide-active,.swiper-slide-duplicate-active {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+@media screen and (max-width: 668px) {
+	.swiper-slide-active,.swiper-slide-duplicate-active {
+		-webkit-transform: scale(0.97);
+		transform: scale(0.97);
+	}
+}
+
+.none-effect {
+	-webkit-transition: none;
+	-moz-transition: none;
+	-ms-transition: none;
+	-o-transition: none;
+}
+
+
+.swiper-slide img {
+	width: 100%;
+	border-radius: 14px;
+	display: block;
+}
+
+@media screen and (max-width: 668px) {
+	.swiper-slide img {
+		border-radius: 7px;
+	}
+}
+
+.swiper-pagination {
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.swiper-pagination-bullet {
+	background: #00a0e9;
+	margin-left: 4px;
+	margin-right: 4px;
+	width: 17px;
+	height: 17px;
+	opacity: 1;
+	margin-bottom: 4px;
+}
+
+.swiper-pagination-bullet-active {
+	width: 13px;
+	height: 13px;
+	background: #FFF;
+	border: 6px solid #00a0e9;
+	margin-bottom: 0;
+}
+
+@media screen and (max-width: 668px) {
+
+	.swiper-pagination {
+		position: relative;
+		margin-bottom: 20px;
+	}
+
+	.swiper-pagination-bullet {
+		background: #00a0e9;
+		margin-left: 2px;
+		margin-right: 2px;
+		width: 8px;
+		height: 8px;
+		margin-bottom: 2px;
+	}
+
+	.swiper-pagination-bullet-active {
+		width: 6px;
+		height: 6px;
+		background: #FFF;
+		border: 3px solid #00a0e9;
+		margin-bottom: 0;
+	}
+}
+
+.button {
+	width: 1000px;
+	margin: 0 auto;
+	bottom: 43px;
+	position: relative;
+}
+
+@media screen and (max-width: 668px) {
+	.button {
+		width: 70%;
+		bottom: 22px;
+	}
+}
+
+.button div:hover {
+	background-color: #2f4798;
+}
+
+@media screen and (max-width: 668px) {
+	.button div {
+		width: 28px;
+		height: 28px;
+	}
+}
+/* 轮播图结束 */
+/* BROCA英语六大优势 */
+.six_ul{
+	width: 100%;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	margin: 0 1.25rem
+}
+.six  .system_list{
+	margin: 66px auto 34px auto;
+}
+.six_ul dl{
+	width:336px;
+	height:310px;
+	border-radius:20px;
+	position: relative;
+}
+.six_ul dl:first-child{
+	background:rgba(255,255,255,1);
+	border:6px solid rgba(231,195,121,1);
+}
+.six_ul_tit{
+	background:rgba(231,195,121,1) url(../img/ico_team_red.png) no-repeat right -35px center;
+	height: 100px;
+	width: 100%;
+	font-size:32px;
+	font-family:PingFangSC-Medium,PingFang SC;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+	line-height:100px;
+	text-align: center;
+}
+.six_ul dl:last-child{
+	background:rgba(255,255,255,1);
+	border:6px solid rgba(0,128,203,1);
+}
+.six_ul dl:last-child dt.six_ul_tit{
+	background:#0080CB url(../img/ico_standard_red@2x.png) no-repeat right -35px center;
+}
+.six_ul_con{
+	width:100%;
+	height:160px;
+	font-size:28px;
+	font-family:PingFangSC-Regular,PingFang SC;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	line-height:40px;
+	padding: 20px 28px 0 28px !important;
+	box-sizing: border-box;
+}
+.smallIcon{
+	width: 92px;
+	height: 62px;
+	background: url(../img/ico_1@2x.png) no-repeat left top;
+	background-size: 92px 62px;
+	display: inline-block;
+	left: -6px;
+	position: absolute;
+	top: -12px;
+}
+.six_ul dl:last-child .smallIcon{
+	background: url(../img/ico_2@2x.png) no-repeat left top;
+	background-size: 92px 62px;
+}
+.last dl:first-child{
+	background:rgba(255,255,255,1);
+	border:6px solid rgba(15,188,184,1);
+}
+.last dl:last-child{
+	background:rgba(255,255,255,1);
+	border:6px solid #E7C379;
+}
+
+.last dl:first-child dt.six_ul_tit{
+	background:#0FBCB8 url(../img/ico_market_red@2x.png) no-repeat right -35px center;
+}
+
+.last dl:last-child dt.six_ul_tit{
+	background:#E7C379 url(../img/ico_authority_red@2x.png) no-repeat right -35px center;
+}
+
+.last dl:first-child .smallIcon{
+	background: url(../img/ico_4@2x.png) no-repeat left top;
+	background-size: 92px 62px;
+}
+
+.six_ul dl:last-child .smallIcon{
+	background: url(../img/ico_5@2x.png) no-repeat left top;
+	background-size: 92px 62px;
+}
+.mid{
+	width:690px;
+	height:246px;
+	background:rgba(255,255,255,1);
+	border-radius:20px;
+	border:6px solid rgba(237,124,138,1);
+	margin: 0 auto;
+	position: relative;
+	margin: 30px auto;
+}
+.mid .six_ul_tit{
+	background:#ED7C8A url(../img/ico_ai_red@2x.png) no-repeat right -35px center;
+}
+.mid .six_ul_tit .smallIcon{
+	background: url(../img/ico_3@2x.png) no-repeat left top;
+	background-size: 92px 62px;
+}
+.last_item{
+	background: url(../img/bg_green@2x.png) no-repeat bottom center;
+	background-size: 750px 578px;
+	height: 578px;
+	width: 750px;
+	margin: 0 auto;
+}
+.last_item dl{
+	margin: 1.875rem 0 0 1.25rem;
+}
+.last_item .six_ul_tit .smallIcon{
+	background: url(../img/ico_6@2x.png) no-repeat left top !important;
+}
+.last_item .six_ul_tit{
+	background:#0080CB url(../img/ico_resources_red@2x.png) no-repeat right -35px center !important;
+}
+.last_item .six_ul_con{
+	padding-top: 5px !important;
+}
