@@ -445,8 +445,9 @@ footer{
 	margin-top: 15px;
 }
 .bottom_address{
-	width: 486px;
+	width: 502px;
 	margin: 0 auto;
+	height: 32px;
 }
 .bottom_address img{
 	width:32px;
@@ -455,7 +456,9 @@ footer{
 	float: left;
 }
 .bottom_address p{
-	margin-top: 12px;
+	margin-top: 15px;
+	height: 32px;
+	line-height: 32px;
 }
 
 .footer_right_con{
@@ -508,6 +511,7 @@ footer{
 	outline: none;
 	background: #fff;
 }
+
 .childes{
 	background: #556EC5 !important;
 }
