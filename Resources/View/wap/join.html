@@ -31,21 +31,22 @@
     <!--表单-->
     <section class="banner_form_warp pub" id="banner_form">
         <section class="banner_form">
-            <form method="post" action="" name="myform">
+            <form method="post" action="" name="myform" id="topmyfrom">
+                <input type="hidden" name="com" class="c-top_com" value="/">
                 <h3 class="join_tit">免费领取加盟资料</h3>
                 <section class="form_tit">
                     <span>姓名：</span>
-                    <input type="text" placeholder="" name="name">
+                    <input type="text" placeholder="" name="mname" class="c-name">
                 </section>
                 <section class="form_tit">
                     <span>电话：</span>
-                    <input type="text" placeholder="" name="tel">
+                    <input type="text" placeholder="" name="tel" class="c-tel">
                 </section>
                 <section class="form_tit">
                     <span>地区：</span>
-                    <input type="text" placeholder="" name="content">
+                    <input type="text" placeholder="" name="area" class="c-area">
                 </section>
-                <button class="submit btn">立即领取</button>
+                <button class="submit btn top_btn">立即领取</button>
                 <p class="promise">我们承诺您的信息将严格保密请放心填写</p>
             </form>
         </section>
@@ -445,25 +446,25 @@
         <section class="footer_con pub" id="fedbook">
             <section class="footer_right">
                 <section class="banner_form">
-                    <form method="post" action="/Index/english.html" name="myform">
+                    <form method="post" action="" name="myform" id="myform">
+                        <input type="hidden" name="com" class="c-com" value="">
                         <h3 class="join_tit">免费领取 加盟资料</h3>
                         <section class="form_tit">
                             <span>姓名：</span>
-                            <input type="text" placeholder="" name="name">
+                            <input type="text" placeholder="" name="mname" class="c-name">
                         </section>
                         <section class="form_tit">
                             <span>电话：</span>
-                            <input type="text" placeholder="" name="tel">
+                            <input type="text" placeholder="" name="tel" class="c-tel">
                         </section>
                         <section class="form_tit">
                             <span>地区：</span>
-                            <input type="text" placeholder="" name="content">
+                            <input type="text" placeholder="" name="area" class="c-area">
                         </section>
-                        <button class="submit btn">立即领取</button>
+                        <button class="submit btn bottom_btn">立即领取</button>
                         <p class="promise">我们承诺您的信息将严格保密请放心填写</p>
                     </form>
                 </section>
-
             </section>
             <section class="footer_left">
                 <p class="ico_logo"><img  src="http://img.mofashuxue.com/ico_logo.png?imageslim" class="lazy" style=""></p>
@@ -516,5 +517,39 @@
                 }
             }
         });
+
+
+        $('.c-top_com').val(window.location.href);
+
+        $('.top_btn').on('click',function () {
+            if ($('#topmyfrom .c-name').val()=="") {
+                alert('姓名不能为空');
+                return false;
+            }
+            if ($('#topmyfrom .c-tel').val()=="") {
+                alert('电话不能为空');
+                return false;
+            }
+            if ($('#topmyfrom .c-tel').val().length < 11) {
+                alert('手机号码格式不正确');
+                return false;
+            }
+            if ($('#topmyfrom .c-area').val()=="") {
+                alert('地区不能为空');
+                return false;
+            }
+
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "/AddMessage",
+                data:$('#topmyfrom').serialize(),
+                success: function (result) {
+                    alert(result.msg);
+                    return false
+                }
+            })
+            return false;
+        })
     </script>
 {{end}}

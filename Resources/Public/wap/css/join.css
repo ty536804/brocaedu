@@ -1204,3 +1204,6 @@ footer{
     margin-left: 3px;
     width: 185px;
 }
+.layui-m-layer-msg .layui-m-layercont {
+    padding: 10px 20px !important;
+}

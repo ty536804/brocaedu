@@ -54,3 +54,13 @@ func Authorize(c *gin.Context) {
 		"time":  ver,
 	})
 }
+
+// @Summer 关于我们
+func About(c *gin.Context) {
+	ver := time.Now().Unix()
+	Services.AddVisit(c)
+	c.HTML(e.SUCCESS, "wap/about.html", gin.H{
+		"title": "关于我们",
+		"time":  ver,
+	})
+}

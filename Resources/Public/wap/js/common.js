@@ -4,7 +4,7 @@ $(function() {
     });
 });
 
-
+$('.c-com').val(window.location.href);
 $('.home_nav').css({"height":$(document).height()+"px"});
 $('.home_icon').on('click',function () {
     let flag = $(".home_nav").is(":hidden");
@@ -31,80 +31,33 @@ $('.home_nav a').each(function () {
 
 $('.c-com').val(window.location.href);
 
-$('.f_btn').on('click',function () {
-    if ($('.footer_con_right .c-area').val()=="") {
-        layer.tips('姓名不能为空', '.footer_con_right .c-area', {
-            tips: [1, '#3595CC'],
-            time: 4000
-        });
+$('.bottom_btn').on('click',function () {
+    if ($('.footer_right .c-name').val()=="") {
+        alert('姓名不能为空');
         return false;
     }
-    if ($('.footer_con_right .c-tel').val()=="") {
-        layer.tips('电话不能为空', '.footer_con_right .c-tel', {
-            tips: [1, '#3595CC'],
-            time: 4000
-        });
+    if ($('.footer_right .c-tel').val()=="") {
+        alert('电话不能为空');
         return false;
     }
-    if ($('.footer_con_right .c-city').val()=="") {
-        layer.tips('地区不能为空', '.footer_con_right .c-city', {
-            tips: [1, '#3595CC'],
-            time: 4000
-        });
+    if ($('.footer_right .c-tel').val().length < 11) {
+        alert('手机号码格式不正确');
         return false;
     }
+    if ($('.footer_right .c-area').val()=="") {
+        alert('地区不能为空');
+        return false;
+    }
+
     $.ajax({
         type: "POST",
         dataType: "json",
         url: "/AddMessage",
         data:$('#myform').serialize(),
         success: function (result) {
-            if (result.code == 200) {
-                $('input').val('');
-                layer.alert("留言成功");
-                return false
-            }
-            layer.alert("留言失败");
+            alert(result.msg);
             return false
         }
     })
     return false;
 })
-
-document.addEventListener('gesturestart', function (e) {
-
-    e.preventDefault();
-
-});
-
-document.addEventListener('dblclick', function (e) {
-
-    e.preventDefault();
-
-});
-
-document.addEventListener('touchstart', function (event) {
-
-    if (event.touches.length > 1) {
-
-        event.preventDefault();
-
-    }
-
-});
-
-var lastTouchEnd = 0;
-
-document.addEventListener('touchend', function (event) {
-
-    var now = (new Date()).getTime();
-
-    if (now - lastTouchEnd <= 300) {
-
-        event.preventDefault();
-
-    }
-
-    lastTouchEnd = now;
-
-}, false);

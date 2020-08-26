@@ -31,7 +31,6 @@ $('.bottom_submit').on('click',function () {
             tips: [1, '#3595CC'],
             time: 4000
         });
-        // layer.alert("姓名不能为空");
         return false;
     }
     if ($('.footer_con_right .c-tel').val()=="") {

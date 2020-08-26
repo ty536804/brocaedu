@@ -330,9 +330,9 @@ footer{
 	margin: 32px auto 26px auto;
 }
 .form_tit span{
-	width:42px;
+	width:75px;
 	height:66px;
-	font-size:14px;
+	font-size:25px;
 	color: #172D78;
 	font-family:MicrosoftYaHei;
 	line-height:66px;
@@ -344,6 +344,7 @@ footer{
 	border: none;
 	background: #fff;
 	outline: none;
+	font-size: 25px;
 }
 .form_tit input:focus{
 	outline: none;
@@ -517,4 +518,7 @@ footer{
 	transform: scale(0.7);
 	margin-left: 3px;
 	width: 185px;
+}
+.layui-m-layer-msg .layui-m-layercont {
+	padding: 10px 20px !important;
 }
