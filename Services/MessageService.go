@@ -46,7 +46,7 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 		data["client"] = "pc"
 		data["ip"] = c.Request.RemoteAddr
 		data["channel"] = 1
-		//SendSmsToClient(area, mname, tel)      //发送短信
+		SendSmsToClient(area, mname, tel) //发送短信
 		if Message.AddMessage(data) {
 			return e.SUCCESS, "提交成功"
 		}
