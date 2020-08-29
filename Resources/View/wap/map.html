@@ -104,9 +104,9 @@
         addMarker();//添加聚合点
 
         function initMap() {
-            var map = new BMap.Map("allMap", {enableMapClick: false, minZoom: 9, maxZoom: 15});
-            var point = new BMap.Point(113.658221, 34.780377);//郑州市中心点
-            map.centerAndZoom(point, 9);
+            var map = new BMap.Map("allMap", {enableMapClick: false, minZoom: 15, maxZoom: 12});
+            var point = new BMap.Point(116.404, 39.925);//北京市中心点
+            map.centerAndZoom(point, 11);
             map.enableScrollWheelZoom(true);
             //监听地图级别缩放事件，当级别为9时默认加载集合点，扩大级别时显示详细点位数据
             map.addEventListener("zoomend", function () {
@@ -130,16 +130,16 @@
             map.clearOverlays();
             //模拟数据
             var clustereData=[
-                {"name":"郑州市","code":"410100000","longitude":"113.451854","latitude":"34.556306","count":"445"},
-                {"name":"开封市","code":"410200000","longitude":"114.356733","latitude":"34.506238","count":"377"},
-                {"name":"洛阳市","code":"410300000","longitude":"112.134468","latitude":"34.263041","count":"370"},
-                {"name":"平顶山市","code":"410400000","longitude":"112.892161","latitude":"33.773999","count":"300"},
-                {"name":"安阳市","code":"410500000","longitude":"114.098163","latitude":"36.106852","count":"290"},
-                {"name":"鹤壁市","code":"410600000","longitude":"114.208643","latitude":"35.653125","count":"245"},
-                {"name":"新乡市","code":"410700000","longitude":"113.933677","latitude":"35.31059","count":"236"},
-                {"name":"焦作市","code":"410800000","longitude":"113.050848","latitude":"35.124706","count":"210"},
-                {"name":"濮阳市","code":"410900000","longitude":"115.169299","latitude":"35.769421","count":"225"},
-                {"name":"许昌市","code":"411000000","longitude":"113.856834","latitude":"34.043383","count":"155"}
+                {"name":"东城区","code":"110101","longitude":"116.28625","latitude":"39.8585","count":"445"},
+                {"name":"西城区","code":"110102","longitude":"116.36003","latitude":"39.9305","count":"377"},
+                {"name":"朝阳区","code":"110105","longitude":"116.48548","latitude":"39.9484","count":"370"},
+                {"name":"丰台区","code":"110106","longitude":"116.28625","latitude":"39.8585","count":"300"},
+                {"name":"石景山区","code":"110107","longitude":"116.2229","latitude":"39.90564","count":"290"},
+                {"name":"海淀区","code":"110108","longitude":"116.29812","latitude":"39.95931","count":"245"},
+                {"name":"门头沟区","code":"110109","longitude":"116.10137","latitude":"39.94043","count":"236"},
+                {"name":"房山区","code":"110111","longitude":"116.14257","latitude":"39.74786","count":"210"},
+                {"name":"通州区","code":"110112","longitude":"116.65716","latitude":"39.90966","count":"225"},
+                {"name":"顺义区","code":"110113","longitude":"116.65417","latitude":"40.1302","count":"155"}
             ];
             //为了提高百度地图性能，本篇例子点位全用label来加载点位
             $.each(clustereData,function (index,data) {
@@ -221,18 +221,16 @@
             map.clearOverlays();
             //模拟点位数据
             var labelListData=[
-                {"name":"楼盘一","code":"01","longitude":"113.515919","latitude":"34.799769","num":"10000"},
-                {"name":"楼盘二","code":"02","longitude":"113.509444","latitude":"34.4475","num":"999"},
-                {"name":"楼盘三","code":"03","longitude":"113.68175","latitude":"34.737633","num":"888"},
-                {"name":"楼盘四","code":"04","longitude":"113.280769","latitude":"34.814961","num":"777"},
-                {"name":"楼盘五","code":"05","longitude":"113.611175","latitude":"34.784972","num":"666"},
-                {"name":"楼盘六","code":"06","longitude":"113.609436","latitude":"34.770558","num":"555"},
-                {"name":"楼盘七","code":"07","longitude":"113.687778","latitude":"34.861111","num":"444"},
-                {"name":"楼盘八","code":"08","longitude":"113.333333","latitude":"34.833333","num":"333"},
-                {"name":"楼盘九","code":"09","longitude":"114.0537","latitude":"34.7273","num":"222"},
-                {"name":"楼盘十","code":"10","longitude":"113.419642","latitude":"34.809192","num":"111"},
-                {"name":"楼盘十一","code":"11","longitude":"113.068653","latitude":"34.382344","num":"1111"},
-                {"name":"楼盘十二","code":"12","longitude":"113.1491","latitude":"34.389","num":"2222"}
+                {"name":"楼盘一","code":"01","longitude":"116.28625","latitude":"39.8585","num":"10000"},
+                {"name":"楼盘二","code":"02","longitude":"116.36003","latitude":"39.9305","num":"999"},
+                {"name":"楼盘三","code":"03","longitude":"116.48548","latitude":"39.9484","num":"888"},
+                {"name":"楼盘四","code":"04","longitude":"116.28625","latitude":"39.8585","num":"777"},
+                {"name":"楼盘五","code":"05","longitude":"116.2229","latitude":"39.90564","num":"666"},
+                {"name":"楼盘六","code":"06","longitude":"116.29812","latitude":"39.95931","num":"555"},
+                {"name":"楼盘七","code":"07","longitude":"116.10137","latitude":"39.94043","num":"444"},
+                {"name":"楼盘八","code":"08","longitude":"116.14257","latitude":"39.74786","num":"333"},
+                {"name":"楼盘九","code":"09","longitude":"116.65716","latitude":"39.90966","num":"222"},
+                {"name":"楼盘十","code":"10","longitude":"116.65417","latitude":"40.1302","num":"111"},
             ];
             $.each(labelListData,function (index,data) {
                 var point = new BMap.Point(data.longitude, data.latitude);
