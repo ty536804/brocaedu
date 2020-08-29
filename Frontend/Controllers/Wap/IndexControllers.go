@@ -64,3 +64,13 @@ func About(c *gin.Context) {
 		"time":  ver,
 	})
 }
+
+// @Summer 地图
+func Map(c *gin.Context) {
+	ver := time.Now().Unix()
+	Services.AddVisit(c)
+	c.HTML(e.SUCCESS, "wap/map.html", gin.H{
+		"title": "地图",
+		"time":  ver,
+	})
+}
