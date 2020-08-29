@@ -4,13 +4,7 @@
     <head>
         <meta charset="utf-8">
         <title>北京易学教育科技有限公司</title>
-        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-        <meta content="yes" name="apple-mobile-web-app-capable">
-        <meta content="black" name="apple-mobile-web-app-status-bar-style">
-        <link href="/static/assets/css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="shortcut icon" href="/static/assets/img/favicon.ico" />
-        <link rel="stylesheet" href="/static/wap/css/jquery.hiSlider.min.css">
-        <link rel="stylesheet" href="/static/wap/css/swiper.min.css">
+        {{template "wap_header"}}
         <link rel="stylesheet" href="/static/wap/css/join.css">
     </head>
     <body>
@@ -442,56 +436,7 @@
             </section>
         </section>
     </section>
-    <footer>
-        <section class="footer_con pub" id="fedbook">
-            <section class="footer_right">
-                <section class="banner_form">
-                    <form method="post" action="" name="myform" id="myform">
-                        <input type="hidden" name="com" class="c-com" value="">
-                        <h3 class="join_tit">免费领取 加盟资料</h3>
-                        <section class="form_tit">
-                            <span>姓名：</span>
-                            <input type="text" placeholder="" name="mname" class="c-name">
-                        </section>
-                        <section class="form_tit">
-                            <span>电话：</span>
-                            <input type="text" placeholder="" name="tel" class="c-tel">
-                        </section>
-                        <section class="form_tit">
-                            <span>地区：</span>
-                            <input type="text" placeholder="" name="area" class="c-area">
-                        </section>
-                        <button class="submit btn bottom_btn">立即领取</button>
-                        <p class="promise">我们承诺您的信息将严格保密请放心填写</p>
-                    </form>
-                </section>
-            </section>
-            <section class="footer_left">
-                <p class="ico_logo"><img  src="http://img.mofashuxue.com/ico_logo.png?imageslim" class="lazy" style=""></p>
-                <section class="footer_left_con">
-                    <section class="footer_right_con">
-                        <section class="bottom_phone">
-                            授权电话:
-                            <p>400 175 9669</p>
-                        </section>
-                        <section class="bottom_address">
-                            总部地址:
-                            <p>北京市海淀区首体南路22号楼国兴大厦16A</p>
-                        </section>
-                    </section>
-                </section>
-            </section>
-        </section>
-    </footer>
-    {{template "tongji"}}
-    <div class="foot-box"><a href="tel:4001759669">免费电话</a><a href="#fedbook" style="background-color: rgb(157, 200, 22)">留言咨询</a></div>
-    <script type="text/javascript" src="/static/assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/static/js/layer.js"></script>
-    <script type="text/javascript" src="/static/assets/js/jquery.lazyload.js"></script>
-    <script type="text/javascript" src="/static/wap/js/swiper.min.js"></script>
-    <script type="text/javascript" src="/static/wap/js/jquery.hiSlider.js"></script>
-    <script type="text/javascript" src="/static/assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/static/wap/js/common.js"></script>
+    {{template "wap_footer"}}
     <script>
         var swiper3 = new Swiper('.banner .swiper-container', {
             loop: true,

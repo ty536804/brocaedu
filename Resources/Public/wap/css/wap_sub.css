@@ -1,0 +1,667 @@
+.banner{
+    width: 100%;
+    height: 200px;
+    justify-content: center;
+    overflow: hidden;
+}
+.banner img{
+    height: 100%;
+    width: 100%;
+}
+/* 布罗卡斯课程理念 */
+.idea{
+    width: 100%;
+    margin: 0 auto;
+}
+.idea .system_list{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.smallTit{
+    width:100%;
+    height:20px;
+    font-size:14px;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(102,102,102,1);
+    line-height:20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.idea dl{
+    width: 345px;
+    height: 105px;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.happy{
+    background: #FDF0F2;
+    border: 3px solid #EB6E7D;
+    margin-top: 10px;
+}
+.litte_Tit{
+    height:22px;
+    font-size:16px;
+    font-family:PingFangSC-Medium,PingFang SC;
+    font-weight:500;
+    line-height:22px;
+    margin-top: 8px;
+}
+.happy .litte_Tit{
+    color:rgba(235,110,125,1);
+}
+.item_ul{
+    width: 198px;
+    height: 58px;
+}
+.item_ul li{
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #666;
+    line-height: 20px;
+}
+.ico_h{
+    width: 75px;
+    height: 75px;
+    display: inline-block;
+    margin: 15px 10px 0 55px;
+}
+.ico_h img{
+    width: 75px;
+    height: 75px;
+}
+.Artificial{
+    margin-top: 10px !important;
+    background:rgba(255,245,227,1);
+    border:3px solid rgba(221,184,118,1);
+}
+.Artificial .ico_h{
+    margin: 15px 10px 0 1px;
+}
+.Artificial .item_ul{
+    width: 245px;
+    margin-left: 8px;
+}
+.Artificial .litte_Tit{
+    text-align: right;
+    color: #DDB876 !important;
+}
+.Free{
+    background:rgba(238,249,255,1);
+    border:3px solid rgba(0,128,203,1);
+    margin-top: 10px !important;
+}
+.Free .ico_h{
+    margin: 16px 10px 0 15px !important;
+}
+.Free .litte_Tit{
+    color: #0080CB !important;
+}
+.Free .item_ul{
+    width: 235px;
+}
+.Learning{
+    margin-top: 10px !important;
+    background: #F0FEFF;
+    border: 3px solid #00A1A7;
+}
+.Learning .ico_h{
+    margin: 15px 65px 0 10px;
+}
+.Learning .litte_Tit{
+    text-align: right;
+    color: #00A1A7 !important;
+}
+.Learning .item_ul{
+    text-align: right;
+}
+/* BROCA英语VS传统英语 */
+.ctyy{
+    width: 100%;
+    height: 388px;
+    background: #FFFAEF;
+    margin-top: 30px !important;
+}
+.ctyy .system_list{
+    margin: 30px auto 17px auto;
+}
+.pic_vs {
+    width: 100%;
+    height: 288px;
+    text-align: center;
+    margin-bottom: 28px;
+}
+.pic_vs img{
+    width: 353px;
+    height: 288px;
+    transform: scale(0.96);
+}
+/*BROCA课程体系*/
+.subject{
+    margin-top: 37px;
+    width: 100%;
+}
+.subject .system_list{
+    margin-bottom: 16px;
+}
+.child {
+    width: 100%;
+    margin: 0 15px;
+    height: 29px;
+    background: #FFAB00;
+    border-radius: 5px;
+    color: #fff;
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    line-height: 29px;
+    float: left;
+    text-align: center;
+    box-sizing: border-box;
+}
+.nect{
+    margin: 10px 15px 0;
+    width: 100%;
+}
+.nect li {
+    width:17%;
+    height: 68px;
+    background: #fff;
+    border-radius:5px;
+    float: left;
+    text-align: center;
+    margin-right: 3px;
+    overflow: hidden;
+    border: 1px solid #FFAB00;
+}
+.nect li h3 {
+    width: 100%;
+    height: 16px;
+    font-size: 12px;
+    font-family: MicrosoftYaHei-Bold,MicrosoftYaHei;
+    font-weight: bold;
+    color: rgba(51,51,51,1);
+    line-height: 16px;
+    display: inline-block;
+    margin-top: 5px;
+    float: left;
+}
+.nect li p {
+    width: 100%;
+    font-size: 7px;
+    font-family: MicrosoftYaHei;
+    color: rgba(51,51,51,1);
+    transform: scale(0.8);
+    float: left;
+    height: 6px;
+    margin: 0;
+    line-height: 15px;
+}
+.three,.one,.oneT {
+    margin: 3px 15px 0;
+    width: 100%;
+}
+.three li {
+    width:17%;
+    height: 78px;
+    background:#E8536C;
+    border-radius: 5px;
+    float: left;
+    text-align: center;
+    margin-right: 3px;
+    overflow: hidden;
+    color: #fff;
+}
+.three li:last-child{
+    width: 40%;
+    height: 78px;
+    border-radius: 5px;
+}
+.three li:last-child span{
+    transform: scale(0.9);
+    font-size: 9px;
+    width: 100%;
+    height: 46px;
+    font-family: MicrosoftYaHei;
+    display: inline-block;
+    color: #fff;
+    text-align: left;
+    line-height: 15px;
+}
+.subject .oneT li{
+    height: 83px !important;
+    line-height: 83px;
+}
+.subject .oneT li:last-child span{
+    padding-top: 7px;
+    box-sizing: border-box;
+}
+.subject .one li{
+    height: 73px !important;
+    line-height: 73px;
+}
+.subject .three li{
+    height: 63px !important;
+    line-height: 63px;
+}
+.subject  .three li:last-child span{
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+.one li {
+    width: 17%;
+    height: 88px;
+    background:#FFAB00;
+    border-radius: 5px;
+    float: left;
+    text-align: center;
+    margin-right: 3px;
+    overflow: hidden;
+}
+.one li:last-child{
+    width:42%;
+    border-radius: 5px;
+}
+.one li:last-child span{
+    transform: scale(0.9);
+    font-size: 9px;
+    width: 100%;
+    height: 50px;
+    font-family: MicrosoftYaHei;
+    display: inline-block;
+    color: #fff;
+    line-height: 15px;
+    text-align: left;
+}
+
+.oneT li{
+    width: 17%;
+    height: 98px;
+    background:#F9CF3F;
+    border-radius: 5px;
+    float: left;
+    text-align: center;
+    margin-right: 3px;
+    overflow: hidden;
+}
+.oneT li:last-child{
+    width: 42%;
+    border-radius: 5px;
+    margin-right: 0 !important;
+}
+.oneT li:last-child span{
+    transform: scale(0.9);
+    font-size: 9px;
+    width: 100%;
+    height:93px;
+    font-family: MicrosoftYaHei;
+    display: inline-block;
+    color: #fff;
+    text-align: left;
+    line-height: 14px;
+}
+.pupil{
+    background: #FEF2D6 !important;
+    margin-top: 20px;
+}
+.pupiles .nect li{
+    border: 1px solid #556EC5 !important;
+}
+.pupiles .three li{
+    height: 78px;
+    background: #7FD650 !important;
+}
+.pupiles .three .k1{
+    line-height: 78px;
+}
+
+.pupiles .one li{
+    height: 88px;
+    background: #589EDE !important;
+}
+.pupiles .oneT li{
+    height: 87px;
+    background: #556EC5 !important;
+    line-height: 87px;
+}
+.pupiles li{
+    overflow: hidden;
+}
+.one .k1{
+    line-height: 88px;
+}
+.oneT .k1{
+    line-height:98px;
+}
+.k1{
+    color: #fff;
+}
+.childes{
+    background: #556EC5 !important;
+}
+.pupiles .oneTT li {
+    height: 98px;
+    background: #7E57AB !important;
+}
+.teaching_r li p.am{
+    transform: scale(0.7);
+    margin-left: 3px;
+    width: 185px;
+}
+/* M.I.C.多维智能教学法与8大特色教学 */
+.six{
+    margin-top: 30px !important;
+    width: 100%;
+    height: 723px;
+    background: #FFFAEF;
+}
+.six .system_list{
+    margin: 31px auto 10px auto;
+}
+.six dl{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 95%;
+}
+.jx{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.sxi_tit{
+    height: 22px;
+    font-size: 16px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    line-height: 22px;
+}
+.six_img{
+    width: 65px;
+    height: 65px;
+    display: inline-block;
+}
+.six_img img{
+    width: 65px;
+    height: 65px;
+}
+.six_con{
+    width: 264px;
+    height: 65px;
+    background: #FFFFFF url(../img/ico_date1@2x.png) no-repeat right 20px top -2px;
+    border-radius: 10px 100px 100px 10px;
+    background-size: 49px 49px;
+}
+.jx .six_con{
+    border: 3px solid #EB6E7D;
+    padding: 11px 0  0 30px!important;
+    box-sizing: border-box;
+}
+.jx .sxi_tit {
+    color: #EB6E7D;
+}
+.six_icon{
+    background: url(../img/ico_checkmark_red@2x.png) no-repeat left top;
+    background-size: 15px 15px;
+    height: 17px;
+    font-size: 12px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #666666;
+    line-height: 17px;
+    text-indent: 20px;
+    margin-top: 2px !important;
+}
+.ztjx .six_con{
+    width: 264px;
+    height: 65px;
+    background: #FFFFFF url(../img/ico_date2@2x.png) no-repeat left 14px top -1px;
+    border-radius: 10px 100px 100px 10px;
+    background-size: 49px 49px;
+    border-radius: 100px 10px 10px 100px;
+    border: 3px solid #00A1A7;
+    padding: 11px 0 0 30px!important;
+    box-sizing: border-box;
+    text-align: right;
+}
+.ztjx .sxi_tit{
+    padding-right: 40px !important;
+    color: #00A1A7;
+}
+.ztjx .six_icon{
+    padding-right: 51px !important;
+    background: url(../img/ico_checkmark_green@2x.png) no-repeat right 105px top;
+    background-size: 15px 15px;
+}
+.jhsjx .six_con{
+    background: url(../img/ico_date3@2x.png) no-repeat right 20px top -2px;
+    border:3px solid #DDB876;
+    background-size: 49px 49px;
+    padding: 7px 0 0 30px!important;
+    box-sizing: border-box;
+}
+.jhsjx .six_icon{
+    background: url(../img/ico_checkmark_yellow@2x.png) no-repeat left top;
+    background-size: 15px 15px;
+}
+.jhsjx .sxi_tit{
+    color: #DDB876;
+}
+.fyjx .six_con{
+    background: url(../img/ico_date4@2x.png) no-repeat left 20px top -2px;
+    border:3px solid #0080CB;
+    background-size: 49px 49px;
+    padding: 7px 0 0 82px!important;
+    box-sizing: border-box;
+    border-radius: 100px 10px 10px 100px;
+}
+.fyjx .six_icon{
+    background: url(../img/ico_checkmark_blue@2x.png) no-repeat left top;
+    background-size: 15px 15px;
+}
+.fyjx .sxi_tit{
+    color: #0080CB;
+}
+.lhsjx .six_con{
+    background: url(../img/ico_date5@2x.png) no-repeat right 20px top -2px;
+    border: 3px solid #EB6E7D;
+    background-size: 49px 49px;
+    padding: 7px 0 0 30px!important;
+    box-sizing: border-box;
+}
+.lhsjx .six_icon{
+    background: url(../img/ico_checkmark_red@2x.png) no-repeat left top;
+    background-size: 15px 15px;
+}
+.lhsjx .sxi_tit {
+    color: #EB6E7D;
+}
+.sdjx .six_con{
+    background: url(../img/ico_date6@2x.png) no-repeat left 20px top -2px;
+    border: 3px solid #00A1A7;
+    background-size: 49px 49px;
+    padding: 7px 0 0 79px!important;
+    box-sizing: border-box;
+    border-radius: 100px 10px 10px 100px;
+}
+.sdjx .six_icon{
+    background: url(../img/ico_checkmark_green@2x.png) no-repeat left top;
+    background-size: 15px 15px;
+}
+.sdjx .sxi_tit{
+    color: #00A1A7;
+}
+.gyjx .six_con{
+    background: url(../img/ico_date7@2x.png) no-repeat right 20px top -2px;
+    border: 3px solid #DDB876;
+    background-size: 49px 49px;
+    padding: 7px 0 0 30px!important;
+    box-sizing: border-box;
+}
+.gyjx .six_icon{
+    background: url(../img/ico_checkmark_yellow@2x.png) no-repeat left top;
+    background-size: 15px 15px;
+}
+.gyjx .sxi_tit{
+    color:#DDB876;
+}
+.pdjx{
+    margin-bottom: 32px !important;
+}
+.pdjx .six_con{
+    background: url(../img/ico_date8@2x.png) no-repeat left 18px top -2px;
+    border: 3px solid #0080CB;
+    background-size: 49px 49px;
+    padding: 7px 30px 0 0!important;
+    box-sizing: border-box;
+    border-radius: 100px 10px 10px 100px;
+    text-align: right;
+}
+.pdjx .six_icon{
+    padding-right: 25px !important;
+    background: url(../img/ico_checkmark_blue@2x.png) no-repeat right 80px top;
+    background-size: 15px 15px;
+}
+.pdjx .sxi_tit{
+    color: #0080CB;
+}
+/* 布罗卡斯学习流程 */
+.xxlc{
+    margin-top: 31px;
+}
+.cpListF{
+    margin-top: 9px !important;
+}
+.cpListF .xxlc_item{
+    margin-top: 9px !important;
+}
+.cpList{
+    width: 87%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.pc_teache{
+    width: 150px;
+    height: 141px;
+    display: inline-block;
+}
+.pc_teache img{
+    width: 150px;
+    height: 141px;
+}
+.xxlc_item{
+    width: 138px;
+    height: 120px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: 3px solid #00A1A7;
+}
+.mid{
+    height: 120px;
+    margin-top: 10px;
+    line-height: 120px;
+    background: url(../img/ico_triangle@2x.png) no-repeat center center;
+    background-size: 22px 22px;
+    display: inline-block;
+    width: 22px;
+    transform:rotate(270deg);
+    -ms-transform:rotate(270deg); 	/* IE 9 */
+    -moz-transform:rotate(270deg); 	/* Firefox */
+    -webkit-transform:rotate(270deg); /* Safari 和 Chrome */
+    -o-transform:rotate(270deg); 	/* Opera */
+}
+.dz{
+    margin-top: 0 !important;
+}
+.dz .mid{
+    transform:rotate(90deg);
+    -ms-transform:rotate(90deg); 	/* IE 9 */
+    -moz-transform:rotate(90deg); 	/* Firefox */
+    -webkit-transform:rotate(90deg); /* Safari 和 Chrome */
+    -o-transform:rotate(90deg); 	/* Opera */
+}
+.xxlc_mid{
+    height: 22px;
+    width: 87%;
+    line-height: 22px;
+    background: url(../img/ico_triangle@2x.png) no-repeat right 60px center;
+    background-size: 22px 22px;
+    display:block;
+    margin: -5px auto 0 auto;
+}
+.xxlc_warp{
+    background: url(../img/bg_red@2x.png) no-repeat left 7px center;
+    background-size: 344px 494px;
+    width: 100%;
+}
+.dzxx{
+    background: url(../img/ico_triangle@2x.png) no-repeat left 60px center;
+    background-size: 22px 22px;
+}
+.xxlc_tit{
+    width: 100%;
+    height: 22px;
+    font-size: 16px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #0080CB;
+    line-height: 22px;
+    text-align: center;
+    display: inline-block;
+    margin: 10px auto 9px auto;
+}
+.xxlc_con {
+    font-size: 12px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #666;
+    line-height: 17px;
+    padding: 0 20px 0 20px !important;
+}
+.cpListLast{
+    justify-content: flex-end;
+}
+/* 学习场景 */
+.cj{
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.cj .system_list{
+    margin-bottom: 10px;
+}
+.cj_img {
+    height: 41px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin:8px auto 10px auto;
+}
+.cj_img img{
+    width: 95px;
+    height: 41px;
+}
+.cj_ul {
+    display: flex;
+    width: 100%;
+    flex-flow: row;
+    justify-content: space-between;
+}
+.cj_ul  li{
+    width: 174px;
+    height: 152px;
+}
+.cj_ul  li img{
+    width: 174px;
+    height: 152px;
+}

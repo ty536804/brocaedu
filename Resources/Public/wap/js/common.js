@@ -16,7 +16,6 @@ $('.home_icon').on('click',function () {
         $(".home_nav").hide();
     }
 })
-
 let _currentUrl = 'http://'+window.location.host
 let currentUrl = window.location.href.substr(_currentUrl.length,window.location.href.length)
 
