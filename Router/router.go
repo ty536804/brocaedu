@@ -37,9 +37,9 @@ func InitRouter() *gin.Engine {
 	r.LoadHTMLGlob("Resources/View/**/*")
 	//首页
 	r.GET("/", frontend.Index)
+	r.GET("/index", frontend.FrontEnd)
 	r.GET("/about", frontend.About)
 	r.GET("/aboutData", frontend.AboutData)
-	r.GET("/index", frontend.FrontEnd)
 	r.GET("/subject", frontend.Subject)
 	r.GET("/research", frontend.Research)
 	r.GET("/learn", frontend.Learn)
@@ -54,11 +54,16 @@ func InitRouter() *gin.Engine {
 	r.GET("/down", frontend.Down)
 	//移动端
 	r.GET("/wap", Wap.Index)
+	r.GET("/wapInfo", Wap.IndexInfo)
 	r.GET("/sub", Wap.Subject)
+	r.GET("/subInfo", Wap.SubjectInfo)
 	r.GET("/le", Wap.Learn)
+	r.GET("/leInfo", Wap.LearnInfo)
 	r.GET("/om", Wap.Omo)
 	r.GET("/authorize", Wap.Authorize)
+	r.GET("/authorizeInfo", Wap.AuthorizeInfo)
 	r.GET("/mAbout", Wap.About)
+	r.GET("/mAboutInfo", Wap.AboutInfo)
 	r.GET("/map", Wap.Map)
 	//Backend
 	apiv1 := r.Group("/api/v1")

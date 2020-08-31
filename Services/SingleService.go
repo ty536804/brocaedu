@@ -23,6 +23,7 @@ func AddSingle(c *gin.Context) (code int, msg string) {
 	content := com.StrTo(c.PostForm("content")).String()
 	thumbImg := com.StrTo(c.PostForm("thumb_img")).String()
 	summary := com.StrTo(c.PostForm("summary")).String()
+	tag := com.StrTo(c.PostForm("tag")).String()
 
 	valid := validation.Validation{}
 	valid.Required(name, "name").Message("标题不能为空")
@@ -35,6 +36,7 @@ func AddSingle(c *gin.Context) (code int, msg string) {
 		data["nav_id"] = navId
 		data["thumb_img"] = thumbImg
 		data["summary"] = summary
+		data["tag"] = tag
 
 		isOk := false
 		if id < 1 {

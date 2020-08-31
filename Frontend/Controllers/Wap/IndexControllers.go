@@ -1,6 +1,8 @@
 package Wap
 
 import (
+	"brocaedu/Models/Banner"
+	"brocaedu/Models/Single"
 	"brocaedu/Pkg/e"
 	"brocaedu/Services"
 	"github.com/gin-gonic/gin"
@@ -15,6 +17,21 @@ func Index(c *gin.Context) {
 	})
 }
 
+// @Summer 首页API接口
+func IndexInfo(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(1, 0) //轮播图
+	data["learn"] = Banner.GetBannerByTag("学习问题")
+	data["ai"] = Banner.GetBannerByTag("解决方案")
+	data["threeBanner"] = Banner.GetBannerByTag("3-6")
+	data["sevenBanner"] = Banner.GetBannerByTag("7-15")
+	data["reasonBanner"] = Banner.GetBannerByTag("理由")
+	data["brandBanner"] = Banner.GetBannerByTag("品牌介绍")
+	data["sys"] = Single.GetConByTag("BROCA智能学练系统")
+	data["small"] = Single.GetConByTag("小程序")
+	e.Success(c, "首页", data)
+}
+
 // @Summer课程体系
 func Subject(c *gin.Context) {
 	ver := time.Now().Unix()
@@ -25,6 +42,15 @@ func Subject(c *gin.Context) {
 	})
 }
 
+// @Summer课程体系 API接口
+func SubjectInfo(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(3, 0) //轮播图
+	data["vsBanner"] = Banner.GetBannerByTag("vs")
+	data["learnBanner"] = Banner.GetBannerByTag("学习场景")
+	e.Success(c, "课程体系", data)
+}
+
 // @Summer AI学练系统
 func Learn(c *gin.Context) {
 	ver := time.Now().Unix()
@@ -33,6 +59,15 @@ func Learn(c *gin.Context) {
 		"title": "AI学联系统",
 		"time":  ver,
 	})
+}
+
+// @Summer AI学练系统
+func LearnInfo(c *gin.Context) {
+	var data = make(map[string]interface{})
+	//data["banner"] = Banner.GetBannerData(1,0)  //轮播图
+	//data["vsBanner"] = Banner.GetBannerByTag("vs")
+	//data["learnBanner"] = Banner.GetBannerByTag("学习场景")
+	e.Success(c, "AI学练系统", data)
 }
 
 // @Summer omo新模式
@@ -55,6 +90,14 @@ func Authorize(c *gin.Context) {
 	})
 }
 
+// @Summer 加盟授权
+func AuthorizeInfo(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(7, 0) //轮播图
+	data["small"] = Single.GetConByTag("品牌起源")
+	e.Success(c, "加盟授权", data)
+}
+
 // @Summer 关于我们
 func About(c *gin.Context) {
 	ver := time.Now().Unix()
@@ -65,12 +108,19 @@ func About(c *gin.Context) {
 	})
 }
 
+// @Summer 关于我们
+func AboutInfo(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(2, 0) //轮播图
+	data["brand"] = Single.GetConByTag("品牌介绍")
+	data["small"] = Single.GetConByTag("品牌起源")
+	data["reasonBanner"] = Banner.GetBannerByTag("品牌荣誉")
+	e.Success(c, "关于我们", data)
+}
+
 // @Summer 地图
 func Map(c *gin.Context) {
-	ver := time.Now().Unix()
-	Services.AddVisit(c)
 	c.HTML(e.SUCCESS, "wap/map.html", gin.H{
 		"title": "地图",
-		"time":  ver,
 	})
 }

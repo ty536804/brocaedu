@@ -28,6 +28,7 @@ func AddSingle(data map[string]interface{}) bool {
 		NavId:    data["nav_id"].(int),
 		ThumbImg: data["thumb_img"].(string),
 		Summary:  data["summary"].(string),
+		Tag:      data["tag"].(string),
 	})
 	if single.Error != nil {
 		fmt.Print("添加文章失败", single)
@@ -83,5 +84,11 @@ func GetTag(id int) (singles []Single) {
 // @Summer 通过tag获取内容
 func GetCon(tit string) (singles []Single) {
 	db.Db.Where("name = ? ", tit).Find(&singles)
+	return
+}
+
+// @Summer 通过tag获取内容
+func GetConByTag(tag string) (singles Single) {
+	db.Db.Where("tag = ? ", tag).Find(&singles)
 	return
 }

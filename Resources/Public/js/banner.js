@@ -11,11 +11,13 @@ function getAjax(page)
             let _html= "";
             if (Number(result.code) == 200) {
                 $.each(result.data.list,function (k,v) {
-                    _html += "<tr><td>"+v.id+"</td><td>"+v.bname+"</td><td>"+v.nav.name+"</td><td>"+v.target_link+"</td><td>"+v.info+"</td>"
+                    _html += "<tr><td>"+v.id+"</td><td>"+v.bname+"</td><td>"+v.nav.name+"</td><td>"+v.target_link+"</td><td>"+v.tag+"</td>"
+                    _html += "<td>"+(Number(v.type) == 1 ? 'PC' : 'WAP')+"</td><td>"+v.info+"</td>"
                     _html += "<td>"+(Number(v.is_show)==1 ? '启用' : '禁用')+"</td><td class='td-manage'>"
                     _html += '<a title="编辑" href="/api/v1/bannerDetail?id='+v.id+'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</a>'
                     _html += '&nbsp;&nbsp;<a title="删除" onclick="delBanner('+v.id+')"><i class="fa fa-times" aria-hidden="true"></i>删除</a>'
                     _html +=  '</td></tr>';
+
                 })
                 pageList(page,result.data.count)
             } else {

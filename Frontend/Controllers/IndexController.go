@@ -20,7 +20,7 @@ func Index(c *gin.Context) {
 func FrontEnd(c *gin.Context) {
 	var data = make(map[string]interface{})
 	list := Article.GetArticles(1, data)
-	banner := Banner.GetBannerData(1)
+	banner := Banner.GetBannerData(1, 1)
 	data["list"] = list[0:4] //新闻列表
 	data["banner"] = banner  //轮播图
 	data["magic"] = Services.GetCon(1)
@@ -40,7 +40,7 @@ func AboutData(c *gin.Context) {
 	if len(list) > 3 {
 		list = list[0:3]
 	}
-	banner := Banner.GetBannerData(2)
+	banner := Banner.GetBannerData(2, 1)
 	data["banner"] = banner
 	data["magic"] = Services.GetCon(2)
 	e.Success(c, "关于我们", data)

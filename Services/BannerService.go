@@ -3,6 +3,7 @@ package Services
 import (
 	"brocaedu/Models/Banner"
 	"brocaedu/Pkg/e"
+	"fmt"
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
@@ -11,7 +12,10 @@ import (
 
 // @Summer 添加/编辑图片
 func AddBanner(c *gin.Context) (code int, err string) {
-	c.Request.Body = e.GetBody(c)
+	if err := c.Bind(&c.Request.Body); err != nil {
+		fmt.Println(err)
+		return e.ERROR, "操作失败"
+	}
 
 	id := com.StrTo(c.PostForm("id")).MustInt()
 	bName := com.StrTo(c.PostForm("bname")).String()
@@ -20,6 +24,9 @@ func AddBanner(c *gin.Context) (code int, err string) {
 	targetLink := com.StrTo(c.PostForm("target_link")).String()
 	isShow := com.StrTo(c.PostForm("is_show")).MustInt()
 	info := com.StrTo(c.PostForm("info")).String()
+	tag := com.StrTo(c.PostForm("tag")).String()
+	clientType := com.StrTo(c.PostForm("type")).MustInt()
+
 	if strings.HasPrefix(imgUrl, "/static/upload/") {
 		imgUrl = strings.Replace(imgUrl, "/static/upload/", "", -1)
 	}
@@ -37,6 +44,8 @@ func AddBanner(c *gin.Context) (code int, err string) {
 		data["bposition"] = bPosition
 		data["imgurl"] = imgUrl
 		data["is_show"] = isShow
+		data["tag"] = tag
+		data["type"] = clientType
 		isOK := false
 		if id < 1 {
 			isOK = Banner.AddBanner(data)

@@ -294,7 +294,7 @@
 }
 .sys_warp .sys_warp_dl dd{
 	height:132px;
-	background:rgba(255,250,239,1) url(../img/ico_touch@2x.png) no-repeat left -30px bottom -10px !important;
+	background:rgba(255,250,239,1) url(../img/ico_touch@2x.png) no-repeat left -30px bottom -10px;
 	background-size: 107px 107px;
 	border-radius:20px;
 	border:3px solid rgba(231,195,121,1);
