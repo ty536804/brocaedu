@@ -13,12 +13,14 @@
     <div class="banner">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="/static/wap/img/banner.png" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="/static/wap/img/banner.png" alt="">
-                </div>
+                {{ range .data.banner}}
+                    <div class="swiper-slide">
+                        <img src="{{.Imgurl}}" alt="">
+                    </div>
+                {{end}}
+{{/*                <div class="swiper-slide">*/}}
+{{/*                    <img src="/static/wap/img/banner.png" alt="">*/}}
+{{/*                </div>*/}}
             </div>
         </div>
     </div>
@@ -45,7 +47,6 @@
             </h3>
         </section>
         <h3 class="smallTit">智能学习，轻松提分</h3>
-        <section class="ai_con_ul"></section>
     </section>
     <!-- AI智能多维情景教学 -->
     <section class="pub more">
@@ -57,7 +58,6 @@
             </h3>
         </section>
         <section class="pic_aizndw">
-            <img src="/static/wap/img/pic_aizndw@2x.png" />
         </section>
     </section>
     <!-- 课程设置 -->
@@ -73,9 +73,11 @@
             <div class="setting_banner">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
+                        {{ range .data.threeBanner}}
                         <div class="swiper-slide">
-                            <img src="/static/wap/img/pic_class_3-6@2x.png" alt="">
+                            <img src="{{.Imgurl}}" alt="">
                         </div>
+                        {{end}}
                     </div>
                 </div>
             </div>
@@ -101,10 +103,11 @@
         <!-- 7-15岁少儿英语 -->
         <section class="setting_con english">
             <div class="setting_banner">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
+                {{ range .data.sevenBanner}}
+                    <div class="swiper-slide">
+                        <img src="{{.Imgurl}}" alt="">
                     </div>
-                </div>
+                {{end}}
             </div>
             <section class="six_aab">
                 <section class="six">
@@ -136,7 +139,7 @@
         </section>
         <section class="sys_warp">
             <dl>
-                <dt><img src="/static/wap/img/pic_app@2x.png"></dt>
+                <dt></dt>
                 <dd>
                     <h3>AI小程序</h3>
                     <ul>
@@ -149,7 +152,7 @@
                 </dd>
             </dl>
             <dl class="sys_warp_dl">
-                <dt><img src="/static/wap/img/pic_ai@2x.png"></dt>
+                <dt></dt>
                 <dd>
                     <h3>BROCA智能学练系统</h3>
                     <ul>

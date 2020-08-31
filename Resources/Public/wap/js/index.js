@@ -1,11 +1,3 @@
-var swiper = new Swiper('.banner .swiper-container', {
-    loop: true,
-    autoplay:true,
-});
-var swiper = new Swiper('.setting_banner .swiper-container', {
-    loop: true,
-    autoplay:true,
-});
 getAjax()
 //请求数据
 function getAjax()
@@ -43,16 +35,28 @@ function getAjax()
                         _dl += '<dd class="small_con"> <h3 class="small_tit">'+v.bname+'</h3>'
                         _dl += '<p class="small_p">'+v.info+'</p></dd></dl>';
                     })
-                    $('.ai_con_ul').empty().append(_dl);
+                    $('.ai .smallTit').after(_dl)
                 }
                 //品牌介绍
                 if (result.data.brandBanner.length > 0) {
                     let _brand = '<dt><img src="'+result.data.brandBanner[0].imgurl+'"></dt><dd>'+result.data.brandBanner[0].info+'</dd>';
-                    $('.brand_con dt img').empty().html(_brand)
+                    $('.brand_con').empty().html(_brand)
                 }
                 //你正在面临的学习问题
                 if (result.data.learn.length > 0) {
                     $('.elearn_img img').attr("src",result.data.learn[0].imgurl)
+                }
+                //AI智能多维情景教学
+                if (result.data.moreBanner.length > 0) {
+                    $('.pic_aizndw').empty().html('<img src="'+result.data.moreBanner[0].imgurl+'">')
+                }
+                //AI
+                if (result.data.small.length > 0) {
+                    $('.sys_warp dt').empty().html('<img src="'+result.data.small[0].imgurl+'">')
+                }
+                //BROCA智能学练系统
+                if (result.data.sys.length > 0) {
+                    $('.sys_warp_dl dt').empty().html('<img src="'+result.data.sys[0].imgurl+'">')
                 }
                 //选择布罗卡斯的理由
                 let _checkDl = "";
@@ -72,23 +76,15 @@ function getAjax()
                     $('.checked_con_first').empty().html(_checkDl);
                     $('.checked_con_s').empty().html(_check);
                 }
-                //7-15岁少儿英语
-                if (result.data.sevenBanner.length > 0) {
-                    let _img = "";
-                    $.each(result.data.sevenBanner, function (k, v) {
-                        _img += '<div class="swiper-slide"><img src="'+v.imgurl+'" alt=""></div>'
-                    })
-                    $('.english .swiper-wrapper').empty().html(_img);
-                }
-                //3-6岁幼儿英语
-                if (result.data.threeBanner.length > 0) {
-                    let _img = "";
-                    $.each(result.data.threeBanner, function (k, v) {
-                        _img += '<div class="swiper-slide"><img src="'+v.imgurl+'" alt=""></div>'
-                    })
-                    $('.setting_setting_con .swiper-wrapper').empty().html(_img);
-                }
             }
         }
     });
 }
+var swiper = new Swiper('.setting_banner .swiper-container', {
+    loop: true,
+    autoplay:true,
+});
+var swiper = new Swiper('.banner .swiper-container', {
+    loop: true,
+    autoplay:true,
+});
