@@ -25,7 +25,7 @@ type Banner struct {
 	EndTime    time.Time `json:"end_time" time_format:"2006-01-02 15:04:05" gorm:"default '';comment:'显示结束时间'"`
 	IsShow     int       `json:"is_show" gorm:"default '1';comment:'状态 1显示 2隐藏'"`
 	ImageSize  string    `json:"image_size" gorm:"type:varchar(190);not null;default '';comment:'图片大小 长*高*宽'"`
-	Info       string    `json:"info" gorm:"type:varchar(190);not null;default '';comment:'备注'"`
+	Info       string    `json:"info" gorm:"type:varchar(255);not null;default '';comment:'备注'"`
 	Tag        string    `json:"tag" gorm:"type:varchar(190);not null;default '';comment:'标签'"`
 	Type       int       `json:"type" gorm:"not null;default '1';comment:'1 PC 2 WAP'"`
 }
