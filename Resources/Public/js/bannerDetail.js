@@ -58,6 +58,8 @@ function getAjax()
                 $("#info").val(result.data.detail.info)
                 $("#base_url").val(result.data.detail.base_url)
                 $("#bname").val(result.data.detail.bname)
+                $("#tag").val(result.data.detail.tag)
+                $("#type").val(result.data.detail.type)
                 if (result.data.detail.imgurl != "") {
                     $("#imgurl").val(result.data.detail.imgurl)
                     $("#demo1").show();
