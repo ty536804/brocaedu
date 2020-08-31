@@ -20,9 +20,10 @@ func Index(c *gin.Context) {
 // @Summer 首页API接口
 func IndexInfo(c *gin.Context) {
 	var data = make(map[string]interface{})
-	data["banner"] = Banner.GetBannerData(1, 0) //轮播图
+	data["banner"] = Banner.GetBannerData(1, 2) //轮播图
 	data["learn"] = Banner.GetBannerByTag("学习问题")
-	data["ai"] = Banner.GetBannerByTag("解决方案")
+	data["moreBanner"] = Banner.GetBannerByTag("多维情景")
+	data["learn"] = Banner.GetBannerByTag("学习问题")
 	data["threeBanner"] = Banner.GetBannerByTag("3-6")
 	data["sevenBanner"] = Banner.GetBannerByTag("7-15")
 	data["reasonBanner"] = Banner.GetBannerByTag("理由")
@@ -45,7 +46,7 @@ func Subject(c *gin.Context) {
 // @Summer课程体系 API接口
 func SubjectInfo(c *gin.Context) {
 	var data = make(map[string]interface{})
-	data["banner"] = Banner.GetBannerData(3, 0) //轮播图
+	data["banner"] = Banner.GetBannerData(3, 2) //轮播图
 	data["vsBanner"] = Banner.GetBannerByTag("vs")
 	data["learnBanner"] = Banner.GetBannerByTag("学习场景")
 	e.Success(c, "课程体系", data)
@@ -93,7 +94,7 @@ func Authorize(c *gin.Context) {
 // @Summer 加盟授权
 func AuthorizeInfo(c *gin.Context) {
 	var data = make(map[string]interface{})
-	data["banner"] = Banner.GetBannerData(7, 0) //轮播图
+	data["banner"] = Banner.GetBannerData(7, 2) //轮播图
 	data["small"] = Single.GetConByTag("品牌起源")
 	e.Success(c, "加盟授权", data)
 }
@@ -111,7 +112,7 @@ func About(c *gin.Context) {
 // @Summer 关于我们
 func AboutInfo(c *gin.Context) {
 	var data = make(map[string]interface{})
-	data["banner"] = Banner.GetBannerData(2, 0) //轮播图
+	data["banner"] = Banner.GetBannerData(2, 2) //轮播图
 	data["brand"] = Single.GetConByTag("品牌介绍")
 	data["small"] = Single.GetConByTag("品牌起源")
 	data["reasonBanner"] = Banner.GetBannerByTag("品牌荣誉")
