@@ -28,8 +28,8 @@ func IndexInfo(c *gin.Context) {
 	data["sevenBanner"] = Banner.GetBannerByTag("7-15")
 	data["reasonBanner"] = Banner.GetBannerByTag("理由")
 	data["brandBanner"] = Banner.GetBannerByTag("品牌介绍")
-	data["sys"] = Single.GetConByTag("BROCA智能学练系统")
-	data["small"] = Single.GetConByTag("小程序")
+	data["sys"] = Banner.GetBannerByTag("BROCA智能学练系统")
+	data["small"] = Banner.GetBannerByTag("小程序")
 	e.Success(c, "首页", data)
 }
 
