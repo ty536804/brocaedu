@@ -9,8 +9,10 @@ import (
 	"github.com/unknwon/com"
 )
 
+var baseUrl = "http://www.brocaedu.com/"
+
 func Index(c *gin.Context) {
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"index")
 	c.HTML(e.SUCCESS, "index/index.html", gin.H{
 		"title": "首页",
 	})
@@ -28,7 +30,7 @@ func FrontEnd(c *gin.Context) {
 }
 
 func About(c *gin.Context) {
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"about")
 	c.HTML(e.SUCCESS, "index/about.html", gin.H{
 		"title": "关于我们",
 	})
@@ -48,7 +50,7 @@ func AboutData(c *gin.Context) {
 
 // @Summer课程体系
 func Subject(c *gin.Context) {
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"subject")
 	c.HTML(e.SUCCESS, "index/subject.html", gin.H{
 		"title": "课程体系",
 	})
@@ -56,7 +58,7 @@ func Subject(c *gin.Context) {
 
 // @Summer教研教学
 func Research(c *gin.Context) {
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"research")
 	c.HTML(e.SUCCESS, "index/research.html", gin.H{
 		"title": "教研教学",
 	})
@@ -64,7 +66,7 @@ func Research(c *gin.Context) {
 
 // @Summer AI学习平台
 func Learn(c *gin.Context) {
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"learn")
 	c.HTML(e.SUCCESS, "index/ai.html", gin.H{
 		"title": "ai学习平台",
 	})
@@ -72,7 +74,7 @@ func Learn(c *gin.Context) {
 
 // @Summer OMO模式
 func Omo(c *gin.Context) {
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"omo")
 	c.HTML(e.SUCCESS, "index/omo.html", gin.H{
 		"title": "OMO模式",
 	})
@@ -80,7 +82,7 @@ func Omo(c *gin.Context) {
 
 // @Summer全国校区
 func Campus(c *gin.Context) {
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"campus")
 	c.HTML(e.SUCCESS, "index/campus.html", gin.H{
 		"title": "全国校区",
 	})
@@ -88,7 +90,7 @@ func Campus(c *gin.Context) {
 
 // @Summer 新闻动态
 func News(c *gin.Context) {
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"news")
 	c.HTML(e.SUCCESS, "index/new.html", gin.H{
 		"title": "新闻动态",
 	})
@@ -107,7 +109,7 @@ func NewList(c *gin.Context) {
 // @Summer 新闻详情
 func NewDetail(c *gin.Context) {
 	id := com.StrTo(c.DefaultQuery("id", "0")).MustInt()
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"detail")
 	c.HTML(e.SUCCESS, "index/detail.html", gin.H{
 		"title":  "新闻详情",
 		"detail": id,
@@ -125,7 +127,7 @@ func NewDetailData(c *gin.Context) {
 
 // @Summer 加盟授权
 func Authorize(c *gin.Context) {
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"join")
 	c.HTML(e.SUCCESS, "index/join.html", gin.H{
 		"title": "加盟授权",
 	})
@@ -144,7 +146,7 @@ func JoinData(c *gin.Context) {
 
 // @Summer 加盟授权
 func Down(c *gin.Context) {
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"down")
 	c.HTML(e.SUCCESS, "index/down.html", gin.H{
 		"title": "APP下载",
 	})

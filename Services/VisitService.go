@@ -38,13 +38,13 @@ func AddElearnVisit(data map[string]interface{}) {
 }
 
 // @Summer 浏览记录
-func AddVisit(c *gin.Context) {
+func AddVisit(c *gin.Context, url string) {
 	reqURI := c.Request.URL.RequestURI()
 	FromUrl := c.Request.Host + reqURI //来源页
 	uid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")[0]
 	FirstUrl := ""
 	if c.Request.Referer() == "" {
-		FirstUrl = ReplaceSiteUrl(c.Request.Host) + reqURI //来源页
+		FirstUrl = ReplaceSiteUrl(c.Request.Host, url, reqURI) //来源页
 	} else {
 		FirstUrl = c.Request.Referer()
 	}
@@ -64,13 +64,13 @@ func AddVisit(c *gin.Context) {
 	}
 }
 
-func ReplaceSiteUrl(url string) string {
-	if !strings.Contains("127.0.0.1", url) {
-		return "http://www.brocaedu.com/"
-	} else if url == "" {
-		return "http://www.brocaedu.com/"
-	} else if url == "/" {
-		return "http://www.brocaedu.com/"
+func ReplaceSiteUrl(url, first, reqURI string) string {
+	if !strings.Contains("127.0.0.1", url) || url == "" || url == "/" {
+		if reqURI == "" {
+			return first
+		} else {
+			return first + reqURI
+		}
 	} else {
 		return url
 	}

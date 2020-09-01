@@ -8,13 +8,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+var baseUrl = "http://www.brocaedu.com/"
+
 // @Summer 首页
 func Index(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["threeBanner"] = Banner.GetBannerByTag("3-6")
 	data["sevenBanner"] = Banner.GetBannerByTag("7-15")
 	data["banner"] = Banner.GetBannerData(1, 2) //轮播图
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"wap")
 	c.HTML(e.SUCCESS, "wap/index.html", gin.H{
 		"title": "首页",
 		"data":  data,
@@ -37,6 +39,7 @@ func IndexInfo(c *gin.Context) {
 
 // @Summer课程体系
 func Subject(c *gin.Context) {
+	Services.AddVisit(c, baseUrl+"sub")
 	var data = make(map[string]interface{})
 	data["banner"] = Banner.GetBannerData(3, 2) //轮播图
 	c.HTML(e.SUCCESS, "wap/subject.html", gin.H{
@@ -59,7 +62,7 @@ func Learn(c *gin.Context) {
 	data["banner"] = Banner.GetBannerData(4, 2) //轮播图
 	data["team"] = Banner.GetBannerByTag("团队")
 	data["lead"] = Banner.GetBannerByTag("lead")
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"le")
 	c.HTML(e.SUCCESS, "wap/learn.html", gin.H{
 		"title": "教学教研",
 		"data":  data,
@@ -70,7 +73,7 @@ func Learn(c *gin.Context) {
 func Authorize(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["banner"] = Banner.GetBannerData(7, 2) //轮播图
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"authorize")
 	c.HTML(e.SUCCESS, "wap/join.html", gin.H{
 		"title": "加盟授权",
 		"data":  data,
@@ -89,7 +92,7 @@ func AuthorizeInfo(c *gin.Context) {
 func About(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["banner"] = Banner.GetBannerData(2, 2) //轮播图
-	Services.AddVisit(c)
+	Services.AddVisit(c, baseUrl+"mAbout")
 	c.HTML(e.SUCCESS, "wap/about.html", gin.H{
 		"title": "关于我们",
 		"data":  data,
