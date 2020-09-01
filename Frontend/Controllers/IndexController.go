@@ -69,6 +69,7 @@ func Research(c *gin.Context) {
 	Services.AddVisit(c, baseUrl+"research")
 	c.HTML(e.SUCCESS, "index/research.html", gin.H{
 		"title": "教研教学",
+		"loop":  Banner.GetBannerByTag(4, 1, "loop"),
 	})
 }
 
@@ -77,7 +78,6 @@ func ResearchData(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["banner"] = Banner.GetBannerData(4, 1)
 	data["reason"] = Banner.GetBannerByTag(4, 1, "leder")
-	data["loop"] = Banner.GetBannerByTag(4, 1, "loop")
 	data["teacher"] = Banner.GetOneBanner(4, 1, "teacher")
 	data["app"] = Banner.GetBannerByTag(4, 1, "辅学APP")
 	e.Success(c, "教研教学", data)

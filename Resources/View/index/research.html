@@ -12,14 +12,7 @@
     </head>
     <body>
     {{template "nav"}}
-    <div id="myCarousel" class="carousel slide banner" data-ride="carousel" data-interval="2000">
-        <!-- 轮播（Carousel）指标 -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="/static/assets/images/banner3.png">
-            </div>
-        </div>
-    </div>
+    {{template "banner"}}
     <!-- 研发团队 -->
     <section class="rd pub">
         <section class="system_list">
@@ -30,12 +23,6 @@
             </h3>
         </section>
         <section class="rd_con">
-            <li>
-                <img src="/static/assets/images/pic_gyf@2x(1).png"/>
-            </li>
-            <li>
-                <img src="/static/assets/images/pic_gyf@2x.png"/>
-            </li>
         </section>
     </section>
     <section class="rd_con_warp pub">
@@ -43,13 +30,9 @@
             <div id="btn-left" class="arrow-btn dasabled"></div>
             <div class="slider">
                 <ul>
-                    <li><img src="/static/assets/images/pic_gyf@2x.png"/></li>
-                    <li><img src="/static/assets/images/pic_gyf@2x.png"/></li>
-                    <li><img src="/static/assets/images/pic_gyf@2x.png"/></li>
-                    <li><img src="/static/assets/images/pic_gyf@2x.png"/></li>
-                    <li><img src="/static/assets/images/pic_gyf@2x.png"/></li>
-                    <li><img src="/static/assets/images/pic_gyf@2x.png"/></li>
-                    <li><img src="/static/assets/images/pic_gyf@2x.png"/></li>
+                    {{ range .loop}}
+                        <li><img src="{{.Imgurl}}" class="lazy"></li>
+                    {{end}}
                 </ul>
             </div>
             <div id="btn-right" class="arrow-btn"></div>
@@ -104,7 +87,6 @@
                 </dl>
             </section>
             <section class="selectR">
-                <img src="/static/assets/images/pic_teacher@2x.png" />
             </section>
         </section>
     </section>
@@ -178,51 +160,7 @@
     </section>
     <!-- 版权 -->
     {{template "footer"}}
-    <script>
-        var $slider = $('.slider ul');
-        var $slider_child_l = $('.slider ul li').length;
-        var $slider_width = $('.slider ul li').width();
-        var speed =4;
-        $slider.width($slider_child_l * $slider_width);
-
-        var slider_count = 0;
-
-        if ($slider_child_l < 4) {
-            $('#btn-right').css({cursor: 'auto'});
-        }
-
-        $('#btn-right').click(function() {
-            if ($slider_child_l < 4 || slider_count >= $slider_child_l - 4) {
-                return false;
-            }
-            console.log(slider_count);
-            slider_count++;
-            $slider.animate({left: '-=' + $slider_width + 'px'}, 'slow');
-            slider_pic();
-        });
-
-        $('#btn-left').click(function() {
-            if (slider_count <= 0) {
-                return false;
-            }
-            slider_count--;
-            $slider.animate({left: '+=' + $slider_width + 'px'}, 'slow');
-            slider_pic();
-        });
-
-        function slider_pic() {
-            if (slider_count >= $slider_child_l - 4) {
-                $('#btn-right').css({cursor: 'auto'});
-            }
-            else if (slider_count > 0 && slider_count <= $slider_child_l - 4) {
-                $('#btn-left').css({cursor: 'pointer'});
-                $('#btn-right').css({cursor: 'pointer'});
-            }
-            else if (slider_count <= 0) {
-                $('#btn-left').css({cursor: 'auto'});
-            }
-        }
-    </script>
+    <script type="text/javascript" src="/static/index/research.js"></script>
     </body>
     </html>
 {{end}}
