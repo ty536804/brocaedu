@@ -37,7 +37,6 @@ $(function () {
                     _seven += '<section class="top_desc"><h3>'+result.data.seven.name+'</h3><h4>'+result.data.seven.summary+'</h4><p></p></section>'
                     _seven += '<section class="bottom_desc">'+result.data.seven.content+'</section>';
                     $('.seven').empty().html(_seven);
-                    console.log(result.data.seven)
                     $('.seven_img').empty().html('<img src="'+result.data.seven.thumb_img+'" class="lazy">')
                     $('.brand_con').empty().html('<dt><img src="'+result.data.brand.thumb_img+'"/></dt><dd>'+result.data.brand.content+'</dd>')
                     let _piclist = ""
