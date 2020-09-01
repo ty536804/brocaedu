@@ -103,11 +103,13 @@
         <!-- 7-15岁少儿英语 -->
         <section class="setting_con english">
             <div class="setting_banner">
-                {{ range .data.sevenBanner}}
-                    <div class="swiper-slide">
-                        <img src="{{.Imgurl}}" alt="">
-                    </div>
-                {{end}}
+                <div class="swiper-wrapper">
+                    {{ range .data.sevenBanner}}
+                        <div class="swiper-slide">
+                            <img src="{{.Imgurl}}" alt="">
+                        </div>
+                    {{end}}
+                </div>
             </div>
             <section class="six_aab">
                 <section class="six">
