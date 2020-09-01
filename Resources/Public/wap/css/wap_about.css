@@ -8,7 +8,7 @@
 	height: 100%;
 }
 .brand{
-	background:#FFFAEF url(../img/bg_Introduction@2x.png) no-repeat bottom 45px center;
+	background:#FFFAEF url(http://img.cdn.brocaedu.com/bg_Introduction%402x.png) no-repeat bottom 45px center;
 	background-size:345px 602px;
 	height: 720px;
 	margin: 0 auto;
@@ -35,7 +35,7 @@
 }
 /* 品牌起源 */
 .brand_com{
-	background:#EEF9FF url(../img/bg_origin@2x.png) no-repeat bottom 50px center;
+	background:#EEF9FF url(http://img.cdn.brocaedu.com/bg_origin%402x.png) no-repeat bottom 50px center;
 	background-size:345px 363px;
 	height: 488px;
 	margin: 0 auto;
@@ -346,7 +346,7 @@
 	background-size: 46px 31px;
 }
 .last_item{
-	background: url(../img/bg_green@2x.png) no-repeat bottom center;
+	background: url(http://img.cdn.brocaedu.com/bg_green%402x.png) no-repeat bottom center;
 	background-size: 375px 278px;
 	height: 289px;
 	width: 100%;
