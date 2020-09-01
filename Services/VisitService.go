@@ -67,6 +67,8 @@ func AddVisit(c *gin.Context) {
 func ReplaceSiteUrl(url string) string {
 	if !strings.Contains("127.0.0.1", url) {
 		return "http://www.brocaedu.com/"
+	} else if url == "" {
+		return "http://www.brocaedu.com/"
 	} else {
 		return url
 	}
