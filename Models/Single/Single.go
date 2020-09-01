@@ -12,25 +12,25 @@ type Single struct {
 
 	Navs Nav.Nav `json:"nav" gorm:"FOREIGNKEY:NavId;ASSOCIATION_FOREIGNKEY:ID"`
 
-	Name     string `json:"name" gorm:"type:varchar(190);not null;default '';comment:'名称'"`
-	Content  string `json:"content" gorm:"type:text;default '';comment:'内容'"`
-	NavId    int    `json:"nav_id" gorm:"default '';comment:'栏目ID'"`
-	ThumbImg string `json:"thumb_img" gorm:"not null;default '';comment:'缩率图'"`
-	Summary  string `json:"summary" gorm:"type:varchar(255);not null;default '';comment:'摘要'"`
-	Tag      string `json:"tag" gorm:"type:varchar(100);not null;default '';comment:'标签'"`
-	Type     int    `json:"type" gorm:"not null;default '1';comment:'1 PC 2 WAP'"`
+	Name       string `json:"name" gorm:"type:varchar(190);not null;default '';comment:'名称'"`
+	Content    string `json:"content" gorm:"type:text;default '';comment:'内容'"`
+	NavId      int    `json:"nav_id" gorm:"default '';comment:'栏目ID'"`
+	ThumbImg   string `json:"thumb_img" gorm:"not null;default '';comment:'缩率图'"`
+	Summary    string `json:"summary" gorm:"type:varchar(255);not null;default '';comment:'摘要'"`
+	Tag        string `json:"tag" gorm:"type:varchar(100);not null;default '';comment:'标签'"`
+	ClientType int    `json:"client_type" gorm:"not null;default '1';comment:'1 PC 2 WAP'"`
 }
 
 // @Summer 新增内容
 func AddSingle(data map[string]interface{}) bool {
 	single := db.Db.Create(&Single{
-		Name:     data["name"].(string),
-		Content:  data["content"].(string),
-		NavId:    data["nav_id"].(int),
-		ThumbImg: data["thumb_img"].(string),
-		Summary:  data["summary"].(string),
-		Tag:      data["tag"].(string),
-		Type:     data["type"].(int),
+		Name:       data["name"].(string),
+		Content:    data["content"].(string),
+		NavId:      data["nav_id"].(int),
+		ThumbImg:   data["thumb_img"].(string),
+		Summary:    data["summary"].(string),
+		Tag:        data["tag"].(string),
+		ClientType: data["client_type"].(int),
 	})
 	if single.Error != nil {
 		fmt.Print("添加文章失败", single)
@@ -91,6 +91,6 @@ func GetCon(tit string) (singles []Single) {
 
 // @Summer 通过tag获取内容
 func GetConByTag(nid, clientType int, tag string) (singles Single) {
-	db.Db.Where("nav_id =? and type ? and tag = ? ", nid, clientType, tag).Find(&singles)
+	db.Db.Where("nav_id =? and type ? and client_type = ? ", nid, clientType, tag).Find(&singles)
 	return
 }

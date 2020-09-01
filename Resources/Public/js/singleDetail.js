@@ -83,7 +83,7 @@ function getAjax()
                 $("#thumb_img").val(result.data.detail.thumb_img)
                 $('#content').val(result.data.detail.content);
                 $('#tag').val(result.data.detail.tag);
-                $('#type').val(result.data.detail.type);
+                $('#client_type').val(result.data.detail.client_type);
                 $(".panel-body").html(result.data.detail.content)
                 if (result.data.detail.thumb_img != "") {
                     let _imgURL = result.data.detail.thumb_img
