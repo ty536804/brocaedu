@@ -139,10 +139,10 @@
 .setting_setting_con{
 	height: 447px;
 }
-.setting_banner{
+.setting_banner,.setting_banner2{
 	height: 207px;
 }
-.setting_banner img{
+.setting_banner img,.setting_banner2 img{
 	height: 207px;
 }
 .six_aab{
