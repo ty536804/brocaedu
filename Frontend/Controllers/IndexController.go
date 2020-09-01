@@ -109,7 +109,8 @@ func NewList(c *gin.Context) {
 // @Summer 新闻详情
 func NewDetail(c *gin.Context) {
 	id := com.StrTo(c.DefaultQuery("id", "0")).MustInt()
-	Services.AddVisit(c, baseUrl+"detail")
+	_url := baseUrl + "detail?id=" + string(id)
+	Services.AddVisit(c, _url)
 	c.HTML(e.SUCCESS, "index/detail.html", gin.H{
 		"title":  "新闻详情",
 		"detail": id,
