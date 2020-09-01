@@ -29,6 +29,9 @@ func FrontEnd(c *gin.Context) {
 	data["ai"] = Banner.GetOneBanner(1, 1, "ai")
 	data["small"] = Single.GetConByTag(1, 1, "3-6")
 	data["seven"] = Single.GetConByTag(1, 1, "7-12")
+	data["brand"] = Single.GetConByTag(1, 1, "品牌介绍")
+	data["reason"] = Banner.GetBannerByTag(1, 1, "理由")
+	data["online"] = Banner.GetBannerByTag(1, 1, "线上系统")
 	e.Success(c, "首页", data)
 }
 

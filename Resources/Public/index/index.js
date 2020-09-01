@@ -9,7 +9,6 @@ $(function () {
             url: "/index",
             success: function (result) {
                 if (Number(result.code) == 200) {
-                    console.log(result.data);
                    let  _div = "";
                    let _li = "";
                    // banner
@@ -19,16 +18,39 @@ $(function () {
                     })
                     $('.carousel-inner').empty().html(_div)
                     $('.carousel-indicators').empty().html(_li)
-                    $('.elearn_img').empty().html('<img src="'+result.data.learn.imgurl+'">');
+                    $('.elearn_img').empty().html('<img src="'+result.data.learn.imgurl+'" class="lazy">');
                     //智能学习，轻松提分
                     let _dl = "";
                     $.each(result.data.plan,function (k,v) {
-                        console.log(result.data.plan)
-                        _dl += '<dl><dt><img src="'+v.imgurl+'"></div></dt><dd><h3>'+v.bname+'</h3>'
+                        _dl += '<dl><dt><img src="'+v.imgurl+'" class="lazy"></div></dt><dd><h3>'+v.bname+'</h3>'
                         _dl += '<p>'+v.info+'</p></dd></dl>';
                     })
                     $('.plan_con').empty().html(_dl)
-                    $('.ai_con').empty().html('<img src="'+result.data.ai.imgurl+'">');
+                    $('.ai_con').empty().html('<img src="'+result.data.ai.imgurl+'" class="lazy">');
+                    let _three = "";
+                    _three += '<section class="top_desc"><h3>'+result.data.small.name+'</h3><h4>'+result.data.small.summary+'</h4><p></p></section>'
+                    _three += '<section class="bottom_desc">'+result.data.small.content+'</section>';
+                    $('.three').empty().html(_three);
+                    $('.six_img').empty().html('<img src="'+result.data.small.thumb_img+'" class="lazy">')
+
+                    let _seven = "";
+                    _seven += '<section class="top_desc"><h3>'+result.data.seven.name+'</h3><h4>'+result.data.seven.summary+'</h4><p></p></section>'
+                    _seven += '<section class="bottom_desc">'+result.data.seven.content+'</section>';
+                    $('.seven').empty().html(_seven);
+                    console.log(result.data.seven)
+                    $('.seven_img').empty().html('<img src="'+result.data.seven.thumb_img+'" class="lazy">')
+                    $('.brand_con').empty().html('<dt><img src="'+result.data.brand.thumb_img+'"/></dt><dd>'+result.data.brand.content+'</dd>')
+                    let _piclist = ""
+                    $.each(result.data.reason,function (k,v) {
+                        _piclist += '<dl><dt><img src="'+v.imgurl+'" class="lazy"></dt><dd><h6>'+v.bname+'</h6><p>'+v.info+'</p></dd></dl>'
+                    })
+                    $('.pic_reason_con_list').empty().html(_piclist)
+
+                    let _onlinelist = ""
+                    $.each(result.data.online,function (k,v) {
+                        _onlinelist += '<dl class="'+(k==1 ? 'mid' : '')+'"><dt style="'+(k==1? 'display:none' : '')+'">'+v.bname+'</dt><dd><img src="'+v.imgurl+'"><p  style="'+(k==1? 'display:none' : '')+'">'+v.info+'</p></dd></dl>'
+                    })
+                    $('.systemList').empty().html(_onlinelist)
                 }
             }
         });

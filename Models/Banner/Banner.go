@@ -77,7 +77,7 @@ func GetBanners(page int) (banner []Banner) {
 	if page >= 1 {
 		offset = (page - 1) * setting.PageSize
 	}
-	db.Db.Preload("Navs").Offset(offset).Limit(setting.PageSize).Find(&banner)
+	db.Db.Preload("Navs").Offset(offset).Limit(setting.PageSize).Order("id desc").Find(&banner)
 	return
 }
 

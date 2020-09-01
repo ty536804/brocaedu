@@ -91,6 +91,12 @@ func GetCon(tit string) (singles []Single) {
 
 // @Summer 通过tag获取内容
 func GetConByTag(nid, clientType int, tag string) (singles Single) {
-	db.Db.Where("nav_id =? and type ? and client_type = ? ", nid, clientType, tag).Find(&singles)
+	db.Db.Where("nav_id = ? and client_type = ? and tag = ? ", nid, clientType, tag).Find(&singles)
+	return
+}
+
+// @Summer 通过tag获取内容
+func GetConByTagAll(nid, clientType int, tag string) (singles []Single) {
+	db.Db.Where("nav_id = ? and client_type = ? and tag = ? ", nid, clientType, tag).Find(&singles)
 	return
 }
