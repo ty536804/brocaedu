@@ -30,7 +30,7 @@ func AddSingle(data map[string]interface{}) bool {
 		ThumbImg: data["thumb_img"].(string),
 		Summary:  data["summary"].(string),
 		Tag:      data["tag"].(string),
-		Type:     data["Type"].(int),
+		Type:     data["type"].(int),
 	})
 	if single.Error != nil {
 		fmt.Print("添加文章失败", single)
