@@ -6,7 +6,6 @@ import (
 	"brocaedu/Pkg/e"
 	"brocaedu/Services"
 	"github.com/gin-gonic/gin"
-	"time"
 )
 
 // @Summer 首页
@@ -54,32 +53,16 @@ func SubjectInfo(c *gin.Context) {
 	e.Success(c, "课程体系", data)
 }
 
-// @Summer AI学练系统
+// @Summer 教学教研
 func Learn(c *gin.Context) {
-	ver := time.Now().Unix()
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(4, 2) //轮播图
+	data["team"] = Banner.GetBannerByTag("团队")
+	data["lead"] = Banner.GetBannerByTag("lead")
 	Services.AddVisit(c)
 	c.HTML(e.SUCCESS, "wap/learn.html", gin.H{
-		"title": "AI学联系统",
-		"time":  ver,
-	})
-}
-
-// @Summer AI学练系统
-func LearnInfo(c *gin.Context) {
-	var data = make(map[string]interface{})
-	//data["banner"] = Banner.GetBannerData(1,0)  //轮播图
-	//data["vsBanner"] = Banner.GetBannerByTag("vs")
-	//data["learnBanner"] = Banner.GetBannerByTag("学习场景")
-	e.Success(c, "AI学练系统", data)
-}
-
-// @Summer omo新模式
-func Omo(c *gin.Context) {
-	ver := time.Now().Unix()
-	Services.AddVisit(c)
-	c.HTML(e.SUCCESS, "wap/omo.html", gin.H{
-		"title": "omo新模式",
-		"time":  ver,
+		"title": "教学教研",
+		"data":  data,
 	})
 }
 

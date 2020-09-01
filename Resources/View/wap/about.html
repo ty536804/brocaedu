@@ -11,7 +11,9 @@
     {{template "wap_nav"}}
     <!-- banner -->
     <section class="banner">
-        <img src="/static/wap/img/banner.png" alt="">
+        {{ range .data.banner}}
+                <img src="{{.Imgurl}}" alt="">
+        {{end}}
     </section>
     <!-- 品牌介绍 -->
     <section class="pub brand">

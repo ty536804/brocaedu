@@ -11,7 +11,9 @@
     {{template "wap_nav"}}
     <!-- banner -->
     <section class="banner pub">
-        <img src="/static/wap/img/banner.png" alt="">
+        {{ range .data.banner}}
+            <img src="{{.Imgurl}}" alt="">
+        {{end}}
     </section>
     <!-- 布罗卡斯课程理念 -->
     <section class="pub idea">

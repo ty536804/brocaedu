@@ -58,8 +58,6 @@ func InitRouter() *gin.Engine {
 	r.GET("/sub", Wap.Subject)
 	r.GET("/subInfo", Wap.SubjectInfo)
 	r.GET("/le", Wap.Learn)
-	r.GET("/leInfo", Wap.LearnInfo)
-	r.GET("/om", Wap.Omo)
 	r.GET("/authorize", Wap.Authorize)
 	r.GET("/authorizeInfo", Wap.AuthorizeInfo)
 	r.GET("/mAbout", Wap.About)
