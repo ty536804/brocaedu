@@ -3,6 +3,7 @@ package Controllers
 import (
 	"brocaedu/Models/Article"
 	"brocaedu/Models/Banner"
+	"brocaedu/Models/Single"
 	"brocaedu/Pkg/e"
 	"brocaedu/Services"
 	"github.com/gin-gonic/gin"
@@ -26,7 +27,8 @@ func FrontEnd(c *gin.Context) {
 	data["learn"] = Banner.GetOneBanner(1, 1, "你正在面临的学习问题")
 	data["plan"] = Banner.GetBannerByTag(1, 1, "解决方案")
 	data["ai"] = Banner.GetOneBanner(1, 1, "ai")
-	data["magic"] = Services.GetCon(1)
+	data["small"] = Single.GetConByTag(1, 1, "3-6")
+	data["seven"] = Single.GetConByTag(1, 1, "7-12")
 	e.Success(c, "首页", data)
 }
 

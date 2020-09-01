@@ -24,7 +24,7 @@ func AddSingle(c *gin.Context) (code int, msg string) {
 	thumbImg := com.StrTo(c.PostForm("thumb_img")).String()
 	summary := com.StrTo(c.PostForm("summary")).String()
 	tag := com.StrTo(c.PostForm("tag")).String()
-	clientType := com.StrTo(c.PostForm("type")).String()
+	clientType := com.StrTo(c.PostForm("type")).MustInt()
 
 	valid := validation.Validation{}
 	valid.Required(name, "name").Message("标题不能为空")
