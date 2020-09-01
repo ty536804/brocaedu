@@ -12,26 +12,7 @@
     </head>
     <body>
     {{template "nav"}}
-    <div id="myCarousel" class="carousel slide banner" data-ride="carousel" data-interval="2000">
-        <!-- 轮播（Carousel）指标 -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        <!-- 轮播（Carousel）项目 -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="/static/assets/images/home_banner1.png">
-            </div>
-            <div class="carousel-item">
-                <img src="/static/assets/images/home_banner2.png">
-            </div>
-            <div class="carousel-item">
-                <img src="/static/assets/images/home_banner3.png">
-            </div>
-        </div>
-    </div>
+    {{template "banner"}}
     <!-- 你正在面临的学习问题 -->
     <section class="pub elearn">
         <section class="system_list">
@@ -42,7 +23,6 @@
             </h3>
         </section>
         <section class="elearn_img">
-            <img src="/static/assets/images/pic_text@2x.png" />
         </section>
     </section>
     <!-- AI智能解决方案 -->
@@ -56,51 +36,7 @@
         </section>
         <section class="plan_slogan">智能学习，轻松提分</section>
         <section class="plan_con">
-            <dl>
-                <dt>
-                    <img src="/static/assets/images/ico_xsxx@2x.png" />
-                </dt>
-                <dd>
-                    <h3>线上线下</h3>
-                    <p>线下老师面授，线上智能学练</p>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    <img src="/static/assets/images/ico_rjhd@2x.png" />
-                </dt>
-                <dd>
-                    <h3>人机互动</h3>
-                    <p>专属电脑老师1v1辅导</p>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    <img src="/static/assets/images/ico_xxbg@2x.png" />
-                </dt>
-                <dd>
-                    <h3>学习报告</h3>
-                    <p>收集学习数据，定期反馈学情</p>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    <img src="/static/assets/images/ico_gxhxx@2x.png" />
-                </dt>
-                <dd>
-                    <h3>个性化学习</h3>
-                    <p>根据掌握程度，针对性推送学习内容</p>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    <img src="/static/assets/images/ico_24h@2x.png" />
-                </dt>
-                <dd>
-                    <h3>24小时待命</h3>
-                    <p>保证学员随时随地灵活使用</p>
-                </dd>
-            </dl>
+
         </section>
     </section>
     <!-- AI智能多维情景教学 -->
@@ -113,7 +49,6 @@
             </h3>
         </section>
         <section class="ai_con">
-            <img src="/static/assets/images/pic_scene@2x.png" />
         </section>
     </section>
     <!-- 课程设置 -->
@@ -282,6 +217,7 @@
 {{/*        </section>*/}}
 {{/*    </section>*/}}
     {{template "footer"}}
+    <script type="text/javascript" src="/static/index/index.js"></script>
     <script>
         var mobileAgent = new Array("iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire");
         var browser = navigator.userAgent.toLowerCase();

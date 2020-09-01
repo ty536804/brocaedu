@@ -66,8 +66,8 @@ func EditBanner(id int, data interface{}) bool {
 	return true
 }
 
-func GetOneBanner(id int) (banner Banner) {
-	db.Db.Where("bposition = ?", id).First(&banner)
+func GetOneBanner(id, clientType int, tag string) (banner Banner) {
+	db.Db.Where("bposition = ? and type = ? and tag =? ", id, clientType, tag).First(&banner)
 	return
 }
 
@@ -106,8 +106,8 @@ func GetData(bposition, posi int) (banner []Banner) {
 }
 
 // @Summer获取所有banner
-func GetBannerByTag(tag string) (banner []Banner) {
-	db.Db.Where("tag = ?", tag).Find(&banner)
+func GetBannerByTag(poi, clientType int, tag string) (banner []Banner) {
+	db.Db.Where("bposition = ? and type = ? and tag = ?", poi, clientType, tag).Find(&banner)
 	return
 }
 

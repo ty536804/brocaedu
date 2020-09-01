@@ -18,6 +18,7 @@ type Single struct {
 	ThumbImg string `json:"thumb_img" gorm:"not null;default '';comment:'缩率图'"`
 	Summary  string `json:"summary" gorm:"type:varchar(255);not null;default '';comment:'摘要'"`
 	Tag      string `json:"tag" gorm:"type:varchar(100);not null;default '';comment:'标签'"`
+	Type     int    `json:"type" gorm:"not null;default '1';comment:'1 PC 2 WAP'"`
 }
 
 // @Summer 新增内容
@@ -29,6 +30,7 @@ func AddSingle(data map[string]interface{}) bool {
 		ThumbImg: data["thumb_img"].(string),
 		Summary:  data["summary"].(string),
 		Tag:      data["tag"].(string),
+		Type:     data["Type"].(int),
 	})
 	if single.Error != nil {
 		fmt.Print("添加文章失败", single)
@@ -88,7 +90,7 @@ func GetCon(tit string) (singles []Single) {
 }
 
 // @Summer 通过tag获取内容
-func GetConByTag(tag string) (singles Single) {
-	db.Db.Where("tag = ? ", tag).Find(&singles)
+func GetConByTag(nid, clientType int, tag string) (singles Single) {
+	db.Db.Where("nav_id =? and type ? and tag = ? ", nid, clientType, tag).Find(&singles)
 	return
 }

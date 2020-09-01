@@ -35,6 +35,8 @@ func AddBanner(c *gin.Context) (code int, err string) {
 	valid.Required(bPosition, "bposition").Message("展示位置必须选择")
 	valid.Required(imgUrl, "imgurl").Message("上传图片")
 	valid.Required(isShow, "is_show").Message("状态必须选择")
+	valid.Required(tag, "tag").Message("标签不能为空")
+	valid.Required(clientType, "type").Message("客户端不能为空")
 
 	var data = make(map[string]interface{})
 	if !valid.HasErrors() {

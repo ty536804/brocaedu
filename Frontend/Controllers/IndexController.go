@@ -21,10 +21,11 @@ func Index(c *gin.Context) {
 // @Summer 首页
 func FrontEnd(c *gin.Context) {
 	var data = make(map[string]interface{})
-	list := Article.GetArticles(1, data)
-	banner := Banner.GetBannerData(1, 1)
-	data["list"] = list[0:4] //新闻列表
-	data["banner"] = banner  //轮播图
+	data["list"] = Article.GetArticles(1, data) //新闻列表
+	data["banner"] = Banner.GetBannerData(1, 1) //轮播图
+	data["learn"] = Banner.GetOneBanner(1, 1, "你正在面临的学习问题")
+	data["plan"] = Banner.GetBannerByTag(1, 1, "解决方案")
+	data["ai"] = Banner.GetOneBanner(1, 1, "ai")
 	data["magic"] = Services.GetCon(1)
 	e.Success(c, "首页", data)
 }

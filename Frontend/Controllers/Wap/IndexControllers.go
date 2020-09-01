@@ -13,8 +13,8 @@ var baseUrl = "http://www.brocaedu.com/"
 // @Summer 首页
 func Index(c *gin.Context) {
 	var data = make(map[string]interface{})
-	data["threeBanner"] = Banner.GetBannerByTag("3-6")
-	data["sevenBanner"] = Banner.GetBannerByTag("7-15")
+	data["threeBanner"] = Banner.GetBannerByTag(1, 2, "3-6")
+	data["sevenBanner"] = Banner.GetBannerByTag(1, 2, "7-15")
 	data["banner"] = Banner.GetBannerData(1, 2) //轮播图
 	Services.AddVisit(c, baseUrl+"wap")
 	c.HTML(e.SUCCESS, "wap/index.html", gin.H{
@@ -26,14 +26,14 @@ func Index(c *gin.Context) {
 // @Summer 首页API接口
 func IndexInfo(c *gin.Context) {
 	var data = make(map[string]interface{})
-	data["ai"] = Banner.GetBannerByTag("解决方案")
-	data["learn"] = Banner.GetBannerByTag("学习问题")
-	data["moreBanner"] = Banner.GetBannerByTag("多维情景")
-	data["learn"] = Banner.GetBannerByTag("学习问题")
-	data["reasonBanner"] = Banner.GetBannerByTag("理由")
-	data["brandBanner"] = Banner.GetBannerByTag("品牌介绍")
-	data["sys"] = Banner.GetBannerByTag("BROCA智能学练系统")
-	data["small"] = Banner.GetBannerByTag("小程序")
+	data["ai"] = Banner.GetBannerByTag(1, 2, "解决方案")
+	data["learn"] = Banner.GetBannerByTag(1, 2, "学习问题")
+	data["moreBanner"] = Banner.GetBannerByTag(1, 2, "多维情景")
+	data["learn"] = Banner.GetBannerByTag(1, 2, "学习问题")
+	data["reasonBanner"] = Banner.GetBannerByTag(1, 2, "理由")
+	data["brandBanner"] = Banner.GetBannerByTag(1, 2, "品牌介绍")
+	data["sys"] = Banner.GetBannerByTag(1, 2, "BROCA智能学练系统")
+	data["small"] = Banner.GetBannerByTag(1, 2, "小程序")
 	e.Success(c, "首页", data)
 }
 
@@ -51,8 +51,8 @@ func Subject(c *gin.Context) {
 // @Summer课程体系 API接口
 func SubjectInfo(c *gin.Context) {
 	var data = make(map[string]interface{})
-	data["vsBanner"] = Banner.GetBannerByTag("vs")
-	data["learnBanner"] = Banner.GetBannerByTag("学习场景")
+	data["vsBanner"] = Banner.GetBannerByTag(3, 2, "vs")
+	data["learnBanner"] = Banner.GetBannerByTag(3, 2, "学习场景")
 	e.Success(c, "课程体系", data)
 }
 
@@ -60,8 +60,8 @@ func SubjectInfo(c *gin.Context) {
 func Learn(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["banner"] = Banner.GetBannerData(4, 2) //轮播图
-	data["team"] = Banner.GetBannerByTag("团队")
-	data["lead"] = Banner.GetBannerByTag("lead")
+	data["team"] = Banner.GetBannerByTag(4, 2, "团队")
+	data["lead"] = Banner.GetBannerByTag(4, 2, "lead")
 	Services.AddVisit(c, baseUrl+"le")
 	c.HTML(e.SUCCESS, "wap/learn.html", gin.H{
 		"title": "教学教研",
@@ -84,7 +84,7 @@ func Authorize(c *gin.Context) {
 func AuthorizeInfo(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["banner"] = Banner.GetBannerData(7, 2) //轮播图
-	data["small"] = Single.GetConByTag("品牌起源")
+	data["small"] = Single.GetConByTag(7, 2, "品牌起源")
 	e.Success(c, "加盟授权", data)
 }
 
@@ -103,9 +103,9 @@ func About(c *gin.Context) {
 func AboutInfo(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["banner"] = Banner.GetBannerData(2, 2) //轮播图
-	data["brand"] = Single.GetConByTag("品牌介绍")
-	data["small"] = Single.GetConByTag("品牌起源")
-	data["reasonBanner"] = Banner.GetBannerByTag("品牌荣誉")
+	data["brand"] = Single.GetConByTag(2, 2, "品牌介绍")
+	data["small"] = Single.GetConByTag(2, 2, "品牌起源")
+	data["reasonBanner"] = Banner.GetBannerByTag(2, 2, "品牌荣誉")
 	e.Success(c, "关于我们", data)
 }
 

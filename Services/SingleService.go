@@ -24,11 +24,14 @@ func AddSingle(c *gin.Context) (code int, msg string) {
 	thumbImg := com.StrTo(c.PostForm("thumb_img")).String()
 	summary := com.StrTo(c.PostForm("summary")).String()
 	tag := com.StrTo(c.PostForm("tag")).String()
+	clientType := com.StrTo(c.PostForm("type")).String()
 
 	valid := validation.Validation{}
 	valid.Required(name, "name").Message("标题不能为空")
 	valid.Required(content, "content").Message("内容不能为空")
 	valid.Required(navId, "nav_id").Message("栏目不能为空")
+	valid.Required(tag, "tag").Message("标签不能为空")
+	valid.Required(clientType, "type").Message("客户端不能为空")
 
 	if !valid.HasErrors() {
 		data["name"] = name
@@ -37,6 +40,7 @@ func AddSingle(c *gin.Context) (code int, msg string) {
 		data["thumb_img"] = thumbImg
 		data["summary"] = summary
 		data["tag"] = tag
+		data["type"] = clientType
 
 		isOk := false
 		if id < 1 {
