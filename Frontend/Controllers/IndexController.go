@@ -44,13 +44,8 @@ func About(c *gin.Context) {
 
 func AboutData(c *gin.Context) {
 	var data = make(map[string]interface{})
-	list := Article.GetArticles(1, data)
-	if len(list) > 3 {
-		list = list[0:3]
-	}
-	banner := Banner.GetBannerData(2, 1)
-	data["banner"] = banner
-	data["magic"] = Services.GetCon(2)
+	data["banner"] = Banner.GetBannerData(2, 1)
+	data["brand"] = Single.GetConByTag(2, 1, "19世纪")
 	e.Success(c, "关于我们", data)
 }
 
@@ -62,6 +57,13 @@ func Subject(c *gin.Context) {
 	})
 }
 
+// @Summer课程体系
+func SubjectData(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(3, 1)
+	e.Success(c, "课程体系", data)
+}
+
 // @Summer教研教学
 func Research(c *gin.Context) {
 	Services.AddVisit(c, baseUrl+"research")
@@ -70,12 +72,30 @@ func Research(c *gin.Context) {
 	})
 }
 
+// @Summer教研教学
+func ResearchData(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(4, 1)
+	data["reason"] = Banner.GetBannerByTag(4, 1, "leder")
+	data["loop"] = Banner.GetBannerByTag(4, 1, "loop")
+	data["teacher"] = Banner.GetOneBanner(4, 1, "teacher")
+	data["app"] = Banner.GetBannerByTag(4, 1, "辅学APP")
+	e.Success(c, "教研教学", data)
+}
+
 // @Summer AI学习平台
 func Learn(c *gin.Context) {
 	Services.AddVisit(c, baseUrl+"learn")
 	c.HTML(e.SUCCESS, "index/ai.html", gin.H{
 		"title": "ai学习平台",
 	})
+}
+
+// @Summer AI学习平台
+func LearnData(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(5, 1)
+	e.Success(c, "教研教学", data)
 }
 
 // @Summer OMO模式
