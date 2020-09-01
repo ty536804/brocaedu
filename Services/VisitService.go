@@ -69,6 +69,8 @@ func ReplaceSiteUrl(url string) string {
 		return "http://www.brocaedu.com/"
 	} else if url == "" {
 		return "http://www.brocaedu.com/"
+	} else if url == "/" {
+		return "http://www.brocaedu.com/"
 	} else {
 		return url
 	}
