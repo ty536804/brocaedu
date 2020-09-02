@@ -5,7 +5,7 @@
 }
 #banner_form {
     position: relative;
-    top: -31px;
+    margin-top: -31px;
     z-index: 1;
 }
 .brand dl{
