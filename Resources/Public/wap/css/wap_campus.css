@@ -1,0 +1,52 @@
+.banner{
+    height: 200px;
+    width: 100%;
+    justify-content: center;
+    overflow: hidden;
+}
+.banner img {
+    height: 200px;
+}
+.campus{
+    width: 100%;
+    height: 161px;
+    background: #EEF9FF;
+    justify-content: center;
+}
+.campus img{
+    margin-top: 30px;
+    height: 100px;
+}
+.map{
+    width: 100%;
+    height: 398px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    margin-top: -45px;
+}
+.map img{
+    height: 398px;
+    transform: scale(0.95);
+}
+.all{
+    width: 100%;
+    height: 421px;
+    background: #FFFAEF;
+    justify-content: flex-end;
+}
+.all img{
+    height: 125px;
+    display: inline-block;
+    margin: 0 auto;
+}
+.all img:first-child{
+   margin-top: 20px;
+    margin-bottom: 20px;
+}
+.all img:last-child{
+    margin-bottom: 130px;
+}
+footer{
+    margin-top: -100px;
+}

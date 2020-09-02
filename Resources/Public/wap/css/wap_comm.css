@@ -90,6 +90,12 @@ nav{
 .home_nav a:last-child{
 	border-left: 5px solid #7D4698;
 }
+.le {
+	border-left: 5px solid #4FB459;
+}
+.om {
+	border-left: 5px solid #00A0E9;
+}
 body {
 	background:#fff ;
 }

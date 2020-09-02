@@ -115,3 +115,17 @@ func Map(c *gin.Context) {
 		"title": "地图",
 	})
 }
+
+// 全国中心
+func Campus(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(6, 2)            //轮播图
+	data["map"] = Banner.GetOneBanner(6, 2, "地图")          //
+	data["hundred"] = Banner.GetOneBanner(6, 2, "200")     //
+	data["thousand"] = Banner.GetOneBanner(6, 2, "100000") //
+	data["offline"] = Banner.GetOneBanner(6, 2, "线下")      //
+	c.HTML(e.SUCCESS, "wap/campus.html", gin.H{
+		"title": "全国中心",
+		"data":  data,
+	})
+}
