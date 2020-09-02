@@ -314,8 +314,8 @@
 }
 
 .last dl:last-child dt.six_ul_tit{
-	background:#E7C379 url(../img/ico_authority_red@2x.png) no-repeat right -20px center;
-	background-size: 64px 64px;
+	background:#E7C379 url(../img/ico_authority_red@2x.png) no-repeat right -20px center !important;
+	background-size: 64px 64px !important;
 }
 
 .last dl:first-child .smallIcon{
@@ -323,9 +323,9 @@
 	background-size: 46px 31px;
 }
 
-.six_ul dl:last-child .smallIcon{
-	background: url(../img/ico_5@2x.png) no-repeat left top;
-	background-size: 46px 31px;
+.last dl:last-child .smallIcon{
+	background: url(../img/ico_5@2x.png) no-repeat left top !important;
+	background-size: 46px 31px !important;
 }
 .mid{
 	width: 345px;
@@ -355,13 +355,15 @@
 .last_item dl{
 	margin: 15px 0 0 11px;
 }
-.last_item .six_ul_tit .smallIcon{
+.last_item dl:first-child .smallIcon{
 	background: url(../img/ico_6@2x.png) no-repeat left top !important;
+	background-size: 46px 31px !important;
 }
-.last_item .six_ul_tit{
-	background:#0080CB url(../img/ico_resources_red@2x.png) no-repeat right -35px center !important;
+.last_item dl:first-child dt.six_ul_tit{
+	background:#0080CB url(../img/ico_resources_red@2x.png) no-repeat right -20px center !important;
+	background-size: 64px 64px !important;
 }
-.last_item .six_ul_con{
+.last_item dl:first-child .six_ul_con{
 	padding-top: 1px !important;
 }
 footer{

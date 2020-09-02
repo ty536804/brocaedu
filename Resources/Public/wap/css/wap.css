@@ -12,7 +12,6 @@
 }
 .elearn_img img{
 	width: 375px;
-	height: 175px;
 	display: inline-block;
 }
 /* AI智能解决方案 */
@@ -194,7 +193,6 @@
 }
 .six_con_tit{
 	width:100%;
-	height:22px;
 	font-size:16px;
 	font-family:PingFangSC-Medium,PingFang SC;
 	font-weight:500;
@@ -202,7 +200,8 @@
 	line-height:22px;
 	display: inline-block;
 	margin: 0 auto 8px;
-	text-align: center;
+	text-align: left;
+	padding: 0 20px !important;
 }
 .six_con{
 	margin-top: 17px;

@@ -112,9 +112,9 @@ ul li, li {
     background: #000;
 }
 .map{
-    background: url(../images/pic_map@2x.png) no-repeat top center;
-    width: 299px;
-    height: 238px;
-    background-size: 299px 238px;
+    background: url(http://img.cdn.brocaedu.com/pic_map.png) no-repeat top center;
+    width: 1206px;
+    height: 1281px;
+    background-size: 1206px 1281px;
     margin: 0 auto;
 }
