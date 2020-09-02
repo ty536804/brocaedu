@@ -3,6 +3,11 @@
 .brand .system_list{
     margin-top: 29px;
 }
+#banner_form {
+    position: relative;
+    top: -31px;
+    z-index: 1;
+}
 .brand dl{
     width:345px;
     margin: 16px auto 0;
