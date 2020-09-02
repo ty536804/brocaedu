@@ -101,6 +101,52 @@ ul li, li {
     height:286px;
     background: #000;
 }
+.near{
+    width: 100%;
+    text-align: center;
+    height: 78px;
+    font-size: 30px;
+    font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
+    font-weight: bold;
+    color: #333333;
+    line-height: 40px;
+}
+.near strong{
+    height: 78px;
+    font-size: 65px;
+    font-family: Helvetica-Bold, Helvetica;
+    font-weight: bold;
+    color: #333333;
+    line-height: 78px;
+}
+.num{
+    width: 100%;
+    text-align: center;
+    height: 31px;
+    font-size: 24px;
+    font-family: MicrosoftYaHei;
+    color: #333333;
+    line-height: 31px;
+}
+.near_people{
+    width: 100%;
+    height: 78px;
+    font-size: 30px;
+    font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
+    font-weight: bold;
+    color: #333333;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 50px;
+}
+.near_people strong{
+    height: 78px;
+    font-size: 65px;
+    font-family: Helvetica-Bold, Helvetica;
+    font-weight: bold;
+    color: #333333;
+    line-height: 78px;
+}
 .map{
     background: url(http://img.cdn.brocaedu.com/pic_map.png) no-repeat top center;
     width: 1206px;
