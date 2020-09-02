@@ -55,6 +55,29 @@
     <script type="text/javascript" src="/static/assets/js/jquery.lazyload.js"></script>
     <script type="text/javascript" src="/static/wap/js/swiper.min.js"></script>
     <script type="text/javascript" src="/static/wap/js/jquery.hiSlider.js"></script>
-    <script type="text/javascript" src="/static/assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/static/wap/js/common.js"></script>
+    <script type="application/javascript">
+        var swiper = new Swiper('.brand_ul .swiper-container', {
+            autoplay:3000,
+            speed:1000,
+            autoplayDisableOnInteraction : false,
+            loop:true,
+            centeredSlides : true,
+            autoplay:true,
+            slidesPerView:2,
+        });
+
+            isAndroid();
+
+            function isAndroid() {
+
+                var u = navigator.userAgent;
+
+                if (u.indexOf("Android") > -1 || u.indexOf("Linux") > -1) {
+
+                    $('.swiper-slide').css({"transform":"scale(0.9)"})
+                }
+            }
+
+    </script>
 {{end}}

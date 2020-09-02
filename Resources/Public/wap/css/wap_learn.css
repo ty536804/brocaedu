@@ -1,0 +1,40 @@
+.banner{
+    width: 100%;
+    height: 200px;
+    justify-content: center;
+    overflow: hidden;
+}
+.banner img {
+    height: 100%;
+}
+.brand_ul {
+    width: 100%;
+    margin: 0 auto;
+    height:167px;
+    overflow: hidden;
+    background: #F9FAFC;
+}
+.pc-banner {
+    width: 100%;
+    float: left;
+}
+.elearn{
+    background: url(http://img.cdn.brocaedu.com/bg_red111.png) no-repeat bottom center;
+    background-size: 100% 337px;
+    height: 419px;
+}
+.elearn .system_list{
+    margin-top: 33px;
+    margin-bottom: 18px;
+}
+.leader {
+    height: 167px;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    margin-bottom: 9px;
+}
+.leader img{
+    height: 167px;
+}

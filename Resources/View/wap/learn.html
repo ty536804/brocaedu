@@ -1,0 +1,45 @@
+{{define "wap/learn.html"}}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>教研教学</title>
+        {{template "wap_header"}}
+        <link rel="stylesheet" href="/static/wap/css/wap_learn.css">
+    </head>
+    <body>
+    {{template "wap_nav"}}
+    <!-- banner -->
+    <section class="banner pub">
+        {{ range .data.banner}}
+            <img src="{{.Imgurl}}" alt="">
+        {{end}}
+    </section>
+    <!-- 你正在面临的学习问题 -->
+    <section class="pub elearn">
+        <section class="system_list">
+            <h3 class="tit">
+                <span class="tit_icon"></span>
+                教研团队
+                <span class="tit_icon"></span>
+            </h3>
+        </section>
+        <section class="leader">
+            {{ range .data.leader}}
+               <img  src="{{.Imgurl}}" />
+            {{end}}
+        </section>
+        <section class="brand_ul">
+            <section class="pc-banner">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {{ range .data.loop}}
+                            <div class="swiper-slide"><img  src="{{.Imgurl}}" /></div>
+                        {{end}}
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+    {{template "wap_footer"}}
+{{end}}

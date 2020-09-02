@@ -60,8 +60,8 @@ func SubjectInfo(c *gin.Context) {
 func Learn(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["banner"] = Banner.GetBannerData(4, 2) //轮播图
-	data["team"] = Banner.GetBannerByTag(4, 2, "团队")
-	data["lead"] = Banner.GetBannerByTag(4, 2, "lead")
+	data["loop"] = Banner.GetBannerByTag(4, 1, "loop")
+	data["leader"] = Banner.GetBannerByTag(4, 1, "leder")
 	Services.AddVisit(c, baseUrl+"le")
 	c.HTML(e.SUCCESS, "wap/learn.html", gin.H{
 		"title": "教学教研",
