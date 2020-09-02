@@ -3,6 +3,7 @@ package Elearn
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"strings"
 	"time"
 )
 
@@ -20,12 +21,12 @@ type JfsdMessage struct {
 
 // @Summer elearn100 添加留言
 func AddMessage(c *gin.Context, mname, area, tel string) {
-	uid, _ := c.Cookie("53gid2")
+	uid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")[0]
 	result := elearnDb.Create(&JfsdMessage{
 		Name:       mname,
 		Tel:        tel,
 		Content:    area,
-		Ip:         c.Request.RemoteAddr,
+		Ip:         strings.Split(c.Request.RemoteAddr, ":")[0],
 		CreateTime: time.Now().Unix(),
 		VisitUuid:  uid,
 	})
