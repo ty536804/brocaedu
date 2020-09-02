@@ -26,17 +26,7 @@ ul li, li {
     width: 100%;
     margin: 0 auto 57px auto;
 }
-.all h3{
-    text-align: center;
-    width: 460px;
-    height: 65px;
-    font-size:24px;
-    font-family:MicrosoftYaHei;
-    color:rgba(51,51,51,1);
-    line-height:31px;
-    background: url(../images/ico_line@2x.png) no-repeat bottom center;
-    display: inline-block;
-}
+
 .all .all_tit{
     text-align: center;
     width: 100%;
@@ -117,4 +107,57 @@ ul li, li {
     height: 1281px;
     background-size: 1206px 1281px;
     margin: 0 auto;
+}
+.map_icon {
+    position: relative;
+}
+.map_icon li{
+    width: 45px !important;
+    height: 45px;
+    display: inline-block;
+    position: absolute;
+}
+.map_icon li img{
+    width: 45px;
+    height: 45px;
+}
+.qh{
+    margin-top: 480px;
+    margin-left: 359px;
+}
+.gs{
+    margin-top: 438px;
+    margin-left: 512px;
+}
+.xz{
+    margin-top: 587px;
+    margin-left: 444px;
+}
+.yn{
+    margin-top: 729px;
+    margin-left: 517px;
+}
+.sc{
+    margin-top: 631px;
+    margin-left: 534px;
+}
+.gz{
+    margin-top: 663px;
+    margin-left: 641px;
+}
+.cq{
+    margin-top: 577px;
+    margin-left: 647px;
+}
+.am{
+    margin-top: 757px;
+    margin-left:739px;
+}
+.amr{
+    margin-top: 738px;
+    margin-left:773px;
+}
+.amt{
+    margin-top: 692px;
+    margin-left: 738px;
 }
