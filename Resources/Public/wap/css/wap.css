@@ -246,7 +246,7 @@
 	justify-content: center;
 }
 .sys_warp dl dt img{
-	height: 225px;
+	width: 100%;
 }
 .sys_warp dl dd{
 	width:345px;
