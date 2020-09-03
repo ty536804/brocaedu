@@ -14,13 +14,6 @@ $('.lj_btn').on('click',function () {
         });
         return false;
     }
-    if ($('.banner_form .c-tel').val().length < 11) {
-        layer.tips('手机号码格式不正确', '.banner_form .c-tel', {
-            tips: [1, '#3595CC'],
-            time: 4000
-        });
-        return false;
-    }
 
     if ($('.banner_form .c-city').val()=="") {
         layer.tips('地区不能为空┖', '.banner_form .c-city', {

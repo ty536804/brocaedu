@@ -40,13 +40,6 @@ $('.bottom_submit').on('click',function () {
         });
         return false;
     }
-    if ($('.footer_con_right .c-tel').val().length < 11) {
-        layer.tips('手机号码格式不正确', '.footer_con_right .c-tel', {
-            tips: [1, '#3595CC'],
-            time: 4000
-        });
-        return false;
-    }
     if ($('.footer_con_right .c-tel').val()=="") {
         layer.tips('电话不能为空', '.footer_con_right .c-tel', {
             tips: [1, '#3595CC'],
