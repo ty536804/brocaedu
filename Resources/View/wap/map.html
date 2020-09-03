@@ -97,6 +97,7 @@
             5、给具体的点位添加信息窗体事件。
         */
         // 获取当前城市各个区域的基础数据
+        getRes();
         function getRes(){
             $.ajax({
                 type:"GET",
@@ -144,7 +145,7 @@
                 var tpl = '<div class="bubble bubble-1" data-lng="' + data.lng + '"' +
                     ' data-latitude="' + data.lat + '" data-id="' + data.id + '">' +
                     '<p class="name" title="' + data.name + '">' + data.name + '</p>' +
-                    '<p><span class="count">' + data.count + '</span>个楼盘</p>' +
+                    '<p><span class="count">' + data.num + '</span>个楼盘</p>' +
                     '</div>';
                 var myLabel = new BMap.Label(tpl,
                     {
