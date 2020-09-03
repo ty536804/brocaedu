@@ -69,6 +69,14 @@ func Learn(c *gin.Context) {
 	})
 }
 
+// @Summer 教学教研
+func LearnInfo(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["selected"] = Banner.GetBannerByTag(4, 2, "选拔")
+	data["checkAll"] = Single.GetConByTagAll(4, 2, "培训")
+	e.Success(c, "首页", data)
+}
+
 // @Summer 加盟授权
 func Authorize(c *gin.Context) {
 	var data = make(map[string]interface{})
