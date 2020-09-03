@@ -80,6 +80,10 @@ function getAjax()
         }
     });
 }
+new Swiper('.banner .swiper-container', {
+    loop: true,
+    autoplay:true,
+});
 new Swiper('.setting_banner .swiper-container', {
     loop: true,
     autoplay:true,

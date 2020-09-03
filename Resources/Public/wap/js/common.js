@@ -61,7 +61,8 @@ $('.bottom_btn').on('click',function () {
     return false;
 })
 new Swiper('.banner .swiper-container', {
-    loop: true,
-    autoplay:true,
+    speed:1000,
+    autoplayDisableOnInteraction : false,
+    centeredSlides : true,
 });
 $('.banner .swiper-slide').css({"transform":"scale(1)"})
