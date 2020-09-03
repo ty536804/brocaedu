@@ -113,11 +113,11 @@
 .pic_aizndw{
 	width: 100%;
 	margin: 15px auto 0 auto;
+	justify-content: flex-end;
 	height: 364px;
-	justify-content: center;
+	text-align: center;
 }
 .pic_aizndw img{
-	display: inline-block;
 	height: 364px;
 	transform: scale(0.96);
 }
@@ -323,8 +323,7 @@
 	text-align: center;
 }
 .checked_con dl dt img{
-	width: 161px;
-	height: 97px;
+	width: 100%;
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
 }
