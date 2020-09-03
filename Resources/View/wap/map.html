@@ -253,27 +253,36 @@
         var polygonAfterDraw = null;
         var drawBtn = document.getElementById("draw");
         var exitBtn = document.getElementById("exit");
+        initMap()
+        // 初始化一级数据
+        addMarker(area, true)
+        // 搜索二级数据坐标  --此处搜索只是为了方便，如果项目实际用那就提前将坐标爬取下来
+        searchCoord(secondData)
+        // 搜索三级数据坐标
+        searchCoord(thirdlyData)
 
-        getRes();
-        function getRes(){
-            $.ajax({
-                type:"GET",
-                url:"https://www.fangpaiwang.com/api/second/areaHouse",
-                success:function (res) {
-                    // 初始化地图
-                    initMap()
-                    // 初始化一级数据
-                    addMarker(res.data, true)
-                    // 搜索二级数据坐标  --此处搜索只是为了方便，如果项目实际用那就提前将坐标爬取下来
-                    searchCoord(secondData)
-                    // 搜索三级数据坐标
-                    searchCoord(thirdlyData)
-
-                    // 初始化画圈找房
-                    drawing();
-                }
-            })
-        }
+        // 初始化画圈找房
+        drawing();
+        // getRes();
+        // function getRes(){
+        //     $.ajax({
+        //         type:"GET",
+        //         url:"https://www.fangpaiwang.com/api/second/areaHouse",
+        //         success:function (res) {
+        //             // 初始化地图
+        //             initMap()
+        //             // 初始化一级数据
+        //             addMarker(res.data, true)
+        //             // 搜索二级数据坐标  --此处搜索只是为了方便，如果项目实际用那就提前将坐标爬取下来
+        //             searchCoord(secondData)
+        //             // 搜索三级数据坐标
+        //             searchCoord(thirdlyData)
+        //
+        //             // 初始化画圈找房
+        //             drawing();
+        //         }
+        //     })
+        // }
 
 
 
@@ -453,12 +462,12 @@
                     // 绘画行政边界
                     getBoundary(data.name)
                 }
-                var point = new BMap.Point(data.lng, data.lat);
+                var point = new BMap.Point(data.longitude, data.latitude);
                 // 自定义label样式
-                var tpl = '<div class="bubble bubble-1" data-longitude="' + data.lng + '"' +
-                    ' data-latitude="' + data.lat + '">' +
+                var tpl = '<div class="bubble bubble-1" data-longitude="' + data.longitude + '"' +
+                    ' data-latitude="' + data.latitude + '">' +
                     '<p class="name" title="' + data.name + '">' + data.name + '</p>' +
-                    '<p class="count"><span>' + data.num + '</span>套</p>' +
+                    '<p class="count"><span>' + data.count + '</span>套</p>' +
                     '</div>';
                 var myLabel = new BMap.Label(tpl, {
                     position: point, // label 在此处添加点位位置信息
