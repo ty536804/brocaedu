@@ -4,162 +4,146 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <script type="text/javascript" src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=ETLXgCxIoVixggHcAk6mKpMd"></script>
+        <link href="//mapopen.cdn.bcebos.com/github/BMapGLLib/DrawingManager/src/DrawingManager.min.css" rel="stylesheet">
+        <script type="text/javascript" src="//mapopen.cdn.bcebos.com/github/BMapGLLib/DrawingManager/src/DrawingManager.min.js"></script>
+        <title>鼠标绘制工具(GL)</title>
         <style type="text/css">
-            body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
-            #allmap {width: 100%; height:500px; overflow: hidden;}
-            #result {width:100%;font-size:12px;}
-            dl,dt,dd,ul,li{
-                margin:0;
-                padding:0;
-                list-style:none;
+            body, html, #container {width: 100%; height: 100%; overflow: hidden; margin: 0; font-family: "微软雅黑";}
+            ul li {list-style: none;}
+            .info {
+                z-index: 999;
+                width: auto;
+                min-width: 22rem;
+                padding: .75rem 1.25rem;
+                margin-left: 1.25rem;
+                position: fixed;
+                top: 1rem;
+                background-color: #fff;
+                border-radius: .25rem;
+                font-size: 14px;
+                color: #666;
+                box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5);
             }
-            p{font-size:12px;}
-            dt{
-                font-size:14px;
-                font-family:"微软雅黑";
-                font-weight:bold;
-                border-bottom:1px dotted #000;
-                padding:5px 0 5px 5px;
-                margin:5px 0;
+            .drawing-panel {
+                z-index: 999;
+                position: fixed;
+                bottom: 3.5rem;
+                margin-left: 2.5rem;
+                padding-left: 0;
+                border-radius: .25rem;
+                height: 47px;
+                box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5);
             }
-            dd{
-                padding:5px 0 0 5px;
+            .bmap-btn {
+                border-right: 1px solid #d2d2d2;
+                float: left;
+                width: 64px;
+                height: 100%;
+                background-image: url(//api.map.baidu.com/library/DrawingManager/1.4/src/bg_drawing_tool.png);
+                cursor: pointer;
             }
-            li{
-                line-height:28px;
+            .drawing-panel .bmap-marker {
+                background-position: -65px 0;
+            }
+            .drawing-panel .bmap-polyline {
+                background-position: -195px 0;
+            }
+            .drawing-panel .bmap-rectangle {
+                background-position: -325px 0;
+            }
+            .drawing-panel .bmap-polygon {
+                background-position: -260px 0;
+            }
+            .drawing-panel .bmap-circle {
+                background-position: -130px 0;
             }
         </style>
-        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=F0i6SrLmHquLVNLCqpExxPrj8mWVdFwx"></script>
-        <!--加载鼠标绘制工具-->
-        <script type="text/javascript" src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
-        <link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
-        <!--加载检索信息窗口-->
-        <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.js"></script>
-        <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.css" />
-        <title>百度地图API功能演示</title>
     </head>
     <body>
-    <div id="allmap" style="overflow:hidden;zoom:1;position:relative;">
-        <div id="map" style="height:100%;-webkit-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;">
-        </div>
-    </div>
-    <div id="result">
-        <input type="button" value="获取绘制的覆盖物个数" οnclick="alert(overlays.length)"/>
-        <input type="button" value="清除所有覆盖物" οnclick="clearAll()"/>
-        <input type="button"  value="获取多边形的顶点" οnclick="getPoint()"/><br/>
-        <input type="button"  value="开启线、面编辑功能" οnclick="Editing('enable')"/>
-        <input type="button"  value="关闭线、面编辑功能" οnclick="Editing('disable')"/>
-        <input type="button"  value="显示原有多边形" οnclick="showPolygon(this)" /><br/>
-
-        <input type="button"  value="画多边形" οnclick="draw(BMAP_DRAWING_POLYGON)" />
-        <input type="button"  value="画矩形" οnclick="draw(BMAP_DRAWING_RECTANGLE)" />
-        <input type="button"  value="画线" οnclick="draw(BMAP_DRAWING_POLYLINE)" />
-        <!-- <input type="button"  value="画点" οnclick="draw(BMAP_DRAWING_MARKER)" />-->
-        <span>右键获取任意点的经纬度</span>
-    </div>
-    <div id="resultShape"></div>
-    <div id="shape">坐标为</div>
-
-    <script type="text/javascript">
-        function $(id){
-            return document.getElementById(id);
-        }
-
-        // 百度地图API功能
-        var map = new BMap.Map('map');
-        var poi = new BMap.Point(113.948913,22.530844);
-        map.centerAndZoom(poi, 16);
-        map.enableScrollWheelZoom();
-        var overlays = [];
-        var overlaycomplete = function(e){
-            overlays.push(e.overlay);
-        };
-        var styleOptions = {
-            strokeColor:"red",    //边线颜色。
-            fillColor:"red",      //填充颜色。当参数为空时，圆形将没有填充效果。
-            strokeWeight: 3,       //边线的宽度，以像素为单位。
-            strokeOpacity: 0.8,    //边线透明度，取值范围0 - 1。
-            fillOpacity: 0.6,      //填充的透明度，取值范围0 - 1。
-            strokeStyle: 'solid' //边线的样式，solid或dashed。
-        }
-
-        //实例化鼠标绘制工具
-        var drawingManager = new BMapLib.DrawingManager(map, {
-            isOpen: false, //是否开启绘制模式
-            //enableDrawingTool: true, //是否显示工具栏
-            drawingToolOptions: {
-                anchor: BMAP_ANCHOR_TOP_RIGHT, //位置
-                offset: new BMap.Size(5, 5), //偏离值
-            },
-            circleOptions: styleOptions, //圆的样式
-            polylineOptions: styleOptions, //线的样式
-            polygonOptions: styleOptions, //多边形的样式
-            rectangleOptions: styleOptions //矩形的样式
-        });
-
-        //添加鼠标绘制工具监听事件，用于获取绘制结果
-        drawingManager.addEventListener('overlaycomplete', overlaycomplete);
-
-        map.addEventListener("rightclick",function(e){
-            if(confirm(e.point.lng + "," + e.point.lat)){
-                $("shape").innerHTML=$("shape").innerHTML+" <br/>("+e.point.lng+","+e.point.lat+")";
-            }
-        });
-        function draw(type){
-            drawingManager.open();
-            drawingManager.setDrawingMode(type);
-        }
-
-        function clearAll() {
-            for(var i = 0; i < overlays.length; i++){
-                map.removeOverlay(overlays[i]);
-            }
-            overlays.length = 0
-        }
-        function getPoint(){
-            $("resultShape").innerHTML='';
-            for(var i = 0; i < overlays.length; i++){
-                var overlay=overlays[i].getPath();
-                $("resultShape").innerHTML=$("resultShape").innerHTML+overlay.length+'边形:<br/>';
-                for(var j = 0; j < overlay.length; j++){
-                    var grid =overlay[j];
-                    $("resultShape").innerHTML=$("resultShape").innerHTML+(j+1)+"个点:("+grid.lng+","+grid.lat+");<br/>";
-                }
-            }
-        }
-        function Editing(state){
-            for(var i = 0; i < overlays.length; i++){
-                state=='enable'?overlays[i].enableEditing():overlays[i].disableEditing();
-            }
-        }
-
-        function  showPolygon(btn){
-            var polygon = new BMap.Polygon([
-                new BMap.Point(113.941853,22.530777),
-                new BMap.Point(113.940487,22.527789),
-                new BMap.Point(113.94788,22.527597),
-                new BMap.Point(113.947925,22.530618)
-            ], styleOptions);  //创建多边形
-            map.addOverlay(polygon);   //增加多边形
-            // overlays.push(polygon); //是否把该图像加入到编辑和删除行列
-            btn.setAttribute('disabled','false');
-            showText();
-        }
-
-        function showText(){
-            var opts = {
-                position : new BMap.Point(113.941853,22.530777),    // 指定文本标注所在的地理位置
-                offset   : new BMap.Size(30, 30)    //设置文本偏移量
-            }
-            var label = new BMap.Label("不可编辑", opts);  // 创建文本标注对象
-            label.setStyle({
-                color : "black",
-                fontSize : "16px",
-                fillColor:"red",      //填充颜色。当参数为空时，圆形将没有填充效果。
-            });
-            map.addOverlay(label);
-        }
-    </script>
+    <div class = "info">该示例实现基于JSAPI GL版的开源工具库，详情可查看https://github.com/huiyan-fe/BMapGLLib</div>
+    <ul class = "drawing-panel">
+        <li class="bmap-btn bmap-marker" id="marker" onclick="draw(this)"></li>
+        <li class="bmap-btn bmap-polyline" id="polyline" onclick="draw(this)"></li>
+        <li class="bmap-btn bmap-rectangle" id="rectangle" onclick="draw(this)"></li>
+        <li class="bmap-btn bmap-polygon" id="polygon" onclick="draw(this)"></li>
+        <li class="bmap-btn bmap-circle" id="circle" onclick="draw(this)"></li>
+    </ul>
+    <div id = "container"></div>
     </body>
     </html>
+    <script type="text/javascript">
+        var map = new BMapGL.Map("container", {enableMapClick:false}); // 创建Map实例,GL版命名空间为BMapGL(鼠标右键控制倾斜角度)
+        map.centerAndZoom(new BMapGL.Point(116.404, 39.915), 11);      // 初始化地图,设置中心点坐标和地图级别
+        map.enableScrollWheelZoom(true);                               // 开启鼠标滚轮缩放
+
+        var styleOptions = {
+            strokeColor: '#5E87DB',   // 边线颜色
+            fillColor: '#5E87DB',     // 填充颜色。当参数为空时，圆形没有填充颜色
+            strokeWeight: 2,          // 边线宽度，以像素为单位
+            strokeOpacity: 1,         // 边线透明度，取值范围0-1
+            fillOpacity: 0.2          // 填充透明度，取值范围0-1
+        };
+        var labelOptions = {
+            borderRadius: '2px',
+            background: '#FFFBCC',
+            border: '1px solid #E1E1E1',
+            color: '#703A04',
+            fontSize: '12px',
+            letterSpacing: '0',
+            padding: '5px'
+        };
+
+        // 实例化鼠标绘制工具
+        var drawingManager = new BMapGLLib.DrawingManager(map, {
+            // isOpen: true,        // 是否开启绘制模式
+            enableCalculate: false, // 绘制是否进行测距测面
+            enableSorption: true,   // 是否开启边界吸附功能
+            sorptiondistance: 20,   // 边界吸附距离
+            circleOptions: styleOptions,     // 圆的样式
+            polylineOptions: styleOptions,   // 线的样式
+            polygonOptions: styleOptions,    // 多边形的样式
+            rectangleOptions: styleOptions,  // 矩形的样式
+            labelOptions: labelOptions,      // label样式
+        });
+
+        function draw(e) {
+            var arr = document.getElementsByClassName('bmap-btn');
+            for(var i = 0; i<arr.length; i++) {
+                arr[i].style.backgroundPositionY = '0';
+            }
+            e.style.backgroundPositionY = '-52px';
+            switch(e.id) {
+                case 'marker': {
+                    var drawingType = BMAP_DRAWING_MARKER;
+                    break;
+                }
+                case 'polyline': {
+                    var drawingType = BMAP_DRAWING_POLYLINE;
+                    break;
+                }
+                case 'rectangle': {
+                    var drawingType = BMAP_DRAWING_RECTANGLE;
+                    break;
+                }
+                case 'polygon': {
+                    var drawingType = BMAP_DRAWING_POLYGON;
+                    break;
+                }
+                case 'circle': {
+                    var drawingType = BMAP_DRAWING_CIRCLE;
+                    break;
+                }
+            }
+            // 进行绘制
+            if (drawingManager._isOpen && drawingManager.getDrawingMode() === drawingType) {
+                drawingManager.close();
+            } else {
+                drawingManager.setDrawingMode(drawingType);
+                drawingManager.open();
+            }
+        };
+
+    </script>
+
 {{end}}
