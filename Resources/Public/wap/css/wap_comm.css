@@ -474,10 +474,10 @@ footer{
 }
 
 @media screen and (max-width: 668px) {
-	.swiper-slide-active,.swiper-slide-duplicate-active {
-		-webkit-transform: scale(0.97);
-		transform: scale(0.97);
-	}
+	/*.swiper-slide-active,.swiper-slide-duplicate-active {*/
+	/*	-webkit-transform: scale(0.97);*/
+	/*	transform: scale(0.97);*/
+	/*}*/
 }
 
 .none-effect {
