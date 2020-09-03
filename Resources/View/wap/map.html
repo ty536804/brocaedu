@@ -2,304 +2,164 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <meta charset="utf-8">
-        <title>地图</title>
-        <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no">
-        <script type="text/javascript" src="/static/assets/js/jquery.min.js"></script>
-        <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&amp;ak=ETLXgCxIoVixggHcAk6mKpMd&s=1"></script>
-        <script src="http://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils.js"></script>
-        <script src="http://api.map.baidu.com/library/InfoBox/1.2/src/InfoBox_min.js"></script>
-        <!--加载鼠标绘制工具-->
-        <script type="text/javascript" src="//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
-        <link rel="stylesheet" href="//api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
-
-        <!--加载检索信息窗口-->
-        <script type="text/javascript" src="//api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.js"></script>
-        <link rel="stylesheet" href="//api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.css" />
-        <style>
-            *{
-                padding: 0;
-                margin: 0;
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <style type="text/css">
+            body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+            #allmap {width: 100%; height:500px; overflow: hidden;}
+            #result {width:100%;font-size:12px;}
+            dl,dt,dd,ul,li{
+                margin:0;
+                padding:0;
+                list-style:none;
             }
-            #allMap{
-                margin-top: 20px;
+            p{font-size:12px;}
+            dt{
+                font-size:14px;
+                font-family:"微软雅黑";
+                font-weight:bold;
+                border-bottom:1px dotted #000;
+                padding:5px 0 5px 5px;
+                margin:5px 0;
             }
-            body,div{
-                position: absolute;
-                width: 100%;
-                height: 100%;
+            dd{
+                padding:5px 0 0 5px;
             }
-            /*隐藏地图控件*/
-            .anchorBL, .BMap_cpyCtrl {
-                display: none;
-            }
-            /*地图聚合样式*/
-            .bubble p {
-                text-align: center;
-                color: #fff;
-            }
-
-            .bubble .name {
-                margin-top: 25px;
-                font-size: 14px;
-            }
-            /*信息窗口样式*/
-            .infoArea{
-                font-size: 12px;
-                padding: 4px 0;
-                background-color: #fff;
-                border-radius: 2px;
-                box-shadow: 0 10px 8px 0 rgba(0,0,0,.1);
-            }
-            .infoArea p{
-                padding: 2px 10px;
-            }
-            .infoArea .name {
-                height: 20px;
-                line-height: 20px;
-                font-weight: 800;
-            }
-            .red{
-                color: red;
-            }
-            .infoBox .arrow {
-                position: absolute;
-                left: 10px;
-                bottom: -8px;
-                display: block;
-                border: 8px solid transparent;
-                border-left-color: #fff;
-                width: 0;
-                height: 0;
-                margin: 0 auto;
-                z-index: 1;
-            }
-            .infoBox .arrow .arrow-i {
-                display: none;
-                border: 6px solid transparent;
-                border-top-color: #fff;
-                width: 0;
-                height: 0;
-                position: absolute;
-                top: -7px;
-                left: -6px;
+            li{
+                line-height:28px;
             }
         </style>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=F0i6SrLmHquLVNLCqpExxPrj8mWVdFwx"></script>
+        <!--加载鼠标绘制工具-->
+        <script type="text/javascript" src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
+        <link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
+        <!--加载检索信息窗口-->
+        <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.js"></script>
+        <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.css" />
+        <title>百度地图API功能演示</title>
     </head>
     <body>
-    <div id="allMap"><!--地图--></div>
-    <script>
-        /*  实现地图搜房功能主要是几个步骤：
-            1、添加聚合点marker（利用接口返回数据用marker来显示相应的数量来模拟聚合效果）；
-            2、根据鼠标悬停事件来显示隐藏行政区划边界线（百度地图Polygon方法）；
-            3、点击marker或鼠标滚轮事件来扩大地图级别显示所有的点（addEventListener(event: String, handler: Function)）；
-            4、通过拖拽地图根据视野来加载对应的点，提高加载点位性能（百度地图GeoUtils）；
-            5、给具体的点位添加信息窗体事件。
-        */
+    <div id="allmap" style="overflow:hidden;zoom:1;position:relative;">
+        <div id="map" style="height:100%;-webkit-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;">
+        </div>
+    </div>
+    <div id="result">
+        <input type="button" value="获取绘制的覆盖物个数" οnclick="alert(overlays.length)"/>
+        <input type="button" value="清除所有覆盖物" οnclick="clearAll()"/>
+        <input type="button"  value="获取多边形的顶点" οnclick="getPoint()"/><br/>
+        <input type="button"  value="开启线、面编辑功能" οnclick="Editing('enable')"/>
+        <input type="button"  value="关闭线、面编辑功能" οnclick="Editing('disable')"/>
+        <input type="button"  value="显示原有多边形" οnclick="showPolygon(this)" /><br/>
 
-        window.map = initMap();//初始化地图对象
-        window.lastInfoBox = null; //定义最近打开的地图信息窗体
-        window.pointArray = [];//行政区划点位集合
-        window.labelData=[];//存数点位数据
-        addMarker();//添加聚合点
+        <input type="button"  value="画多边形" οnclick="draw(BMAP_DRAWING_POLYGON)" />
+        <input type="button"  value="画矩形" οnclick="draw(BMAP_DRAWING_RECTANGLE)" />
+        <input type="button"  value="画线" οnclick="draw(BMAP_DRAWING_POLYLINE)" />
+        <!-- <input type="button"  value="画点" οnclick="draw(BMAP_DRAWING_MARKER)" />-->
+        <span>右键获取任意点的经纬度</span>
+    </div>
+    <div id="resultShape"></div>
+    <div id="shape">坐标为</div>
 
-        function initMap() {
-            var map = new BMap.Map("allMap", {enableMapClick: false, minZoom: 15, maxZoom: 12});
-            var point = new BMap.Point(116.404, 39.925);//北京市中心点
-            map.centerAndZoom(point, 11);
-            map.enableScrollWheelZoom(true);
-            //监听地图级别缩放事件，当级别为9时默认加载集合点，扩大级别时显示详细点位数据
-            map.addEventListener("zoomend", function () {
-                var zoomLevel=map.getZoom(); //获取地图缩放级别
-                if(zoomLevel==9){
-                    addMarker();
-                }else{
-                    //当存储的数据有数时直接加载视野数据，否则请求接口数据
-                    if(labelData.length>0){
-                        addViewLabel(labelData);
-                    }else{
-                        getAllLabel();
-                    }
-                }
-            });
-            return map;
+    <script type="text/javascript">
+        function $(id){
+            return document.getElementById(id);
         }
 
-        //根据行政区划绘制聚合点位
-        function addMarker() {
-            map.clearOverlays();
-            //模拟数据
-            var clustereData=[
-                {"name":"东城区","code":"110101","longitude":"116.28625","latitude":"39.8585","count":"445"},
-                {"name":"西城区","code":"110102","longitude":"116.36003","latitude":"39.9305","count":"377"},
-                {"name":"朝阳区","code":"110105","longitude":"116.48548","latitude":"39.9484","count":"370"},
-                {"name":"丰台区","code":"110106","longitude":"116.28625","latitude":"39.8585","count":"300"},
-                {"name":"石景山区","code":"110107","longitude":"116.2229","latitude":"39.90564","count":"290"},
-                {"name":"海淀区","code":"110108","longitude":"116.29812","latitude":"39.95931","count":"245"},
-                {"name":"门头沟区","code":"110109","longitude":"116.10137","latitude":"39.94043","count":"236"},
-                {"name":"房山区","code":"110111","longitude":"116.14257","latitude":"39.74786","count":"210"},
-                {"name":"通州区","code":"110112","longitude":"116.65716","latitude":"39.90966","count":"225"},
-                {"name":"顺义区","code":"110113","longitude":"116.65417","latitude":"40.1302","count":"155"}
-            ];
-            //为了提高百度地图性能，本篇例子点位全用label来加载点位
-            $.each(clustereData,function (index,data) {
-                var point = new BMap.Point(data.longitude, data.latitude);
-                //自定义label样式
-                var tpl = '<div class="bubble bubble-1" data-longitude="' + data.longitude + '"' +
-                    ' data-latitude="' + data.latitude + '" data-id="' + data.code + '">' +
-                    '<p class="name" title="' + data.name + '">' + data.name + '</p>' +
-                    '<p><span class="count">' + data.count + '</span>个楼盘</p>' +
-                    '</div>';
-                var myLabel = new BMap.Label(tpl,
-                    {
-                        position: point, //label 在此处添加点位位置信息
-                        offset: new BMap.Size(-46, -46)
-                    });
-                myLabel.setStyle({
-                    width: "92px",  //宽
-                    height: "92px", //高度
-                    border: "0",  //边
-                    background: "rgba(84,144,244,.9)",    //背景颜色
-                    borderRadius:"50%",
-                    cursor: "pointer"
-                });
-                myLabel.setTitle(data.name);
-                map.addOverlay(myLabel);//添加点位
-                // 当鼠标悬停在label上时显示行政区划边界
-                myLabel.addEventListener("mouseover", function () {
-                    myLabel.setStyle({background:"rgba(241,80,68,.9)"}); //修改覆盖物背景颜色
-                    var regionName = myLabel.getTitle();
-                    getBoundary(regionName);
-                });
-                // 当鼠标离开时在删除边界折线数据
-                myLabel.addEventListener("mouseout", function () {
-                    myLabel.setStyle({background:"rgba(84,144,244,.9)"}); //修改覆盖物背景颜色
-                    if (window.ply) {
-                        var polyPathArray = new Array();
-                        window.ply.setPath(polyPathArray);
-                        map.removeOverlay(ply);//清除折线数据
-                    }
-                });
-
-                myLabel.addEventListener("click", function () {
-                    map.zoomIn();
-                    getAllLabel();//获取所有点位数据
-                });
-
-            })
+        // 百度地图API功能
+        var map = new BMap.Map('map');
+        var poi = new BMap.Point(113.948913,22.530844);
+        map.centerAndZoom(poi, 16);
+        map.enableScrollWheelZoom();
+        var overlays = [];
+        var overlaycomplete = function(e){
+            overlays.push(e.overlay);
+        };
+        var styleOptions = {
+            strokeColor:"red",    //边线颜色。
+            fillColor:"red",      //填充颜色。当参数为空时，圆形将没有填充效果。
+            strokeWeight: 3,       //边线的宽度，以像素为单位。
+            strokeOpacity: 0.8,    //边线透明度，取值范围0 - 1。
+            fillOpacity: 0.6,      //填充的透明度，取值范围0 - 1。
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
         }
 
-        //根据行政区划绘制边界
-        function getBoundary(regionName) {
-            var bdary = new BMap.Boundary();
-            bdary.get(regionName, function (rs) {
-                var count = rs.boundaries.length; //行政区域的点有多少个
-                if (count === 0) {
-                    alert('未能获取当前输入行政区域');
-                    return;
-                }
-                for (var i = 0; i < count; i++) {
-                    if (!window.ply) {
-                        window.ply = new BMap.Polygon(rs.boundaries[i], {
-                            strokeWeight: 2,
-                            strokeColor: "rgb(66, 133, 244)",
-                            fillColor: "rgba(53, 126, 244,0.1)"
-                        }); //建立多边形覆盖物
-                        map.addOverlay(ply);  //添加覆盖物
-                    } else {
-                        window.ply.setPath(rs.boundaries[i]);
-                        map.addOverlay(ply);  //添加覆盖物
-                    }
-                    ply.enableMassClear();
-                    pointArray = pointArray.concat(ply.getPath());
-                }
-            });
+        //实例化鼠标绘制工具
+        var drawingManager = new BMapLib.DrawingManager(map, {
+            isOpen: false, //是否开启绘制模式
+            //enableDrawingTool: true, //是否显示工具栏
+            drawingToolOptions: {
+                anchor: BMAP_ANCHOR_TOP_RIGHT, //位置
+                offset: new BMap.Size(5, 5), //偏离值
+            },
+            circleOptions: styleOptions, //圆的样式
+            polylineOptions: styleOptions, //线的样式
+            polygonOptions: styleOptions, //多边形的样式
+            rectangleOptions: styleOptions //矩形的样式
+        });
+
+        //添加鼠标绘制工具监听事件，用于获取绘制结果
+        drawingManager.addEventListener('overlaycomplete', overlaycomplete);
+
+        map.addEventListener("rightclick",function(e){
+            if(confirm(e.point.lng + "," + e.point.lat)){
+                $("shape").innerHTML=$("shape").innerHTML+" <br/>("+e.point.lng+","+e.point.lat+")";
+            }
+        });
+        function draw(type){
+            drawingManager.open();
+            drawingManager.setDrawingMode(type);
         }
 
-        //绘制详细楼盘点位信息
-        function getAllLabel() {
-            map.clearOverlays();
-            //模拟点位数据
-            var labelListData=[
-                {"name":"楼盘一","code":"01","longitude":"116.28625","latitude":"39.8585","num":"10000"},
-                {"name":"楼盘二","code":"02","longitude":"116.36003","latitude":"39.9305","num":"999"},
-                {"name":"楼盘三","code":"03","longitude":"116.48548","latitude":"39.9484","num":"888"},
-                {"name":"楼盘四","code":"04","longitude":"116.28625","latitude":"39.8585","num":"777"},
-                {"name":"楼盘五","code":"05","longitude":"116.2229","latitude":"39.90564","num":"666"},
-                {"name":"楼盘六","code":"06","longitude":"116.29812","latitude":"39.95931","num":"555"},
-                {"name":"楼盘七","code":"07","longitude":"116.10137","latitude":"39.94043","num":"444"},
-                {"name":"楼盘八","code":"08","longitude":"116.14257","latitude":"39.74786","num":"333"},
-                {"name":"楼盘九","code":"09","longitude":"116.65716","latitude":"39.90966","num":"222"},
-                {"name":"楼盘十","code":"10","longitude":"116.65417","latitude":"40.1302","num":"111"},
-            ];
-            $.each(labelListData,function (index,data) {
-                var point = new BMap.Point(data.longitude, data.latitude);
-                var myLabel = new BMap.Label("",
-                    {
-                        position: point, //label 在此处添加点位位置信息
-                        offset: new BMap.Size(-12, -15)
-                    });
-                myLabel.setStyle({
-                    width: "12px",  //宽
-                    height: "12px", //高度
-                    border: "0",  //边
-                    backgroundColor: "rgb(66, 133, 244)",
-                    borderRadius: "50%",
-                    cursor: "pointer"
-                });
-                myLabel.setTitle(data.name);
-                labelData.push(myLabel);
-                //            map.addOverlay(myLabel);
-                //信息窗口模板
-                var tpl="<div class='infoBox' data-longitude='"+data.longitude+"' data-latitude='"+data.latitude+"' data-id='"+data.code+"'>" +
-                    "<div class='infoArea'><p class='name'>"+data.name+"</p><p class='num'>均价<span class='red'> "+data.num+" </span>万元/m3</p></div>" +
-                    "<i class='arrow'><i class='arrow-i'></i></i></div>";
-                var infoBox = new BMapLib.InfoBox(map, tpl, {
-                    boxStyle: {
-                        width: "160px",
-                        minHeight: "50px",
-                        marginBottom: "30px",
-                        backgroundColor: "white"
-                    },
-                    closeIconMargin: "15px 10px 4px 4px",
-                    closeIconUrl: "img/icon-close.png",
-                    enableAutoPan: false,
-                    align: INFOBOX_AT_TOP
-                });
-                //鼠标点击时打开新标签并关闭上一个标签内容
-                myLabel.addEventListener("mouseover", function () {
-                    if (window.lastInfoBox) {
-                        //判断上一个窗体是否存在，若存在则执行close
-                        window.lastInfoBox.close();
-                    }
-                    window.lastInfoBox = infoBox;
-                    infoBox.open(point);
-                });
-                //鼠标点击时标签一直存在
-                myLabel.addEventListener("click", function () {
-                    window.lastInfoBox=null;
-                    infoBox.open(point);
-                });
-            });
-            addViewLabel(labelData);//加载可视范围点
+        function clearAll() {
+            for(var i = 0; i < overlays.length; i++){
+                map.removeOverlay(overlays[i]);
+            }
+            overlays.length = 0
         }
-
-        //根据地图视野动态加载数据，当数据多时此方法用来提高地图加载性能
-        //由于此篇模拟点位数据较少，视野加载不明显，当数据多时可直观感觉
-        function addViewLabel(labels) {
-            map.clearOverlays();
-            for(var i = 0; i < labels.length; i ++){
-                var result = BMapLib.GeoUtils.isPointInRect(labels[i].point, map.getBounds());
-                if(result == true) {
-                    map.addOverlay(labels[i])
-                } else{
-                    map.removeOverlay(labels[i]);
+        function getPoint(){
+            $("resultShape").innerHTML='';
+            for(var i = 0; i < overlays.length; i++){
+                var overlay=overlays[i].getPath();
+                $("resultShape").innerHTML=$("resultShape").innerHTML+overlay.length+'边形:<br/>';
+                for(var j = 0; j < overlay.length; j++){
+                    var grid =overlay[j];
+                    $("resultShape").innerHTML=$("resultShape").innerHTML+(j+1)+"个点:("+grid.lng+","+grid.lat+");<br/>";
                 }
             }
         }
+        function Editing(state){
+            for(var i = 0; i < overlays.length; i++){
+                state=='enable'?overlays[i].enableEditing():overlays[i].disableEditing();
+            }
+        }
 
+        function  showPolygon(btn){
+            var polygon = new BMap.Polygon([
+                new BMap.Point(113.941853,22.530777),
+                new BMap.Point(113.940487,22.527789),
+                new BMap.Point(113.94788,22.527597),
+                new BMap.Point(113.947925,22.530618)
+            ], styleOptions);  //创建多边形
+            map.addOverlay(polygon);   //增加多边形
+            // overlays.push(polygon); //是否把该图像加入到编辑和删除行列
+            btn.setAttribute('disabled','false');
+            showText();
+        }
+
+        function showText(){
+            var opts = {
+                position : new BMap.Point(113.941853,22.530777),    // 指定文本标注所在的地理位置
+                offset   : new BMap.Size(30, 30)    //设置文本偏移量
+            }
+            var label = new BMap.Label("不可编辑", opts);  // 创建文本标注对象
+            label.setStyle({
+                color : "black",
+                fontSize : "16px",
+                fillColor:"red",      //填充颜色。当参数为空时，圆形将没有填充效果。
+            });
+            map.addOverlay(label);
+        }
     </script>
     </body>
     </html>
-
 {{end}}
