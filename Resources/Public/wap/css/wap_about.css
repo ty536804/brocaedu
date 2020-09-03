@@ -74,7 +74,7 @@
 }
 .brand_ul{
 	background: url(../img/bg_blur.png) no-repeat top center;
-	background-size: 375px 170px;
+	background-size: 100% 170px;
 	height: 170px;
 	width: 100%;
 	overflow: hidden;
@@ -199,7 +199,7 @@
 }
 .last_item{
 	background: url(http://img.cdn.brocaedu.com/bg_green%402x.png) no-repeat bottom center;
-	background-size: 375px 278px;
+	background-size: 100% 278px;
 	height: 289px;
 	width: 100%;
 	margin: 0 auto;
