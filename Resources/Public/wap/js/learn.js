@@ -62,8 +62,33 @@ function getAjax()
         }
     });
 }
-new Swiper('.banner .swiper-container', {
+new Swiper('.brand_ul .swiper-container',{
+    autoplay:true,
     speed:1000,
     autoplayDisableOnInteraction : false,
+    loop:true,
     centeredSlides : true,
+    slidesPerView:2,
+    pagination : '.swiper-pagination',
+    paginationClickable:true,
+    prevButton:'.swiper-button-prev',
+    nextButton:'.swiper-button-next',
+    onInit:function(swiper){
+        swiper.slides[2].className="swiper-slide swiper-slide-active";
+    },
+    breakpoints: {
+        668: {
+            slidesPerView: 1,
+        }
+    }
 });
+
+isAndroid();
+function isAndroid() {
+    var u = navigator.userAgent;
+
+    if (u.indexOf("Android") > -1 || u.indexOf("Linux") > -1) {
+
+        $('.brand_ul .swiper-slide').css({"transform":"scale(0.9)"})
+    }
+}

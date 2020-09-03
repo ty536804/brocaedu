@@ -60,3 +60,8 @@ $('.bottom_btn').on('click',function () {
     })
     return false;
 })
+new Swiper('.banner .swiper-container', {
+    loop: true,
+    autoplay:true,
+});
+$('.banner .swiper-slide').css({"transform":"scale(1)"})

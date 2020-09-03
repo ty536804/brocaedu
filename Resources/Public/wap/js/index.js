@@ -80,15 +80,11 @@ function getAjax()
         }
     });
 }
-var swiper = new Swiper('.setting_banner .swiper-container', {
+new Swiper('.setting_banner .swiper-container', {
     loop: true,
     autoplay:true,
 });
-var swiper = new Swiper('.setting_banner2 .swiper-container', {
-    loop: true,
-    autoplay:true,
-});
-var swiper = new Swiper('.banner .swiper-container', {
+new Swiper('.setting_banner2 .swiper-container', {
     loop: true,
     autoplay:true,
 });

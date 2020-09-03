@@ -115,14 +115,8 @@
     </section>
     {{template "wap_footer"}}
     <script>
-        new Swiper('.banner .swiper-container', {
-            speed:1000,
-            autoplayDisableOnInteraction : false,
-            centeredSlides : true,
-        });
-        window.onload = function() {
-            var swiper = new Swiper('.brand_ul .swiper-container',{
-                autoplay:3000,
+         new Swiper('.brand_ul .swiper-container',{
+                autoplay:true,
                 speed:1000,
                 autoplayDisableOnInteraction : false,
                 loop:true,
@@ -143,15 +137,13 @@
             });
 
             isAndroid();
-
             function isAndroid() {
                 var u = navigator.userAgent;
 
                 if (u.indexOf("Android") > -1 || u.indexOf("Linux") > -1) {
 
-                    $('.swiper-slide').css({"transform":"scale(0.9)"})
+                    $('.brand_ul .swiper-slide').css({"transform":"scale(0.9)"})
                 }
             }
-        }
     </script>
 {{end}}
