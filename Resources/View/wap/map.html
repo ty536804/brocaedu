@@ -372,7 +372,7 @@
             })
 
             // 为地图绑定鼠标按下事件(开始画圈)
-            map.addEventListener('mousedown', function(e) {
+            map.addEventListener('touchstart', function(e) {
                 // 如果处于画圈状态下,清空上次画圈的数据结构,设置isMouseDown进入画圈鼠标按下状态
                 if(isInDrawing) {
                     // 清空地图上画的折线和圈
@@ -384,7 +384,7 @@
                 }
             });
             // 为地图绑定鼠标抬起事件(画圈完成)
-            map.addEventListener('mouseup', function(e) {
+            map.addEventListener('touchend', function(e) {
                 // 如果处于画圈状态下 且 鼠标是按下状态
                 if(isInDrawing && isMouseDown) {
                     // 退出画线状态
@@ -403,7 +403,7 @@
                 }
             });
             // 为地图绑定鼠标移动事件(触发画图)
-            map.addEventListener('mousemove', function(e) {
+            map.addEventListener('touchmove', function(e) {
                 // 如果处于鼠标按下状态,才能进行画操作
                 if(isMouseDown) {
                     // 将鼠标移动过程中采集到的路径点加入数组保存
