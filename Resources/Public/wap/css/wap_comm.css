@@ -489,6 +489,7 @@ footer{
 
 
 .swiper-slide img {
+	width: 100%;
 	border-radius: 14px;
 	display: block;
 }
@@ -570,23 +571,4 @@ footer{
 		width: 28px;
 		height: 28px;
 	}
-}
-
-/*loop*/
-li{
-	list-style: none;
-}
-li img{
-	display: block;
-	margin: 0 auto;
-	width: 100%;
-}
-.hiSlider{
-	overflow: hidden;
-	height: 280px;
-	background: #eee;
-	margin-bottom: 70px;
-}
-.hiSlider-item{
-	float: left;
 }

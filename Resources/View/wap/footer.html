@@ -64,19 +64,30 @@
             centeredSlides : true,
             autoplay:true,
             slidesPerView:2,
-        });
-
-            isAndroid();
-
-            function isAndroid() {
-
-                var u = navigator.userAgent;
-
-                if (u.indexOf("Android") > -1 || u.indexOf("Linux") > -1) {
-
-                    $('.swiper-slide').css({"transform":"scale(0.9)"})
+            pagination : '.swiper-pagination',
+            paginationClickable:true,
+            prevButton:'.swiper-button-prev',
+            nextButton:'.swiper-button-next',
+            onInit:function(swiper){
+                swiper.slides[2].className="swiper-slide swiper-slide-active";
+            },
+            breakpoints: {
+                668: {
+                    slidesPerView: 1,
                 }
             }
+        });
+        isAndroid();
+
+        function isAndroid() {
+
+            var u = navigator.userAgent;
+
+            if (u.indexOf("Android") > -1 || u.indexOf("Linux") > -1) {
+
+                $('.swiper-slide').css({"transform":"scale(0.9)"})
+            }
+        }
 
     </script>
 {{end}}
