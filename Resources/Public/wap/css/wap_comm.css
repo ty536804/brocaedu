@@ -351,7 +351,6 @@ footer{
 	background:linear-gradient(270deg,rgba(230,53,70,1) 0%,rgba(255,93,114,1) 100%);
 	border-radius:22px;
 	display: flow-root;
-	margin: 0 auto;
 	font-size:16px;
 	font-family:PingFangSC-Medium,PingFang SC;
 	font-weight:500;
@@ -571,4 +570,10 @@ footer{
 		width: 28px;
 		height: 28px;
 	}
+}
+.subBtn {
+	width: 100%;
+	height: 33px;
+	display: flex;
+	justify-content: center;
 }
