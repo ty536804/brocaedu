@@ -74,7 +74,8 @@ func LearnInfo(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["selected"] = Banner.GetBannerByTag(4, 2, "选拔")
 	data["checkAll"] = Single.GetConByTagAll(4, 2, "培训")
-	e.Success(c, "首页", data)
+	data["appList"] = Banner.GetBannerByTag(4, 2, "app")
+	e.Success(c, "教学教研", data)
 }
 
 // @Summer 加盟授权

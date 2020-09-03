@@ -37,16 +37,25 @@ function getAjax()
                         switch (Number(k)) {
                             case 0:
                                 _checkImg = "/static/wap/img/ico_subscript_l@2x.png";
-                                _dl += ' <section class="join"><dl><dt class="con"><img src="'+_checkImg+'" class="smallIcon"><p class="summary">'+v.summary+'</p><p class="content">'+v.content+'</p></dt><dd class="thumbBox"><img src="'+v.thumb_img+'" class="thumb_img"></dd></dl></section>'
+                                _dl += ' <section class="join"><dl><dt class="con"><p class="titImg"><img src="'+_checkImg+'" class="smallIcon"></p><p class="summary">'+v.summary+'</p><p class="content">'+v.content+'</p></dt><dd class="thumbBox"><img src="'+v.thumb_img+'" class="thumb_img"></dd></dl></section>'
                                 break;
                             case 1:
                                 _checkImg = "/static/wap/img/ico_subscript_r@2x.png";
-                                _dl += ' <section class="level"><dl><dt class="thumbBox"><img src="'+v.thumb_img+'" class="thumb_img"><</dt><dd class="con"><img src="'+_checkImg+'" class="smallIcon"><p class="summary">'+v.summary+'</p><p class="content">'+v.content+'</p>/dd></dl></section>'
+                                _dl += ' <section class="level"><dl><dt class="thumbBox"><img src="'+v.thumb_img+'" class="thumb_img"></dt><dd class="con"><p class="titImg"><img src="'+_checkImg+'" class="smallIcon"></p><p class="summary">'+v.summary+'</p><p class="content">'+v.content+'</p></dd></dl></section>'
                                 break;
                         }
 
                     })
                     $('.check .system_list').after(_dl)
+                    _dl = "";
+                    let _au = "";
+                    $.each(result.data.appList, function (k, v) {
+
+                        _au += '<dl><dt class="auxiliaryThumb"><img src="'+v.imgurl+'"></dt><dd><p class="bname">'+v.bname+'</p><p class="bname">'+v.info+'</p></dd></dl>'
+
+                    })
+                    _dl = '<section class="auxiliary_box">'+_au+'</section>';
+                    $('.auxiliary .system_list').after(_dl)
                 }
 
             }

@@ -21,7 +21,7 @@
 .elearn{
     background: url(http://img.cdn.brocaedu.com/bg_red111.png) no-repeat bottom center;
     background-size: 100% 337px;
-    height: 469px;
+    height: 463px;
 }
 .elearn .system_list{
     margin-top: 33px;
@@ -141,7 +141,6 @@
 }
 .join dl{
     width: 295px;
-    height: 233px;
     background: #FFFFFF;
     border-radius: 10px;
     border: 3px solid #00A1A7;
@@ -188,14 +187,31 @@
 .smallIcon{
     height: 40px;
 }
+.level img{
+    float: right;
+}
+.titImg{
+    width: 100%;
+    height: 40px;
+    justify-content: right;
+}
+.level .titImg {
+    justify-content: flex-end;
+}
 .level dl{
     width: 295px;
-    height: 233px;
     background: #FFFFFF;
     border-radius: 10px;
     border: 3px solid #0080CB;
     right: 15px;
     position: relative;
+    float: right;
+}
+.level .summary{
+    margin: 9px 0 10px 67px;
+}
+.con{
+    margin-bottom: 10px;
 }
 .level .thumbBox{
     position: absolute;
@@ -203,4 +219,62 @@
     left: -55px;
     height: 137px;
     width: 115px;
+}
+/*辅学APP*/
+.auxiliary .system_list{
+    margin: 33px auto 17px auto;
+}
+.auxiliary_box{
+    width: 345px;
+    height: 256px;
+    border-radius: 10px;
+    border: 3px solid #EB6E7D;
+    margin: 0 auto 100px auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.auxiliaryThumb{
+    width: 100%;
+    height: 42px;
+    justify-content: center;
+    display: flex;
+    margin-top: 11px;
+    margin-bottom: 5px;
+}
+.auxiliaryThumb img{
+    width: 42px;
+    height: 42px;
+}
+.bname{
+    width: 100%;
+    height: 20px;
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #666666;
+    line-height: 20px;
+    text-align: center;
+}
+.auxiliary_box dl{
+    width: 152px;
+    height: 108px;
+    background: #FDF0F2;
+}
+.auxiliary_box dl:first-child{
+    margin-top: 15px;
+    border-radius: 10px 0px 0px 0px;
+}
+.auxiliary_box dl:nth-child(2){
+    margin-top: 15px;
+    border-radius: 0px 10px 0px 0px;
+}
+.auxiliary_box dl:nth-child(3){
+    border-radius: 10px 0px 0px 0px;
+}
+.auxiliary_box dl:nth-child(4){
+    border-radius: 0px 10px 0px 0px;
+}
+.footer_right{
+    margin-top: -59px;
 }
