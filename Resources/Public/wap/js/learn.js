@@ -62,3 +62,8 @@ function getAjax()
         }
     });
 }
+new Swiper('.banner .swiper-container', {
+    speed:1000,
+    autoplayDisableOnInteraction : false,
+    centeredSlides : true,
+});

@@ -1,12 +1,3 @@
-.banner{
-	width: 100%;
-	height: 200px;
-	justify-content: center;
-	overflow: hidden;
-}
-.banner img {
-    height: 200px;
-}
 .brand{
 	background:#FFFAEF url(http://img.cdn.brocaedu.com/bg_Introduction%402x.png) no-repeat bottom 45px center;
 	background-size:345px 602px;

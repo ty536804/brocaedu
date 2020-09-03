@@ -9,12 +9,18 @@
     </head>
     <body>
     {{template "wap_nav"}}
-    <!-- banner -->
-    <section class="banner pub">
-        {{ range .data.banner}}
-            <img src="{{.Imgurl}}" alt="">
-        {{end}}
-    </section>
+    <!-- 顶部轮播图 -->
+    <div class="banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {{ range .data.banner}}
+                    <div class="swiper-slide">
+                        <img src="{{.Imgurl}}" alt="">
+                    </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
     <!-- 线下 -->
     <section class="campus pub">
         <img src="{{.data.offline.Imgurl}}">
@@ -29,4 +35,11 @@
         <img src="{{.data.thousand.Imgurl}}" class="thousand">
     </section>
     {{template "wap_footer"}}
+    <script>
+        new Swiper('.banner .swiper-container', {
+            speed:1000,
+            autoplayDisableOnInteraction : false,
+            centeredSlides : true,
+        });
+    </script>
 {{end}}

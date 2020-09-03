@@ -9,12 +9,18 @@
     </head>
     <body>
     {{template "wap_nav"}}
-    <!-- banner -->
-    <section class="banner pub">
-        {{ range .data.banner}}
-            <img src="{{.Imgurl}}" alt="">
-        {{end}}
-    </section>
+    <!-- 顶部轮播图 -->
+    <div class="banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {{ range .data.banner}}
+                    <div class="swiper-slide">
+                        <img src="{{.Imgurl}}" alt="">
+                    </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
     <!-- 你正在面临的学习问题 -->
     <section class="pub elearn">
         <section class="system_list">
