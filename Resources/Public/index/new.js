@@ -17,6 +17,7 @@ function getAjax(page)
                     _html += '<section class="new_right"><h3>'+v.title+'</h3><p>'+v.summary+'</p><span class="read">阅读原文</span>'
                     _html += '</section></dd></dl></a>'
                 })
+                $('.new_banner').empty().html('<img src="'+result.data.banner[0].imgurl+'">')
                 pageList(page,result.data.count)
             }
             $(".new_ul").empty().append(_html)
