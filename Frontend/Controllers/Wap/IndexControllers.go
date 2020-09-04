@@ -152,7 +152,14 @@ func Campus(c *gin.Context) {
 // AI学习平台
 func AiLearn(c *gin.Context) {
 	var data = make(map[string]interface{})
-	data["banner"] = Banner.GetBannerData(5, 2) //轮播图
+	data["banner"] = Banner.GetBannerData(5, 2)          //轮播图
+	data["ai"] = Banner.GetOneBanner(5, 2, "AI自适应")      //
+	data["auto"] = Banner.GetOneBanner(5, 2, "AI自适应系统")  //
+	data["more"] = Banner.GetOneBanner(5, 2, "多维度梯度式练习") //
+	data["zd"] = Banner.GetOneBanner(5, 2, "针对性突破练习")    //
+	data["fx"] = Banner.GetOneBanner(5, 2, "智能分析反馈学情")   //
+	data["js"] = Banner.GetOneBanner(5, 2, "教师调整教学")     //
+	data["fc"] = Banner.GetOneBanner(5, 2, "分层次学习")      //
 	c.HTML(e.SUCCESS, "wap/ai.html", gin.H{
 		"title": "AI学习平台",
 		"data":  data,

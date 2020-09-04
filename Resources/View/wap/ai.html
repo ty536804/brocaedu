@@ -21,18 +21,83 @@
             </div>
         </div>
     </div>
-    <!-- 线下 -->
-    <section class="campus pub">
-        <img src="{{.data.offline.Imgurl}}">
+    <!-- AI自适应 -->
+    <section class="js pub zsy">
+        <dl>
+            <dt><img src="{{.data.ai.Imgurl}}"></dt>
+            <dd>
+                <ul>
+                    <li class="blue">AI自适应系统</li>
+                    <li class="green">多维度梯度式练习</li>
+                    <li class="blue">针对性突破练习</li>
+                    <li class="green">智能分析反馈学情</li>
+                </ul>
+                <ul>
+                    <li class="blue">教师调整教学 </li>
+                    <li class="green">分层次学习</li>
+                </ul>
+            </dd>
+        </dl>
     </section>
-    <!-- 地图 -->
-    <section class="map pub">
-        <img src="{{.data.map.Imgurl}}">
+    <!-- 针对性突破练习 -->
+    <section class="js pub">
+        <dl>
+            <dt><img src="{{.data.auto.Imgurl}}"></dt>
+            <dd>
+                <h3 class="bname">{{.data.auto.Bname}}</h3>
+                <p class="info">{{.data.auto.Info}}</p>
+            </dd>
+        </dl>
     </section>
-    <!-- 200 -->
-    <section class="all pub">
-        <img src="{{.data.hundred.Imgurl}}" class="hundred">
-        <img src="{{.data.thousand.Imgurl}}" class="thousand">
+    <!-- 多维度梯度式练习 -->
+    <section class="fc pub">
+        <dl>
+            <dt><img src="{{.data.more.Imgurl}}"></dt>
+            <dd>
+                <h3 class="bname">{{.data.more.Bname}}</h3>
+                <p class="info">{{.data.more.Info}}</p>
+            </dd>
+        </dl>
+    </section>
+    <!-- 针对性突破练习 -->
+    <section class="js pub more">
+        <dl>
+            <dt><img src="{{.data.zd.Imgurl}}"></dt>
+            <dd>
+                <h3 class="bname">{{.data.zd.Bname}}</h3>
+                <p class="info">{{.data.zd.Info}}</p>
+            </dd>
+        </dl>
+    </section>
+    <!-- 智能分析反馈学情 -->
+    <section class="fc fx pub">
+        <dl>
+            <dt><img src="{{.data.fx.Imgurl}}"></dt>
+            <dd>
+                <h3 class="bname">{{.data.fx.Bname}}</h3>
+                <p class="info">{{.data.fx.Info}}</p>
+            </dd>
+        </dl>
+    </section>
+    <!-- 教师调整教学 -->
+    <section class="js pub">
+        <dl>
+            <dt><img src="{{.data.js.Imgurl}}"></dt>
+            <dd>
+                <h3 class="bname">{{.data.js.Bname}}</h3>
+                <p class="info">{{.data.js.Info}}</p>
+            </dd>
+        </dl>
+    </section>
+    <!-- 分层次学习 -->
+    <section class="fc pub last">
+        <dl>
+            <dt><img src="{{.data.fc.Imgurl}}"></dt>
+            <dd>
+                <h3 class="bname">{{.data.fc.Bname}}</h3>
+                <p class="info">{{.data.fc.Info}}</p>
+            </dd>
+        </dl>
     </section>
     {{template "wap_footer"}}
 {{end}}

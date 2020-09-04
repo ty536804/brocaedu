@@ -1,0 +1,126 @@
+/*分层次学习*/
+.fc{
+    height: 217px;
+    width: 100%;
+    position: relative;
+}
+.fc dl{
+    width: 310px;
+    position: absolute;
+    right: 0;
+    height: 217px;
+}
+.fc dl dt {
+    height: 217px;
+}
+.fc dl dt img{
+    height: 217px;
+}
+dl dd {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+.bname{
+    width:100%;
+    text-align: center;
+    height: 25px;
+    font-size: 18px;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #0080CB;
+    line-height: 25px;
+    text-shadow: 1px 1px 0px #04D3DB;
+    margin-top: 39px;
+    margin-bottom: 10px;
+}
+.info {
+    width: 100%;
+    height: 113px;
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #666666;
+    line-height: 20px;
+    padding: 0 21px 0 22px !important;
+}
+/*教师调整教学*/
+.js{
+    height: 287px;
+    width: 100%;
+    position: relative;
+}
+.js dl{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    height: 287px;
+}
+.js dl dt {
+    height: 287px;
+}
+.js dl dt img{
+    height: 287px;
+}
+.js .bname{
+    margin-top: 75px;
+    width: 80%;
+}
+.js .info{
+
+    width: 80%;
+}
+.fx .bname{
+    text-indent: -50px;
+}
+.more{
+    margin-bottom: 40px;
+}
+.more dl dt img,.more dl,.more dl dt,.more {
+    height: 236px;
+}
+.more .bname{
+    margin-top: 59px;
+}
+.zsy dl dt img,.zsy dl,.zsy dl dt,.zsy {
+    height: 204px;
+}
+.zsy ul li{
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #0B3A6C;
+    line-height: 25px;
+    text-indent: 20px;
+    height: 25px;
+}
+.blue{
+    background: url("../img/ico_checkmark_blue@2x.png") no-repeat left top 4px;
+    background-size: 17px 17px;
+}
+.green{
+    background: url("../img/ico_checkmark_green@2x.png") no-repeat left top 4px;
+    background-size: 17px 17px;
+}
+.zsy ul{
+    width: 130px;
+    margin-top: 100px;
+    margin-left: 20px;
+    float: left;
+}
+.zsy ul:last-child{
+    margin-left: 0;
+    margin-top: 151px;
+}
+.zsy dd{
+    height: 204px;
+}
+.zsy{
+    margin-bottom: 24px;
+}
+.last{
+    margin-bottom: 30px;
+}
