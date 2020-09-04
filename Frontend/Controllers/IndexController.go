@@ -21,8 +21,14 @@ func Index(c *gin.Context) {
 
 // @Summer 首页
 func FrontEnd(c *gin.Context) {
+	var where = make(map[string]interface{})
+	where["is_show"] = 1
+	list := Article.GetArticles(1, where)
+	if len(list) > 5 {
+		list = list[0:4]
+	}
 	var data = make(map[string]interface{})
-	data["list"] = Article.GetArticles(1, data) //新闻列表
+	data["list"] = list                         //新闻列表
 	data["banner"] = Banner.GetBannerData(1, 1) //轮播图
 	data["learn"] = Banner.GetOneBanner(1, 1, "你正在面临的学习问题")
 	data["plan"] = Banner.GetBannerByTag(1, 1, "解决方案")

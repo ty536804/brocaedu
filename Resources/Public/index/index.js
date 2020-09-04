@@ -50,6 +50,18 @@ $(function () {
                         _onlinelist += '<dl class="'+(k==1 ? 'mid' : '')+'"><dt style="'+(k==1? 'display:none' : '')+'">'+v.bname+'</dt><dd><img src="'+v.imgurl+'"><p  style="'+(k==1? 'display:none' : '')+'">'+v.info+'</p></dd></dl>'
                     })
                     $('.systemList').empty().html(_onlinelist)
+
+                    if (result.data.list.length >=1) {
+                        let _dl = "";
+                        $.each(result.data.list, function (k, v) {
+                            if (k<4) {
+                                _dl += "<dl><a href='/detail?id="+v.id+"'><dt><img src='" + v.thumb_img + "'></dt><dd><h5>" + v.title + "</h5><p>" + v.summary + "</p></dd></a></dl>"
+                            }
+                        })
+                        $('.footer_warp').css("marginTop","-130px")
+                        $('.news').css("display","block");
+                        $('.six_reason').append(_dl);
+                    }
                 }
             }
         });
