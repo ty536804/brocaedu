@@ -95,6 +95,7 @@ function getAjax()
         success: function (result) {
             let _html= '<option value="">请选择</option>';
             if (Number(result.code) == 200) {
+                $('#content').val(result.data.detail.content);
                 $("#title").val(result.data.detail.title)
                 $("#com").val(result.data.detail.com)
                 $("#summary").val(result.data.detail.summary)
@@ -114,10 +115,9 @@ function getAjax()
                 }
 
                 if (result.data.detail.thumb_img != "") {
-                    let _imgURL = '/static/upload/'+result.data.detail.thumb_img
-                    $("#imgurl").val(_imgURL)
+                    $("#imgurl").val(result.data.detail.thumb_img)
                     $("#demo1").show();
-                    $('#demo1').attr('src', _imgURL);
+                    $('#demo1').attr('src', result.data.detail.thumb_img);
                 }
                 $.each(result.data.list,function (k,v) {
                     if (Number(result.data.detail.nav_id) == Number(v.id)) {

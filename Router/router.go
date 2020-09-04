@@ -127,7 +127,7 @@ func InitRouter() *gin.Engine {
 		r.POST("/getNavList", nav.GetNavList) //添加导航API
 		//文章
 		apiv1.GET("/article", v3.Show)           //文章列表
-		apiv1.POST("/articleList", v3.ShowList)  //文章列表API
+		apiv1.GET("/articleList", v3.ShowList)   //文章列表API
 		apiv1.GET("/articleDetail", v3.Detail)   //文章列表
 		apiv1.POST("/getArticle", v3.GetArticle) //文章详情API
 		apiv1.POST("/addArticle", v3.AddArticle) //文章详情API

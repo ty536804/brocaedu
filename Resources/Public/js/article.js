@@ -4,7 +4,7 @@ getAjax(1)
 function getAjax(page)
 {
     $.ajax({
-        type: "POST",
+        type: "GET",
         dataType: "json",
         url: "/api/v1/articleList",
         data: {"page":page},
@@ -19,16 +19,16 @@ function getAjax(page)
                         '<a title="编辑" href="/api/v1/articleDetail?id='+v.id+'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</a>\n' +
                         '</td></tr>';
                 })
+                pageList(page,result.data.count)
             } else {
                 _html = "<tr><td colspan='9' class='text-center'>暂无内容</td></tr>"
             }
             $(".tbody").empty().append(_html)
-            pageList(page,result.data.count)
         }
     });
 }
 
-
+//分页
 function pageList(page,PageCount) {
     $('#pageLimit').bootstrapPaginator({
         currentPage: page,//当前页。
