@@ -3,7 +3,6 @@ package Article
 import (
 	db "brocaedu/Database"
 	"brocaedu/Models/Nav"
-	"brocaedu/Pkg/setting"
 	"fmt"
 )
 
@@ -56,12 +55,12 @@ func EditArticle(id int, data interface{}) bool {
 }
 
 // @Summer 获取所有文章
-func GetArticles(page int, data interface{}) (articleS []Article) {
+func GetArticles(page, pageNum int, data interface{}) (articleS []Article) {
 	offset := 0
 	if page >= 1 {
-		offset = (page - 1) * setting.PageSize
+		offset = (page - 1) * pageNum
 	}
-	db.Db.Where(data).Offset(offset).Limit(setting.PageSize).Order("id desc").Find(&articleS)
+	db.Db.Where(data).Offset(offset).Limit(pageNum).Order("id desc").Find(&articleS)
 	return
 }
 

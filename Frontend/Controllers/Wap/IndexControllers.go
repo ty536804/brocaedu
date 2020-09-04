@@ -5,8 +5,10 @@ import (
 	"brocaedu/Models/Banner"
 	"brocaedu/Models/Single"
 	"brocaedu/Pkg/e"
+	"brocaedu/Pkg/setting"
 	"brocaedu/Services"
 	"github.com/gin-gonic/gin"
+	"github.com/unknwon/com"
 )
 
 var baseUrl = "http://www.brocaedu.com/"
@@ -37,7 +39,7 @@ func IndexInfo(c *gin.Context) {
 	data["small"] = Banner.GetBannerByTag(1, 2, "小程序")
 	var where = make(map[string]interface{})
 	where["is_show"] = 1
-	list := Article.GetArticles(1, where)
+	list := Article.GetArticles(1, setting.PageSize, where)
 	if len(list) > 5 {
 		list = list[0:4]
 	}
@@ -154,5 +156,26 @@ func AiLearn(c *gin.Context) {
 	c.HTML(e.SUCCESS, "wap/ai.html", gin.H{
 		"title": "AI学习平台",
 		"data":  data,
+	})
+}
+
+// @Summer 新闻动态
+func News(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(8, 2) //轮播图
+	Services.AddVisit(c, baseUrl+"list")
+	c.HTML(e.SUCCESS, "wap/new.html", gin.H{
+		"title": "新闻动态",
+	})
+}
+
+// @Summer 新闻详情
+func NewDetail(c *gin.Context) {
+	id := com.StrTo(c.DefaultQuery("id", "0")).MustInt()
+	_url := baseUrl + "de?id=" + string(id)
+	Services.AddVisit(c, _url)
+	c.HTML(e.SUCCESS, "wap/detail.html", gin.H{
+		"title":  "新闻详情",
+		"detail": id,
 	})
 }

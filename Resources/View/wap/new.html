@@ -1,0 +1,25 @@
+{{define "wap/campus.html"}}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>新闻列表</title>
+        {{template "wap_header"}}
+        <link rel="stylesheet" href="/static/wap/css/wap_news.css">
+    </head>
+    <body>
+    {{template "wap_nav"}}
+    <!-- 顶部轮播图 -->
+    <div class="banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {{ range .data.banner}}
+                    <div class="swiper-slide">
+                        <img src="{{.Imgurl}}" alt="">
+                    </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
+    {{template "footer"}}
+{{end}}

@@ -3,6 +3,7 @@ package Article
 import (
 	"brocaedu/Models/Article"
 	"brocaedu/Pkg/e"
+	"brocaedu/Pkg/setting"
 	"brocaedu/Services"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
@@ -19,7 +20,7 @@ func Show(c *gin.Context) {
 func ShowList(c *gin.Context) {
 	page := com.StrTo(c.Query("page")).MustInt()
 	var data = make(map[string]interface{})
-	data["list"] = Article.GetArticles(page, data)
+	data["list"] = Article.GetArticles(page, setting.PageSize, data)
 	data["count"] = e.GetPageNum(Article.GetArticleTotal())
 	e.Success(c, "文章列表", data)
 }

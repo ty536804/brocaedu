@@ -5,6 +5,7 @@ import (
 	"brocaedu/Models/Banner"
 	"brocaedu/Models/Single"
 	"brocaedu/Pkg/e"
+	"brocaedu/Pkg/setting"
 	"brocaedu/Services"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
@@ -23,7 +24,7 @@ func Index(c *gin.Context) {
 func FrontEnd(c *gin.Context) {
 	var where = make(map[string]interface{})
 	where["is_show"] = 1
-	list := Article.GetArticles(1, where)
+	list := Article.GetArticles(1, setting.PageSize, where)
 	if len(list) > 5 {
 		list = list[0:4]
 	}
@@ -134,7 +135,7 @@ func NewList(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["banner"] = Banner.GetBannerData(8, 1) //轮播图
 	data["is_show"] = 1
-	data["list"] = Article.GetArticles(page, data)
+	data["list"] = Article.GetArticles(page, setting.PageSize, data)
 	data["count"] = e.GetPageNum(Article.GetArticleTotal())
 	e.Success(c, "新闻列表", data)
 }
