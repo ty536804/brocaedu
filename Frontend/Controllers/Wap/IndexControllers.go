@@ -1,6 +1,7 @@
 package Wap
 
 import (
+	"brocaedu/Models/Article"
 	"brocaedu/Models/Banner"
 	"brocaedu/Models/Single"
 	"brocaedu/Pkg/e"
@@ -34,6 +35,13 @@ func IndexInfo(c *gin.Context) {
 	data["brandBanner"] = Banner.GetBannerByTag(1, 2, "品牌介绍")
 	data["sys"] = Banner.GetBannerByTag(1, 2, "BROCA智能学练系统")
 	data["small"] = Banner.GetBannerByTag(1, 2, "小程序")
+	var where = make(map[string]interface{})
+	where["is_show"] = 1
+	list := Article.GetArticles(1, where)
+	if len(list) > 5 {
+		list = list[0:4]
+	}
+	data["list"] = list
 	e.Success(c, "首页", data)
 }
 
@@ -135,6 +143,16 @@ func Campus(c *gin.Context) {
 	data["offline"] = Banner.GetOneBanner(6, 2, "线下")      //
 	c.HTML(e.SUCCESS, "wap/campus.html", gin.H{
 		"title": "全国中心",
+		"data":  data,
+	})
+}
+
+// 全国中心
+func AiLearn(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(5, 2) //轮播图
+	c.HTML(e.SUCCESS, "wap/ai.html", gin.H{
+		"title": "AI学习平台",
 		"data":  data,
 	})
 }
