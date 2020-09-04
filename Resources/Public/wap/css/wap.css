@@ -402,13 +402,11 @@
 	overflow: hidden;
 }
 .brand_con dt{
-	width: 345px;
 	height: 97px;
 	text-align: center;
 }
 .brand_con dt img{
-	width: 345px;
-	height: 97px;
+	width: 100%;
 	display: inline-block;
 	padding: 0;
 	float: left;
@@ -421,7 +419,7 @@
 	color:rgba(102,102,102,1);
 	line-height:23px;
 	padding: 0 14px !important;
-	margin-top: 18px;
+	margin-top: 18px !important;
 	display: inline-block;
 }
 .brand_con dd p{

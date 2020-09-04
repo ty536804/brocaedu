@@ -133,9 +133,9 @@ func News(c *gin.Context) {
 func NewList(c *gin.Context) {
 	page := com.StrTo(c.Query("page")).MustInt()
 	var data = make(map[string]interface{})
-	data["banner"] = Banner.GetBannerData(8, 1) //轮播图
 	data["is_show"] = 1
 	data["list"] = Article.GetArticles(page, setting.PageSize, data)
+	data["banner"] = Banner.GetBannerData(8, 1) //轮播图
 	data["count"] = e.GetPageNum(Article.GetArticleTotal())
 	e.Success(c, "新闻列表", data)
 }

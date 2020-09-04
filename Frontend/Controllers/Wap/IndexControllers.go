@@ -149,7 +149,7 @@ func Campus(c *gin.Context) {
 	})
 }
 
-// 全国中心
+// AI学习平台
 func AiLearn(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["banner"] = Banner.GetBannerData(5, 2) //轮播图
@@ -159,13 +159,14 @@ func AiLearn(c *gin.Context) {
 	})
 }
 
-// @Summer 新闻动态
+// @Summer 新闻资讯
 func News(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["banner"] = Banner.GetBannerData(8, 2) //轮播图
 	Services.AddVisit(c, baseUrl+"list")
 	c.HTML(e.SUCCESS, "wap/new.html", gin.H{
-		"title": "新闻动态",
+		"title": "新闻资讯",
+		"data":  data,
 	})
 }
 

@@ -1,19 +1,14 @@
 {{define "wap/detail.html"}}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>北京易学教育科技有限公司</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-touch-fullscreen" content="yes">
-    {{template "head"}}
-    <link href="/static/wap/css/wap_detail.css" rel="stylesheet"/>
-</head>
-<body>
-<section class="detail_head">
-    {{template "nav"}}
-</section>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>新闻资讯</title>
+        {{template "wap_header"}}
+        <link href="/static/wap/css/wap_detail.css" rel="stylesheet"/>
+    </head>
+    <body>
+    {{template "wap_nav"}}
     <section class="detail">
         <h1 class="detail_tit"></h1>
         <p class="detail_date"></p>
@@ -21,8 +16,6 @@
         <section class="detail_con"></section>
     </section>
     <input type="hidden" value="{{.detail}}" class="detail_id">
-{{template "footer"}}
-<script type="text/javascript" src="/static/index/detail.js"></script>
-</body>
-</html>
+    {{template "wap_footer"}}
+    <script type="text/javascript" src="/static/index/detail.js"></script>
 {{end}}

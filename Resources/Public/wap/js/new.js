@@ -12,12 +12,10 @@ function getAjax(page)
             if (Number(result.code) == 200) {
                 $.each(result.data.list,function (k,v) {
                     let timeStr = v.created_at;
-                    _html += "<a href='/detail?id="+v.id+"'><dl><dt><img src='"+v.thumb_img+"'></dt><dd><section class='new_left'>"
-                    _html += '<p class="date">'+timeStr.substring(5,10)+'<span class="new_left_line"></span></p><p class="year">'+timeStr.substring(0,4)+'</p></section>'
-                    _html += '<section class="new_right"><h3>'+v.title+'</h3><p>'+v.summary+'</p><span class="read">阅读原文</span>'
+                    _html += "<a href='/de?id="+v.id+"'><dl><dt><img src='"+v.thumb_img+"'></dt><dd>"
+                    _html += '<section class="new_right"><h3>'+v.title+'</h3><span class="read">'+timeStr.substring(0,10)+'</span>'
                     _html += '</section></dd></dl></a>'
                 })
-                $('.new_banner').empty().html('<img src="'+result.data.banner[0].imgurl+'">')
                 pageList(page,result.data.count)
             }
             $(".new_ul").empty().append(_html)
