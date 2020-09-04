@@ -93,8 +93,10 @@ func ResearchData(c *gin.Context) {
 // @Summer AI学习平台
 func Learn(c *gin.Context) {
 	Services.AddVisit(c, baseUrl+"learn")
+	ai := Banner.GetBannerData(5, 1) //轮播图
 	c.HTML(e.SUCCESS, "index/ai.html", gin.H{
 		"title": "ai学习平台",
+		"ai":    ai,
 	})
 }
 

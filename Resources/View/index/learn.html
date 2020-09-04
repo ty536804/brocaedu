@@ -16,9 +16,11 @@
     <div id="myCarousel" class="carousel slide banner" data-ride="carousel" data-interval="2000">
         <!-- 轮播（Carousel）项目 -->
         <div class="carousel-inner">
+            {{ range .ai}}
             <div class="carousel-item active">
-                <img src="/static/assets/images/banner.png">
+                <img src="{{.Imgurl}}">
             </div>
+            {{end}}
         </div>
     </div>
     <section class="ai pub">
