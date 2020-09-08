@@ -8,7 +8,7 @@ import (
 )
 
 // @Summer 留言
-type JfsdMessage struct {
+type JfsdMessageEnglish struct {
 	ID         int    `gorm:"primary_key" json:"id"`
 	Name       string `json:"name" gorm:"type:varchar(100); not null; default ''; comment:'姓名' "`
 	Tel        string `json:"tel" gorm:"type:varchar(20); not null; default ''; comment:'电话' "`
@@ -22,7 +22,7 @@ type JfsdMessage struct {
 // @Summer elearn100 添加留言
 func AddMessage(c *gin.Context, mname, area, tel string) {
 	uid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")[0]
-	result := elearnDb.Create(&JfsdMessage{
+	result := elearnDb.Create(&JfsdMessageEnglish{
 		Name:       mname,
 		Tel:        tel,
 		Content:    area,

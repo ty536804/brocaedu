@@ -15,6 +15,7 @@ type Site struct {
 	SiteTel       string `json:"site_tel" gorm:"type:varchar(20);not null;default '';comment:'电话'"`
 	SiteEmail     string `json:"site_email" gorm:"type:varchar(50);not null;default '';comment:'邮箱'"`
 	SiteAddress   string `json:"site_address" gorm:"type:varchar(100);not null;default '';comment:'地址'"`
+	AdminTel      string `json:"admin_tel" gorm:"type:varchar(255);not null;default '';comment:'接收短信的管理员手机号码'"`
 	LandLine      string `json:"land_line" gorm:"type:varchar(50);not null;default '';comment:'座机'"`
 	ClientTel     string `json:"client_tel" gorm:"type:varchar(50);not null;default '';comment:'400电话'"`
 	RecordNumber  string `json:"record_number" gorm:"type:varchar(100);not null;default '';comment:'备案号'"`
@@ -30,11 +31,12 @@ func AddSite(data map[string]interface{}) bool {
 	err := db.Db.Create(&Site{
 		SiteTitle:     data["site_title"].(string),
 		SiteDesc:      data["site_desc"].(string),
-		SiteKeyboard:  data["site_title"].(string),
+		SiteKeyboard:  data["site_keyboard"].(string),
 		SiteCopyright: data["site_copyright"].(string),
 		SiteTel:       data["site_tel"].(string),
 		SiteEmail:     data["site_email"].(string),
 		SiteAddress:   data["site_address"].(string),
+		AdminTel:      data["admin_tel"].(string),
 		RecordNumber:  data["record_number"].(string),
 	})
 

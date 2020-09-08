@@ -57,6 +57,7 @@ function getSiteInfo() {
                 $("#addform #site_email").val(result.data.site_email)
                 $("#addform #site_address").val(result.data.site_address)
                 $("#addform #record_number").val(result.data.record_number)
+                $("#addform #admin_tel").val(result.data.admin_tel)
             }
         }
     });
