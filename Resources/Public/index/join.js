@@ -27,7 +27,7 @@ $('.lj_btn').on('click',function () {
         type: "POST",
         dataType: "json",
         url: "/AddMessage",
-        data:$('#banner_form').serialize(),
+        data:$('#top_form').serialize(),
         success: function (result) {
             layer.alert(result.msg);
             return false
