@@ -111,3 +111,22 @@ func DetailsUser(c *gin.Context) {
 	}
 	e.Success(c, "ok", data)
 }
+
+// @Summer 短信配置
+func SmsInfo(c *gin.Context) {
+	c.HTML(e.SUCCESS, "admin/sms.html", gin.H{
+		"title": "短信配置",
+	})
+}
+
+// @Summer 编辑短信
+func AddSms(c *gin.Context) {
+	code, msg := Services.AddSms(c)
+	e.SendRes(c, code, msg, "")
+}
+
+// @Summer 获取短信配置信息
+func GetSms(c *gin.Context) {
+	siteRes := Services.GetSms()
+	e.Success(c, "获取站点信息", siteRes)
+}

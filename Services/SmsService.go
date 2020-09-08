@@ -27,7 +27,7 @@ func init() {
 	_url = smsConfig.Url
 }
 
-// @Summer 发送验证码
+// @Summer 调用第三方
 func SendSms(mobile, msg string) {
 	v := url.Values{}
 
@@ -49,6 +49,7 @@ func SendSms(mobile, msg string) {
 	fmt.Println(string(data), err)
 }
 
+// @Summer 发送短信到指定号码
 func SendSmsToClient(area, name, tel string) {
 	site := Site.GetSite()
 	var telList = strings.Split(strings.TrimSpace(site.AdminTel), ",")
@@ -100,4 +101,9 @@ func AddSms(c *gin.Context) (code int, msg string) {
 		return e.ERROR, "操作失败"
 	}
 	return ViewErr(valid)
+}
+
+// @Summer 获取短信配置信息
+func GetSms() (admin Admin.SysSmsConfig) {
+	return Admin.GetSmsConfig()
 }

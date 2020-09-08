@@ -103,6 +103,12 @@ func InitRouter() *gin.Engine {
 		apiv1.GET("/logout", v1.LogOut)           //查看当用户API
 		apiv1.POST("/editUser", v1.UpdateUser)    //获取站点信息API
 		apiv1.GET("/detailsUser", v1.DetailsUser) //查看当用户API
+
+		// 短信
+		apiv1.GET("/sms", v1.SmsInfo)     //短信配置
+		apiv1.POST("/editSms", v1.AddSms) //编辑短信
+		apiv1.GET("/getSms", v1.GetSms)   //查看短信
+
 		//站点信息
 		apiv1.GET("/siteInfo", v1.SiteInfo) //查看站点信息API
 		apiv1.POST("/addSite", v1.AddSite)  //添加站点信息API
