@@ -174,10 +174,6 @@ func Authorize(c *gin.Context) {
 func JoinData(c *gin.Context) {
 	c.Request.Body = e.GetBody(c)
 	var data = make(map[string]interface{})
-	data["banner"] = Banner.GetData(8, 0)
-	data["app"] = Banner.GetData(8, 1)
-	data["learn"] = Banner.GetData(8, 2)
-	data["mid"] = Banner.GetData(8, 3)
 	e.Success(c, "success", data)
 }
 
