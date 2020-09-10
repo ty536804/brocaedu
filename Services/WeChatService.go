@@ -1,6 +1,7 @@
 package Services
 
 import (
+	"brocaedu/Models/Article"
 	"brocaedu/Pkg/e"
 	"bytes"
 	"encoding/json"
@@ -10,7 +11,6 @@ import (
 	"log"
 	"net/http"
 	"net/url"
-	"time"
 )
 
 var (
@@ -62,19 +62,64 @@ func GetToken() (string, error) {
 }
 
 type BatChGetMaterial struct {
-	title      string    `json:"title"`
-	author     string    `json:"author"`
-	content    string    `json:"content"`
-	createTime time.Time `json:"create_time"`
-	updateTime time.Time `json:"update_time"`
-	thumbUrl   string    `json:"thumb_url"`
-	url        string    `json:"url"`
-}
-
-type jMap struct {
+	Item []struct {
+		MediaId string `json:"media_id"`
+		Content struct {
+			NewsItem []struct {
+				Title              string `json:"title"`
+				Author             string `json:"author"`
+				Digest             string `json:"digest"`
+				Content            string `json:"content"`
+				ContentSourceUrl   string `json:"content_source_url"`
+				ThumbMediaId       string `json:"thumb_media_id"`
+				ShowCoverPic       int    `json:"show_cover_pic"`
+				Url                string `json:"url"`
+				ThumbUrl           string `json:"thumb_url"`
+				NeedOpenComment    int    `json:"need_open_comment"`
+				OnlyFansCanComment int    `json:"only_fans_can_comment"`
+			} `json:"news_item"`
+			CreateTime int64 `json:"create_time"`
+			UpdateTime int64 `json:"update_time"`
+		}
+		UpdateTime int `json:"update_time"`
+	}
+	TotalCount int `json:"total_count"`
+	ItemCount  int `json:"item_count"`
 }
 
 func GetArticle() {
+	var begin int
+	result, err := ResolveUrl(begin, 10)
+	var article = make(map[string]interface{})
+
+	if err != nil {
+		fmt.Printf("read resp.body failed,err:%v\n", err)
+	} else {
+		stu := &BatChGetMaterial{}
+		res := json.Unmarshal(result, &stu)
+		if res == nil {
+			for _, item := range stu.Item {
+				res := item.Content.NewsItem[0]
+				if res.Title != "" {
+					article["title"] = res.Title
+					article["summary"] = res.Digest
+					article["thumb_img"] = res.ThumbUrl
+					article["admin"] = res.Author
+					article["com"] = "weChat"
+					article["is_show"] = 1
+					article["content"] = res.Content
+					article["hot"] = 0
+					article["sort"] = 0
+					article["nav_id"] = 8
+					article["created_at"] = item.Content.UpdateTime
+					Article.AddArticle(article)
+				}
+			}
+		}
+	}
+}
+
+func ResolveUrl(offset, count int) ([]byte, error) {
 	isOk, accessToken := e.GetVal("access_token")
 	if !isOk {
 		token, err := GetToken()
@@ -83,12 +128,11 @@ func GetArticle() {
 		}
 		accessToken = token
 	}
-
-	url := "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=" + accessToken
 	data := make(map[string]interface{})
 	data["type"] = "news"
-	data["offset"] = "0"
-	data["count"] = "20"
+	data["offset"] = offset
+	data["count"] = count
+	url := "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=" + accessToken
 
 	bytesData, err := json.Marshal(data)
 	if err != nil {
@@ -100,10 +144,5 @@ func GetArticle() {
 	resp, err := http.DefaultClient.Do(rep)
 
 	defer resp.Body.Close()
-	result, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		fmt.Printf("read resp.body failed,err:%v\n", err)
-	} else {
-		fmt.Println(string(result))
-	}
+	return ioutil.ReadAll(resp.Body)
 }
