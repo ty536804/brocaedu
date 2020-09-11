@@ -12,6 +12,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"time"
 )
 
 var (
@@ -55,14 +56,15 @@ func SendSmsToClient(area, name, tel string) {
 	var telList = strings.Split(strings.TrimSpace(site.AdminTel), ",")
 	telList = append(telList, tel)
 	if len(telList) > 0 {
-		for k, tel := range telList {
+		for k, telItem := range telList {
 			msg := ""
 			if (k + 1) == len(telList) {
 				msg = "我们已收到您的留言。我们的招商经理会在24小时内联系您，请您注意接听来自北京的电话，谢谢。"
 			} else {
 				msg = area + "的" + name + "留言了。联系" + tel + "留言来源布罗卡斯"
 			}
-			SendSms(tel, msg)
+			SendSms(telItem, msg)
+			time.Sleep(1000)
 		}
 	}
 }

@@ -87,6 +87,7 @@ type BatChGetMaterial struct {
 	ItemCount  int `json:"item_count"`
 }
 
+// @Summer 微信获取文章
 func GetArticle() {
 	var begin int
 	result, err := ResolveUrl(begin, 10)
