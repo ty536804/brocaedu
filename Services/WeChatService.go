@@ -1,6 +1,7 @@
 package Services
 
 import (
+	db "brocaedu/Database"
 	"brocaedu/Models/Article"
 	"brocaedu/Pkg/e"
 	"bytes"
@@ -11,7 +12,12 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"strings"
+	"sync"
+	"time"
 )
+
+var wt sync.WaitGroup
 
 var (
 	APPID     = "wxc6fc8246185aa2b8"
@@ -90,7 +96,7 @@ type BatChGetMaterial struct {
 // @Summer 微信获取文章
 func GetArticle() {
 	var begin int
-	result, err := ResolveUrl(begin, 10)
+	result, err := ResolveUrl(begin, 70)
 	var article = make(map[string]interface{})
 
 	if err != nil {
@@ -102,18 +108,29 @@ func GetArticle() {
 			for _, item := range stu.Item {
 				res := item.Content.NewsItem[0]
 				if res.Title != "" {
+					tit := strings.TrimSpace(res.Title)
+					currentTime := time.Now().Format("2006-01-02 15:04:05")
+					if strings.Contains("练脑时刻", tit) {
+						currentTime = Article.SubTime(item.Content.UpdateTime)
+					}
+					// url尾部字符串
+					imgType := Article.ThumbImgType(res.ThumbUrl)
+					thumbImg := Article.TrimUrl(imgType, res.ThumbUrl)
 					article["title"] = res.Title
 					article["summary"] = res.Digest
-					article["thumb_img"] = res.ThumbUrl
+					article["thumb_img"] = thumbImg
 					article["admin"] = res.Author
 					article["com"] = "weChat"
 					article["is_show"] = 1
-					article["content"] = res.Content
+					article["content"] = Article.ReplaceContent(res.Content)
 					article["hot"] = 0
 					article["sort"] = 0
 					article["nav_id"] = 8
-					article["created_at"] = item.Content.UpdateTime
-					Article.AddArticle(article)
+					article["created_at"] = currentTime
+					if thumbImg != "" {
+						wt.Add(1)
+						go WeAddArticle(article)
+					}
 				}
 			}
 		}
@@ -146,4 +163,32 @@ func ResolveUrl(offset, count int) ([]byte, error) {
 
 	defer resp.Body.Close()
 	return ioutil.ReadAll(resp.Body)
+}
+
+// @Summer 添加文章
+func WeAddArticle(data map[string]interface{}) bool {
+	defer wt.Done()
+
+	currentTime := time.Now().Format("2006-01-02 15:04:05")
+	UpdatedAt := time.Now().Format("2006-01-02 15:04:05")
+	article := db.Db.Create(&Article.Article{
+		Title:     data["title"].(string),
+		Summary:   data["summary"].(string),
+		ThumbImg:  data["thumb_img"].(string),
+		Admin:     data["admin"].(string),
+		Com:       data["com"].(string),
+		IsShow:    data["is_show"].(int),
+		Content:   data["content"].(string),
+		Hot:       data["hot"].(int),
+		Sort:      data["sort"].(int),
+		NavId:     data["nav_id"].(int),
+		CreatedAt: currentTime,
+		UpdatedAt: UpdatedAt,
+	})
+
+	if article.Error != nil {
+		fmt.Print("添加文章失败", article)
+		return false
+	}
+	return true
 }

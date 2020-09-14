@@ -55,6 +55,7 @@ func InitRouter() *gin.Engine {
 	r.GET("/omo", frontend.Omo)
 	r.GET("/campus", frontend.Campus) //全国校区
 	r.GET("/down", frontend.Down)
+	r.GET("/weChat", frontend.GetWeChat)
 	//移动端
 	r.GET("/wap", Wap.Index)
 	r.GET("/wapInfo", Wap.IndexInfo)

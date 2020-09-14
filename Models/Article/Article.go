@@ -4,8 +4,16 @@ import (
 	"brocaedu/Backend"
 	db "brocaedu/Database"
 	"brocaedu/Models/Nav"
+	"bufio"
 	"fmt"
+	"image"
+	"io"
+	"net/http"
+	"os"
+	"path"
 	"regexp"
+	_ "regexp"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -32,20 +40,14 @@ type Article struct {
 func AddArticle(data map[string]interface{}) bool {
 	currentTime := time.Now().Format("2006-01-02 15:04:05")
 	UpdatedAt := time.Now().Format("2006-01-02 15:04:05")
-	tit := strings.TrimSpace(data["title"].(string))
-
-	if strings.Contains("练脑时刻", tit) && data["created_at"] != "" {
-		currentTime = SubTime(data["created_at"].(int64))
-	}
-
 	article := db.Db.Create(&Article{
-		Title:     tit,
-		Summary:   TrimUrl(ThumbImgType(data["thumb_img"].(string)), data["thumb_img"].(string)),
+		Title:     data["title"].(string),
+		Summary:   data["summary"].(string),
 		ThumbImg:  data["thumb_img"].(string),
 		Admin:     data["admin"].(string),
 		Com:       data["com"].(string),
 		IsShow:    data["is_show"].(int),
-		Content:   ReplaceContent(data["content"].(string)),
+		Content:   data["content"].(string),
 		Hot:       data["hot"].(int),
 		Sort:      data["sort"].(int),
 		NavId:     data["nav_id"].(int),
@@ -62,9 +64,29 @@ func AddArticle(data map[string]interface{}) bool {
 
 // @Summer 剔除url尾部字符串
 func TrimUrl(prefix, url string) string {
-	subUrl := strings.TrimRight(url, prefix)
-	_newUrl := Backend.QiNiu(subUrl)
-	return _newUrl
+	subUrl := strings.TrimRight(url, prefix) + ThumbImg(url)
+	downImg := DownImg(subUrl)
+	if downImg == "mp4" {
+		return url
+	}
+	if strings.Contains("video_player", url) {
+		return url
+	}
+	imgUrl := ""
+	if reader, err := os.Open(downImg); err != nil {
+		defer reader.Close()
+		_, _, err := image.DecodeConfig(reader)
+		if err != nil {
+			_newImg := Backend.QiNiu(downImg)
+			if _newImg != "" {
+				imgUrl = "http://img.cdn.brocaedu.com/" + _newImg
+			}
+		} else {
+			return url
+		}
+	}
+
+	return imgUrl
 }
 
 // @Summer 替换图片地址
@@ -80,7 +102,9 @@ func ReplaceContent(content string) string {
 	for _, v := range res {
 		png := ThumbImgType(v[1]) //原有图片地址
 		_newUrl := TrimUrl(png, v[1])
-		content = ReplaceUrl(content, _newUrl, v[1])
+		if _newUrl != "" || !strings.Contains("mp4", png) {
+			content = ReplaceUrl(content, _newUrl, v[1])
+		}
 	}
 	resCon := strings.Replace(content, "data-src", "src", -1)
 	return resCon
@@ -100,6 +124,27 @@ func ThumbImgType(ImgSrc string) string {
 	}
 	if strings.HasSuffix(ImgSrc, "?wx_fmt=gif") {
 		png = "?wx_fmt=gif"
+	}
+	return png
+}
+
+// @Summer 返回图片结尾的参数
+func ThumbImg(ImgSrc string) string {
+	png := ""
+	if strings.HasSuffix(ImgSrc, "png") {
+		png = ".png"
+	}
+	if strings.HasSuffix(ImgSrc, "jpeg") {
+		png = ".jpeg"
+	}
+	if strings.HasSuffix(ImgSrc, "jpg") {
+		png = ".jpg"
+	}
+	if strings.HasSuffix(ImgSrc, "gif") {
+		png = ".gif"
+	}
+	if strings.HasSuffix(ImgSrc, "mp4") {
+		png = ""
 	}
 	return png
 }
@@ -140,4 +185,81 @@ func GetArticleTotal() (count int) {
 func SubTime(timesTr int64) string {
 	nowTime := time.Unix(timesTr, 0)
 	return nowTime.AddDate(-1, 0, 0).Format("2006-01-02 15:04:05")
+}
+
+// @Summer下载图片
+func DownImg(imgUrl string) string {
+	fileName := path.Base(imgUrl)
+	if strings.Contains("map", imgUrl) {
+		return "mp4"
+	}
+	if strings.Contains("video_player", imgUrl) {
+		return ""
+	}
+	h := http.Client{
+		Timeout: time.Duration(86400 * time.Second),
+	}
+	res, err := h.Get(imgUrl)
+	if err != nil {
+		fmt.Println("A error occurred!:", err)
+		return ""
+	}
+
+	defer res.Body.Close()
+	reader := bufio.NewReader(res.Body)
+
+	imgPath, fileErr := Backend.UploadDir()
+	if !fileErr {
+		fmt.Println("目录创建失败")
+		return ""
+	}
+
+	file, err := os.Create(imgPath + fileName)
+	if err != nil {
+		panic(err)
+	}
+
+	// 获得文件的writer对象
+	writer := bufio.NewWriter(file)
+	writerLen, err := io.Copy(writer, reader)
+	if err != nil {
+		fmt.Println("下载图片失败", err)
+		return ""
+	}
+	if writerLen > 0 {
+		return RenameImg(fileName)
+	}
+	return fileName
+}
+
+// @Summer 图片重命名
+func RenameImg(imgName string) string {
+	if imgName == "" {
+		fmt.Println("图片重命名：空的图片")
+		return ""
+	}
+
+	dir, fileErr := Backend.UploadDir()
+	if !fileErr {
+		fmt.Println("目录创建失败")
+		return ""
+	}
+	fileName := ""
+	if ThumbImg(imgName) != "" {
+		ot := time.Now().UnixNano() / int64(time.Millisecond)
+		_S := strconv.FormatInt(ot, 10)
+		fileName = _S + ThumbImg(imgName)
+	}
+
+	_, err := os.Stat(dir + imgName)
+	if err == nil {
+		filePath := dir + fileName
+		err = os.Rename(dir+imgName, filePath)
+		if err != nil {
+			fmt.Println("reName Error", err)
+			return ""
+		}
+		return fileName
+	}
+	return ""
 }
