@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "brocaedu/Commands"
+	//_ "brocaedu/Commands"
 	"brocaedu/Pkg/setting"
 	"brocaedu/Router"
 	"fmt"

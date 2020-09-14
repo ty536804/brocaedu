@@ -20,8 +20,8 @@ import (
 var wt sync.WaitGroup
 
 var (
-	APPID     = "wxc6fc8246185aa2b8"
-	APPSECRET = "fd85ee04d782f48418bb2baaa474106a"
+	APPID     = "wx86181b3a0022cc1f"
+	APPSECRET = "c982d07aeb6c79c97f3bd6df1047653c"
 	GRANTTYPE = "client_credential"
 )
 
