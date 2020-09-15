@@ -142,7 +142,7 @@ func GetArticle(begin, count int) {
 
 func GetArt() {
 	total := Article.GetArticleTotal()
-	GetArticle(total, 1)
+	GetArticle(total+1, 1)
 }
 
 func ResolveUrl(offset, count int) ([]byte, error) {
