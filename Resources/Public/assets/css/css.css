@@ -1,0 +1,315 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body,html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+
+#allMap {
+	height: 100%;
+	width: 100%;
+}
+.bubble p {
+	width: 100px;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+}
+.bubble .name {
+	margin-top: 18px;
+}
+.bubble .price {
+	margin-top: 5px;
+}
+.bubble .count {
+	margin-top: 5px;
+}
+.ZLQbubble{
+	text-align: center;
+	padding: 0px 15px;
+}
+.ZLQbubble span{
+	height: 25px;
+	line-height: 25px;
+	color: #fff;
+	font-size: 12px;
+}
+.ZLQbubble .count{
+	font-weight: bold;
+}
+.drawing , .exit{
+	position: absolute;
+	background: #46ACFF;
+	border: 0px;
+	color: white;
+	width: 100px;
+	height: 35px;
+	line-height: 35px;
+	font-size: 15px;
+	font-weight: bold;
+	border-radius: 15px;
+	outline:none;
+	left: 50%;
+	bottom: 20px;
+}
+.exit{
+	left: 110px;
+}
+.houseList{
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+	background: #fff;
+	z-index: 1;
+	display: none;
+	left: 0;
+}
+.houseList a{
+	width: 100%;
+	display: inline-block;
+	margin-bottom: 70px;
+	overflow: hidden;
+}
+.houseList a:last-child{
+	margin-bottom: 0;
+}
+.bottom {
+	width: 100%;
+	height: 22px;
+	justify-content: center;
+	display: flex;
+	margin-top: 12px;
+	margin-bottom: 13px;
+}
+.bottom img{
+	width: 22px;
+	height: 22px;
+	display: inline-block;
+}
+.smallTit{
+	height: 34px;
+	font-size: 18px;
+	font-weight: 800;
+	line-height: 34px;
+	 text-indent: 15px;
+}
+.small_tag{
+   height: 28px;
+   font-size: 14px;
+   font-family: PingFang SC;
+   font-weight: 500;
+   color: #333;
+   line-height: 24px;
+   text-indent: 15px;
+}
+.header_con{
+	width: 100%;
+	height: 70px;
+	border-bottom: 1px solid #F1F1F1;
+	text-align: left;
+	color: #333333;
+	font-family: PingFang SC;
+	margin-bottom: 20px;
+}
+a{
+	text-decoration: none;
+}
+.houseItemView {
+	display: flex;
+	height: 154px;
+	flex-direction: row;
+	justify-content: space-between;
+	/* width: 93%;
+	margin: 0 auto; */
+	margin: 0 15px;
+}
+.houseItemImg{
+	width: 132px;
+	display: inline-block;
+	position: relative;
+}
+.thumb_img{
+	width: 132px;
+	height: 82px;
+	border-radius: 5px;
+}
+ul li,li,a ul li,a{
+	list-style: none !important;
+	list-style-type:none !important;
+}
+.tag {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row;
+	flex-flow: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	width: 100%;
+	height: 27px;
+	margin-top: 2px;
+}
+.tag li {
+	width: 70px;
+	height: 27px;
+	font-size: 12px;
+	font-family: PingFang SC;
+	font-weight: 500;
+	background: #E4EFFD;
+	color: #4297FF;
+	line-height: 27px;
+	text-align: center;
+	border-radius: 2px;
+	display: inline-block;
+	-webkit-transform-origin-x: 0;
+	-webkit-transform: scale(0.85); 
+}
+.tag li:last-child {
+	color: #FF8126 !important;
+	background: #fff2e9 !important;
+	margin-right: -10px;
+}
+.houseItem {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+	margin-left: 13px;
+}
+.itemTitle{
+	height: 44px;
+	font-size: 16px;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #333;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	-webkit-transform-origin-x: 0;
+	-webkit-transform: scale(0.85); 
+}
+.itemInfo{
+	font-size: 13px;
+	color: #666;
+	margin: 1px 0;
+}
+.redPrice{
+	margin-left: 5px;
+	color: #E02E24;
+	font-size: 14px;
+}
+.itemPrice{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	color: #333333;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	
+}
+.itemPrice li{
+	font-size: 12px;
+	-webkit-transform-origin-x: 0;
+	-webkit-transform: scale(0.85); 
+	width: 50%;
+	min-width:  110px;
+}
+.createIime{
+	margin-top: 5px;
+	border-radius: 5px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	text-align: center;
+	height: 28px;
+	background: #F8F8F8 url(../img/item@2x.png) no-repeat left 5px center;
+	color: #E02E24;
+	background-size: 16px 16px;
+	font-size: 0.75rem;
+	line-height: 26px;
+	-webkit-transform-origin-x: 0;
+	-webkit-transform: scale(0.85); 
+	text-indent: 25px;
+	width: 215px;
+}
+.house_status{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row;
+	flex-flow: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	width: 100%;
+	font-size: 11px;
+	position: absolute;
+	z-index: 10;
+	color: #fff;
+	top: 11px;
+}
+.house_status_blue{
+	background: #3C76D9;
+	width: 46px;
+	height: 16px;
+	line-height: 16px;
+	text-align: center;
+	font-size: 11px;
+	border-radius: 0 8px 8px 0;
+}
+.header img{
+	width: 22px;
+	height: 22px;
+	display: inline-block;
+}
+.nav{
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	height: 42px;
+	position: fixed;
+	top: 0;
+	z-index: 11;
+	background: #fff;
+	width: 100%;
+	padding: 10px 15px;
+	box-sizing: border-box;
+}
+.nav img{
+	width: 22px;
+	height: 22px;
+	display: inline-block;
+}
+.left{
+	width: 8px !important;
+	height: 16px !important;
+	margin-top: 3px !important;
+}
+.searchTit{
+	height: 22px;
+	font-size: 16px;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #333333;
+	line-height: 22px;
+}

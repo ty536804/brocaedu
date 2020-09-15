@@ -15,194 +15,31 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ETLXgCxIoVixggHcAk6mKpMd"></script>
         <script type="text/javascript" src="/static/assets/js/jquery.min.js"></script>
-        <style>
-            *{
-                padding: 0;
-                margin: 0;
-            }
-            body,html {
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                font-family: "微软雅黑";
-            }
-
-            #allMap {
-                height: 100%;
-                width: 100%;
-            }
-            .bubble p {
-                width: 100px;
-                line-height: 20px;
-                text-align: center;
-                color: #fff;
-                font-size: 18px;
-            }
-            .bubble .name {
-                margin-top: 18px;
-            }
-            .bubble .price {
-                margin-top: 5px;
-            }
-            .bubble .count {
-                margin-top: 5px;
-            }
-            .ZLQbubble{
-                text-align: center;
-                padding: 0px 15px;
-            }
-            .ZLQbubble span{
-                height: 25px;
-                line-height: 25px;
-                color: #fff;
-                font-size: 12px;
-            }
-            .ZLQbubble .count{
-                font-weight: bold;
-            }
-            .drawing , .exit{
-                position: absolute;
-                background: #46ACFF;
-                border: 0px;
-                color: white;
-                width: 100px;
-                height: 35px;
-                line-height: 35px;
-                font-size: 15px;
-                font-weight: bold;
-                border-radius: 15px;
-                outline:none;
-                left: 50%;
-                bottom: 20px;
-            }
-            .exit{
-                display: none;
-            }
-            .houseList{
-                bottom: 0;
-                position: absolute;
-                height: 60%;
-                width: 100%;
-                background: #fff;
-                z-index: 1;
-                display: block;
-                left: 0;
-                display: none;
-            }
-            .houseList a,.houseList a dl{
-                height: 218px;
-                width: 100%;
-                display: inline-block;
-            }
-            .houseList a,.houseList a dl{
-                margin-bottom: 70px;
-            }
-            .houseList a:last-child{
-                margin-bottom: 0;
-            }
-            .bottom {
-                width: 100%;
-                height: 44px;
-                justify-content: center;
-                display: flex;
-                margin-top: 12px;
-                margin-bottom: 13px;
-            }
-            .bottom img{
-                width: 44px;
-                height: 44px;
-                display: inline-block;
-            }
-            .smallTit{
-                width: 100%;
-                height: 34px;
-                font-size: 26px;
-                font-weight: 800;
-                line-height: 34px;
-            }
-            .small_tag{
-                width: 100%;
-                height: 28px;
-                font-size: 20px;
-                font-weight: 500;
-                line-height: 28px;
-                margin-bottom: 30px;
-            }
-            .header_con{
-                width: 100%;
-                height: 82px;
-                border-bottom: 1px solid #F1F1F1;
-                text-indent: 47px;
-                text-align: left;
-                color: #333333;
-                font-family: PingFang SC;
-            }
-            .house_list_left{
-                width: 240px;
-            }
-            .thumb_img{
-                width: 100%;
-                height: 149px;
-                border-radius: 10px;
-            }
-            .content_tag{
-                display: flex;
-                flex-flow: row;
-                justify-content: space-between;
-                width: 100%;
-                float: left;
-            }
-            .content_tag li{
-                width: 45%;
-                text-align: center;
-                display: inline-block;
-            }
-            ul li{
-                display: none;
-            }
-            .house_status span{
-                width:42px;
-                height: 15px;
-                line-height:15px;
-                text-align: center;
-                font-size: 12px;
-                border-radius:0 15px 15px 0;
-            }
-            .house_status .house_status_red{
-                background: #E02E24;
-            }
-            .house_status .house_status_blue{
-                background: #3C76D9;
-            }
-            .house_status .house_status_ash{
-                background: #989898;
-            }
-        </style>
+        <link rel="stylesheet" href="/static/assets/css/css.css">
     </head>
 
     <body>
+    <div class="nav">
+        <img src="/static/assets/img/left.png" class="left">
+        <p class="searchTit">地图找房</p>
+        <img src="/static/assets/img/circle.png">
+    </div>
     <div id="allMap">
     </div>
     <button class="drawing" id="draw">画圈找房</button>
-    <button class="exit" id="exit">退出画圈</button>
     <div class="houseList">
-        <p class="bottom"><img src="./bottom.png"></p>
+        <p class="bottom close"><img src="/static/assets/img/bottom.png"></p>
         <div class="header_con">
-            <h3 class="smallTit">
-                世纪兴源大厦
-            </h3>
-            <p class="small_tag">
-                朝阳 | 低于市场单价1.5万/㎡
-            </p>
+            <h3 class="smallTit"></h3>
+            <p class="small_tag"></p>
         </div>
         <div class="house_con">
-
         </div>
     </div>
-    </body>
-
-    </html>
     <script type="application/javascript">
+        $('.close').on('click',function(){
+            $('.houseList').css("display","none");
+        });
         var map = null;
         var houseList = [];
         var plyAll = {};
@@ -286,11 +123,14 @@
                 if (hierarchy==3) {
                     addLable(res.data,isShow)
                 } else {
-                    addMarker(res.data, isShow);
+                    if (hierarchy==2) {
+                        addMarker(res.data.street, isShow);
+                    } else {
+                        addMarker(res.data, isShow);
+                    }
                 }
             });
         }
-
 
         var isInDrawing = false;
 
@@ -303,11 +143,6 @@
         var polygonAfterDraw = null;
         var drawBtn = document.getElementById("draw");
         var exitBtn = document.getElementById("exit");
-
-        // searchCoord(secondData)
-
-
-
         // 初始化画圈找房
         drawing();
 
@@ -342,97 +177,7 @@
             // });
         }
 
-        // function drawing() {
-        //     // 开始画圈绑定事件
-        //     drawBtn.addEventListener('click', function(e) {
-        //         var zoomLevel = map.getZoom();
-        //         if(zoomLevel <= 15) {
-        //             alert("请放大到三级数据进行画图找房");
-        //             return;
-        //         }
-        //         // 禁止地图移动点击等操作
-        //         map.clearOverlays()
-        //         map.disableDragging();
-        //         map.disableScrollWheelZoom();
-        //         map.disableDoubleClickZoom();
-        //         map.disableKeyboard();
-        //         // 设置鼠标样式
-        //         map.setDefaultCursor('crosshair');
-        //         // 设置标志位进入画圈状态
-        //         isInDrawing = true;
-        //     });
-        //
-        //     // 退出画圈按钮绑定事件
-        //     exitBtn.addEventListener('click', function(e) {
-        //         // 恢复地图移动点击等操作
-        //         map.enableDragging();
-        //         map.enableScrollWheelZoom();
-        //         map.enableDoubleClickZoom();
-        //         map.enableKeyboard();
-        //         map.setDefaultCursor('default');
-        //         // addLable(thirdlyData)
-        //         getRes(map.dc.lng,map.dc.lat,3, false);
-        //         // 设置标志位退出画圈状态
-        //         isInDrawing = false;
-        //     })
-        //
-        //     // 为地图绑定鼠标按下事件(开始画圈)
-        //     map.addEventListener('mousedown', function(e) {
-        //         // 如果处于画圈状态下,清空上次画圈的数据结构,设置isMouseDown进入画圈鼠标按下状态
-        //         if(isInDrawing) {
-        //             // 清空地图上画的折线和圈
-        //             map.removeOverlay(polygonAfterDraw);
-        //             map.removeOverlay(lastPolyLine);
-        //             polyPointArray = [];
-        //             lastPolyLine = null;
-        //             isMouseDown = true;
-        //         }
-        //     });
-        //     // 为地图绑定鼠标抬起事件(画圈完成)
-        //     map.addEventListener('mouseup', function(e) {
-        //         // 如果处于画圈状态下 且 鼠标是按下状态
-        //         if(isInDrawing && isMouseDown) {
-        //             // 退出画线状态
-        //             isMouseDown = false;
-        //             // 添加多边形覆盖物,设置为禁止点击
-        //             var polygon = new window.BMap.Polygon(polyPointArray, {
-        //                 strokeColor: '#46ACFF',
-        //                 strokeOpacity: 1,
-        //                 fillColor: '#46ACFF',
-        //                 fillOpacity: 0.3,
-        //                 enableClicking: false
-        //             });
-        //             map.addOverlay(polygon);
-        //             //包含情况
-        //             show(polygon);
-        //         }
-        //     });
-        //     // 为地图绑定鼠标移动事件(触发画图)
-        //     map.addEventListener('mousemove', function(e) {
-        //         // 如果处于鼠标按下状态,才能进行画操作
-        //         if(isMouseDown) {
-        //             // 将鼠标移动过程中采集到的路径点加入数组保存
-        //             polyPointArray.push(e.point);
-        //             // 除去上次的画线
-        //             if(lastPolyLine) {
-        //                 map.removeOverlay(lastPolyLine)
-        //             }
-        //             // 根据已有的路径数组构建画出的折线
-        //             var polylineOverlay = new window.BMap.Polyline(polyPointArray, {
-        //                 strokeColor: '#46ACFF',
-        //                 strokeOpacity: 1,
-        //                 enableClicking: false
-        //             });
-        //             // 添加新的画线到地图上
-        //             map.addOverlay(polylineOverlay);
-        //             // 更新上次画线条
-        //             lastPolyLine = polylineOverlay
-        //         }
-        //     })
-        // }
-
         function drawing() {
-
             drawBtn.addEventListener('click', function(e) {
                 var zoomLevel = map.getZoom();
                 if(zoomLevel <= 13) {
@@ -524,8 +269,6 @@
             })
         }
 
-
-
         function show(polygon) {
 
             var pointArray = polygon.getPath();
@@ -546,7 +289,6 @@
         // 绘画行政边界
         function addMarker(data, flag) {
             map.clearOverlays();
-            console.log(data,222)
             $.each(data, function(index, data) {
                 if(flag) {
                     // 绘画行政边界
@@ -601,6 +343,7 @@
                 myLabel.addEventListener("click", function() {
                     let point = myLabel.getPosition()
                     if(flag) {
+                        $('.small_tag').empty().html(small_tag = myLabel.getTitle()+' | 均价'+data.price+'/㎡')
                         getRes(point.lng,point.lat,2,false);
                         map.centerAndZoom(point, 14);
                     } else {
@@ -652,25 +395,37 @@
                         });
                     });
                     myLabel.addEventListener("click", function() {
-                        // console.log(data.id)
-                        getSingle(data.id)
+                        getSingle(data.id,myLabel.getTitle())
                     });
                 })
             }
             addViewLabel(thirdlyMkr)
         }
 
-
         // 房源列表
-        function getSingle(estate_id) {
+        function getSingle(estate_id,tit) {
             let house = "";
+            $('.smallTit').empty().html(tit)
             let _url = "https://www.fangpaiwang.com/api/second/houseList?a=h169h170&estate_id="+estate_id;
             $.get(_url,function(res) {
                 if (res.data.lists.data.length > 0 ) {
                     let _clName = "";
                     $.each(res.data.lists.data,function (k,v) {
-                        house+='<a><dl><dt class="house_list_left"><img class="thumb_img" src="https://www.fangpaiwang.com'+v.img+'">'
-                        house+='<div class="house_status"><span class="house_status_red"></span>'
+                        house+='<a><dl class="houseItemView"><dt class="houseItemImg"><img class="thumb_img" src="https://www.fangpaiwang.com'+v.img+'">'
+                        house+='<ul class="tag">'
+                        if (Number(v.house_type) != 48) {
+                            house+='<li>'+v.jieduan_name+'</li>'
+                        }
+                        if (v.is_free !="") {
+                            house += '<li class="tag_label_2">'+v.自由购+'</li>'
+                        }
+                        if (Number(v.house_type) ==48) {
+                            house += '<li class="tag_label_2">'+v.社会委托+'</li>'
+                        }
+
+                        if (isEmpty(v.characteristic_name,v.characteristic_name,v.characteristic_name)!=true) {
+                            house += '<li class="tag_label_1">'+v.characteristic_name+'</li>'
+                        }
                         switch (Number(v.fcstatus)) {
                             case 169:
                                 _clName = "house_status_red";
@@ -682,19 +437,31 @@
                                 _clName = "house_status_ash";
                                 break;
                         }
-                        house+='<span class="house_status_red">'+v.fcstatus_name+'</span>'
-                        house+='<ul class="content_tag"><li>111</li><li>111</li></ul></dt>'
-                        house+='<dd><h3>'+v.title+'</h3><p>11111</p><p>11111</p><p>11111</p></dd>'
-                        house+='</dl></a>';
+                        house+='<p class="house_status"><span class='+_clName+'>'+v.fcstatus_name+'</span></p>'
+                        house+='</dt><dd class="houseItem"><h3 class="itemTitle">'+v.title+'</h3>'
+                        house+='<p class="itemInfo">'+v.room+'室'+v.living_room+'厅 | '+v.acreage+'㎡ | '+v.orientations_name+' | '+v.types_name+'</p>'
+                        house+='<ul class="itemPrice">'
+                        if (Number(v.fcstatus)==175){
+                            house+='<li>成交价<span class="redPrice">'+v.cjprice+'</span></li>'
+                        } else {
+                            house+='<li>起拍价<span class="redPrice">'+v.qipai+'</span></li>'
+                        }
+                        house+='<li>市场价<span class="grayPrice">'+v.price+'</span></li>'
+                        house+='</ul><p class="createIime">开拍时间：'+v.kptime.trim()+'</p>'
                     })
-                    $('.house_con').empty().html(house);
+                    $('.house_con').empty().append(house);
                     $('.houseList').css("display","block");
                 }
-                console.log(res.data.lists.data)
                 // addLable(res.data,isShow)
             });
         }
 
+        function isEmpty(va,v2,v3) {
+            if (va == null || v2 == "" || v3 == undefined) {
+                return true;
+            }
+            return false;
+        }
         function getBoundary(regionName) {
             var ply = new BMap.Polygon(area[regionName], {
                 strokeWeight: 1,
@@ -719,7 +486,6 @@
             }
         }
 
-
         function isPointInRect(point, bounds) {
 
             if(!(point instanceof BMap.Point) ||
@@ -730,7 +496,6 @@
             var ne = bounds.getNorthEast();
             return(point.lng >= sw.lng && point.lng <= ne.lng && point.lat >= sw.lat && point.lat <= ne.lat);
         }
-
 
         function isPointInPolygon(point, bound, pointArray) {
 
@@ -773,8 +538,9 @@
                 }
 
             }
-
             return crossPointNum % 2 === 1
         }
     </script>
+    </body>
+    </html>
 {{end}}
