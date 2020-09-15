@@ -76,7 +76,7 @@
                 bottom: 20px;
             }
             .exit{
-                left: 110px;
+                display: none;
             }
             .houseList{
                 bottom: 0;
@@ -160,6 +160,23 @@
             ul li{
                 display: none;
             }
+            .house_status span{
+                width:42px;
+                height: 15px;
+                line-height:15px;
+                text-align: center;
+                font-size: 12px;
+                border-radius:0 15px 15px 0;
+            }
+            .house_status .house_status_red{
+                background: #E02E24;
+            }
+            .house_status .house_status_blue{
+                background: #3C76D9;
+            }
+            .house_status .house_status_ash{
+                background: #989898;
+            }
         </style>
     </head>
 
@@ -167,6 +184,7 @@
     <div id="allMap">
     </div>
     <button class="drawing" id="draw">画圈找房</button>
+    <button class="exit" id="exit">退出画圈</button>
     <div class="houseList">
         <p class="bottom"><img src="./bottom.png"></p>
         <div class="header_con">
@@ -177,30 +195,16 @@
                 朝阳 | 低于市场单价1.5万/㎡
             </p>
         </div>
-        <a href="">
-            <dl>
-                <dt class="house_list_left">
-                    <img class="thumb_img">
-                    <ul class="content_tag">
-                        <li>111</li>
-                        <li>222</li>
-                    </ul>
-                </dt>
-                <dd>
-                    <h3>11111</h3>
-                    <p>11111</p>
-                    <p>1111</p>
-                    <p>1111</p>
-                </dd>
-            </dl>
-        </a>
+        <div class="house_con">
+
+        </div>
     </div>
     </body>
 
     </html>
     <script type="application/javascript">
         var map = null;
-
+        var houseList = [];
         var plyAll = {};
 
         var thirdlyMkr = [];
@@ -431,35 +435,42 @@
 
             drawBtn.addEventListener('click', function(e) {
                 var zoomLevel = map.getZoom();
-                if(zoomLevel <= 15) {
-                    alert("请放大地图后使用画圈找房"+zoomLevel,);
+                if(zoomLevel <= 13) {
+                    alert("请放大地图后使用画圈找房");
                     return;
                 }
-
+                $("#draw").css("display","none");
+                $("#exit").css("display","block");
+                // 禁止地图移动点击等操作
                 map.clearOverlays()
                 map.disableDragging();
                 map.disableScrollWheelZoom();
                 map.disableDoubleClickZoom();
                 map.disableKeyboard();
-
+                // 设置鼠标样式
                 map.setDefaultCursor('crosshair');
-
+                // 设置标志位进入画圈状态
                 isInDrawing = true;
             });
 
             // 退出画圈找房
-            // exitBtn.addEventListener('click', function(e) {
-            //     let point = map.getPosition()
-            //     map.enableDragging();
-            //     map.enableScrollWheelZoom();
-            //     map.enableDoubleClickZoom();
-            //     map.enableKeyboard();
-            //     map.setDefaultCursor('default');
-            //     console.log(point,11);
-            //     getRes(point.lng,point.lat,3,false);
-            //     // addLable()
-            //     isInDrawing = false;
-            // })
+            exitBtn.addEventListener('click', function(e) {
+                // 恢复地图移动点击等操作
+                map.enableDragging();
+                map.enableScrollWheelZoom();
+                map.enableDoubleClickZoom();
+                map.enableKeyboard();
+                map.setDefaultCursor('default');
+                $("#draw").css("display","block");
+                $("#exit").css("display","none");
+                if (map.getZoom()==16) {
+                    getRes(map.dc.lng,map.dc.lat,3,"false")
+                } else {
+                    getRes(116.44955872950158,39.926374523079886,2,"false")
+                }
+                // 设置标志位退出画圈状态
+                isInDrawing = false;
+            })
 
             map.addEventListener('touchstart', function(e) {
                 if(isInDrawing) {
@@ -535,6 +546,7 @@
         // 绘画行政边界
         function addMarker(data, flag) {
             map.clearOverlays();
+            console.log(data,222)
             $.each(data, function(index, data) {
                 if(flag) {
                     // 绘画行政边界
@@ -640,19 +652,45 @@
                         });
                     });
                     myLabel.addEventListener("click", function() {
-                        getSingle(myLabel.getTitle())
-                        console.log(myLabel.getTitle())
+                        // console.log(data.id)
+                        getSingle(data.id)
                     });
                 })
             }
             addViewLabel(thirdlyMkr)
         }
 
+
         // 房源列表
-        function getSingle(title) {
-            let _url = "https://www.fangpaiwang.com/api/estate/single_estate?estate_name="+title;
+        function getSingle(estate_id) {
+            let house = "";
+            let _url = "https://www.fangpaiwang.com/api/second/houseList?a=h169h170&estate_id="+estate_id;
             $.get(_url,function(res) {
-                console.log(res.data)
+                if (res.data.lists.data.length > 0 ) {
+                    let _clName = "";
+                    $.each(res.data.lists.data,function (k,v) {
+                        house+='<a><dl><dt class="house_list_left"><img class="thumb_img" src="https://www.fangpaiwang.com'+v.img+'">'
+                        house+='<div class="house_status"><span class="house_status_red"></span>'
+                        switch (Number(v.fcstatus)) {
+                            case 169:
+                                _clName = "house_status_red";
+                                break;
+                            case 170:
+                                _clName = "house_status_blue";
+                                break;
+                            default:
+                                _clName = "house_status_ash";
+                                break;
+                        }
+                        house+='<span class="house_status_red">'+v.fcstatus_name+'</span>'
+                        house+='<ul class="content_tag"><li>111</li><li>111</li></ul></dt>'
+                        house+='<dd><h3>'+v.title+'</h3><p>11111</p><p>11111</p><p>11111</p></dd>'
+                        house+='</dl></a>';
+                    })
+                    $('.house_con').empty().html(house);
+                    $('.houseList').css("display","block");
+                }
+                console.log(res.data.lists.data)
                 // addLable(res.data,isShow)
             });
         }
