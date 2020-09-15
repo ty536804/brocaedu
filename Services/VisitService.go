@@ -48,7 +48,7 @@ func AddVisit(c *gin.Context, url string) {
 	} else {
 		FirstUrl = c.Request.Referer()
 	}
-	fmt.Println(c.Request.Referer(), "22222")
+	fmt.Println(c.GetHeader("Referer"), "22222")
 	var data = make(map[string]interface{})
 	data["uuid"] = uid
 	data["FirstUrl"] = FirstUrl
