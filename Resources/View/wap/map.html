@@ -6,13 +6,6 @@
         <meta charset="UTF-8">
         <title>地图</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <meta content="yes" name="apple-mobile-web-app-capable">
-        <meta content="black" name="apple-mobile-web-app-status-bar-style">
-        <meta name="format-detection" content="telephone=no">
-        <meta http-equiv="Expires" content="-1">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ETLXgCxIoVixggHcAk6mKpMd"></script>
         <script type="text/javascript" src="/static/assets/js/jquery.min.js"></script>
         <link rel="stylesheet" href="/static/assets/css/css.css">
@@ -44,7 +37,7 @@
         var map = null;
         var houseList = [];
         var plyAll = {};
-
+        var estate = [];//街道下面归属的小区
         var thirdlyMkr = [];
 
         var area = {
@@ -125,6 +118,7 @@
                     addLable(res.data,isShow)
                 } else {
                     if (hierarchy==2) {
+                        estate = res.data.street.estate
                         addMarker(res.data.street, isShow);
                     } else {
                         addMarker(res.data, isShow);
@@ -189,9 +183,9 @@
                 $("#exit").css("display","block");
                 // 禁止地图移动点击等操作
                 map.clearOverlays()
-                map.disableDragging();
-                map.disableScrollWheelZoom();
-                map.disableDoubleClickZoom();
+                map.disableDragging(true);//禁止拖拽
+                map.disableScrollWheelZoom();//禁止缩放
+                map.disableDoubleClickZoom();//禁用双击放大
                 map.disableKeyboard();
                 // 设置鼠标样式
                 map.setDefaultCursor('crosshair');
@@ -212,7 +206,8 @@
                 if (map.getZoom()==16) {
                     getRes(map.dc.lng,map.dc.lat,3,"false")
                 } else {
-                    getRes(116.44955872950158,39.926374523079886,2,"false")
+                    addMarker()
+                    // getRes(116.44955872950158,39.926374523079886,2,"false")
                 }
                 // 设置标志位退出画圈状态
                 isInDrawing = false;
@@ -289,14 +284,13 @@
 
         // 绘画行政边界
         function addMarker(data, flag) {
-            map.clearOverlays();
+            // map.clearOverlays();
             $.each(data, function(index, data) {
                 if(flag) {
                     // 绘画行政边界
                     getBoundary(data.name)
                 }
                 var point = new BMap.Point(data.lng, data.lat);
-                var areaId = data.id;
                 var tpl = '<div class="bubble bubble-1" data-longitude="' + data.lng + '"' +
                     ' data-latitude="' + data.lat + '">' +
                     '<p class="name" title="' + data.name + '">' + data.name + '</p>' +
@@ -308,10 +302,10 @@
                     offset: new BMap.Size(-42, -42)
                 });
                 myLabel.setStyle({
-                    width: "100px",
-                    height: "100px",
+                    width: "90px",
+                    height: "90px",
                     border: "0",
-                    borderRadius: "100px",
+                    borderRadius: "90px",
                     background: "#D75853",
                     opacity: 0.9,
                     cursor: "pointer",
@@ -342,6 +336,7 @@
                     }
                 });
                 myLabel.addEventListener("click", function() {
+                    map.clearOverlays();
                     let point = myLabel.getPosition()
                     if(flag) {
                         $('.small_tag').empty().html(small_tag = myLabel.getTitle()+' | 均价'+data.price+'/㎡')
@@ -359,16 +354,19 @@
         //标注到小区
         function addLable(data) {
             map.clearOverlays();
+
+            // 首先判断是不是第一次请求
             if(thirdlyMkr.length <= 0) {
                 $.each(data, function(index, data) {
                     var point = new BMap.Point(data.lng, data.lat,data.title);
+                    // 自定义label样式
                     var tpl = '<div class=" bubble-1 ZLQbubble" data-longitude="' + data.lng + '"' +
                         ' data-latitude="' + data.lat + '">' +
                         '<span class="name" title="' + data.title + '">' + data.title + '</span>&nbsp&nbsp' +
                         '<span class="count"><span>' + data.house_num + '</span>套</span>' +
                         '</div>';
                     var myLabel = new BMap.Label(tpl, {
-                        position: point,
+                        position: point,//label 在此处添加点位位置信息
                         offset: new BMap.Size(-42, -42)
                     });
                     myLabel.setStyle({
@@ -382,18 +380,19 @@
                         zIndex: 2
                     });
                     myLabel.setTitle(data.title);
+                    // 直接缓存起来
                     thirdlyMkr.push(myLabel);
                     myLabel.addEventListener("mouseover", function() {
                         myLabel.setStyle({
                             background: "#D75853",
                             zIndex: 4
-                        });
+                        });// 修改覆盖物背景颜色
                     });
                     myLabel.addEventListener("mouseout", function() {
                         myLabel.setStyle({
                             background: "#D75853",
                             zIndex: 2
-                        });
+                        });// 修改覆盖物背景颜色
                     });
                     myLabel.addEventListener("click", function() {
                         getSingle(data.id,myLabel.getTitle())
@@ -463,6 +462,7 @@
             }
             return false;
         }
+
         function getBoundary(regionName) {
             var ply = new BMap.Polygon(area[regionName], {
                 strokeWeight: 1,
@@ -472,7 +472,6 @@
             ply.hide();
             plyAll[regionName] = ply
             map.addOverlay(ply);
-
         }
 
         function addViewLabel(mkr) {
