@@ -193,6 +193,7 @@ window.onload = function () {
             addLable(thirdlyData)
             // 设置标志位退出画圈状态
             isInDrawing = false;
+            show();
             // isDrawingOk = false;
         })
         // 为地图绑定鼠标按下事件(开始画圈)
@@ -253,7 +254,10 @@ window.onload = function () {
      * 根据画的圈，显示相应的marker
      * @param {Object} polygon
      */
-    function show(polygon) {
+    function show(polygon="") {
+        if (polygon == "") {
+            return
+        }
         // 得到多边形的点数组
         var pointArray = polygon.getPath();
         // 获取多边形的外包矩形
