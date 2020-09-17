@@ -25,6 +25,8 @@ window.onload = function () {
     var exitBtn = document.getElementById("exit");
     // 三级数据
     let thirdlyData ={}
+    // 二级数据
+    let secondData = {}
     var area = {
         "东城区":{
             "lat":"39.93482727239599",
@@ -111,7 +113,8 @@ window.onload = function () {
                 addLable(res.data,isShow)
             } else {
                 if (hierarchy==2) {
-                    estate = res.data.street.estate
+                    estate = res.data.street.estate;
+                    secondData = res.data.street;
                     addMarker(res.data.street, isShow);
                 } else {
                     addMarker(res.data, isShow);
@@ -135,6 +138,17 @@ window.onload = function () {
             var zoomLevel = map.getZoom();
             if(zoomLevel <= 13) {
                 getRes();
+            } else if(zoomLevel > 13 && zoomLevel <= 15) {
+                addMarker(secondData, false);
+            } else if(zoomLevel > 15) {
+                addLable(thirdlyData)
+            }
+        });
+        // 监听地图移动,根据视野动态加载
+        map.addEventListener("moveend", function() {
+            var zoomLevel = map.getZoom(); // 获取地图缩放级别
+            if(zoomLevel > 15) {
+                addLable(thirdlyData)
             }
         });
     }
