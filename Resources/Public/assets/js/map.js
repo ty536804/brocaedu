@@ -168,8 +168,8 @@ window.onload = function () {
                 map.centerAndZoom(map.dc.lat,map.dc.lng, 14);
                 addMarker(secondData, false);
             }
-            $("#draw").css("display","none");
-            $("#exit").css("display","block");
+            // $("#draw").css("display","none");
+            // $("#exit").css("display","block");
             // 禁止地图移动点击等操作
             map.clearOverlays()
             map.disableDragging();//禁止拖拽
@@ -189,8 +189,8 @@ window.onload = function () {
             map.enablePinchToZoom()
             map.enableDoubleClickZoom();
             map.setDefaultCursor('default');
-            $("#draw").css("display","block");
-            $("#exit").css("display","none");
+            // $("#draw").css("display","block");
+            // $("#exit").css("display","none");
             addLable(thirdlyData)
             // 设置标志位退出画圈状态
             isInDrawing = false;
