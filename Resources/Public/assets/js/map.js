@@ -277,7 +277,7 @@ window.onload = function () {
      *  此处如果二级也需要和链家完全一致，想要行政边界，那么就去链家爬取即可
      */
     function addMarker(data, flag) {
-        // map.clearOverlays();
+        map.clearOverlays();
         $.each(data, function(index, data) {
             if(flag) {
                 // 绘画行政边界
@@ -329,7 +329,7 @@ window.onload = function () {
                 }
             });
             myLabel.addEventListener("click", function() {
-                map.clearOverlays();
+                // map.clearOverlays();
                 let point = myLabel.getPosition()
                 if(flag) {
                     $('.small_tag').empty().html(small_tag = myLabel.getTitle()+' | 均价'+data.price+'/㎡')
