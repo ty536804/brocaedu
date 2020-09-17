@@ -165,6 +165,7 @@ window.onload = function () {
                 return;
             }
             if (zoomLevel==14) {
+                map.centerAndZoom(map.dc.lat,map.dc.lng, 14);
                 addMarker(secondData, false);
             }
             $("#draw").css("display","none");
