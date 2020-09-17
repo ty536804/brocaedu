@@ -316,3 +316,7 @@ ul li,li,a ul li,a{
 	color: #333333;
 	line-height: 22px;
 }
+body .layui-m-layer .layui-m-layer-msg{
+    background: #333;
+    color: #fff;
+}

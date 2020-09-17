@@ -270,8 +270,18 @@ window.onload = function () {
                 var markerPoint = thirdlyMkr[i].getPosition();
                 if(isPointInPolygon(markerPoint, bound, pointArray)) {
                     map.addOverlay(thirdlyMkr[i])
+                    pointInPolygonArray.push(1)
                 }
             }
+            if (pointInPolygonArray.length <1) {
+                layer.open({
+                    content: '无房源信息'
+                    ,skin: 'msg'
+                    ,time: 2 //2秒后自动关闭
+                });
+                return false;
+            }
+
         }
     }
 
