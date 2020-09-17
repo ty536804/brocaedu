@@ -55,8 +55,9 @@ body,html {
 	font-weight: bold;
 	border-radius: 15px;
 	outline:none;
-	left: 37%;
+	left: 50%;
 	bottom: 20px;
+	transform: translate(-50%,-50%);
 }
 .exit{
 	display: none;
