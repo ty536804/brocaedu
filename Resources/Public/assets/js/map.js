@@ -193,12 +193,12 @@ window.onload = function () {
             addLable(thirdlyData)
             // 设置标志位退出画圈状态
             isInDrawing = false;
-            isDrawingOk = false;
+            // isDrawingOk = false;
         })
         // 为地图绑定鼠标按下事件(开始画圈)
         map.addEventListener('touchstart', function(e) {
             // 如果处于画圈状态下,清空上次画圈的数据结构,设置isMouseDown进入画圈鼠标按下状态
-            if(isInDrawing && !isDrawingOk) {
+            if(isInDrawing) {
                 // 清空地图上画的折线和圈
                 map.removeOverlay(polygonAfterDraw);
                 map.removeOverlay(lastPolyLine);
@@ -221,7 +221,7 @@ window.onload = function () {
                     enableClicking: false
                 });
                 map.addOverlay(polygon);
-                isDrawingOk = true;
+                // isDrawingOk = true;
                 //包含情况
                 show(polygon);
             }
@@ -229,7 +229,7 @@ window.onload = function () {
         // 为地图绑定鼠标移动事件(触发画图)
         map.addEventListener('touchmove', function(e) {
             // 如果处于鼠标按下状态,才能进行画操作
-            if(isMouseDown && !isDrawingOk) {
+            if(isMouseDown) {
                 // 将鼠标移动过程中采集到的路径点加入数组保存
                 polyPointArray.push(e.point);
                 // 除去上次的画线
@@ -350,7 +350,6 @@ window.onload = function () {
      */
     function addLable(data) {
         map.clearOverlays();
-
         // 首先判断是不是第一次请求
         if(thirdlyMkr.length <= 0) {
             $.each(data, function(index, data) {
@@ -395,6 +394,7 @@ window.onload = function () {
                 });
             })
         }
+        // 根据视野动态加载
         addViewLabel(thirdlyMkr)
     }
 
