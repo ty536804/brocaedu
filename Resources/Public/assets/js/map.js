@@ -170,7 +170,7 @@ window.onload = function () {
             $("#exit").css("display","block");
             // 禁止地图移动点击等操作
             map.clearOverlays()
-            map.disableDragging(true);//禁止拖拽
+            map.disableDragging();//禁止拖拽
             map.disableScrollWheelZoom();//禁止缩放
             map.disableDoubleClickZoom();//禁用双击放大
             map.disableKeyboard();
