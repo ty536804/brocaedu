@@ -166,12 +166,11 @@ window.onload = function () {
                 layer.open({
                     content: '请放大地图后使用画圈找房'
                     ,skin: 'msg'
-                    ,time: 2 //2秒后自动关闭
+                    ,time: 5 //2秒后自动关闭
                 });
                 return;
             }
             if (zoomLevel==14) {
-                map.centerAndZoom(map.dc.lat,map.dc.lng, 14);
                 addMarker(secondData, false);
             }
             // $("#draw").css("display","none");
@@ -270,7 +269,6 @@ window.onload = function () {
             var pointInPolygonArray = [];
             // 计算每个点是否包含在该多边形内
             for(var i = 0; i < thirdlyMkr.length; i++) {
-
                 var markerPoint = thirdlyMkr[i].getPosition();
                 if(isPointInPolygon(markerPoint, bound, pointArray)) {
                     map.addOverlay(thirdlyMkr[i])
@@ -281,7 +279,7 @@ window.onload = function () {
                 layer.open({
                     content: '无房源信息'
                     ,skin: 'msg'
-                    ,time: 2 //2秒后自动关闭
+                    ,time: 5 //2秒后自动关闭
                 });
                 return;
             }
