@@ -27,6 +27,7 @@ window.onload = function () {
     let thirdlyData ={}
     // 二级数据
     let secondData = {}
+    var firstData= {}
     var area = {
         "东城区":{
             "lat":"39.93482727239599",
@@ -117,6 +118,7 @@ window.onload = function () {
                     secondData = res.data.street;
                     addMarker(res.data.street, isShow);
                 } else {
+                    firstData = res.data
                     addMarker(res.data, isShow);
                 }
             }
@@ -137,7 +139,7 @@ window.onload = function () {
         map.addEventListener("zoomend", function() {
             var zoomLevel = map.getZoom();
             if(zoomLevel <= 13) {
-                getRes();
+                addMarker(firstData, true);
             } else if(zoomLevel > 13 && zoomLevel <= 15) {
                 addMarker(secondData, false);
             } else if(zoomLevel > 15) {
