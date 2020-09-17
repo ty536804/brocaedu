@@ -163,7 +163,11 @@ window.onload = function () {
         drawBtn.addEventListener('click', function(e) {
             var zoomLevel = map.getZoom();
             if(zoomLevel <= 13) {
-                alert("请放大地图后使用画圈找房");
+                layer.open({
+                    content: '请放大地图后使用画圈找房'
+                    ,skin: 'msg'
+                    ,time: 2 //2秒后自动关闭
+                });
                 return;
             }
             if (zoomLevel==14) {
@@ -279,7 +283,7 @@ window.onload = function () {
                     ,skin: 'msg'
                     ,time: 2 //2秒后自动关闭
                 });
-                return false;
+                return;
             }
 
         }
