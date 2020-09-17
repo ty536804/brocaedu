@@ -3,16 +3,27 @@ window.onload = function () {
         $('.houseList').css("display","none");
     });
     var map = null;
+    // 画圈完成
+    var isDrawingOk = false;
+    // 所有行政边界对象
     var plyAll = {};
-    var estate = [];//街道下面归属的小区
+    //街道下面归属的小区
+    var estate = [];
+    // 第三级小区数据marker数组
     var thirdlyMkr = [];
+    // 是否处于画圈状态下
     var isInDrawing = false;
+    // 是否处于鼠标左键按下状态下
     var isMouseDown = false;
+    // 存储画出折线点的数组
     var polyPointArray = [];
+    // 上次操作画出的折线
     var lastPolyLine = null;
+    // 画圈完成后生成的多边形
     var polygonAfterDraw = null;
     var drawBtn = document.getElementById("draw");
     var exitBtn = document.getElementById("exit");
+
     var area = {
         "东城区":{
             "lat":"39.93482727239599",
@@ -136,6 +147,9 @@ window.onload = function () {
                 alert("请放大地图后使用画圈找房");
                 return;
             }
+            if (isDrawingOk) {
+                return;
+            }
             $("#draw").css("display","none");
             $("#exit").css("display","block");
             // 禁止地图移动点击等操作
@@ -167,6 +181,9 @@ window.onload = function () {
         // 为地图绑定鼠标按下事件(开始画圈)
         map.addEventListener('touchstart', function(e) {
             // 如果处于画圈状态下,清空上次画圈的数据结构,设置isMouseDown进入画圈鼠标按下状态
+            if (isDrawingOk) {
+                return;
+            }
             if(isInDrawing) {
                 // 清空地图上画的折线和圈
                 map.removeOverlay(polygonAfterDraw);
@@ -190,6 +207,7 @@ window.onload = function () {
                     enableClicking: false
                 });
                 map.addOverlay(polygon);
+                isDrawingOk = true;
                 //包含情况
                 show(polygon);
             }
