@@ -23,7 +23,8 @@ window.onload = function () {
     var polygonAfterDraw = null;
     var drawBtn = document.getElementById("draw");
     var exitBtn = document.getElementById("exit");
-
+    // 三级数据
+    let thirdlyData ={}
     var area = {
         "东城区":{
             "lat":"39.93482727239599",
@@ -106,6 +107,7 @@ window.onload = function () {
         }
         $.get(_url,function(res) {
             if (hierarchy==3) {
+                thirdlyData = res.data;
                 addLable(res.data,isShow)
             } else {
                 if (hierarchy==2) {
@@ -143,7 +145,7 @@ window.onload = function () {
     function drawing() {
         drawBtn.addEventListener('click', function(e) {
             var zoomLevel = map.getZoom();
-            if(zoomLevel <= 13) {
+            if(zoomLevel <= 15) {
                 alert("请放大地图后使用画圈找房");
                 return;
             }
@@ -174,7 +176,7 @@ window.onload = function () {
             map.setDefaultCursor('default');
             $("#draw").css("display","block");
             $("#exit").css("display","none");
-            getRes(map.dc.lng,map.dc.lat,3,"false")
+            addLable(thirdlyData)
             // 设置标志位退出画圈状态
             isInDrawing = false;
             isDrawingOk = false;
