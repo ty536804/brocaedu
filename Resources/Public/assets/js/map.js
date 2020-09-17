@@ -183,6 +183,7 @@ window.onload = function () {
 
         // 退出画圈找房
         exitBtn.addEventListener('click', function(e) {
+            map.clearOverlays();
             // 恢复地图移动点击等操作
             map.enableDragging();
             map.enablePinchToZoom()
