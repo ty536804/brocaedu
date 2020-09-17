@@ -153,18 +153,19 @@ window.onload = function () {
         });
     }
 
+
     /**
      * 绑定按钮事件
      */
     function drawing() {
         drawBtn.addEventListener('click', function(e) {
             var zoomLevel = map.getZoom();
-            if(zoomLevel <= 15) {
+            if(zoomLevel <= 13) {
                 alert("请放大地图后使用画圈找房");
                 return;
             }
-            if (isDrawingOk) {
-                return;
+            if (zoomLevel==14) {
+                addMarker(secondData, false);
             }
             $("#draw").css("display","none");
             $("#exit").css("display","block");
