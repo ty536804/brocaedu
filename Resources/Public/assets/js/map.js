@@ -171,9 +171,8 @@ window.onload = function () {
             // 禁止地图移动点击等操作
             map.clearOverlays()
             map.disableDragging();//禁止拖拽
-            map.disableScrollWheelZoom();//禁止缩放
+            map.disablePinchToZoom()//禁止缩放
             map.disableDoubleClickZoom();//禁用双击放大
-            map.disableKeyboard();
             // 设置鼠标样式
             map.setDefaultCursor('crosshair');
             // 设置标志位进入画圈状态
@@ -184,9 +183,8 @@ window.onload = function () {
         exitBtn.addEventListener('click', function(e) {
             // 恢复地图移动点击等操作
             map.enableDragging();
-            map.enableScrollWheelZoom();
+            map.enablePinchToZoom()
             map.enableDoubleClickZoom();
-            map.enableKeyboard();
             map.setDefaultCursor('default');
             $("#draw").css("display","block");
             $("#exit").css("display","none");
