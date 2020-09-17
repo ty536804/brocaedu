@@ -177,14 +177,12 @@ window.onload = function () {
             getRes(map.dc.lng,map.dc.lat,3,"false")
             // 设置标志位退出画圈状态
             isInDrawing = false;
+            isDrawingOk = false;
         })
         // 为地图绑定鼠标按下事件(开始画圈)
         map.addEventListener('touchstart', function(e) {
             // 如果处于画圈状态下,清空上次画圈的数据结构,设置isMouseDown进入画圈鼠标按下状态
-            if (isDrawingOk) {
-                return;
-            }
-            if(isInDrawing) {
+            if(isInDrawing && !isDrawingOk) {
                 // 清空地图上画的折线和圈
                 map.removeOverlay(polygonAfterDraw);
                 map.removeOverlay(lastPolyLine);
@@ -215,7 +213,7 @@ window.onload = function () {
         // 为地图绑定鼠标移动事件(触发画图)
         map.addEventListener('touchmove', function(e) {
             // 如果处于鼠标按下状态,才能进行画操作
-            if(isMouseDown) {
+            if(isMouseDown && !isDrawingOk) {
                 // 将鼠标移动过程中采集到的路径点加入数组保存
                 polyPointArray.push(e.point);
                 // 除去上次的画线
