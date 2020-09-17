@@ -173,6 +173,7 @@ window.onload = function () {
             if (zoomLevel==14) {
                 addMarker(secondData, false);
             }
+            console.log(11)
             // $("#draw").css("display","none");
             // $("#exit").css("display","block");
             // 禁止地图移动点击等操作
@@ -202,7 +203,8 @@ window.onload = function () {
             isDrawingOk = false;
         })
         // 为地图绑定鼠标按下事件(开始画圈)
-        map.addEventListener('touchstart', function(e) {
+        map.addEventListener('mousedown', function(e) {
+            console.log(33,isInDrawing,isDrawingOk)
             // 如果处于画圈状态下,清空上次画圈的数据结构,设置isMouseDown进入画圈鼠标按下状态
             if(isInDrawing && !isDrawingOk) {
                 // 清空地图上画的折线和圈
@@ -211,6 +213,9 @@ window.onload = function () {
                 polyPointArray = [];
                 lastPolyLine = null;
                 isMouseDown = true;
+            } else {
+                map.removeOverlay(polygonAfterDraw);
+                map.removeOverlay(lastPolyLine);
             }
         });
         // 为地图绑定鼠标抬起事件(画圈完成)
