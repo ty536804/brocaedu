@@ -160,51 +160,48 @@ window.onload = function () {
      * 绑定按钮事件
      */
     function drawing() {
+        // 开始画圈绑定事件
         drawBtn.addEventListener('click', function(e) {
             var zoomLevel = map.getZoom();
-            if(zoomLevel <= 13) {
-                layer.open({
-                    content: '请放大地图后使用画圈找房'
-                    ,skin: 'msg'
-                    ,time: 2 //2秒后自动关闭
-                });
+            if(zoomLevel <= 15) {
+                alert("请放大到三级数据进行画图找房");
                 return;
             }
-            if (zoomLevel==14) {
-                addMarker(secondData, false);
+            if (isDrawingOk) {
+                return;
             }
-            console.log(11)
-            // $("#draw").css("display","none");
-            // $("#exit").css("display","block");
             // 禁止地图移动点击等操作
             map.clearOverlays()
-            map.disableDragging();//禁止拖拽
-            map.disablePinchToZoom()//禁止缩放
-            map.disableDoubleClickZoom();//禁用双击放大
+            map.disableDragging();
+            map.disableScrollWheelZoom();
+            map.disableDoubleClickZoom();
+            map.disableKeyboard();
             // 设置鼠标样式
             map.setDefaultCursor('crosshair');
             // 设置标志位进入画圈状态
             isInDrawing = true;
         });
 
-        // 退出画圈找房
+        // 退出画圈按钮绑定事件
         exitBtn.addEventListener('click', function(e) {
             // 恢复地图移动点击等操作
             map.enableDragging();
-            map.enablePinchToZoom()
+            map.enableScrollWheelZoom();
             map.enableDoubleClickZoom();
+            map.enableKeyboard();
             map.setDefaultCursor('default');
-            // $("#draw").css("display","block");
-            // $("#exit").css("display","none");
-            initMap()
+            addLable(thirdlyData)
             // 设置标志位退出画圈状态
             isInDrawing = false;
-            isDrawingOk = false;
         })
+
         // 为地图绑定鼠标按下事件(开始画圈)
         map.addEventListener('touchstart', function(e) {
-            // 如果处于画圈状态下,清空上次画圈的数据结构,设置isMouseDown进入画圈鼠标按下状态 touchstart mousedown
-            if(isInDrawing && !isDrawingOk) {
+            if (isDrawingOk) {
+                return;
+            }
+            // 如果处于画圈状态下,清空上次画圈的数据结构,设置isMouseDown进入画圈鼠标按下状态
+            if(isInDrawing) {
                 // 清空地图上画的折线和圈
                 map.removeOverlay(polygonAfterDraw);
                 map.removeOverlay(lastPolyLine);
@@ -214,10 +211,11 @@ window.onload = function () {
             }
         });
         // 为地图绑定鼠标抬起事件(画圈完成)
-        map.addEventListener('mouseup', function(e) {
-            // 如果处于画圈状态下 且 鼠标是按下状态 touchend
+        map.addEventListener('touchend', function(e) {
+            // 如果处于画圈状态下 且 鼠标是按下状态
             if(isInDrawing && isMouseDown) {
-                // isMouseDown = false;
+                // 退出画线状态
+                isMouseDown = false;
                 // 添加多边形覆盖物,设置为禁止点击
                 var polygon = new window.BMap.Polygon(polyPointArray, {
                     strokeColor: '#46ACFF',
@@ -227,18 +225,24 @@ window.onload = function () {
                     enableClicking: false
                 });
                 map.addOverlay(polygon);
-                isDrawingOk = true;
                 //包含情况
-                console.log(2222)
+                isDrawingOk = true;
                 show(polygon);
             }
         });
         // 为地图绑定鼠标移动事件(触发画图)
         map.addEventListener('touchmove', function(e) {
             // 如果处于鼠标按下状态,才能进行画操作
-            if(isMouseDown && !isDrawingOk) {
+            if(isMouseDown) {
                 // 将鼠标移动过程中采集到的路径点加入数组保存
-                polyPointArray.push(e.point);
+                // polyPointArray.push(e.point);
+                //
+                // polyPointArrayList.push({
+                //     lng:e.point.lng,
+                //     lat:e.point.lat
+                // })
+                // console.log("画圈经纬度"+JSON.stringify(polyPointArray))
+
                 // 除去上次的画线
                 if(lastPolyLine) {
                     map.removeOverlay(lastPolyLine)
@@ -261,30 +265,19 @@ window.onload = function () {
      * @param {Object} polygon
      */
     function show(polygon) {
-        if (!isDrawingOk) {
-            // 得到多边形的点数组
-            var pointArray = polygon.getPath();
-            // 获取多边形的外包矩形
-            var bound = polygon.getBounds();
-            // 在多边形内的点的数组
-            var pointInPolygonArray = [];
-            // 计算每个点是否包含在该多边形内
-            for(var i = 0; i < thirdlyMkr.length; i++) {
-                var markerPoint = thirdlyMkr[i].getPosition();
-                if(isPointInPolygon(markerPoint, bound, pointArray)) {
-                    map.addOverlay(thirdlyMkr[i])
-                    pointInPolygonArray.push(1)
-                }
-            }
-            if (pointInPolygonArray.length <1) {
-                layer.open({
-                    content: '无房源信息'
-                    ,skin: 'msg'
-                    ,time: 5 //2秒后自动关闭
-                });
-                return;
-            }
+        // 得到多边形的点数组
+        var pointArray = polygon.getPath();
+        // 获取多边形的外包矩形
+        var bound = polygon.getBounds();
+        // 在多边形内的点的数组
+        var pointInPolygonArray = [];
+        // 计算每个点是否包含在该多边形内
+        for(var i = 0; i < thirdlyMkr.length; i++) {
+            var markerPoint = thirdlyMkr[i].getPosition();
+            if(isPointInPolygon(markerPoint, bound, pointArray)) {
+                map.addOverlay(thirdlyMkr[i])
 
+            }
         }
     }
 
