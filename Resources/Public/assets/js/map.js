@@ -166,7 +166,7 @@ window.onload = function () {
                 layer.open({
                     content: '请放大地图后使用画圈找房'
                     ,skin: 'msg'
-                    ,time: 5 //2秒后自动关闭
+                    ,time: 2 //2秒后自动关闭
                 });
                 return;
             }
@@ -204,7 +204,7 @@ window.onload = function () {
         })
         // 为地图绑定鼠标按下事件(开始画圈)
         map.addEventListener('touchstart', function(e) {
-            // 如果处于画圈状态下,清空上次画圈的数据结构,设置isMouseDown进入画圈鼠标按下状态 touchstart
+            // 如果处于画圈状态下,清空上次画圈的数据结构,设置isMouseDown进入画圈鼠标按下状态 touchstart mousedown
             if(isInDrawing && !isDrawingOk) {
                 // 清空地图上画的折线和圈
                 map.removeOverlay(polygonAfterDraw);
@@ -212,14 +212,12 @@ window.onload = function () {
                 polyPointArray = [];
                 lastPolyLine = null;
                 isMouseDown = true;
-            } else {
-                map.removeOverlay(polygonAfterDraw);
-                map.removeOverlay(lastPolyLine);
+                initMap()
             }
         });
         // 为地图绑定鼠标抬起事件(画圈完成)
-        map.addEventListener('touchend', function(e) {
-            // 如果处于画圈状态下 且 鼠标是按下状态
+        map.addEventListener('mouseup', function(e) {
+            // 如果处于画圈状态下 且 鼠标是按下状态 touchend
             if(isInDrawing && isMouseDown) {
                 // isMouseDown = false;
                 // 添加多边形覆盖物,设置为禁止点击
@@ -233,6 +231,7 @@ window.onload = function () {
                 map.addOverlay(polygon);
                 isDrawingOk = true;
                 //包含情况
+                console.log(2222)
                 show(polygon);
             }
         });
