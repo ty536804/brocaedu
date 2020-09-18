@@ -369,6 +369,8 @@ window.onload = function () {
             if (isDrawingOk) {
                 return;
             }
+            $('#exit').css("display","block");
+            $('#draw').css("display","none");
             // 禁止地图移动点击等操作
             map.clearOverlays()
             map.disableDragging();//禁止拖拽
@@ -383,6 +385,8 @@ window.onload = function () {
         // 退出画圈按钮绑定事件
         exitBtn.addEventListener('click', function(e) {
             // 恢复地图移动点击等操作
+            $('#exit').css("display","none");
+            $('#draw').css("display","block");
             map.enableDragging();
             map.enablePinchToZoom()
             map.enableDoubleClickZoom();
