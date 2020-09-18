@@ -11,6 +11,8 @@ window.onload = function () {
     var estate = [];
     // 第三级小区数据marker数组
     var thirdlyMkr = [];
+    // 平移第三级小区数据marker数组
+    var appthirdlyMkr = [];
     // 是否处于画圈状态下
     var isInDrawing = false;
     // 是否处于鼠标左键按下状态下
@@ -110,11 +112,11 @@ window.onload = function () {
         }
         $.get(_url,function(res) {
             if (hierarchy==3) {
-                thirdlyData = res.data;
-                addLable(res.data,isShow)
+                // thirdlyData = res.data;
+                addLable(estate)
             } else {
                 if (hierarchy==2) {
-                    estate = res.data.street.estate;
+                    estate = res.data.estate;
                     secondData = res.data.street;
                     addMarker(res.data.street, isShow);
                 } else {
@@ -143,18 +145,17 @@ window.onload = function () {
             } else if(zoomLevel > 13 && zoomLevel <= 15) {
                 addMarker(secondData, false);
             } else if(zoomLevel > 15) {
-                addLable(thirdlyData)
+                addLable(estate)
             }
         });
         // 监听地图移动,根据视野动态加载
         map.addEventListener("moveend", function() {
             var zoomLevel = map.getZoom(); // 获取地图缩放级别
             if(zoomLevel > 15) {
-                addLable(thirdlyData)
+                addLable(estate)
             }
         });
     }
-
 
     /**
      * 根据行政区划绘制聚合点位
@@ -232,6 +233,7 @@ window.onload = function () {
 
     /**
      * 加载第三级小区数据
+     * @param app int 3表示追加 不清除内容
      * @param {Object} data
      */
     function addLable(data) {
@@ -494,7 +496,6 @@ window.onload = function () {
 
     /**
      * 根据地图视野动态加载数据，当数据多时此方法用来提高地图加载性能
-     * 本次模拟数据较少，看不出太大效果
      * @param {Object} labels
      */
     function addViewLabel(mkr) {
