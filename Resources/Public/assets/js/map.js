@@ -189,7 +189,6 @@ window.onload = function () {
 
         // 退出画圈找房
         exitBtn.addEventListener('click', function(e) {
-            map.clearOverlays();
             // 恢复地图移动点击等操作
             map.enableDragging();
             map.enablePinchToZoom()
@@ -197,7 +196,7 @@ window.onload = function () {
             map.setDefaultCursor('default');
             // $("#draw").css("display","block");
             // $("#exit").css("display","none");
-            addLable(thirdlyData)
+            initMap()
             // 设置标志位退出画圈状态
             isInDrawing = false;
             isDrawingOk = false;
@@ -212,7 +211,6 @@ window.onload = function () {
                 polyPointArray = [];
                 lastPolyLine = null;
                 isMouseDown = true;
-                initMap()
             }
         });
         // 为地图绑定鼠标抬起事件(画圈完成)
