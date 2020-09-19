@@ -3,6 +3,7 @@ package Services
 import (
 	db "brocaedu/Database"
 	"brocaedu/Models/Article"
+	"brocaedu/Models/Site"
 	"brocaedu/Pkg/e"
 	"bytes"
 	"encoding/json"
@@ -19,12 +20,6 @@ import (
 
 var wt sync.WaitGroup
 
-var (
-	APPID     = "wx86181b3a0022cc1f"
-	APPSECRET = "c982d07aeb6c79c97f3bd6df1047653c"
-	GRANTTYPE = "client_credential"
-)
-
 // @Summer 获取token
 func GetToken() (string, error) {
 	u, err := url.Parse("https://api.weixin.qq.com/cgi-bin/token")
@@ -33,10 +28,12 @@ func GetToken() (string, error) {
 		log.Fatal(err)
 	}
 
+	weChatConfig := Site.GetWeChatConfig()
+
 	parse := url.Values{}
-	parse.Set("grant_type", GRANTTYPE)
-	parse.Set("appid", APPID)
-	parse.Set("secret", APPSECRET)
+	parse.Set("grant_type", weChatConfig.GRANTTYPE)
+	parse.Set("appid", weChatConfig.APPID)
+	parse.Set("secret", weChatConfig.APPSECRET)
 	u.RawQuery = parse.Encode()
 
 	resp, err := http.Get(u.String())
@@ -95,10 +92,7 @@ type BatChGetMaterial struct {
 
 // @Summer 微信获取文章
 func GetArticle(begin, count int) {
-	total := Article.GetArticleTotal()
-	if total >= 1 {
-		return
-	}
+	//total := Article.GetArticleTotal()
 	result, err := ResolveUrl(begin, count)
 	var article = make(map[string]interface{})
 
@@ -107,6 +101,7 @@ func GetArticle(begin, count int) {
 	} else {
 		stu := &BatChGetMaterial{}
 		res := json.Unmarshal(result, &stu)
+		fmt.Println(111, res, stu)
 		if res == nil {
 			for _, item := range stu.Item {
 				res := item.Content.NewsItem[0]

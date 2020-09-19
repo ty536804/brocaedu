@@ -187,3 +187,7 @@ func NewDetail(c *gin.Context) {
 		"detail": id,
 	})
 }
+
+func Search(c *gin.Context) {
+	c.HTML(e.SUCCESS, "wap/search.html", gin.H{})
+}

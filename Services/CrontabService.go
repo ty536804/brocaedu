@@ -12,7 +12,7 @@ type Crontab struct {
 	mutex sync.Mutex
 }
 
-func NewCrontab() *Crontab {
+func NewCronTab() *Crontab {
 	return &Crontab{
 		inner: cron.New(),
 		ids:   make(map[string]cron.EntryID),
