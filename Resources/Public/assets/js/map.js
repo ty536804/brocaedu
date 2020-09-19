@@ -99,10 +99,29 @@ window.onload = function () {
 
     //初始化画圈找房
     drawing();
+
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Array();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for(var i = 0; i < strs.length; i ++) {
+                theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+
     /***
      * 初次加载地图，获取当前城市，各大版块的总数据
      */
     function getRes(lng= "",lat="",hierarchy="",isShow=true) {
+        let _param = GetRequest();
+        if (_param["lng"] && _param["lng"] != "") {
+            lng = _param["lng"]
+            lat = _param["lat"]
+        }
         let _url = "https://www.fangpaiwang.com/api/second/areaHouse";
         if ( lng !="" ) {
             _url += "?lng="+ lng+"&lat="+lat
@@ -299,7 +318,7 @@ window.onload = function () {
             if (res.data.lists.data.length > 0 ) {
                 let _clName = "";
                 $.each(res.data.lists.data,function (k,v) {
-                    house+='<a><dl class="houseItemView"><dt class="houseItemImg"><img class="thumb_img" src="https://www.fangpaiwang.com'+v.img+'">'
+                    house+='<a href="http://m.fangpaiwang.com/pages/community/community?id='+v.id+'"><dl class="houseItemView"><dt class="houseItemImg"><img class="thumb_img" src="https://www.fangpaiwang.com'+v.img+'">'
                     house+='<ul class="tag">'
                     if (Number(v.house_type) != 48) {
                         house+='<li>'+v.jieduan_name+'</li>'

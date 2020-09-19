@@ -320,3 +320,85 @@ body .layui-m-layer .layui-m-layer-msg{
     background: #333;
     color: #fff;
 }
+
+/*搜索*/
+.search_nav{
+	height: 42px;
+	width: 100%;
+	border-bottom: 1px solid #F1F1F1;
+	text-align: center;
+	line-height: 42px;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #333333;
+	text-indent: -15px;
+}
+.search_nav img{
+	width: 8px !important;
+	height: 16px !important;
+	margin-top: 13px !important;
+	display: inline-block;
+	float: left;
+	margin-left: 15px;
+}
+.header-wrap{
+	width: 90%;
+	height: 47px;
+	position: relative;
+	box-sizing: content-box;
+	display: flex;
+	margin: 20px auto 0 auto;
+}
+.searchInput{
+	background:#FFFFFF url("../img/search.png") no-repeat left 9px top 12px;
+	width: 80%;
+	height: 45px;
+	border: 1px solid #C9C9C9;
+	border-radius: 10px;
+	background-size: 20px 20px;
+	text-indent: 40px;
+}
+.searchInput:focus{
+	outline: none;
+}
+.searchBtn{
+	width: 23%;
+	height: 47px;
+	background: #DF2D23;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border: none;
+	line-height: 47px;
+	font-size: 16px;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #FFFFFF;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.search_list{
+	position: absolute;
+	z-index: 1111;
+	background: #fff;
+	left: 0;
+	width: 90%;
+	left: 4%;
+}
+.search_item{
+	padding: 17px 0;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	width: 100%;
+	color: #333;
+	border-bottom:1px solid rgba(241,241,241,1);
+}
+.close{
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	top: 12px;
+	right: 25%;
+	display: none;
+}

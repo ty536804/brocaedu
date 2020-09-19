@@ -1,9 +1,8 @@
-{{define "wap/map.html"}}
+{{define "wap/search.html"}}
     <!DOCTYPE html>
     <html>
-
     <head>
-        <title>地图</title>
+        <title>搜索</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
         <meta content="yes" name="apple-mobile-web-app-capable">
@@ -45,28 +44,20 @@
         <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ETLXgCxIoVixggHcAk6mKpMd"></script>
         <script type="text/javascript" src="/static/assets/js/jquery.min.js"></script>
         <script type="text/javascript" src="/static/assets/js/layer.js"></script>
-        <script type="text/javascript" src="/static/assets/js/map.js"></script>
+        <script type="text/javascript" src="/static/assets/js/search.js"></script>
         <link rel="stylesheet" href="/static/assets/css/css.css">
     </head>
-
     <body>
-    <div class="nav">
+    <div class="search_nav">
         <img src="/static/assets/img/left.png" class="left">
-        <p class="searchTit">地图找房</p>
-        <img src="/static/assets/img/circle.png" onclick="window.location.href='/search'">
+        搜索
     </div>
-    <div id="allMap">
+    <div class="header-wrap">
+        <input placeholder="输入小区名称" class="searchInput">
+        <img src="/static/assets/img/close.png" class="close">
+        <button class="searchBtn">搜索</button>
     </div>
-    <button class="drawing" id="draw">画圈找房</button>
-    <button class="exit" id="exit">退出画圈</button>
-    <div class="houseList">
-        <p class="bottom close"><img src="/static/assets/img/bottom.png"></p>
-        <div class="header_con">
-            <h3 class="smallTit"></h3>
-            <p class="small_tag"></p>
-        </div>
-        <div class="house_con">
-        </div>
+    <div class="search_list">
     </div>
     </body>
     </html>
