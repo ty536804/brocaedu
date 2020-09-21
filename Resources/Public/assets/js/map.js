@@ -1,7 +1,10 @@
 window.onload = function () {
     $('.close').on('click',function(){
-        $('.houseList').css("display","none");
+        $('.houseList').hide();
     });
+    //请求接口
+    var webSite = "https://www.fangpaiwang.com";
+    //地图
     var map = null;
     // 画圈完成
     var isDrawingOk = false;
@@ -121,7 +124,7 @@ window.onload = function () {
             lng = _param["lng"]
             lat = _param["lat"]
         }
-        let _url = "https://www.fangpaiwang.com/api/second/areaHouse";
+        let _url = webSite+"/api/second/areaHouse";
         if ( lng !="" ) {
             _url += "?lng="+ lng+"&lat="+lat
         }
@@ -312,12 +315,12 @@ window.onload = function () {
     function getSingle(estate_id,tit) {
         let house = "";
         $('.smallTit').empty().html(tit)
-        let _url = "https://www.fangpaiwang.com/api/second/houseList?a=h169h170&estate_id="+estate_id;
+        let _url = webSite+"/api/second/houseList?a=h169h170&estate_id="+estate_id;
         $.get(_url,function(res) {
             if (res.data.lists.data.length > 0 ) {
                 let _clName = "";
                 $.each(res.data.lists.data,function (k,v) {
-                    house+='<a href="http://m.fangpaiwang.com/pages/community/community?id='+v.id+'"><dl class="houseItemView"><dt class="houseItemImg"><img class="thumb_img" src="https://www.fangpaiwang.com'+v.img+'">'
+                    house+='<a href="http://m.fangpaiwang.com/pages/community/community?id='+v.id+'"><dl class="houseItemView"><dt class="houseItemImg"><img class="thumb_img" src="'+checkImg(v.img)+'">'
                     house+='<ul class="tag">'
                     if (Number(v.house_type) != 48) {
                         house+='<li>'+v.jieduan_name+'</li>'
@@ -356,7 +359,7 @@ window.onload = function () {
                     house+='</ul><p class="createIime">开拍时间：'+v.kptime.trim()+'</p>'
                 })
                 $('.house_con').empty().append(house);
-                $('.houseList').css("display","block");
+                $('.houseList').show();
             }
         });
     }
@@ -371,6 +374,23 @@ window.onload = function () {
         return false;
     }
 
+    /***
+     * 校验图片
+     * @param ImgSrc 体魄地址
+     * @returns {string|*}
+     */
+    function checkImg(ImgSrc) {
+        if (ImgSrc == null || ImgSrc == "" ) {
+            return "../../static/img/base/default.png";
+        }
+        if (ImgSrc.substr(0,4) == "http") {
+            return ImgSrc;
+        } else if (ImgSrc.substr(0,1) == "/") {
+            return webSite+ImgSrc;
+        } else {
+            return webSite+'/'+ImgSrc;
+        }
+    }
     /**
      * 绑定按钮事件
      */
@@ -516,7 +536,6 @@ window.onload = function () {
         ply.hide();
         plyAll[regionName] = ply
         map.addOverlay(ply); // 添加覆盖物
-
     }
 
     /**
