@@ -7,14 +7,15 @@ window.onload = function () {
     $('.searchInput').on('input',function () {
         let keyword = $('.searchInput').val().trim();
         if (keyword == "") {
-            $('.close').css("display","none");
+            $('.close').hide();
         } else {
-            $('.close').css("display","block");
+            $('.close').show();
         }
     });
     //清空表单
     $('.close').on('click',function () {
         $('.searchInput').val("");
+        $('.close').hide();
     });
     //请求数据
     $('.searchBtn').on('click',function () {
@@ -23,7 +24,7 @@ window.onload = function () {
             layer.open({
                 content: '输入小区名称'
                 ,skin: 'msg'
-                ,time: 5 //2绉掑悗鑷姩鍏抽棴
+                ,time: 2 //2绉掑悗鑷姩鍏抽棴
             });
             return;
         }
