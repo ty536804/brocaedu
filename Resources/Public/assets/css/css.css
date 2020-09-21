@@ -43,7 +43,7 @@ body,html {
 .ZLQbubble .count{
 	font-weight: bold;
 }
-.drawing , .exit{
+.drawing{
 	position: absolute;
 	background: #46ACFF;
 	border: 0px;
@@ -58,10 +58,6 @@ body,html {
 	left: 50%;
 	bottom: 20px;
 	transform: translate(-50%,-50%);
-}
-.exit{
-	/*left: 100px;*/
-	display: none;
 }
 .houseList{
 	bottom: 0;

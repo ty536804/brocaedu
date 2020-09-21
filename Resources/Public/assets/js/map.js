@@ -24,7 +24,6 @@ window.onload = function () {
     // 画圈完成后生成的多边形
     var polygonAfterDraw = null;
     var drawBtn = document.getElementById("draw");
-    var exitBtn = document.getElementById("exit");
     // 三级数据
     let thirdlyData ={}
     // 二级数据
@@ -387,35 +386,32 @@ window.onload = function () {
                 });
                 return;
             }
-            if (isDrawingOk) {
-                return;
+            if ($('#draw').html()=="画圈找房") {
+                if (isDrawingOk) {
+                    return;
+                }
+                $('#draw').html("退出画圈");
+                // 禁止地图移动点击等操作
+                map.clearOverlays()
+                map.disableDragging();//禁止拖拽
+                map.disablePinchToZoom()//禁止缩放
+                map.disableDoubleClickZoom();//禁用双击放大
+                // 设置鼠标样式
+                map.setDefaultCursor('crosshair');
+                // 设置标志位进入画圈状态
+                isInDrawing = true;
+            } else {
+                $('#draw').html("画圈找房");
+                map.enableDragging();
+                map.enablePinchToZoom()
+                map.enableDoubleClickZoom();
+                map.setDefaultCursor('default');
+                addLable(thirdlyData)
+                // 设置标志位退出画圈状态
+                isInDrawing = false;
+                isDrawingOk = false;
             }
-            $('#exit').css("display","block");
-            $('#draw').css("display","none");
-            // 禁止地图移动点击等操作
-            map.clearOverlays()
-            map.disableDragging();//禁止拖拽
-            map.disablePinchToZoom()//禁止缩放
-            map.disableDoubleClickZoom();//禁用双击放大
-            // 设置鼠标样式
-            map.setDefaultCursor('crosshair');
-            // 设置标志位进入画圈状态
-            isInDrawing = true;
         });
-
-        // 退出画圈按钮绑定事件
-        exitBtn.addEventListener('click', function(e) {
-            // 恢复地图移动点击等操作
-            $('#exit').css("display","none");
-            $('#draw').css("display","block");
-            map.enableDragging();
-            map.enablePinchToZoom()
-            map.enableDoubleClickZoom();
-            map.setDefaultCursor('default');
-            addLable(thirdlyData)
-            // 设置标志位退出画圈状态
-            isInDrawing = false;
-        })
 
         // 为地图绑定鼠标按下事件(开始画圈)
         map.addEventListener('touchstart', function(e) {
