@@ -19,7 +19,7 @@ $(function () {
                         let _dl = "";
                         $.each(result.data.list, function (k, v) {
                             if (k<4) {
-                                _dl += "<dl><a href='/detail?id="+v.id+"'><dt><img src='" + v.thumb_img + "'></dt><dd><h5>" + v.title + "</h5><p>" + v.summary + "</p></dd></a></dl>"
+                                _dl += "<dl><a href='/detail?id="+v.id+"'><dt class='weui-desktop-mass-appmsg__thumb' style='background-image: url("+v.thumb_img+")'></dt><dd><h5>" + v.title + "</h5><p>" + v.summary + "</p></dd></a></dl>"
                             }
                         })
                         $('.news').css("display","block");
