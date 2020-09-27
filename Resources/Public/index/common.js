@@ -17,9 +17,10 @@ $.ajax({
                 if (currentUrl == v.base_url) {
                     _nav += '<a href="'+v.base_url+'" class="actTit">'+v.name+'<p class="nav_line"><span class="nav_line"></span></p></a>';
                 } else {
-                    _nav += '<a href="'+v.base_url+'">'+v.name+'</a>';
+                    _nav += '<a href="'+v.base_url+'">'+v.name+'</a>'
                 }
             })
+            _nav += '<a class="ico_phone">400-175-9669</a>'
         }
         $(".nav .links").empty("").html(_nav)
     }

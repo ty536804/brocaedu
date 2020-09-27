@@ -1,0 +1,436 @@
+.elearn{
+    width: 100%;
+    justify-content: center;
+    background: #fff;
+    margin-top: 60px;
+}
+.elearn_img{
+    width: 100%;
+    justify-content: center;
+}
+.elearn_img img{
+    width: 100%;
+}
+/* AI智能解决方案 */
+.plan{
+    background: #EEF9FF;
+    height: 500px;
+}
+.plan .system_list{
+    margin-top: 60px;
+}
+.plan_con{
+    width: 1200px;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 auto 97px;
+    justify-content: space-between;
+}
+.plan_con dl{
+    width: 19%;
+    background: #FFFFFF;
+    height: 208px;
+    box-shadow:0px 0px 15px 0px rgba(79,102,148,0.03);
+    border-radius:10px;
+}
+.plan_con dl dt {
+    height: 70px;
+    margin-top: 27px;
+    width: 100%;
+    justify-content: center;
+}
+.plan_con dl dt img{
+    height: 70px;
+    display: block;
+    margin: 0 auto;
+}
+.plan_con dl dd h3{
+    text-align: center;
+    width:100%;
+    height:31px;
+    font-size:24px;
+    font-family:MicrosoftYaHei;
+    color:rgba(51,51,51,1);
+    line-height:31px;
+    margin: 15px auto 10px;
+}
+.plan_con dl dd p{
+    width:100%;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(102,102,102,1);
+    line-height:21px;
+    text-align: center;
+    padding: 0 22px;
+}
+.plan_slogan{
+    width:100%;
+    height:30px;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(51,51,51,1);
+    line-height:30px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+/* AI智能多维情景教学 */
+.ai{
+    width: 100%;
+    background: #fff;
+}
+.ai .system_list{
+    margin-top: 60px;
+}
+.ai_con{
+    width: 100%;
+    justify-content: center;
+    margin: 56px auto 60px;
+}
+.ai_con img{
+    height: 307px;
+    display: block;
+    margin: 0 auto;
+}
+/* 课程设置 */
+.subject{
+    height:1080px;
+    background:linear-gradient(180deg,rgba(255,255,255,1) 0%,rgba(255,235,223,1) 100%);
+    position: relative;
+}
+.baby_top{
+    width:100%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    position: relative;
+}
+.baby_top .baby_bottom{
+    width:436px;
+    margin-top: 63px;
+}
+.top_desc{
+    width:51%;
+    background:url(../images/circle_blue.png) no-repeat right top;
+    background-size: 108px 108px;
+    height: 108px;
+}
+.top_desc h3{
+    width:100%;
+    text-align: left;
+    height:31px;
+    font-size:24px;
+    font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+    font-weight:bold;
+    color:rgba(9,57,105,1);
+    line-height:31px;
+    margin-top: 35px;
+    display: inline-block;
+}
+.top_desc h4{
+    width:100%;
+    text-align: left;
+    height:30px;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(9,57,105,1);
+    line-height:30px;
+    margin-top: 3px;
+}
+.top_desc p{
+    width:100px;
+    height:1px;
+    float: left;
+    border: 2px solid #DBD7D3;
+    margin-top: 7px;
+}
+.baby_english{
+    width: 969px;
+    margin: 0 auto;
+}
+.baby_english_child{
+    width: 439px;
+}
+.baby_english_child img{
+    width: 439px;
+}
+.bottom_desc{
+    margin-top: 37px;
+}
+.bottom_desc h3{
+    width:100%;
+    text-align: left;
+    height:31px;
+    font-size:24px;
+    font-family:MicrosoftYaHei;
+    color:rgba(184,53,45,1);
+    line-height:31px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.bottom_desc p{
+    width:372px;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(102,102,102,1);
+    line-height:21px;
+}
+.line_blue{
+    position: absolute;
+    width: 200px;
+    left: 328px;
+    top: 109px;
+}
+.line_blue img{
+    width: 200px;
+}
+.baby_top_bottom .top_desc{
+    background: url(../images/circle_red.png) no-repeat right top;
+    background-size: 108px 108px;
+}
+.baby_top_bottom .baby_bottom{
+    width: 468px;
+}
+.line_red{
+    width: 388px;
+    left: 260px;
+}
+.line_red img{
+    width: 388px;
+    left: 217px;
+}
+.subject_warp{
+    width: 100%;
+    background: url(../images/circle_l@2x.png) no-repeat left  center;
+    background-size: 195px 391px;
+}
+.subject_out_warp{
+    width: 100%;
+    background: url(../images/circle_r@2x.png) no-repeat right  bottom 78px;
+    background-size: 196px 391px;
+}
+/* 强大的线上系统 */
+.strong .system_list{
+    margin: 60px auto 50px;
+}
+
+.systemList{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.systemList dl{
+    width:470px;
+    height:406px;
+    border-radius:20px;
+    background: #EEF9FF;
+}
+.systemList dl dt{
+    width:100%;
+    text-align: center;
+    height:31px;
+    font-size:24px;
+    font-family:MicrosoftYaHei;
+    color:rgba(184,53,45,1);
+    line-height:31px;
+    margin: 24px auto 25px;
+}
+.systemList dl.mid{
+    width: 70px;
+    background: none;
+    margin: 115px 18px 0 18px;
+}
+.systemList dl.mid dd img{
+    width: 70px;
+    height: 70px;
+}
+.systemList dl dd{
+    width: 100%;
+    text-align: center;
+}
+.systemList dl dd img{
+    width: 403px;
+}
+.systemList  dl dd p{
+    width: 403px;
+    margin: 23px auto;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(51,51,51,1);
+    line-height:21px;
+}
+/* 选择布罗卡斯的理由 */
+.reason{
+    background: url(../images/bg_blur@2x.png) no-repeat top center;
+    width: 100%;
+    background-size: 100% 560px;
+}
+.reason .system_list{
+    margin: 50px auto;
+}
+.pic_reason .system_list{
+    margin-top: 56px;
+    margin-bottom: 41px;
+}
+.pic_reason_con{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.pic_reason_con_list{
+    width: 1176px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 0 auto 62px auto;
+}
+
+.pic_reason_con_list dl{
+    width: 276px;
+    background:#B8352D;
+    border-radius: 15px;
+}
+.pic_reason_con_list dl dt,.pic_reason_con_list dl dt img{
+    width: 276px;
+}
+.pic_reason_con_list h6{
+    width:100%;
+    display: inline-block;
+    text-align: center;
+    height:31px;
+    font-size:24px;
+    font-family:MicrosoftYaHei;
+    color:rgba(255,255,255,1);
+    line-height:31px;
+    margin: 14px auto 7px;
+}
+.pic_reason_con_list p{
+    width:100%;
+    text-align: left;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(255,255,255,1);
+    line-height:30px;
+    padding: 0 9px 0 11px !important;
+    margin-bottom: 18px;
+}
+/* 品牌介绍 */
+.brand .system_list{
+    margin: 60px auto 50px auto;
+}
+.brand_con{
+    width: 1176px;
+    margin: 0 auto;
+    background: #F9FAFC;
+    border-radius: 15px;
+}
+.brand_con dt,.brand_con dt img{
+    width: 1176px;
+}
+.brand_con dd{
+    width:100%;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(51,51,51,1);
+    line-height:30px;
+    padding: 39px 52px 13px 52px !important;
+    box-sizing: border-box;
+}
+/* 公司动态 */
+.news{
+    background: #EEF9FF;
+    margin-top: 74px;
+    width: 100%;
+    height: 829px;
+    display: none;
+}
+.news .system_list{
+    margin: 47px auto 50px auto;
+    display: inline-block;
+}
+.brand{
+    margin-bottom: 60px;
+}
+.more_btn {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.six_reason dl {
+    width: 276px;
+    height: 338px;
+    overflow: hidden;
+}
+.six_reason dl a {
+    text-decoration: none;
+}
+.six_reason dl dt {
+    width: 276px;
+    height: 221px;
+    background: rgba(237,237,237,1) !important;
+    border-radius: 20px 20px 0px 0px;
+    overflow: hidden;
+}
+.six_reason dl dt img {
+    width: 100%;
+}
+.six_reason dl dd {
+    width: 100%;
+    padding: 11px 16px !important;
+    height: 109px;
+    color: #333;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31px;
+    background: rgba(249,250,252,1);
+    font-family: MicrosoftYaHei;
+}
+.six_reason dl dd h5 {
+    width: 244px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 31px;
+    height: 31px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-family: MicrosoftYaHei;
+}
+.six_reason dl dd p {
+    width: 244px;
+    height: 42px;
+    font-size: 16px;
+    line-height: 21px;
+    margin-top: 4px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-family: MicrosoftYaHei;
+    color: #5B5B5C;
+    font-weight: normal;
+}
+.six_reason {
+    width: 1176px;
+    margin: 0 auto;
+    height: 338px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+.more {
+    margin: 40px auto 0 auto;
+    width: 190px;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    background: rgba(2,162,247,1);
+    box-shadow: 0px 5px 5px 0px rgba(2,162,247,0.15);
+    border-radius: 25px;
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    display: inline-block;
+}

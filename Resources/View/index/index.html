@@ -9,147 +9,348 @@
         <meta name="apple-touch-fullscreen" content="yes">
         {{template "head"}}
         <link href="/static/assets/css/main.css" rel="stylesheet"/>
+        <link href="/static/assets/css/animate.css" rel="stylesheet"/>
     </head>
     <body>
     {{template "nav"}}
-    {{template "banner"}}
-    <!-- 你正在面临的学习问题 -->
-    <section class="pub elearn">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                你正在面临的学习问题
-                <span class="tit_icon"></span>
-            </h3>
+    <div id="myCarousel" class="carousel slide banner" data-ride="carousel" data-interval="2000">
+        <!-- 轮播（Carousel）指标 -->
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/static/assets/images/sybanner.png">
+            </div>
+        </div>
+    </div>
+    <!---布罗卡斯智能英语-->
+    <section class="pub brocae_warp">
+        <!--了解更多布罗卡斯智能英语资讯 请填写表单-->
+        <section class="header_more_form">
+            <section class="mfl">
+                <h3>了解更多布罗卡斯智能英语资讯 请填写表单</h3>
+                <p>稍后我们的客服专员将会致电于您</p>
+            </section>
+            <section class="mfr">
+                <form class="header_from">
+                    <input placeholder="姓名" name="mname" class="c-area">
+                    <input placeholder="电话" name="tel" class="c-tel">
+                    <input placeholder="地区" name="area" class="c-city">
+                    <p>
+                        <button class="headBtn">提交</button>
+                    </p>
+                </form>
+            </section>
         </section>
-        <section class="elearn_img">
-        </section>
-    </section>
-    <!-- AI智能解决方案 -->
-    <section class="pub plan">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                AI智能解决方案
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <section class="plan_slogan">智能学习，轻松提分</section>
-        <section class="plan_con">
-
-        </section>
-    </section>
-    <!-- AI智能多维情景教学 -->
-    <section class="ai pub">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                AI智能多维情景教学
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <section class="ai_con">
-        </section>
-    </section>
-    <!-- 课程设置 -->
-    <section class="subject pub">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                AI智能多维情景教学
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <section class="subject_warp">
-            <section class="subject_out_warp">
-                <section class="baby_english">
-                    <section class="baby_top">
-                        <section class="baby_english_child six_img">
-                        </section>
-                        <section class="line_blue">
-                            <img src="/static/assets/images/line_blue@2x.png" />
-                        </section>
-                        <section class="baby_bottom three">
-                        </section>
-                    </section>
-                    <section class="baby_top baby_top_bottom">
-                        <section class="baby_bottom seven">
-                        </section>
-                        <section class="line_blue line_red">
-                            <img src="/static/assets/images/line_red@2x.png" />
-                        </section>
-                        <section class="baby_english_child seven_img">
-                        </section>
-                    </section>
-                </section>
+        <section class="brocae_con">
+            <h3>布罗卡斯智能英语 孩子信赖 妈妈优选</h3>
+            <ul class="brocea_li">
+                <li>布罗卡斯智能英语在中国100+座城市发展300+家校区，每年都有超过数10万+名儿童在此学习，</li>
+                <li>通过人机互教陪伴孩子快乐地学习英语、轻松提分，并快速提升孩子综合英语能力， </li>
+                <li>受到广大家长和学员的一致好评，已然成为中国精英家庭英语学习的优选。</li>
+            </ul>
+            <section class="broca_dl">
+                <dl>
+                    <dt><strong>300</strong>家校区</dt>
+                    <dd class="show_img"><img src="/static/assets/img/ico_education@2x.png"></dd>
+                </dl>
+                <dl>
+                    <dt><strong>100</strong>+个城市</dt>
+                    <dd class="show_img"><img src="/static/assets/img/ico_city@2x.png"></dd>
+                </dl>
+                <dl>
+                    <dt><strong>10</strong>万+名儿童</dt>
+                    <dd class="show_img"> <img src="/static/assets/img/ico_education.png"></dd>
+                </dl>
             </section>
         </section>
     </section>
-    <!-- 强大的线上系统 -->
-    <section class="pub strong">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                强大的线上系统
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <section class="systemList">
-        </section>
-    </section>
-    <!-- 选择布罗卡斯的理由-->
-    <section class="pub reason">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                选择布罗卡斯的理由
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <section class="pic_reason_con_list">
+    <!---布罗卡斯语言区理论体系-->
+    <section class="pub subject_warp">
+        <h3>源于19世纪脑科学 布罗卡斯语言区理论体</h3>
+        <section class="subjectcon">
+            <section class="subject_con_l">
+                <section class="loop">
+                    <h4>Broca’s Area</h4>
+                    <section class="dottedCircle">
+                    </section>
+                    <section class="dottedcircle1">
+                    </section>
+                </section>
+                <section class="pic_brain">
+                    <section class="heart"></section>
+                    <section class="heart_circle"></section>
+                </section>
+            </section>
+            <section class="subject_desc wow fadeInDown animated animated" data-wow-duration="0.6s" style="visibility: visible; animation-duration: 0.2s; animation-name: fadeInDown;">
+                1861年法国脑科学家布罗卡斯发现“布罗卡斯区” 负责语言的学习和储存，1996年美国康奈尔大学研究证实并发表于《nature》，同年哈佛大学通过科学扫描技术确认布罗卡斯区在幼儿时期3周岁左右开始发育，12岁左右发育基本成熟关闭。
+            </section>
         </section>
     </section>
-    <!-- 品牌介绍 -->
-    <section class="pub brand">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                品牌介绍
-                <span class="tit_icon"></span>
-            </h3>
+    <!---联合世界名校和美国优质教育资源倾力打造-->
+    <section class="pub make_warp">
+        <h3>联合世界名校和美国优质教育资源倾力打造</h3>
+        <section class="make_img">
+            <img src="/static/assets/img/pic_Harvard.png">
+            <section class="mid">
+                <img src="/static/assets/img/pic_USA.png"  class="mid wow fadeInDown animated animated" data-wow-duration="0.6s">
+                <img src="/static/assets/img/pic_elearn.png"  class="mid wow fadeInDown animated animated" data-wow-duration="0.7s">
+                <img src="/static/assets/img/pic_BBC.png"  class="mid wow fadeInDown animated animated" data-wow-duration="0.8s">
+            </section>
+            <img src="/static/assets/img/pic_Cornell.png">
         </section>
-        <dl class="brand_con">
-        </dl>
     </section>
-    <!-- 公司动态 -->
-    <section class="pub news">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                公司动态
-                <span class="tit_icon"></span>
-            </h3>
+    <!---10万+学员家长选择布罗卡斯智能英语的理由-->
+    <section class="pub checked_warp">
+        <h3>10万+学员家长选择布罗卡斯智能英语的理由</h3>
+        <section class="cwl">
+            <section class="cwc">
+                <h4 class="smallTit">布罗卡斯英语</h4>
+                <p class="smallSlogan">Broca English Course</p>
+                <ul>
+                    <li>AI智学系统跟进每个孩子学习成果及习惯，因材施教</li>
+                    <li>结合实体课堂人机双师互教，直接提分快速有效</li>
+                    <li>知识点螺旋重叠式递增，注重交流，阅读和运用</li>
+                    <li>电子课件涵盖1000+专属儿童英文游戏</li>
+                    <li>AI小程序植入真人外教辅助复习</li>
+                    <li>AI小程序激励系统锻炼孩子项目管理能力</li>
+                </ul>
+            </section>
         </section>
+        <section class="cwm"></section>
+        <section class="cwr">
+            <section class="cwc">
+                <h4 class="smallTit">其他英语课程</h4>
+                <p class="smallSlogan">Other English Course</p>
+                <ul>
+                    <li>没有AI系统</li>
+                    <li>只有老师实体教授，没有人机互动</li>
+                    <li>单纯模块化教学内容，抽象不易理解</li>
+                    <li>课件只是简单的动画、图片或PPT无法实现互动</li>
+                    <li>小程序或APP真人外教视频不多</li>
+                    <li>小程序或APP内容单一</li>
+                </ul>
+            </section>
+        </section>
+    </section>
+    <!---第一代出国潮的推动者-->
+    <section class="pub run_warp">
+        <h3>采用国际前沿技术 第一代出国潮的推动者</h3>
+        <section class="run_con">
+            <dl>
+                <dt>
+                    <section class="celebrity_desc">
+                        <h5>与CCTV共同拍摄第一档儿童双语布偶剧</h5>
+                        <p>与中央电视台共同拍摄中国第一档儿童双语布偶剧《波波嘟的一天》并多轮播出，收视人数过亿，创下CCTV儿童节目收视纪录，推动中国亿万人学习英语热情，直接影响中国第一代出国留学热潮。</p>
+                    </section>
+                </dt>
+                <dd>与CCTV共同拍摄第一档儿童双语布偶剧</dd>
+            </dl>
+            <dl class="teaching">
+                <dt>
+                    <section class="celebrity_desc">
+                        <h5>采用国际前沿的AI技术呈现智能英语课堂</h5>
+                        <p>结合独特的多维智能情景教学法，打造了集BROCA智能学系统、未来教室应用系统、多媒体助教系统、 云学习小程序、游戏式家庭学习测评系统于一体的学练环境，低龄段采用专业师资面授、课后RAZ阅读欧美外教直播课以及高龄段采用AI人机互教学习方式达成最佳学习效果。</p>
+                    </section>
+                </dt>
+                <dd>采用国际前沿的AI技术呈现智能英语课堂</dd>
+            </dl>
+        </section>
+    </section>
+    <!---并非改善 而是革新 OMO多维情景授课与学习，让孩子从此更爱说英语-->
+    <section class="pub love">
+        <h3>并非改善 而是革新</h3>
+        <p class="love_small_tit">OMO多维情景授课与学习，让孩子从此更爱说英语</p>
+        <section class="love_con lcf">
+            <dl>
+                <dt>人机双师互教</dt>
+                <dd><img src="/static/assets/img/pic_renjishuangshi.png"></dd>
+            </dl>
+            <dl>
+                <dt>AI学习系统</dt>
+                <dd><img src="/static/assets/img/pic_aixuexi.png"></dd>
+            </dl>
+            <dl>
+                <dt>中外教互动课堂</dt>
+                <dd><img src="/static/assets/img/pic_zongwaihudong.png"></dd>
+            </dl>
+        </section>
+        <section class="love_con lcb">
+            <dl>
+                <dt>全情景智能点读</dt>
+                <dd><img src="/static/assets/img/pic_diandu.png"></dd>
+            </dl>
+            <dl>
+                <dt>多维度题库练习</dt>
+                <dd><img src="/static/assets/img/pic_tikulianxi.png"></dd>
+            </dl>
+            <dl>
+                <dt>美国分级阅读RAZ外教直播课</dt>
+                <dd><img src="/static/assets/img/pic_raz.png"></dd>
+            </dl>
+        </section>
+    </section>
+    <!---无缝衔接课前、课中、课后，更符合中国孩子的学习习惯 对标国内英语知识点，接轨国际前沿课程-->
+    <section class="pub join">
+        <h3>无缝衔接课前、课中、课后，更符合中国孩子的学习习惯</h3>
+        <p>对标国内英语知识点，接轨国际前沿课程</p>
+        <section class="join_con">
+            <dl>
+                <dt>
+                    <img src="/static/assets/img/pic_child3-6.png">
+                    <h4>3-6岁幼儿英语</h4>
+                    <p>激发兴趣，奠定基础</p>
+                </dt>
+                <dd>
+                    <ul>
+                        <li>互动电子课件、趣味教具，激发孩子学习主动性。</li>
+                        <li>智能点读笔，生词拼读释义瞬间get APP包含海量学习资源，拓展知识结构。</li>
+                        <li>课堂游戏式互动其乐无穷，以兴趣为引导。</li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <img src="/static/assets/img/pic_child7-15.png">
+                    <h4>7-15岁少儿英语</h4>
+                    <p>快速提分，一路领先</p>
+                </dt>
+                <dd>
+                    <ul>
+                        <li>专属AI老师，定位孩子学习薄弱点重点提升。</li>
+                        <li>专业英语老师+“最强大脑”智能老师，实现1+1>2的教学效果。</li>
+                        <li>根据学习数据定制个性化辅导方案，因材施教。</li>
+                    </ul>
+                </dd>
+            </dl>
+        </section>
+    </section>
+    <!---循序渐进地综合提升孩子的英语能力-->
+    <section class="pub subject">
+        <h3 class="subSmallTit">布罗卡斯梯度进阶课程体系 夯实基础 循序渐进地综合提升孩子的英语能力</h3>
+        <section class="subject_con">
+            <section class="level_con">
+                <ul class="lon_hun">
+                    <li>
+                        语言发展
+                    </li>
+                    <li class="i">
+                        <img src="/static/assets/img/new_pic_kctx.png">
+                    </li>
+                </ul>
+            </section>
+            <section class="level_con">
+                <ul class="level_ti">
+                    <li>课程阶段</li>
+                </ul>
+                <ul class="first">
+                    <li></li>
+                    <li class="r">A、B</li>
+                </ul>
+                <ul class="sec">
+                    <li></li>
+                    <li class="y">C、D</li>
+                </ul>
+                <ul class="three">
+                    <li></li>
+                    <li class="yell">E、F</li>
+                </ul>
+                <ul class="four">
+                    <li></li>
+                    <li class="ph">PH</li>
+                </ul>
+                <ul class="five">
+                    <li></li>
+                    <li class="a1">A1、A2 A3、A4</li>
+                </ul>
+                <ul class="six">
+                    <li></li>
+                    <li class="b1">B1、B2 B3、B4</li>
+                </ul>
+                <ul class="seven">
+                    <li class="c1">C1、C2 C3、C4</li>
+                </ul>
+            </section>
+            <section class="level_con">
+                <ul class="three_hun">
+                    <li>能力描述</li>
+                    <li class="r">词汇量：300+，通过游戏方式参与到英语活动中来，激发学习兴趣。</li>
+                    <li class="y">词汇量：600+，注重交流能力和礼仪的培养，在引导下根据图片用英文描述场景，表达自己的喜好、情绪。</li>
+                    <li class="yell">词汇量：1000+，能用英文简单复述故事情节，进行简单的英文戏剧表演，综合发展阅读能力，逐步养成学习英文的好习惯。</li>
+                    <li class="ph">词汇量：550，掌握96组自然拼音组合，见词读音，听音写词，从幼儿学习模式逐步过渡到少儿学习模式。</li>
+                    <li class="a1">核心词汇：800+，听、说、读、写能力全面发展，能按指定话题开展简单的讨论与交流，适应AI互动模式。</li>
+                    <li class="b1">核心词汇：1200+，建立学习英语的主动性和成就感，养成按意群阅读的习惯，有意愿主动展现自己的英文能力，应试能力大幅度提高。</li>
+                    <li class="c1">核心词汇：1600+，能听懂相关话题并讨论，能读懂相应水平的读物，使用英文工具探索新的知识领域，能通过书写作文表达个人观点，理解中外文化差异。</li>
+                </ul>
+            </section>
+            <section class="level_con">
+                <ul class="lon_hun">
+                    <li>
+                        成长阶段
+                    </li>
+                    <li class="y">幼儿段 For Kids</li>
+                    <li class="b1">少儿段 For Pupils</li>
+                </ul>
+            </section>
+            <section class="level_con">
+                <ul class="ncet_hun">
+                    <li>
+                        <h3>NCET</h3>
+                        <p>青少儿英语能力展示活动</p>
+                    </li>
+                    <li class="r">—</li>
+                    <li class="y">K1</li>
+                    <li class="yell">k2</li>
+                    <li class="ph">—</li>
+                    <li class="a1">L1 L2</li>
+                    <li class="b1">L3 L4</li>
+                    <li class="c1">L5 L6</li>
+                </ul>
+            </section>
+            <section class="level_con">
+                <ul class="ncet_hun">
+                    <li>
+                        <h3>CES</h3>
+                        <p>中国英语能力</p>
+                    </li>
+                    <li class="r">—</li>
+                    <li class="y">—</li>
+                    <li class="yell">L1</li>
+                    <li class="ph">—</li>
+                    <li class="a1">—</li>
+                    <li class="b1">L2</li>
+                    <li class="c1">L3</li>
+                </ul>
+            </section>
+            <section class="level_con">
+                <ul class="ncet_hun">
+                    <li>
+                        <h3>CEFR</h3>
+                        <p>欧洲共同语言参考标准</p>
+                    </li>
+                    <li class="r">—</li>
+                    <li class="y">—</li>
+                    <li class="yell">A1</li>
+                    <li class="ph">—</li>
+                    <li class="a1">—</li>
+                    <li class="b1">—</li>
+                    <li class="c1">A2</li>
+                </ul>
+            </section>
+        </section>
+    </section>
+    <!---新闻动态-->
+    <section class="pub news" style="display: block;">
+        <h3>新闻动态</h3>
         <section class="six_reason">
+
         </section>
         <p class="more_btn">
             <a href="/news" class="more">更多内容</a>
         </p>
     </section>
     {{template "footer"}}
+    <script src="http://cdn.dowebok.com/131/js/wow.min.js"></script>
     <script type="text/javascript" src="/static/index/index.js"></script>
-    <script>
-        var mobileAgent = new Array("iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire");
-        var browser = navigator.userAgent.toLowerCase();
-        var isMobile = false;
-        for (var i=0; i<mobileAgent.length; i++) {
-            if (browser.indexOf(mobileAgent[i])!=-1){
-                isMobile = true;
-                location.href = '/wap';
-                break;
-            }
-        }
-    </script>
     </body>
     </html>
 {{end}}
