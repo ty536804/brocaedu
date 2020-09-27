@@ -1,6 +1,18 @@
 body {
     background:#fff ;
 }
+@font-face {
+    font-family: MicrosoftYaHei-Bold;
+    src: url("../../fonts/Microsoft-YaHei-Bold.ttc");
+}
+@font-face {
+    font-family:MicrosoftYaHei;
+    src: url("../../fonts/Microsoft-YaHei-Regular.ttc");
+}
+@font-face {
+    font-family:MicrosoftYaHeiSemibold;
+    url("../../fonts/Microsoft-YaHei-Semibold.ttc");
+}
 dt{
     font-weight: normal;
 }
