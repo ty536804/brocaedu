@@ -1,10 +1,4 @@
 window.onload = function () {
-    $('.close').on('click',function(){
-        $('.houseList').hide();
-    });
-    //请求接口
-    var webSite = "https://www.fangpaiwang.com";
-    //地图
     var map = null;
     // 画圈完成
     var isDrawingOk = false;
@@ -31,7 +25,7 @@ window.onload = function () {
     let thirdlyData ={}
     // 二级数据
     let secondData = {}
-    var firstData= {}
+    var firstData = {};
     var area = {
         "东城区":{
             "lat":"39.93482727239599",
@@ -94,32 +88,24 @@ window.onload = function () {
             "lng":"116.10760355576534",
         }
     }
-
+    //请求地址
+    var webSite = 'https://www.fangpaiwang.com'
+    //初始化地图
     initMap()
-
+    //初始化请求资源
     getRes();
-
+    getRes('116.23761791731043','40.22641337159427',2,'false')
     //初始化画圈找房
     drawing();
-
-    function GetRequest() {
-        var url = location.search; //获取url中"?"符后的字串
-        var theRequest = new Array();
-        if (url.indexOf("?") != -1) {
-            var str = url.substr(1);
-            strs = str.split("&");
-            for(var i = 0; i < strs.length; i ++) {
-                theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
-            }
-        }
-        return theRequest;
-    }
-
     /***
      * 初次加载地图，获取当前城市，各大版块的总数据
      */
     function getRes(lng= "",lat="",hierarchy="",isShow=true) {
         let _param = GetRequest();
+        let currentTime = new Date();
+        let year = currentTime.getFullYear();
+        let month = currentTime.getMonth()+1;
+        let date = currentTime.getDate();
         if (_param["lng"] && _param["lng"] != "") {
             lng = _param["lng"]
             lat = _param["lat"]
@@ -129,21 +115,22 @@ window.onload = function () {
             _url += "?lng="+ lng+"&lat="+lat
         }
         if ( hierarchy !="" ) {
+            hierarchy = hierarchy == 5 ? 2: hierarchy
             _url += "&hierarchy="+ hierarchy
         }
+
         $.get(_url,function(res) {
-            if (hierarchy==3) {
-                // thirdlyData = res.data;
-                addLable(estate)
-            } else {
-                if (hierarchy==2) {
-                    estate = res.data.estate;
-                    secondData = res.data.street;
-                    addMarker(res.data.street, isShow);
-                } else {
-                    firstData = res.data
+            switch(Number(hierarchy)) {
+                case 3:
+                    addLable(estate);
+                    break;
+                case 2:
+                    estate = res.data.all_estate;
+                    secondData = res.data.all_area;
+                    // addMarker(res.data.all_area, isShow);
+                    break;
+                default:
                     addMarker(res.data, isShow);
-                }
             }
         });
     }
@@ -196,7 +183,7 @@ window.onload = function () {
                 ' data-latitude="' + data.lat + '">' +
                 '<p class="name" title="' + data.name + '">' + data.name + '</p>' +
                 '<p class="price" title="' + data.price + '">' + data.price + '\/㎡</p>' +
-                '<p class="count"><span>' + data.num + '</span>套</p>' +
+                '<p class="count"><span>' + data.house_num + '</span>套</p>' +
                 '</div>';
             var myLabel = new BMap.Label(tpl, {
                 position: point,
@@ -241,10 +228,12 @@ window.onload = function () {
                 let point = myLabel.getPosition()
                 if(flag) {
                     $('.small_tag').empty().html(small_tag = myLabel.getTitle()+' | 均价'+data.price+'/㎡')
-                    getRes(point.lng,point.lat,2,false);
+                    // getRes(point.lng,point.lat,2,false);
+                    addMarker(secondData, false);
                     map.centerAndZoom(point, 14);
                 } else {
-                    getRes(point.lng,point.lat,3,false);
+                    // getRes(point.lng,point.lat,3,false);
+                    addLable(estate)
                     map.centerAndZoom(point, 16);
                 }
             });
@@ -261,13 +250,13 @@ window.onload = function () {
         map.clearOverlays();
         // 首先判断是不是第一次请求
         if(thirdlyMkr.length <= 0) {
-            $.each(data, function(index, data) {
-                var point = new BMap.Point(data.lng, data.lat,data.title);
+            $.each(data, function(index, item) {
+                var point = new BMap.Point(item.lng, item.lat,item.title);
                 // 自定义label样式
-                var tpl = '<div class=" bubble-1 ZLQbubble" data-longitude="' + data.lng + '"' +
-                    ' data-latitude="' + data.lat + '">' +
-                    '<span class="name" title="' + data.title + '">' + data.title + '</span>&nbsp&nbsp' +
-                    '<span class="count"><span>' + data.house_num + '</span>套</span>' +
+                var tpl = '<div class=" bubble-1 ZLQbubble" data-longitude="' + item.lng + '"' +
+                    ' data-latitude="' + item.lat + '">' +
+                    '<span class="name" title="' + item.title + '">' + item.title + '</span>&nbsp&nbsp' +
+                    '<span class="count"><span>' + item.house_num + '</span>套</span>' +
                     '</div>';
                 var myLabel = new BMap.Label(tpl, {
                     position: point,//label 在此处添加点位位置信息
@@ -283,7 +272,7 @@ window.onload = function () {
                     cursor: "pointer",
                     zIndex: 2
                 });
-                myLabel.setTitle(data.title);
+                myLabel.setTitle(item.title);
                 // 直接缓存起来
                 thirdlyMkr.push(myLabel);
                 myLabel.addEventListener("mouseover", function() {
@@ -299,7 +288,8 @@ window.onload = function () {
                     });// 修改覆盖物背景颜色
                 });
                 myLabel.addEventListener("click", function() {
-                    getSingle(data.id,myLabel.getTitle())
+                    $("#communitUrl").attr("href","/pages/community/community?id="+item.id)
+                    getSingle(item.estate_id,myLabel.getTitle())
                 });
             })
         }
@@ -320,16 +310,16 @@ window.onload = function () {
             if (res.data.lists.data.length > 0 ) {
                 let _clName = "";
                 $.each(res.data.lists.data,function (k,v) {
-                    house+='<a href="http://m.fangpaiwang.com/pages/community/community?id='+v.id+'"><dl class="houseItemView"><dt class="houseItemImg"><img class="thumb_img" src="'+checkImg(v.img)+'">'
+                    house+='<a href="/pages/detail/index?id='+v.id+'"><dl class="houseItemView"><dt class="houseItemImg"><img class="thumb_img" src="https://www.fangpaiwang.com'+v.img+'">'
                     house+='<ul class="tag">'
                     if (Number(v.house_type) != 48) {
                         house+='<li>'+v.jieduan_name+'</li>'
                     }
                     if (v.is_free !="") {
-                        house += '<li class="tag_label_2">'+v.自由购+'</li>'
+                        house += '<li class="tag_label_2">自由购</li>'
                     }
                     if (Number(v.house_type) ==48) {
-                        house += '<li class="tag_label_2">'+v.社会委托+'</li>'
+                        house += '<li class="tag_label_2">社会委托</li>'
                     }
 
                     if (isEmpty(v.characteristic_name,v.characteristic_name,v.characteristic_name)!=true) {
@@ -356,10 +346,20 @@ window.onload = function () {
                         house+='<li>起拍价<span class="redPrice">'+v.qipai+'</span></li>'
                     }
                     house+='<li>市场价<span class="grayPrice">'+v.price+'</span></li>'
-                    house+='</ul><p class="createIime">开拍时间：'+v.kptime.trim()+'</p>'
+                    house+='</ul><p class="createIime">开拍时间：'+v.kptime.trim()+'</p></dl></a>'
                 })
-                $('.house_con').empty().append(house);
-                $('.houseList').show();
+                if (res.data.lists.data.length >=3) {
+                    $('.house_con').css({'height':"308px"})
+                }
+                $('.house_con').empty().html(house);
+                $('.houseList').css("display","block");
+            } else {
+                layer.open({
+                    content: '暂无房源信息'
+                    ,skin: 'msg'
+                    ,time: 2 //2秒后自动关闭
+                });
+                return;
             }
         });
     }
@@ -374,23 +374,6 @@ window.onload = function () {
         return false;
     }
 
-    /***
-     * 校验图片
-     * @param ImgSrc 体魄地址
-     * @returns {string|*}
-     */
-    function checkImg(ImgSrc) {
-        if (ImgSrc == null || ImgSrc == "" ) {
-            return "../../static/img/base/default.png";
-        }
-        if (ImgSrc.substr(0,4) == "http") {
-            return ImgSrc;
-        } else if (ImgSrc.substr(0,1) == "/") {
-            return webSite+ImgSrc;
-        } else {
-            return webSite+'/'+ImgSrc;
-        }
-    }
     /**
      * 绑定按钮事件
      */
@@ -536,6 +519,7 @@ window.onload = function () {
         ply.hide();
         plyAll[regionName] = ply
         map.addOverlay(ply); // 添加覆盖物
+
     }
 
     /**
@@ -565,7 +549,6 @@ window.onload = function () {
         var ne = bounds.getNorthEast(); // 东北脚点
         return(point.lng >= sw.lng && point.lng <= ne.lng && point.lat >= sw.lat && point.lat <= ne.lat);
     }
-
     // 判定一个点是否包含在多边形内
     function isPointInPolygon(point, bound, pointArray) {
         // 首先判断该点是否在外包矩形内，如果不在直接返回false
@@ -606,9 +589,77 @@ window.onload = function () {
             if(crossPointLng > point.lng) {
                 crossPointNum++;
             }
-
         }
         // 如果是奇数个交点则点在多边形内
         return crossPointNum % 2 === 1
+    }
+    $('.left').on('click',function() {
+        window.location.href = "/"
+    })
+    // 点击展开搜索框
+    $('.search').on('click', function() {
+        $('.header-wrap').show();
+    })
+    //关闭展示小区房源列表
+    $('.close').on('click',function(){
+        $('.houseList').hide();
+    });
+    //搜索 监听表单是否输入内容
+    $('.searchInput').on('input',function () {
+        let keyword = $('.searchInput').val().trim();
+        if (keyword == "") {
+            $('.closeSearch').hide();
+        } else {
+            $('.closeSearch').show();
+        }
+    });
+    //搜索 清空表单
+    $('.closeSearch').on('click',function () {
+        $('.searchInput').val("");
+        $('.closeSearch').hide();
+    });
+    //搜索小区
+    $('.searchBtn').on('click',function () {
+        let keyword = $('.searchInput').val().trim();
+        if (keyword == "") {
+            layer.open({
+                content: '输入小区名称'
+                ,skin: 'msg'
+                ,time: 2 //2秒后自动关闭
+            });
+            return;
+        }
+        let _getUrl = webSite+'/api/estate/single_estate?estate_name='+keyword
+        $.get(_getUrl,function (res) {
+            if (Number(res.code) == 10000) {
+                let _con = res.data;
+                console.log(_con.title)
+                let areaTit = _con.title.substring(0,3);
+                if (areaTit == '门头沟' || areaTit == '石景山') {
+                    areaTit += '区'
+                }
+                $('.smallTit').empty().html(areaTit)
+                // map.setZoom(16);
+                map.centerAndZoom(new BMap.Point(_con.lng, _con.lat,_con.title), 16);
+                addLable(estate)
+                $('.header-wrap').hide();
+                getSingle(_con.id,_con.title)
+            }
+        })
+    })
+    /***
+     * 获取url中"?"符后的字串
+     */
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Array();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for(var i = 0; i < strs.length; i ++) {
+                theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
     }
 }

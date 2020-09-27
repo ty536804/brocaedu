@@ -1,7 +1,7 @@
 *{
 	padding: 0;
 	margin: 0;
-    -webkit-overflow-scrolling: touch;
+	-webkit-overflow-scrolling: touch;
 }
 body,html {
 	width: 100%;
@@ -71,8 +71,8 @@ body,html {
 .houseList a{
 	width: 100%;
 	display: inline-block;
-	margin-bottom: 70px;
 	overflow: hidden;
+	height: 154px;
 }
 .houseList a:last-child{
 	margin-bottom: 0;
@@ -95,16 +95,16 @@ body,html {
 	font-size: 18px;
 	font-weight: 800;
 	line-height: 34px;
-	 text-indent: 15px;
+	text-indent: 15px;
 }
 .small_tag{
-   height: 28px;
-   font-size: 14px;
-   font-family: PingFang SC;
-   font-weight: 500;
-   color: #333;
-   line-height: 24px;
-   text-indent: 15px;
+	height: 28px;
+	font-size: 14px;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #333;
+	line-height: 24px;
+	text-indent: 15px;
 }
 .header_con{
 	width: 100%;
@@ -114,6 +114,11 @@ body,html {
 	color: #333333;
 	font-family: PingFang SC;
 	margin-bottom: 20px;
+}
+.header_con a{
+	height: 70px;
+	display: inline-block;
+	color: #333333;
 }
 a{
 	text-decoration: none;
@@ -169,7 +174,7 @@ ul li,li,a ul li,a{
 	border-radius: 2px;
 	display: inline-block;
 	-webkit-transform-origin-x: 0;
-	-webkit-transform: scale(0.85); 
+	-webkit-transform: scale(0.85);
 }
 .tag li:last-child {
 	color: #FF8126 !important;
@@ -194,7 +199,7 @@ ul li,li,a ul li,a{
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;
 	-webkit-transform-origin-x: 0;
-	-webkit-transform: scale(0.85); 
+	-webkit-transform: scale(0.85);
 }
 .itemInfo{
 	font-size: 13px;
@@ -218,12 +223,12 @@ ul li,li,a ul li,a{
 	-webkit-box-pack: justify;
 	-webkit-justify-content: space-between;
 	justify-content: space-between;
-	
+
 }
 .itemPrice li{
 	font-size: 12px;
 	-webkit-transform-origin-x: 0;
-	-webkit-transform: scale(0.85); 
+	-webkit-transform: scale(0.85);
 	width: 50%;
 	min-width:  110px;
 }
@@ -245,7 +250,7 @@ ul li,li,a ul li,a{
 	font-size: 0.75rem;
 	line-height: 26px;
 	-webkit-transform-origin-x: 0;
-	-webkit-transform: scale(0.85); 
+	-webkit-transform: scale(0.85);
 	text-indent: 25px;
 	width: 215px;
 }
@@ -275,6 +280,12 @@ ul li,li,a ul li,a{
 	text-align: center;
 	font-size: 11px;
 	border-radius: 0 8px 8px 0;
+}
+.house_status .house_status_red{
+	background: #E02E24;
+}
+.house_status .house_status_ash{
+	background: #989898;
 }
 .header img{
 	width: 22px;
@@ -313,8 +324,8 @@ ul li,li,a ul li,a{
 	line-height: 22px;
 }
 body .layui-m-layer .layui-m-layer-msg{
-    background: #333;
-    color: #fff;
+	background: #333;
+	color: #fff;
 }
 
 /*搜索*/
@@ -338,12 +349,16 @@ body .layui-m-layer .layui-m-layer-msg{
 	margin-left: 15px;
 }
 .header-wrap{
-	width: 90%;
-	height: 47px;
-	position: relative;
-	box-sizing: content-box;
-	display: flex;
-	margin: 20px auto 0 auto;
+	width: 80%;
+	height: 100%;
+	position: fixed;
+	display: none;
+	right: 0;
+	background: #fff;
+	z-index: 1111;
+	top: 42px;
+	padding:10px 10px 0 10px;
+	box-sizing: border-box;
 }
 .searchInput{
 	background:#FFFFFF url("../img/search.png") no-repeat left 9px top 12px;
@@ -370,8 +385,11 @@ body .layui-m-layer .layui-m-layer-msg{
 	font-weight: 500;
 	color: #FFFFFF;
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 10px;
+	right: 10px;
+}
+.searchBtn:focus{
+	outline: none;
 }
 .search_list{
 	position: absolute;
@@ -390,11 +408,11 @@ body .layui-m-layer .layui-m-layer-msg{
 	color: #333;
 	border-bottom:1px solid rgba(241,241,241,1);
 }
-.close{
+.closeSearch{
 	position: absolute;
 	height: 20px;
 	width: 20px;
-	top: 12px;
-	right: 25%;
+	top: 22px;
+	right: 28%;
 	display: none;
 }
