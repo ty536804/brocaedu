@@ -46,12 +46,37 @@
         <script type="text/javascript" src="/static/assets/js/jquery.min.js"></script>
         <script type="text/javascript" src="/static/assets/js/layer.js"></script>
         <script type="text/javascript" src="/static/assets/js/map.js"></script>
+
         <link rel="stylesheet" href="/static/assets/css/css.css">
+        <script type="text/javascript">
+            var userAgent = navigator.userAgent;
+            if (userAgent.indexOf('AlipayClient') > -1) {
+                // 支付宝小程序的 JS-SDK 防止 404 需要动态加载，如果不需要兼容支付宝小程序，则无需引用此 JS 文件。
+                document.writeln('<script src="https://appx/web-view.min.js"' + '>' + '<' + '/' + 'script>');
+            } else if (/QQ/i.test(userAgent) && /miniProgram/i.test(userAgent)) {
+                // QQ 小程序
+                document.write('<script type="text/javascript" src="https://qqq.gtimg.cn/miniprogram/webview_jssdk/qqjssdk-1.0.0.js"><\/script>');
+            } else if (/miniProgram/i.test(userAgent) || /MicroMessenger/i.test(userAgent)) {
+                // 微信小程序 JS-SDK 如果不需要兼容微信小程序，则无需引用此 JS 文件。
+                document.write('<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"><\/script>');
+            } else if (/toutiaomicroapp/i.test(userAgent)) {
+                // 字节跳动小程序 JS-SDK 如果不需要兼容字节跳动小程序，则无需引用此 JS 文件。
+                document.write('<script type="text/javascript" src="https://s3.pstatp.com/toutiao/tmajssdk/jssdk-1.0.1.js"><\/script>');
+            } else if (/swan/i.test(userAgent)) {
+                // 百度小程序 JS-SDK 如果不需要兼容百度小程序，则无需引用此 JS 文件。
+                document.write('<script type="text/javascript" src="https://b.bdstatic.com/searchbox/icms/searchbox/js/swan-2.0.18.js"><\/script>');
+            }
+            if (!/toutiaomicroapp/i.test(userAgent)) {
+                document.querySelector('.post-message-section').style.visibility = 'visible';
+            }
+        </script>
+        <!-- uni 的 SDK -->
+        <script type="text/javascript" src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.2.js"></script>
     </head>
 
     <body>
     <div class="nav">
-        <img src="/static/assets/img/left.png" class="left">
+        <img src="/static/assets/img/left.png" class="turnBack">
         <p class="searchTit">地图找房</p>
         <img src="/static/assets/img/circle.png" class="search">
     </div>
@@ -61,8 +86,8 @@
     <div class="houseList">
         <p class="bottom close"><img src="/static/assets/img/bottom.png"></p>
         <div class="header_con">
-            <h3 class="smallTit"></h3>
-            <p class="small_tag"></p>
+                <h3 class="smallTit"></h3>
+                <p class="small_tag"></p>
         </div>
         <div class="house_con">
         </div>
@@ -74,6 +99,40 @@
     </div>
     <div class="search_list">
     </div>
+    <script type="application/javascript">
+        document.addEventListener('UniAppJSBridgeReady', function() {
+            //向uniapp传值
+            uni.postMessage({
+                data: {
+                    action: "init-message"
+                }
+            });
+            uni.getEnv(function(res) {
+                console.log('当前环境：' + JSON.stringify(res));
+            });
+        });
+        $('.turnBack').on('click',function () {
+            uni.postMessage({
+                data: {
+                    action: {"back":"shouye"}
+                }
+            });
+        })
+        $('body').on('click','.house_con a',function () {
+            uni.postMessage({
+                data: {
+                    action: {"house":$(this).data("id")}
+                }
+            });
+        })
+        $('.header_con').on('click',function () {
+            uni.postMessage({
+                data: {
+                    action: {"xiaoqu":$(this).data("id")}
+                }
+            });
+        })
+    </script>
     </body>
     </html>
 {{end}}

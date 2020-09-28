@@ -288,7 +288,7 @@ window.onload = function () {
                     });// 修改覆盖物背景颜色
                 });
                 myLabel.addEventListener("click", function() {
-                    $("#communitUrl").attr("href","/pages/community/community?id="+item.id)
+                    $('.header_con').data("id",item.id)
                     getSingle(item.estate_id,myLabel.getTitle())
                 });
             })
@@ -304,13 +304,14 @@ window.onload = function () {
      */
     function getSingle(estate_id,tit) {
         let house = "";
+        $('.header_con').data("id",estate_id)
         $('.smallTit').empty().html(tit)
         let _url = webSite+"/api/second/houseList?a=h169h170&estate_id="+estate_id;
         $.get(_url,function(res) {
             if (res.data.lists.data.length > 0 ) {
                 let _clName = "";
                 $.each(res.data.lists.data,function (k,v) {
-                    house+='<a href="/pages/detail/index?id='+v.id+'"><dl class="houseItemView"><dt class="houseItemImg"><img class="thumb_img" src="https://www.fangpaiwang.com'+v.img+'">'
+                    house+='<a data-id='+v.id+'><dl class="houseItemView"><dt class="houseItemImg"><img class="thumb_img" src="https://www.fangpaiwang.com'+v.img+'">'
                     house+='<ul class="tag">'
                     if (Number(v.house_type) != 48) {
                         house+='<li>'+v.jieduan_name+'</li>'
@@ -593,9 +594,6 @@ window.onload = function () {
         // 如果是奇数个交点则点在多边形内
         return crossPointNum % 2 === 1
     }
-    $('.left').on('click',function() {
-        window.location.href = "/"
-    })
     // 点击展开搜索框
     $('.search').on('click', function() {
         $('.header-wrap').show();
@@ -663,3 +661,5 @@ window.onload = function () {
         return theRequest;
     }
 }
+
+
