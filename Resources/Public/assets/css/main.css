@@ -483,6 +483,9 @@
     width: 100%;
     text-align: center;
     margin: 70px auto 50px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 36px;
 }
 .run_con{
     width: 1176px;
@@ -918,7 +921,7 @@
     background:rgba(255,255,255,1);
     border-radius:10px;
     line-height: 145px;
-    font-size:20px;
+    font-size:18px;
     font-family:MicrosoftYaHei;
     color:rgba(51,51,51,1);
     text-align: center;
