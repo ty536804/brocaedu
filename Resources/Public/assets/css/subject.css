@@ -4,209 +4,162 @@
 .pub .system_list {
     margin: 60px auto 30px auto;
 }
-/* 布罗卡斯课程理念 */
-.learn{
-    width:100%;
-    font-size:16px;
-    font-family:MicrosoftYaHei;
-    color:rgba(51,51,51,1);
-    line-height:30px;
-    text-align: center;
-    display: inline-block;
-    margin: 0 auto 65px auto;
+/*10万+学员家长选择布罗卡斯智能英语的理由*/
+.checked_warp{
+    width: 100%;
+    height: 530px;
+    background: #CB161D;
+    position: relative;
 }
-.elearn_con{
-    width: 1020px;
+.checked_warp h3{
+    width: 100%;
+    text-align: center;
+    height: 48px;
+    font-size: 36px;
+    font-family: MicrosoftYaHeiSemibold;
+    color: #FFFFFF;
+    line-height: 48px;
+    position: absolute;
+    top: 50px;
+}
+.cwl{
+    width: 50%;
+    background: #CB161D url("../img/bg_BROCA.png") no-repeat top 34px  right 155px;
+    background-size: 531px 143px;
+}
+.cwr{
+    width: 50%;
+    background: #014B99 url("../img/bg_ENGLISH.png") no-repeat top 34px  left 152px;
+    background-size: 531px 143px;
+}
+.cwc{
+    width: 370px;
+    margin-right: 221px;
+    text-align: left;
+    float: right;
+    margin-top: 128px;
+}
+.smallTit{
+    width: 100%;
+    height: 32px;
+    font-size: 24px;
+    font-family: MicrosoftYaHeiSemibold;
+    color: #FFFFFF;
+    line-height: 32px;
+}
+.smallSlogan{
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+    font-family: MicrosoftYaHei;
+    color: #FFFFFF;
+    line-height: 30px;
+}
+.cwc ul{
+    margin-top: 26px;
+    width: 100%;
+}
+.cwc ul li{
+    margin-bottom: 15px;
+    width: 100%;
+    float: left;
+    height: 30px;
+    font-size: 16px;
+    font-family: MicrosoftYaHei;
+    color: #FFFFFF;
+    line-height: 30px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.cwr .cwc{
+    float: left;
+    margin-left: 228px;
+    text-align: right;
+}
+.cwm{
+    width: 145px;
+    height: 176px;
+    background:url("../img/pic_vs.png") no-repeat 0 0  ;
+    background-size: 145px 176px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+/*布罗卡斯课程理念*/
+.brocae_idea h3{
+    width: 100%;
+    height: 48px;
+    font-size: 36px;
+    font-family: MicrosoftYaHeiSemibold;
+    color: #333333;
+    line-height: 48px;
+    text-align: center;
+    margin: 70px auto 50px auto;
+}
+.brocae_idea dl{
+    width: 1176px;
+    margin: 0 auto;
+    height: 293px;
+    background: #F9FAFC;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
-    margin: 0 auto 20px auto;
 }
-.elearn_con:last-child{
-    margin-bottom: 0;
+.brocae_idea dl dt{
+    width: 50%;
+    display: inline-block;
 }
-.elearn_con dl{
-    width:500px;
-    height:210px;
-    display: flex;
-    background:rgba(238,249,255,1);
+.brocae_idea_tit h4{
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin:79px auto 14px auto;
+    height: 32px;
+    font-size: 24px;
+    font-family: MicrosoftYaHeiSemibold;
+    color: #CB161D;
+    line-height: 32px;
+}
+.brocae_idea_tit ul {
+    width: 100%;
+    font-size: 16px;
+    font-family: MicrosoftYaHei;
+    color: #333333;
+    text-align: center;
+}
+.brocae_idea_tit ul li{
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+}
+.brocae_idea_img {
     overflow: hidden;
-}
-.elearn_con dl:last-child .graph{
-    margin: 34px 34px 0 28px;
-    background: #B8352D;
-}
-.learning{
-    background: #B8352D !important;
-}
-.elearn_con dl:last-child .graph_desc{
-    margin-right: 0;
-    text-align: left !important;
-}
-.elearn_con dl:last-child h3,.elearn_con dl:last-child ul li{
-    text-align: left;
-}
-.graph_desc{
-    width: 276px;
-    height: 100%;
-    float: left;
-    margin-right: 44px;
-}
-.elearn_con dl h3{
-    color: #B8352D;
-    font-size: 24px;
-    margin-top: 42px;
-    width: 276px;
-    text-align: right;
     display: inline-block;
 }
-.elearn_con dl h3{
-    color: #B8352D;
-    font-size: 24px;
-    margin-top: 42px;
-    width: 276px;
+.brocae_idea_img img{
+    transition: all 0.6s;
+    cursor: pointer;
 }
-.elearn_con dl ul{
-    width: 276px;
-    float: left;
-}
-.elearn_con dl ul li{
-    width: 100%;
-    display: inline-block;
-    float: left;
-    text-align: right;
-    font-size:16px;
-    font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
-    font-weight:bold;
-    color:#333333;
-    line-height:30px;
-}
-.graph{
-    width:120px;
-    height:120px;
-    background:rgba(0,128,203,1);
-    border-radius:10px;
-    font-size:45px;
-    font-family:MicrosoftYaHei;
-    color:rgba(255,255,255,1);
-    line-height:120px;
-    margin-top: 45px;
-    text-align: center;
-}
-.free{
-    background: #0080CB !important;
-    margin-top: 45px !important;
-}
-/* BROCA英语VS传统英语 */
-.ct{
-    height: 735px;
-}
-.between{
-    margin: 60px auto 48px;
-}
-.ctList{
-    width: 1200px;
-    margin: 0 auto;
-}
-.ct_con{
-    position: relative;
-    width: 1008px;
-    margin: 0 auto;
-    height: 561px;
-}
-.ctL{
-    background: url("http://img.mofashuxue.com/pic_broca.png?imageslim") no-repeat 0 0;
-    width: 561px;
-    height: 680px;
-    background-size: 561px 680px;
-    position: absolute;
-    z-index: 1;
-}
-.ctR{
-    background: url("http://img.mofashuxue.com/pic_tradition.png?imageslim") no-repeat 0 0;
-    width: 561px;
-    height: 674px;
-    background-size: 561px 674px;
-}
-.ctL_con{
-    width: 475px;
-}
-.ctR_con{
-    width: 425px;
-    float: right;
-}
-.ctList h5{
-    margin-top: 236px;
-    width: 100%;
-    text-align: center;
-    height:31px;
-    font-size:24px;
-    font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
-    font-weight:bold;
-    line-height:31px;
-    display: inline-block;
-    margin-bottom: 21px;
-}
-.ctR_con h5{
-    margin-top:206px !important;
-}
-.ctR_con  h5 span{
-    border-bottom: 2px solid #333;
-}
-.ctL_con h5 span{
-    border-bottom: 2px solid #fff;;
-}
-.ctList ul li{
-    width:100%;
-    height:30px;
-    font-size:16px;
-    font-family:MicrosoftYaHei;
-    line-height:30px;
-    text-align: center;
-    margin-bottom: 25px;
-}
-.ctL{
-    color: #fff;
-}
-.ctR{
-    position: absolute;
-    right: 0;
-    top:35px;
-}
+.brocae_idea_img img:hover{
+    transform: scale(1.2);
 
-.ctM{
-    width:134px;
-    height:347px;
-    background:#0080CB;
-    border-radius:20px;
-    position: absolute;
-    left: 453px;
-    top: 274px;
-    z-index: 3;
-}
-.ctM li{
-    width:100%;
-    height:31px;
-    font-size:24px;
-    font-family:MicrosoftYaHei;
-    color:#fff;
-    line-height:31px;
-    margin-bottom: 24px;
-}
-.ctM li:first-child{
-    margin-top: 15px;
-}
-.childres{
-    width: 100%;
-    justify-content: center;
-}
-.childres img{
-    height: 427px;
 }
 /* BROCA课程体系 */
 .subject{
     background: #F9FAFC;
     margin-top: 56px;
+}
+.subSmallTit{
+    width: 100%;
+    text-align: center;
+    height: 48px;
+    font-size: 36px;
+    font-family: MicrosoftYaHeiSemibold;
+    color: #333333;
+    line-height: 48px;
+    margin: 70px auto 50px auto;
 }
 .subject_con {
     width: 1177px;
@@ -258,15 +211,15 @@
 }
 
 /* M.I.C.多维智能教学法与8大特色教学 */
-.eight h4{
+.eight h3{
     width: 100%;
+    height: 48px;
+    font-size: 36px;
+    font-family: MicrosoftYaHeiSemibold;
+    color: #333333;
+    line-height: 48px;
+    margin: 60px auto 70px auto;
     text-align: center;
-    height:30px;
-    font-size:16px;
-    font-family:MicrosoftYaHei;
-    color:rgba(51,51,51,1);
-    line-height:30px;
-    margin-bottom: 60px;
 }
 .eight_con{
     width: 1194px;
@@ -275,51 +228,62 @@
     flex-flow: row wrap;
     justify-content: space-between;
 }
+
 .eight_con:last-child{
     margin-bottom: 0;
 }
 .eight_con dl {
     position: relative;
-    width:265px;
+    cursor: pointer;
+    width: 276px;
+    height: 310px;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 23px 0px #E3E3E3;
+    border-radius: 10px;
 }
 .eight_con dl .circle{
     width:150px;
     height:150px;
-    opacity:0.3;
-    border:1px dotted rgba(0,128,203,1);
+    border:1px dotted #C3D9EE;
     border-radius: 100px;
-    background:url(../images/ico_teaching_sense.png) no-repeat center center;
-    background-size: 60px 60px;
     margin-left: 57.5px;
 }
-.eight_con dl .ztsjx{
-    background:url(../images/ico_teaching_scene.png) no-repeat center center !important;
-    background-size: 60px 60px !important;
+.circle_img{
+    transition: all 0.6s;
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    opacity: 0;
+}
+.eight_con dl:hover .circle_img{
+    transform: scale(0.4);
+    opacity: 1;
 }
 
-.eight_con dl .jhsjx{
+.eight_con_first:hover .circle_img{
+    background:url(../images/ico_teaching_sense.png) no-repeat center center;
+}
+.eight_con_two:hover .ztsjx{
+    background:url(../images/ico_teaching_scene.png) no-repeat center center;
+}
+
+.eight_con_three:hover .jhsjx{
     background:url(../images/ico_teaching_interactive.png) no-repeat center center !important;
-    background-size: 60px 60px !important;
 }
-.eight_con dl .fyjx{
+.eight_con_four:hover .fyjx{
     background:url(../images/ico_teaching_body.png) no-repeat center center !important;
-    background-size: 60px 60px !important;
 }
-.eight_con dl .lxsjx{
+.eight_con_five:hover .lxsjx{
     background:url(../images/ico_teaching_spiral.png) no-repeat center center !important;
-    background-size: 60px 60px !important;
 }
-.eight_con dl .sdjx{
+.eight_con_six:hover .sdjx{
     background:url(../images/ico_teaching_speak.png) no-repeat center center !important;
-    background-size: 60px 60px !important;
 }
-.eight_con dl .gyjx{
+.eight_con_seven:hover .gyjx{
     background:url(../images/ico_teaching_music.png) no-repeat center center !important;
-    background-size: 60px 60px !important;
 }
-.eight_con dl .pdjx{
+.eight_con_eight:hover .pdjx{
     background:url(../images/ico_teaching_spelling.png) no-repeat center center !important;
-    background-size: 60px 60px !important;
 }
 
 .eight_con dl h5{
@@ -330,8 +294,14 @@
     color:rgba(51,51,51,1);
     line-height:31px;
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 0px;
     text-align: center;
+    opacity: 0;
+    transition: all 0.6s;
+}
+.eight_con dl:hover h5{
+    opacity: 1;
+    margin-top: 15px;
 }
 .eight_con dl h6{
     width:100%;
@@ -342,6 +312,10 @@
     font-family:MicrosoftYaHei;
     color:rgba(102,102,102,1);
     line-height:21px;
+    transition: all 0.6s;
+}
+.eight_con dl dt{
+    margin-top: 36px;
 }
 .eight_con dl dd{
     width:62px;
@@ -349,193 +323,119 @@
     font-size:100px;
     font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
     font-weight:bold;
-    color:rgba(0,128,203,1);
+    color:#1E4A94;
     line-height:132px;
-    opacity:0.3;
     position: absolute;
-    top: -54px;
-    right: 45px;
+    top: 36px;
+    right: 108px;
+    transition: all 0.6s;
+}
+.eight_con dl:hover dd {
+    transform: scale(0.6);
+    width: 62px;
+    height: 132px;
+    font-size: 100px;
+    font-family: MicrosoftYaHei-Bold,MicrosoftYaHei;
+    font-weight: bold;
+    line-height: 132px;
+    position: absolute;
+    top: -16px !important;
+    right: 70px !important;
+    opacity:0.3;
+    color: rgba(0,128,203,1);
 }
 /* 学习场景 */
-.learn .system_list{
-    margin: 56px auto 62px auto;
+.learn h3{
+    width: 100%;
+    height: 48px;
+    font-size: 36px;
+    font-family: MicrosoftYaHeiSemibold;
+    color: #333333;
+    line-height: 48px;
+    margin: 69px auto 50px auto;
+    text-align: center;
 }
 .pic_toddler_con {
-    width: 1200px;
-    margin: 0 auto;
-    box-sizing: content-box;
+    width: 1176px;
+    margin: 0 auto 24px auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    height: 300px;
 }
-
-.pic_toddler_con li img{
-    width: 320px;
-    height: 266px;
-}
-.pic_toddler{
-    margin-bottom: 30px;
-    width: 1200px;
-    height: 266px;
-}
-.pic_toddler li{
-    float: left;
-    margin-left: 20px;
-}
-.pic_toddler li:first-child{
-    margin-right: 57px;
-    margin-left: 0;
-}
-.pic_toddler li:nth-child(1){
-    margin-right: 0;
-}
-
-.pic_toddler li:first-child img{
-    width: 134px;
-}
-
-.pic_children li{
-    float: left;
-    margin-right: 20px;
-}
-.pic_children li:last-child {
-    margin-right: 0;
-    margin-left: 57px;
-}
-.pic_children li:nth-child(2){
-    margin-right: 0;
-}
-.pic_children li:last-child img{
-    width: 129px;
-}
-.pic_children{
-    width: 1200px;
-    height: 266px;
+.pic_toddler_con:last-child{
+    margin-bottom: 100px;
 }
 /* 布罗卡斯学习流程 */
 .xxlc{
     width:100%;
-    height:520px;
+    height:600px;
     margin-top: 60px;
-    background:rgba(255,235,224,1);
+    background: url("../images/pic_bg.png") no-repeat top center;
+}
+.xxlc h3{
+    width: 100%;
+    height: 48px;
+    font-size: 36px;
+    font-family: MicrosoftYaHeiSemibold;
+    color: #FFFFFF;
+    line-height: 48px;
+    margin: 70px auto 166px auto;
+    text-align: center;
+    display: inline-block;
 }
 .lc_con{
     width: 1176px;
-    margin: 0 auto;
-    background: #FFFFFF;
-    height: 260px;
-}
-.lc_con_img{
-    margin-top: -90px;
-    float: left;
-}
-.lc_con_img,.lc_con_img img{
-    width: 368px;
-    height: 350px;
-}
-.lc_con_btn{
-    float: right;
-    margin-top: 198px;
-    margin-right: 18px;
-}
-.lc_con_btn li{
-    width:47px;
-    height:47px;
-    background:rgba(243,188,191,1);
-    line-height: 47px;
-    font-size: 26px;
-    color: #fff;
-    text-align: center;
-    border-radius:10px 0px 0px 10px;
-    cursor: pointer;
-}
-.lc_con_btn li:last-child{
-    border-radius:0px 10px 10px 0px !important;
-}
-.active_btn{
-    background:#B8352D !important;
-}
-.lc_center_con{
-    width: 672px;
-    float: left;
-    margin-top: -57px;
+    margin: 0px auto 0 auto;
+    height: 100%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+.lc_con_li{
+    width: 224px;
+    height: 146px;
+    background: #CB161D;
+    border-radius: 10px;
+    opacity: 0.4;
+    transition: all 0.6s;
     text-align: center;
-    overflow: hidden;
-    height: 260px;
-    position: relative;
+    color: #FFFFFF;
 }
-.lc_center_con ul {
-    position: absolute;
-    left: 0px;
-    width: 1800px;
-    height: 260px;
-    list-style: none;
-}
-.lc_center_con h3{
-    width:100%;
-    height:31px;
-    font-size:24px;
-    font-family:MicrosoftYaHei;
-    color:rgba(51,51,51,1);
-    line-height:31px;
-    margin-bottom: 16px;
+.lc_con_li h4{
+    width: 100%;
     display: inline-block;
     text-align: center;
+    height: 32px;
+    font-size: 24px;
+    font-family: MicrosoftYaHeiSemibold;
+    line-height: 32px;
+    margin-top: 57px;
 }
-.lc_center_con  p {
-    width:100%;
-    font-size:16px;
-    font-family:MicrosoftYaHei;
-    color:rgba(102,102,102,1);
-    line-height:25px;
-    padding: 0 18px 19px 21px !important;
-}
-.lc_center_con dl{
-    width:200px;
-    height:260px;
-    background:rgba(249,250,252,1);
-    border-radius:10px;
-    float: left;
-    margin-right: 24px;
-}
-.lc_con_first{
-    margin: 36px auto 37px auto;
-    width: 81px;
-    height: 16px;
-    background: url(../images/line_arrow.png) no-repeat top center;
-    background-size: 81px 16px;
-}
-.lc_con_sec{
-    margin: 36px auto 37px auto;
-    width: 81px;
-    height: 16px;
-    background: url(../images/line_arrow.png) no-repeat top center;
-    background-size: 81px 16px;
-    -webkit-transform: rotateZ(180deg);
-    -moz-transform: rotateZ(180deg);
-    -o-transform: rotateZ(180deg);
-    -ms-transform: rotateZ(180deg);
-    transform: rotateZ(180deg);
-}
-.a_graph{
-    -webkit-transform: rotateZ(222deg);
-    -moz-transform: rotateZ(222deg);
-    -o-transform: rotateZ(222deg);
-    -ms-transform: rotateZ(222deg);
-    transform: rotateZ(222deg);
-    width: 110px;
-    margin-left: 46px !important;
-    height: 110px;
-    line-height: 110px;
-    margin-top: 46px !important;
-    box-sizing: content-box;
-    margin-right: 34px !important;
-}
-.a_graph span{
-    transform: rotate(138deg);
+.lc_con_li span{
+    padding: 15px 31px 0 32px !important;
+    box-sizing: border-box;
     display: inline-block;
+    opacity: 0;
+}
+.lc_con_arrow{
+    width: 37px;
+    background: url("../images/ico_arrow.png") no-repeat center center;
+    background-size: 37px 25px;
+    height: 146px;
 }
 
+.lc_con_li:hover{
+    height: 260px;
+    opacity: 1;
+    margin-top: -116px;
+}
+.lc_con_li:hover span{
+    opacity: 1;
+}
+.lc_con_li:hover h4{
+    margin-top: 79px;
+}
 /* 新增 */
 .level_con ul {
     margin-right: 5px;
