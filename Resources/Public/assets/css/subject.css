@@ -638,6 +638,7 @@
     display: inline-block;
     margin-top: 10px;
     float: left;
+    font-weight: normal;
 }
 .ncet_hun p{
     width:100%;
