@@ -9,6 +9,7 @@
         <meta name="apple-touch-fullscreen" content="yes">
         {{template "head"}}
         <link href="/static/assets/css/subject.css" rel="stylesheet"/>
+        <link href="/static/assets/css/animate.css" rel="stylesheet"/>
     </head>
     <body>
     {{template "nav"}}
@@ -214,6 +215,21 @@
                         <p>欧洲共同语言参考标准</p>
                     </li>
                     <li class="r">—</li>
+                    <li class="y">—</li>
+                    <li class="yell">A1</li>
+                    <li class="ph">—</li>
+                    <li class="a1">—</li>
+                    <li class="b1">—</li>
+                    <li class="c1">A2</li>
+                </ul>
+            </section>
+            <section class="level_con">
+                <ul class="ncet_hun">
+                    <li>
+                        <h3>CYLET</h3>
+                        <p>剑桥少儿英语考试</p>
+                    </li>
+                    <li class="r">—</li>
                     <li class="y" style="width: 293px">Pre-Starter</li>
                     <li class="yell">—</li>
                     <li class="a1">Starters</li>
@@ -344,35 +360,46 @@
     <section class="pub learn">
         <h3>把知识带进教室 把教室带进生活</h3>
         <section class="pic_toddler_con">
-            <li>
+            <li class="wow bounceInLeft bg-purple animated" style="visibility: visible; animation-name: bounceInLeft;">
                 <img src="/static/assets/images/pic_class1.png">
             </li>
-            <li>
+            <li class="wow lightSpeedIn bg-yellow animated" style="visibility: visible; animation-name: lightSpeedIn;">
                 <img src="/static/assets/images/subject_pic_class2.png">
             </li>
         </section>
         <section class="pic_toddler_con">
-            <li>
+            <li class="wow rollIn bg-red animated" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: rollIn;">
                 <img src="/static/assets/images/subject_pic_class3.png">
             </li>
-            <li>
+            <li class="wow bounceInRight bg-yellow animated" data-wow-delay="1.0s" style="visibility: visible; animation-delay: 1.5s; animation-name: bounceInRight;">
                 <img src="/static/assets/images/subject_pic_class4.png">
             </li>
         </section>
         <section class="pic_toddler_con">
-            <li>
+            <li class="wow bounce bg-green animated" data-wow-iteration="5" data-wow-duration="0.15s" style="visibility: visible; animation-duration: 0.15s; animation-iteration-count: 5; animation-name: bounce;">
                 <img src="/static/assets/images/subject_pic_class5.png">
             </li>
-            <li>
+            <li class="wow bounceInUp bg-red animated" style="visibility: visible; animation-name: bounceInUp;">
                 <img src="/static/assets/images/subject_pic_class6.png">
             </li>
-            <li>
+            <li class="wow bounceInRight bg-purple animated" style="visibility: visible; animation-name: bounceInRight;">
                 <img src="/static/assets/images/subject_pic_class7.png">
             </li>
         </section>
     </section>
     <!-- 版权 -->
     {{template "footer"}}
+    <script src="http://cdn.dowebok.com/131/js/wow.min.js"></script>
+    <script>
+        var wow = new WOW({
+            boxClass: 'wow',
+            animateClass: 'animated',
+            offset: 0,
+            mobile: true,
+            live: true
+        });
+        wow.init();
+    </script>
     </body>
     </html>
 {{end}}
