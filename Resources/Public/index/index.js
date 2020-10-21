@@ -12,7 +12,7 @@ $(function () {
                     let  _div = "";
                     if (result.data.list.length >=1) {
                         $.each(result.data.banner,function (k,v) {
-                            _div += '<div class="carousel-item '+(k==0? 'active' : '')+'"><img src="'+v.imgurl+'"></div>'
+                            _div += '<div class="carousel-item '+(k==0? 'active' : '')+'"><a href="'+(v.target_link == '' ? '#' : v.target_link)+'"><img src="'+v.imgurl+'"></a></div>'
                         })
                         $('.carousel-inner').empty().html(_div)
 
