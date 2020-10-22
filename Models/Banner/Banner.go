@@ -95,7 +95,7 @@ func GetBanner(id int) (banner Banner) {
 
 // @Summer获取所有banner
 func GetBannerData(bposition, clientType int) (banner []Banner) {
-	db.Db.Where("bposition = ? and type = ? and tag = ? ", bposition, clientType, "banner").Find(&banner)
+	db.Db.Where("bposition = ? and type = ? and tag = ? and is_show=1", bposition, clientType, "banner").Find(&banner)
 	return
 }
 
