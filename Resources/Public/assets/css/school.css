@@ -176,8 +176,22 @@ ul li, li {
     margin-left: 512px;
 }
 .xz{
-    margin-top: 587px;
-    margin-left: 444px;
+    /*margin-top: 587px;*/
+    /*margin-left: 444px;*/
+    margin-top: 287px;
+    margin-left: 282px;
+}
+.nmg{
+    margin-top: 315px;
+    margin-left: 683px;
+}
+.nmgT{
+    margin-top: 322px;
+    margin-left: 573px;
+}
+.nmgTh{
+    margin-top: 246px;
+    margin-left: 771px;
 }
 .yn{
     margin-top: 729px;
