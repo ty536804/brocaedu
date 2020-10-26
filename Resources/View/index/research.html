@@ -12,49 +12,20 @@
     </head>
     <body>
     {{template "nav"}}
-    {{template "banner"}}
-    <!-- 研发团队 -->
-{{/*    <section class="rd pub">*/}}
-{{/*        <section class="system_list">*/}}
-{{/*            <h3 class="tit">*/}}
-{{/*                <span class="tit_icon"></span>*/}}
-{{/*                研发团队*/}}
-{{/*                <span class="tit_icon"></span>*/}}
-{{/*            </h3>*/}}
-{{/*        </section>*/}}
-{{/*        <section class="rd_con">*/}}
-{{/*        </section>*/}}
-{{/*    </section>*/}}
-{{/*    <section class="rd_con_warp pub">*/}}
-{{/*        <section class="brand_ul">*/}}
-{{/*            <div id="btn-left" class="arrow-btn dasabled"></div>*/}}
-{{/*            <div class="slider">*/}}
-{{/*                <ul>*/}}
-{{/*                    {{ range .loop}}*/}}
-{{/*                        <li><img src="{{.Imgurl}}" class="lazy"></li>*/}}
-{{/*                    {{end}}*/}}
-{{/*                </ul>*/}}
-{{/*            </div>*/}}
-{{/*            <div id="btn-right" class="arrow-btn"></div>*/}}
-{{/*        </section>*/}}
-{{/*    </section>*/}}
-    <!-- 教师选拔标准 -->
+    <div id="myCarousel" class="carousel slide banner" data-ride="carousel" data-interval="2000">
+        <div class="carousel-inner">
+        </div>
+    </div>
     <section class="pub select">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                教师选拔标准
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <section class="select_teacher">
-            <section class="selectL">
+        <section class="selectL">
+            <section class="selectL_con">
+                <h3 class="bz">教师选拔标准</h3>
                 <dl>
                     <dt>
                         <img src="/static/assets/images/ico_qualification@2x.png" />
                     </dt>
                     <dd>
-                        <h3>专业资质</h3>
+                        <h3 class="zzzy">专业资质</h3>
                         <p>本科以上学历，英语教育专业，持有教师资格证及TESOL/TEFL证书等</p>
                     </dd>
                 </dl>
@@ -64,7 +35,7 @@
                     </dt>
                     <dd>
                         <h3>英语技能</h3>
-                        <p>善用英语表达，口语发音纯正具备英语听、说、读、写、思维等多维度能力， 精通英语授课技巧，教学经验丰富</p>
+                        <p>善用英语表达，口语发音纯正具备英语听、说、读、写、思维等多维度能力，<br> 精通英语授课技巧，教学经验丰富</p>
                     </dd>
                 </dl>
                 <dl>
@@ -73,7 +44,7 @@
                     </dt>
                     <dd>
                         <h3>职业素养</h3>
-                        <p>了解儿童心理及生理特点，懂得因材施教，具有服务意识， 善于与家长、孩子沟通</p>
+                        <p>了解儿童心理及生理特点，懂得因材施教，具有服务意识，<br> 善于与家长、孩子沟通</p>
                     </dd>
                 </dl>
                 <dl>
@@ -82,78 +53,39 @@
                     </dt>
                     <dd>
                         <h3>教育情怀</h3>
-                        <p>热爱教育、热爱孩子、有责任感， 愿意在教育行业持续深耕，为孩子创造未来</p>
+                        <p>热爱教育、热爱孩子、有责任感，<br> 愿意在教育行业持续深耕，为孩子创造未来</p>
                     </dd>
                 </dl>
             </section>
-            <section class="selectR">
-            </section>
+        </section>
+        <section class="selectR">
+            <img src="/static/assets/images/pic_teacher.png">
         </section>
     </section>
-    <section class="train pub">
-        <!-- 培训&考核 -->
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                培训&考核
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <section class="train_con">
-            <dl class="train_con_first">
-                <dt class="train_tit">入职阶段</dt>
-                <dd class="train_desc">布罗卡斯所有老师在入职后都必须接受系统化的培训，培训内容包括教学方法、教材教案使用、AI智能系统及APP使用、沟通技巧、幼少儿心理学等。 培训后并成功通过各项考核的老师方能有机会成为带班老师，没有通过考核的老师将面临淘汰。</dd>
-            </dl>
-            <dl class="train_con_last">
-                <dt class="train_tit">带班阶段</dt>
-                <dd class="train_desc">为了给孩子带来持续性的优质教育，布罗卡斯每月定期举行教师培训会，培训内容覆盖幼少儿心理学、教学方法改进、教学问题提出与解决等多个方面。 公司相关负责人定期对老师进行月度、季度考核，从职业素养、教学能力、服务沟通等多个方面对老师进行打分，保证老师全面、良性发展。</dd>
-            </dl>
-        </section>
-    </section>
-    <!-- 辅学APP -->
-    <section class="studies pub">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                辅学APP
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <section class="studies_con">
+    <!-- 培训&考核 -->
+    <section class="pub training">
+        <h3>培训&考核</h3>
+        <section class="training_con">
             <dl>
-                <dt class="studies_img">
-                    <img src="/static/assets/images/ico_interactive@2x.png" />
+                <dt>
+                    <img src="/static/assets/images/pic_entry.png">
                 </dt>
                 <dd>
-                    <h4>游戏式互动</h4>
-                    <p>持续提升学习兴趣</p>
+                    <h4>入职阶段</h4>
+                    <p class="training_con_t">布罗卡斯所有老师在入职后都必须接受系统化的培训，培训内容包括教学方法、教材教案使用、AI智学系统、沟通技巧、幼少儿心理学等。</p>
+                    <p>培训后并成功通过各项考核的老师方能有机会成为带班老师，没有通过考核的老师将面临淘汰。</p>
                 </dd>
             </dl>
+        </section>
+        <section class="training_con training_b">
             <dl>
-                <dt class="studies_img">
-                    <img src="/static/assets/images/ico_level@2x.png" />
+                <dt class="training_con_b">
+                    <img src="/static/assets/images/pic_class.png">
                 </dt>
                 <dd>
-                    <h4>海量资源</h4>
-                    <p>满足不同层次需求</p>
-                </dd>
-            </dl>
-            <dl>
-                <dt class="studies_img">
-                    <img src="/static/assets/images/ico_class@2x.png" />
-                </dt>
-                <dd>
-                    <h4>同步课堂内容</h4>
-                    <p>在家轻松完成预复习</p>
-                </dd>
-            </dl>
-            <dl>
-                <dt class="studies_img">
-                    <img src="/static/assets/images/ico_excitation@2x.png" />
-                </dt>
-                <dd>
-                    <h4>成就激励系统</h4>
-                    <p>培养学习主动性</p>
+                    <h4>带班阶段</h4>
+                    <p class="training_con_t">为了给孩子带来持续性的优质教育，布罗卡斯每月定期举行教师培训会，培训内容覆盖幼少儿心理学、教学方法改进、教学问题提出与解决等多个方面。</p>
+                    <p>公司相关负责人定期对老师进行月度、季度考核，从职业素养、教学能力、服务沟通等多个方面对老师进行打分，保证老师全面、良性发展。</p>
                 </dd>
             </dl>
         </section>
