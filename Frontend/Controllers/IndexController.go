@@ -186,5 +186,5 @@ func Down(c *gin.Context) {
 }
 
 func GetWeChat(c *gin.Context) {
-	Services.GetArticle(0, 70)
+	Services.GetArticle(0, 1)
 }

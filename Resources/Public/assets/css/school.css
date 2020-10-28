@@ -9,18 +9,13 @@ ul li, li {
     margin-right: 10px;
 }
 .school{
-    width:940px;
-    height:210px;
-    background:rgba(238,249,255,1);
-    border-radius:10px;
-    margin: -30px auto 30px auto;
-    position: relative;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
 }
 .school img{
-    width: 673px;
-    height: 127px;
-    margin:41.5px auto 0 auto;
-    display: inline-block;
+    height: 600px;
+
 }
 .all{
     width: 100%;
@@ -340,4 +335,104 @@ ul li, li {
 .ahs{
     margin-top: 508px;
     margin-left:837px;
+}
+/* 布罗卡斯智能英语 */
+.brocae_warp{
+    height: 825px;
+    background: #F9FAFC;
+    width: 100%;
+}
+.brocae_con{
+    width: 100%;
+    margin: 0 auto;
+    height:405px;
+    background:#F9FAFC url("../img/map.png") no-repeat bottom center;
+    background-size: 100%;
+}
+.broca_dl{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    width: 1176px;
+    margin: 130px auto 0 auto;
+    height: 180px;
+}
+.broca_dl dl{
+    width: 376px;
+    height: 180px;
+    position: relative;
+}
+.broca_dl dl:hover{
+    background: #FFFFFF;
+    border-radius: 10px;
+    -webkit-transform:translate3d(0,-4px,0);
+    -moz-transform:translate3d(0,-4px,0);
+    -o-transform:translate3d(0,-4px,0);
+    -ms-transform:translate3d(0,-4px,0);
+    transform:translate3d(0,-4px,4px);
+    -webkit-box-shadow:0 5px 23px 0 #E3E3E3,0 15px 40px 0 #E3E3E3;
+    box-shadow:0 5px 23px 0 #E3E3E3;
+    transition: all 0.2s;
+}
+.broca_dl dl:hover dd img{
+    opacity: 1;
+}
+.broca_dl dl dd{
+    width: 100%;
+    height: 95px;
+    text-align: center;
+    position: absolute;
+    bottom: -47px;
+    justify-content: center;
+}
+.broca_dl dl dd img{
+    width: 95px;
+    height: 95px;
+    opacity: 0;
+}
+.broca_dl dl dt{
+    text-align: center;
+    height: 69px;
+    width: 100%;
+    margin-top: 41px;
+}
+.broca_dl dl dt strong{
+    font-size: 52px;
+    font-family: MicrosoftYaHeiSemibold;
+    color: #333333;
+    line-height: 69px;
+}
+.broca_dl dl dt{
+    height: 30px;
+    font-size: 22px;
+    font-family: MicrosoftYaHei;
+    color: #333333;
+    line-height: 30px;
+}
+
+.brocae_con h3{
+    width: 100%;
+    height: 48px;
+    font-size: 36px;
+    font-family: MicrosoftYaHeiSemibold;
+    color: #333333;
+    line-height: 48px;
+    margin-top: 70px;
+    text-align: center;
+}
+.brocea_li{
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    height: 87px;
+}
+.brocea_li li{
+    width: 100%;
+    text-align: center;
+    height: 21px;
+    font-size: 16px;
+    font-family: MicrosoftYaHei;
+    color: #666666;
+    line-height: 21px;
+    margin-top: 7px;
 }

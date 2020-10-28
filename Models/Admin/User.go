@@ -123,3 +123,25 @@ func EditUser(id int64, data interface{}) bool {
 	}
 	return true
 }
+
+// @Summer 获取单条管理员信息
+func GetAdminUser(id int) (admin SysAdminUser) {
+	db.Db.Preload("School").Where("id = ?", id).Find(&admin)
+	return
+}
+
+//获取管理员列表
+func GetAdminUserList(page int, where interface{}) (admin []SysAdminUser) {
+	offset := 0
+	if page >= 1 {
+		offset = (page - 1) * setting.PageSize
+	}
+	db.Db.Where(where).Limit(setting.PageSize).Offset(offset).Find(&admin)
+	return
+}
+
+// @Summer 统计管理员信息
+func GetTotalAdmin() (count int) {
+	db.Db.Where(&SysAdminUser{}).Count(&count)
+	return
+}
