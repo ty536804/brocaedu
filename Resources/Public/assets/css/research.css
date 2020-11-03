@@ -124,7 +124,20 @@
     z-index: 1;
     border-radius: 10px;
     overflow: hidden;
+    left: 76px;
 }
+
+.training_b dl dt{
+    width: 700px;
+    height: 490px;
+    position: absolute;
+    z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    right: 76px;
+    left: unset;
+}
+
 .training_con dl dt img {
     transition: all 0.6s;
     cursor: pointer;
