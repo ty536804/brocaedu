@@ -32,8 +32,8 @@ func GetToken() (string, error) {
 
 	parse := url.Values{}
 	parse.Set("grant_type", weChatConfig.GRANTTYPE)
-	parse.Set("appid", weChatConfig.APPID)
-	parse.Set("secret", weChatConfig.APPSECRET)
+	parse.Set("appid", "wx86181b3a0022cc1f")
+	parse.Set("secret", "9fdeab8a71dfdd8ae9db13ee3db7fbcf")
 	u.RawQuery = parse.Encode()
 
 	resp, err := http.Get(u.String())
@@ -101,13 +101,12 @@ func GetArticle(begin, count int) {
 	} else {
 		stu := &BatChGetMaterial{}
 		res := json.Unmarshal(result, &stu)
-		fmt.Println(111, res, stu)
 		if res == nil {
 			for _, item := range stu.Item {
 				res := item.Content.NewsItem[0]
 				if res.Title != "" {
 					tit := strings.TrimSpace(res.Title)
-					currentTime := time.Now().Format("2006-01-02 15:04:05")
+					currentTime := time.Unix(item.Content.CreateTime, 0).Format("2006-01-02 15:04:05")
 					if strings.Contains("练脑时刻", tit) {
 						currentTime = Article.SubTime(item.Content.UpdateTime)
 					}
@@ -171,8 +170,6 @@ func ResolveUrl(offset, count int) ([]byte, error) {
 // @Summer 添加文章
 func WeAddArticle(data map[string]interface{}) bool {
 	defer wt.Done()
-
-	currentTime := time.Now().Format("2006-01-02 15:04:05")
 	UpdatedAt := time.Now().Format("2006-01-02 15:04:05")
 	article := db.Db.Create(&Article.Article{
 		Title:     data["title"].(string),
@@ -185,7 +182,7 @@ func WeAddArticle(data map[string]interface{}) bool {
 		Hot:       data["hot"].(int),
 		Sort:      data["sort"].(int),
 		NavId:     data["nav_id"].(int),
-		CreatedAt: currentTime,
+		CreatedAt: data["created_at"].(string),
 		UpdatedAt: UpdatedAt,
 	})
 
