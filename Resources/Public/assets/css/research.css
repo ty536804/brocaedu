@@ -122,6 +122,7 @@
     height: 490px;
     position: absolute;
     z-index: 1;
+    border-radius: 10px;
     overflow: hidden;
 }
 .training_con dl dt img {
@@ -131,6 +132,9 @@
 .training_con dl dt img:hover {
     transform: scale(1.2);
 }
+.training_con dl:hover dt img:hover{
+    transform: scale(1.2);
+}
 .training_con dl dd{
     width: 1176px;
     height: 350px;
@@ -138,6 +142,14 @@
     border-radius: 10px;
     position: absolute;
     top: 334px;
+    transition: all 0.6s;
+    cursor: pointer;
+}
+.training_con dl dd:hover{
+    background: #CB161D;
+}
+.training_con dl dd:hover p,.training_con dl dd:hover h4{
+    color: #fff;
 }
 .training_con h4{
     width:100%;
