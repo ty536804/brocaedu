@@ -696,6 +696,7 @@
 .new_ul a dl dt img,.new_ul a dl dt{
 	width: 225px;
 	height: 126px;
+	float: left;
 }
 .new_ul a dl,.new_ul a{
 	width: 225px;
