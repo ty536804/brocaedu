@@ -681,7 +681,7 @@
 }
 .new_ul{
 	position: absolute;
-	width:950px;
+	width:1000px;
 	left: 0;
 	height: 227px;
 }
@@ -728,4 +728,10 @@
 	color: #666666;
 	line-height: 17px;
 	padding: 0 14px 0 15px !important;
+}
+.more {
+	width: 50px !important;
+	font-size: 18px;
+	line-height: 227px !important;
+	text-align: center;
 }

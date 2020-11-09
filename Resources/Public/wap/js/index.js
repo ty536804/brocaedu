@@ -14,6 +14,9 @@ function getAjax()
                     _html += "<a href='/de?id="+item.id+"'><dl><dt><img src='"+item.thumb_img+"'></dt>" +
                         "<dd><h3>"+item.summary+"</h3><p>"+_d.substring(0,10)+"</p></dd></dl></a>"
                 })
+                if (_html.length >= 4) {
+                    _html += "<a href='/list' class='more'>更多</a>"
+                }
                 $('.new_ul').empty().append(_html)
             }
         }
