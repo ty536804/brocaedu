@@ -667,6 +667,18 @@
 	position: relative;
 	overflow-x: auto;
 }
+.newTit{
+    width: 100%;
+    text-align: center;
+    height: 25px;
+    font-size: 18px;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #333333;
+    line-height: 25px;
+    margin: 40px auto 15px auto;
+	justify-content: center;
+}
 .new_ul{
 	position: absolute;
 	width:950px;
