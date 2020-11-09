@@ -12,7 +12,7 @@ function getAjax()
                 $.each(result.data.list,function (key,item) {
                     let _d = item.created_at
                     _html += "<a href='/de?id="+item.id+"'><dl><dt><img src='"+item.thumb_img+"'></dt>" +
-                        "<dd><h3>"+item.summary+"</h3><p>"+_d.substring(0,4)+"</p></dd></dl></a>"
+                        "<dd><h3>"+item.summary+"</h3><p>"+_d.substring(0,10)+"</p></dd></dl></a>"
                 })
                 $('.new_ul').empty().append(_html)
             }
