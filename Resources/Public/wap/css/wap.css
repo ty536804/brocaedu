@@ -1,428 +1,718 @@
-.elearn{
-	width: 100%;
-	justify-content: center;
-	background: #fff;
-	margin-top: 33px;
-	overflow: hidden;
-}
-.elearn_img{
-	width: 100%;
-	text-align: center;
-	justify-content: center;
-}
-.elearn_img img{
-	width: 375px;
-	display: inline-block;
-}
-/* AI智能解决方案 */
-.ai{
-	width:100%;
-	height:670px;
-	background:#FFFAEF;
-	margin-top: 31px;
-}
-.ai .smallTit{
-	width:100%;
-	height:20px;
-	font-size:14px;
-	font-family:PingFangSC-Regular,PingFang SC;
-	font-weight:400;
-	color:#666;
-	line-height:20px;
-	margin: 10px auto;
-	text-align: center;
-}
-.ai .system_list{
-	margin-top: 20px;
-}
-.ai dl{
-	width: 100%;
-	margin: 0 15px 10px 15px;
-	height:105px;
-	background:#fff;
-	border-radius:10px;
-	display: flex;
-	flex-flow: row wrap;
-	padding-top: 23.5px !important;
+.wap_banner_form{
+	width:91%;
+	height: 361px;
+	background: linear-gradient(270deg, #FF2837 0%, #CB161D 100%);
+	box-shadow: 0px 10px 15px 0px #FFD0D0;
+	border-radius: 10px;
+	padding: 0 15px !important;
+	margin: -15px auto 0;
 	box-sizing: border-box;
-	padding-left: 23.5px !important;
+	position: relative;
+	z-index: 1;
 }
-.ai .online{
-	background:#fff url(../img/ico_xsxx@2x.png) no-repeat right -55px bottom -30px;
-	background-size: 171px 168px;
-	border:3px solid #0080CB;
-}
-.small_img{
-	width: 57px;
-	height: 56px;
-	display: inline-block;
-	margin-right: 20px;
-}
-.small_img img{
-	width: 57px;
-	height: 56px;
-	display: inline-block;
-}
-.small_con{
-	
-}
-.small_tit{
-	width:100%;
-	height:22px;
-	font-size:16px;
-	font-family:PingFangSC-Medium,PingFang SC;
-	font-weight:500;
-	color:rgba(51,51,51,1);
-	line-height:22px;
-}
-.small_p{
-	width:100%;
-	height: 37px;
-	font-size:14px;
-	font-family:PingFangSC-Regular,PingFang SC;
-	font-weight:400;
-	color:rgba(102,102,102,1);
-	line-height:20px;
-	margin-top: 5px;
-}
-.ai .people{
-	background:#fff url(../img/ico_rjhd.png) no-repeat right -55px bottom -30px;
-	background-size: 171px 168px;
-	border:3px solid #00A1A7;
-}
-.ai .study{
-	background:#fff url(../img/ico_xxbg.png) no-repeat right -55px bottom -30px;
-	background-size: 171px 168px;
-	border:3px solid #EB6E7D;
-}
-.ai .curr {
-	background:#fff url(../img/ico_g.png) no-repeat right -55px bottom -30px;
-	background-size: 171px 168px;
-	border:3px solid #093969;
-}
-.ai .hour{
-	background:#fff url(../img/ico_24h@2x.png) no-repeat right -55px bottom -30px;
-	background-size: 171px 168px;
-	border: 3px solid #DDB876;
-}
-/* AI智能多维情景教学 */
-
-.more .system_list{
-	margin-top: 30px;
-}
-.pic_aizndw{
+.btit{
 	width: 100%;
-	margin: 15px auto 0 auto;
-	justify-content: flex-end;
-	height: 364px;
+	font-size: 18px;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 500;
+	color: #FFFFFF;
+	line-height: 25px;
+	padding: 25px 15px 10px 15px !important;
+}
+.bdesc{
+	width: 100%;
+	font-size: 12px;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #FFFFFF;
+	line-height: 20px;
+	padding: 0 15px 20px 15px!important;
+}
+.wap_banner_form .form_tit{
+	width: 100%;
+	height: 44px;
+	background: #FFFFFF;
+}
+.wap_banner_form .form_tit input{
+	width: 100%;
+	border-radius: 5px;
+	text-indent: 1rem;
+}
+.van-button--info,.van-button--info:hover,.van-button--info:focus{
+	width: 100%;
+	height: 44px;
+	border-radius: 22px;
+	border: 1px solid #FFFFFF;
+	color: #fff;
+	background: linear-gradient(270deg, #FF2837 0%, #CB161D 100%);
+	outline: none;
+}
+/*布罗卡斯智能英语 孩子信赖 妈妈优选*/
+.bg_map{
+	background:#F9FAFC url(../img/bg_map.png) no-repeat bottom center;
+	height: 282px;
+	width: 100%;
+	background-size: 100%;
+}
+.bg_map h3{
+	margin:0 auto;
+	padding-top: 38px !important;
+	text-align: center;
+	box-sizing: border-box;
+	width: 100%;
+	font-size: 18px;
+	font-family: PingFangSC-Semibold, PingFang SC;
+	font-weight: 600;
+	color: #333333;
+	line-height: 25px;
+}
+.bg_map ul{
+	margin-top: 15px;
+	padding: 0 15px !important;
+	float: left;
+}
+.bg_map ul li{
+	width: 100%;
+	font-size: 14px;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #666666;
+	line-height: 20px;
+	float: left;
+	margin-bottom: 18px;
+}
+/*300*/
+.broca_dl dl{
+	width: 91%;
+	margin: 0 auto 59px auto;
+	position: relative;
+	height: 162px;
+	background: #FFFFFF;
+	box-shadow: 0px 5px 21px 0px #E3E3E3;
+	border-radius: 9px;
+}
+.broca_dl dl:first-child{
+	margin-top: -30px;
+	background:#FFF url(../img/ico_education.png) no-repeat center right;
+	background-size: 86px 95px;
+}
+.broca_dl dl:nth-child(2){
+	background:#FFF url(../img/ico_city_10.png) no-repeat center right;
+	background-size: 86px 95px;
+}
+.broca_dl dl:last-child{
+	background:#FFF url(../img/ico_education_1.png) no-repeat center right;
+	background-size: 86px 95px;
+}
+.broca_dl dl dd{
+	width: 100%;
+	height: 86px;
+	text-align: center;
+	position: absolute;
+	bottom: -38px;
+	justify-content: center;
+}
+.broca_dl dl dd img{
+	width: 86px;
+	height: 86px;
+}
+.broca_dl dl dt strong{
+	font-size: 47px;
+	font-family: MicrosoftYaHeiSemibold;
+	color: #333333;
+	line-height: 63px;
+}
+.broca_dl dl dt{
+	height: 63px;
+	font-size: 22px;
+	font-family: MicrosoftYaHei;
+	color: #333333;
+	line-height: 30px;
+	text-align: center;
+	width: 100%;
+	padding-top: 37px !important;
+}
+/*源于19世纪脑科学 布罗卡斯语言区理论体系*/
+.subject_warp{
+	width: 100%;
+	height: 446px;
+	margin-bottom: 40px;
+}
+.subject_warp h3{
+	width: 100%;
+	font-size: 18px;
+	font-family: PingFangSC-Semibold, PingFang SC;
+	font-weight: 600;
+	color: #333333;
+	line-height: 25px;
+	margin: 0 auto 15px;
+	text-align: center;
+	padding-top: 41px !important;
+}
+.tx_warp{
+	width: 100%;
+	height:340px;
+	background: #014B99;
+}
+.tx_desc{
+	width: 100%;
+	height: 100px;
+	font-size: 14px;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #FFFFFF;
+	line-height: 20px;
+	padding: 20px 15px 0 15px !important;
+}
+.subject_con_l{
+	justify-content: center;
+	display: flex;
+	width: 100%;
+	height:184px;
+}
+.heart {
+	animation:heartbeat 1s infinite;
+	-webkit-animation:heartbeat 1s infinite;
+	width: 50px;
+	height: 50px;
+	background: #CB161D;
+	position: relative;
+	filter:drop-shadow(0px 0px 20px rgb(203, 22, 29));
+	filter: opacity(0.2);
+	transform: rotate(45deg);
+	left: 78px;
+	border-radius: 99px;
+	top: 64px;
+}
+.heart_circle{
+	width: 30px;
+	height: 30px;
+	background: #CB161D;
+	border-radius: 50px;
+	margin-top: 24px;
+	margin-left: 88px;
+	opacity: 0.2;
+}
+@keyframes heartbeat {
+	0% {
+		transform:rotate(45deg) scale(0.8,0.8);
+		opacity:1;
+	}
+	25% {
+		transform:rotate(45deg) scale(1,1);
+		opacity:0.8;
+	}
+	100% {
+		transform:rotate(45deg) scale(0.8,0.8);
+		opacity:1;
+	}
+}
+.dottedCircle {
+	width: 76px;
+	height: 76px;
+	display: block;
+	background: url("../../assets/img/dottedcircle2_hover.png") no-repeat 0 0;
+	border-radius: 76px;
+	background-size: 76px 76px;
+	position: absolute;
+	top: 0;
+	left:19px;
+	-webkit-transform: rotate(360deg);
+	animation: rotation 8s linear infinite;
+	-moz-animation: rotation 8s linear infinite;
+	-webkit-animation: rotation 8s linear infinite;
+	-o-animation: rotation 8s linear infinite;
+}
+.dottedcircle1{
+	width: 60px;
+	height: 60px;
+	display: block;
+	background: url("../../assets/img/dottedcircle2_hover.png") no-repeat 0 0;
+	border-radius: 50px;
+	background-size: 60px 60px;
+	position: absolute;
+	top: 7.5px;
+	left:26.5px;
+	animation: dottedrotation 5s linear infinite;
+	-moz-animation: dottedrotation 5s linear infinite;
+	-webkit-animation: dottedrotation 5s linear infinite;
+	-o-animation: dottedrotation 5s linear infinite;
+}
+
+@-webkit-keyframes dottedrotation {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(-360deg);
+	}
+}
+
+.loop {
+	width: 143px;
+	color: #FFFFFF;
+	height: 79px;
+	position: relative;
+	top: 39px;
+	box-sizing: border-box;
+}
+/*top: 65px;*/
+@-webkit-keyframes rotation {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+.loop h4{
+	width: 112%;
+	height: 76px;
+	font-size: 16px;
+	font-family: Helvetica;
+	color: #FFFFFF;
+	line-height: 76px;
 	text-align: center;
 }
-.pic_aizndw img{
-	height: 364px;
-	transform: scale(0.96);
+.pic_brain{
+/*../../img/pic_brain@2x.png*/
+	background: url("../../assets/img/pic_brain@2x.png") no-repeat;
+	margin: 25px 0 0 15px;
+	background-size: 95%;
+	height: 159px;
+	width: 350px;
 }
-/* 课程设置 */
-.setting .system_list{
-	margin-top: 29px;
-	margin-bottom: 16.5px;
+.subject_desc{
+	width: 755px;
+	height: 120px;
+	font-size: 16px;
+	font-family: MicrosoftYaHei;
+	color: #FFFFFF;
+	line-height: 30px;
+	margin: 0 auto;
+	text-align: center;
 }
-.setting_con{
-	width:100%;
-	height:447px;
-	margin: 0 15px;
-	background:rgba(255,250,239,1) url(../img/circle_yellow_r@2x.png) no-repeat right bottom;
-	border-radius:10px;
-	border:3px solid rgba(231,195,121,1);
-	overflow: hidden;
+/*联合世界名校和美国优质教育资源倾力打造*/
+.make{
+	width: 100%;
+	height: 767px;
+	background: #F9FAFC;
 }
-.setting_setting_con{
-	height: 447px;
+.make h3{
+	width: 100%;
+	height: 25px;
+	font-size: 18px;
+	font-family: PingFangSC-Semibold, PingFang SC;
+	font-weight: 600;
+	color: #333333;
+	line-height: 25px;
+	text-align: center;
+	margin: 30px auto 15px auto;
+	display: inline-block;
 }
-.setting_banner,.setting_banner2{
-	height: 207px;
+.uc{
+	margin: 0 auto;
+	width: 100%;
+	padding: 0 15px !important;
 }
-.setting_banner img,.setting_banner2 img{
-	height: 207px;
-}
-.six_aab{
-	width:100%;
-	height:51px;
-	margin-top:11px;
+.ul_img {
+	width: 91%;
 	display: flex;
 	flex-flow: row;
+	justify-content: space-between;
+	margin: 16px auto 0;
 }
-.six{
-	width:140px;
-	height:51px;
-	background:rgba(231,195,121,1);
-	border-radius:0px 100px 100px 0px;
+.ul_img .van-image:first-child{
+	margin-right: 9px;
 }
-.six h3{
+.ul_img .van-image:last-child{
+	margin-left: 9px;
+}
+/*10万+学员家长 选择布罗卡斯智能英语的理由*/
+.wan_warp{
+	width: 100%;
+	height: 897px;
+}
+.wan_con{
+	position: relative;
+	height: 792px;
+}
+.wan_warp h3{
+	width: 100%;
+	font-size: 18px;
+	font-family: PingFangSC-Semibold, PingFang SC;
+	font-weight: 600;
+	color: #333333;
+	line-height: 25px;
+	text-align: center;
+	margin: 40px auto 15px;
+	display: inline-block;
+}
+.cwl{
+	width: 100%;
+	background: #CB161D url("../../assets/img/bg_BROCA.png") no-repeat top 20px  right 52px;
+	background-size:273px 77px;
+	height: 396px;
+	margin: 0 auto;
+}
+.cwr{
+	width: 100%;
+	background: #014B99 url("../../assets/img/bg_ENGLISH.png") no-repeat top 73px  left 12px;
+	background-size: 353px 77px;
+	height: 396px;
+}
+.smallTit{
 	width:100%;
-	height:22px;
-	font-size:16px;
-	font-family:PingFangSC-Medium,PingFang SC;
-	font-weight:500;
-	color:rgba(255,255,255,1);
-	line-height:22px;
-	padding-left: 9px !important;
-	box-sizing: border-box;
+	height: 22px;
+	font-size: 16px;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 500;
+	color: #FFFFFF;
+	line-height: 22px;
+	text-align: center;
+	margin-top: 30px;
 	display: inline-block;
-	margin: 5px 0 2px 0;
 }
-.six p{
-	width:100%;
-	height:17px;
-	font-size:12px;
-	font-family:PingFangSC-Regular,PingFang SC;
-	font-weight:400;
-	color:rgba(255,255,255,1);
-	line-height:17px;
+.smallSlogan{
+	width: 100%;
+	height: 17px;
+	font-size: 12px;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #FFFFFF;
+	line-height: 17px;
+	text-align: center;
+}
+.cwc ul{
+	margin: 34px auto 0;
+	width: 100%;
+}
+.cwc ul li{
+	margin-bottom: 15px;
+	width: 100%;
+	text-align: center;
+	height: 20px;
+	font-size: 14px;
+	line-height: 20px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #FFFFFF;
+}
+.cwm{
+	width: 88px;
+	height: 105px;
+	background:url("../../assets/img/pic_vs.png") no-repeat 0 0  ;
+	background-size: 88px 105px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.cwr .cwc .smallTit{
+	margin-top: 83px;
+}
+/*采用国际前沿技术 第一代出国潮的推动者*/
+.run_warp_wap h3{
+	width: 100%;
+	text-align: center;
+	font-size: 18px;
+	font-family: PingFangSC-Semibold, PingFang SC;
+	font-weight: 600;
+	color: #333333;
+	line-height: 25px;
 	display: inline-block;
-	padding-left: 9px !important;
-	box-sizing: border-box;
+	margin: 40px auto 21px;
 }
-.aab {
-	margin-left: 12px;
+.run_warp_wap dl{
+	width: 91%;
+	height: 433px;
+	background: #FFFFFF;
+	box-shadow: 0px 5px 21px 0px #E3E3E3;
+	border-radius: 10px;
+	margin: 0 auto 20px auto;
 }
-.aab img{
-	width: 105px;
-	height: 46px;
-	display: inline-block;
-	float: left;
+.run_warp_wap dl:last-child{
+	height: 479px;
 }
-.six_con_tit{
-	width:100%;
-	font-size:16px;
-	font-family:PingFangSC-Medium,PingFang SC;
-	font-weight:500;
-	color:#CB161D;
-	line-height:22px;
-	display: inline-block;
-	margin: 0 auto 8px;
+.run_warp_wap h5{
+	width: 100%;
+	text-align: center;
+	height: 22px;
+	font-size: 16px;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 500;
+	color: #333333;
+	line-height: 22px;
+	margin: 20px auto 10px;
+}
+.run_warp_wap p{
+	width: 100%;
 	text-align: left;
-	padding: 0 20px !important;
+	height: 92px;
+	font-size: 14px;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #666666;
+	line-height: 23px;
+	padding: 0 15px !important;
 }
-.six_con{
-	margin-top: 6px;
-}
-.six_con ul {
-	margin: 0 20px;
-}
-.six_con ul li {
-	width:100%;
-	font-size:14px;
-	font-family:PingFangSC-Regular,PingFang SC;
-	font-weight:400;
-	color:rgba(102,102,102,1);
-	line-height:23px;
-	float: left;
-}
-.english{
+/*并非改善 而是革新 OMO多维情景授课与学习 让孩子从此更爱说英语*/
+.change {
+	width: 100%;
+	height: 680px;
+	background: #F9FAFC;
 	margin-top: 20px;
-	background:rgba(240,254,255,1) url(../img/circle_green_r@2x.png) no-repeat right bottom !important;
-	border:3px solid rgba(0,161,167,1) !important;
 }
-.english .six{
-	background:#00A1A7 !important;
-}
-
-/* 强大的线上系统 */
-.sys{
+.change h3{
 	width: 100%;
-	overflow: hidden;
-	justify-content: center;
-}
-.sys .system_list{
-	margin: 33px auto 22px auto;
-}
-.sys_warp dl{
-	/* position: relative; */
-}
-.sys_warp dl dt{
-	width: 100%;
-	overflow: hidden;
-	height: 225px;
-	justify-content: center;
-}
-.sys_warp dl dt img{
-	width: 100%;
-}
-.sys_warp dl dd{
-	width:345px;
-	height:132px;
-	background:rgba(255,250,239,1) url(../img/ico_learn@2x.png) no-repeat left -22px bottom -10px;
-	background-size: 107px 107px;
-	border-radius:10px;
-	border:3px solid rgba(231,195,121,1);
-	margin: -52px auto 0;
-	position: relative;
-	z-index: 1;
-	text-indent: 82px;
-	overflow: hidden;
-}
-.sys_warp dl dd h3{
-	width:100%;
-	height:22px;
-	font-size:16px;
-	font-family:PingFangSC-Medium,PingFang SC;
-	font-weight:500;
-	color:rgba(203,22,29,1);
-	line-height:22px;
-	margin-top: 20px;
-	margin-bottom: 10px;
-}
-.sys_warp dl dd ul{
-	float: left;
+	text-align: center;
+	font-size: 18px;
+	font-family: PingFangSC-Semibold, PingFang SC;
+	font-weight: 600;
+	color: #333333;
+	line-height: 25px;
 	display: inline-block;
-	margin-left: 82px;
+	margin: 30px auto 20px;
 }
-.sys_warp dl dd ul li{
-	font-size:14px;
-	font-family:PingFangSC-Regular,PingFang SC;
-	font-weight:400;
-	color:rgba(102,102,102,1);
-	line-height:23px;
-	float: left;
-	text-indent: 0;
-	width: 50%;
-}
-.sys_warp .sys_warp_dl{
-	margin-top: 40px;
-}
-.sys_warp .sys_warp_dl dd{
-	height:132px;
-	background:rgba(255,250,239,1) url(../img/ico_touch@2x.png) no-repeat left -30px bottom -10px;
-	background-size: 107px 107px;
-	border-radius:20px;
-	border:3px solid rgba(231,195,121,1);
-	margin: -52px auto 0;
-	position: relative;
-	z-index: 1;
-	text-indent: 82px;
-	overflow: hidden;
-}
-/* 选择布罗卡斯的理由 */
-.checked .system_list{
-	margin: 30px auto 10px;
-}
-.checked_con{
+.lcf{
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	width: 100%;
+	padding: 0 15px !important;
 }
-.checked_con dl{
-	width:167px;
-	height:200px;
-	border-radius:20px;
+.lcf dl{
+	width: 48%;
+	margin-bottom: 10px;
 }
-.checked_con dl dt{
-	width: 161px;
-	height: 97px;
+.lcf dl dt{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
 	text-align: center;
+	border-radius: 10px 10px 0px 0px;
+	font-size: 16px;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 500;
+	color: #FFFFFF;
 }
-.checked_con dl dt img{
+.lcf dl dd img{
+	width: 100%
+}
+.lcf dl:first-child dt{
+	background: linear-gradient(270deg, #FF2837 0%, #CB161D 100%);
+	box-shadow: 0px 15px 20px 0px #FFD0D0;
+}
+.lcf dl:nth-child(2) dt{
+	background: linear-gradient(270deg, #FC8E2F 0%, #F85515 100%);
+	border-radius: 10px 10px 0px 0px;
+}
+.lcf dl:nth-child(3) dt{
+	background: linear-gradient(270deg, #FBE7AB 0%, #F6CB73 100%);
+	border-radius: 10px 10px 0px 0px;
+}
+.lcf dl:nth-child(4) dt{
+	background: linear-gradient(270deg, #22DFDD 0%, #0FBCB8 100%);
+	border-radius: 10px 10px 0px 0px;
+}
+.lcf dl:nth-child(5) dt{
+	background: linear-gradient(270deg, #32ECFD 0%, #17D3FA 100%);
+	border-radius: 10px 10px 0px 0px;
+}
+.lcf dl:last-child dt{
+	background: linear-gradient(270deg, #0282C9 0%, #014B99 100%);
+	border-radius: 10px 10px 0px 0px;
+}
+/*无缝衔接课前、课中、课后 更符合中国孩子的学习习惯 对标国内英语知识点，接轨国际前沿课程*/
+.before h3{
 	width: 100%;
-	border-top-left-radius: 20px;
-	border-top-right-radius: 20px;
-}
-.checked_con dl dd h3{
-	width:100%;
-	height:22px;
-	font-size:16px;
-	font-family:PingFangSC-Medium,PingFang SC;
-	font-weight:500;
-	color:rgba(255,255,255,1);
-	line-height:22px;
+	text-align: center;
+	height: 75px;
+	font-size: 18px;
+	font-family: PingFangSC-Semibold, PingFang SC;
+	font-weight: 600;
+	color: #333333;
+	line-height: 25px;
 	display: inline-block;
-	margin: 10px auto 5px auto;
+	margin: 30px auto 110px;
+}
+.index_join_con{
+	width: 100%;
+	height: 870px;
+	margin: 0 auto;
+}
+.index_join_con dl{
+	width: 91%;
+	height: 377px;
+	box-shadow: 0px 4px 16px 0px #E3E3E3;
+	border-radius: 7px;
+	margin: 0 auto;
+}
+.index_join_con dl:last-child{
+	margin-top: 116px;
+}
+.index_join_con dl dt{
+	width:100%;
+	height: 160px;
+	background: #FFFFFF;
+	border-radius: 10px;
 	text-align: center;
 }
-.checked_con dl dd p{
-	width:100%;
-	height:55px;
-	font-size:12px;
-	font-family:PingFangSC-Regular,PingFang SC;
-	font-weight:400;
-	color:rgba(255,255,255,1);
-	line-height:17px;
+.index_join_con dl dt .van-image{
+	margin-top: -28%;
+}
+.index_join_con dl dt h4{
+	width: 100%;
+	height: 22px;
+	font-size: 16px;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 500;
+	color: #CB161D;
+	line-height: 22px;
+	margin-top: 15px;
+}
+.index_join_con dl dt p{
+	width: 100%;
+	height: 17px;
+	font-size: 12px;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #666666;
+	line-height: 17px;
+	margin-top: 5px;
+}
+.index_join_con dl dd{
+	width: 100%;
+	height: 216px;
+	font-size: 16px;
+	font-family: MicrosoftYaHei;
+	color: #333333;
+	line-height: 30px;
+}
+.index_ul{
+	height: 216px;
+}
+.index_join_con .index_ul li{
+	width: 100%;
+	height: 72px;
+	line-height: 72px;
+	font-size: 14px;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #FFFFFF;
 	text-align: center;
 }
-.checked_con dl:last-child{
-	background: #B8352D url(../img/ico_graphics2@2x.png) no-repeat right bottom;
-	background-size: 54px 54px;
-	width:167px;
-	height:200px;
-	border:3px solid rgba(184,53,45,1);
+.index_ul li:first-child {
+	background: #F24747;
 }
-.checked_con dl:first-child{
-	background: #0080CB url(../img/ico_graphics1@2x.png) no-repeat right bottom;
-	background-size: 54px 54px;
-	width:167px;
-	height:200px;
-	border:3px solid rgba(0,128,203,1);
-}
-.checked_con_s{
-	margin-top: 13px;
-}
-.checked_con_s dl:first-child{
-	background: #E7C379 url(../img/ico_graphics3@2x.png) no-repeat right bottom;
-	background-size: 54px 54px;
-	width:167px;
-	height:200px;
-	border:3px solid rgba(231,195,121,1);
-}
-.checked_con_s dl:last-child{
-	background: #00A1A7 url(../img/ico_graphics4@2x.png) no-repeat right bottom;
-	background-size: 54px 54px;
-	width:167px;
-	height:200px;
-	border:3px solid rgba(0,161,167,1);
-}
-/* 品牌介绍 */
-.brand{
-	width:100%;
-	height:474px;
-	background:rgba(238,249,255,1);
-	margin-top: 30px;
-	margin-bottom: 30px;
-}
-.brand .system_list{
-	margin: 23px auto 17px;
-}
-.brand_con{
-	width:93%;
-	height:390px;
-	background:rgba(255,255,255,1) url(../img/circle_blue_r@2x.png) no-repeat right bottom;
-	border-radius:10px;
-	border:3px solid rgba(0,128,203,1);
-	margin: 0 auto 18px auto;
-	background-size: 104px 104px;
+.index_ul li:nth-child(2) {
+	background: #E42D36;
+	padding: 17px 15px 12px 15px!important;
+	box-sizing: border-box;
+	display: -webkit-box;
+	line-height: 20px;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
 	overflow: hidden;
 }
-.brand_con dt{
-	height: 97px;
+.index_ul li:last-child {
+	background: #CE1921;
+	border-bottom-right-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+.index_join_con dl:last-child dd ul li:first-child {
+	background: #FF974F !important;
+}
+.index_join_con dl:last-child dd ul li:nth-child(2) {
+	background: #F97319;
+}
+.index_join_con dl:last-child  dd ul li:last-child {
+	background:#F85515;
+	border-bottom-right-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+/*布罗卡斯梯度进阶课程体系 夯实基础 循序渐进地综合提升孩子的英语能力*/
+.en_warp{
+	width: 100%;
+	height: 873px;
+	background: #F9FAFC;
+	justify-content: center;
 	text-align: center;
 }
-.brand_con dt img{
+.en_warp h3{
 	width: 100%;
+	text-align: center;
+	font-size: 18px;
+	font-family: PingFangSC-Semibold, PingFang SC;
+	font-weight: 600;
+	color: #333333;
+	line-height: 25px;
 	display: inline-block;
-	padding: 0;
+	margin: 30px auto 20px;
+}
+.en_warp img{
+	padding: 0 10px !important;
+}
+.en_warp img:first-child{
+	margin-bottom: 30px;
+}
+/*新闻动态*/
+.news {
+	width: 91%;
+	margin: 0 auto 41px auto;
+	height: 227px;
+	position: relative;
+	overflow-x: auto;
+}
+.new_ul{
+	position: absolute;
+	width:950px;
+	left: 0;
+	height: 227px;
+}
+.new_ul a{
 	float: left;
+	margin-right: 10px;
+	text-decoration: none;
 }
-.brand_con dd{
-	width:100%;
-	font-size:14px;
-	font-family:PingFangSC-Regular,PingFang SC;
-	font-weight:400;
-	color:rgba(102,102,102,1);
-	line-height:23px;
-	padding: 0 14px !important;
-	margin-top: 18px !important;
+.new_ul a:hover,.new_ul a:link{
+	text-decoration: none;
+}
+.new_ul a dl dt img,.new_ul a dl dt{
+	width: 225px;
+	height: 126px;
+}
+.new_ul a dl,.new_ul a{
+	width: 225px;
+	height: 227px;
+	background: #F9FAFC;
+	border-radius: 10px;
 	display: inline-block;
 }
-.brand_con dd p{
-	margin-top: 20px;
+.new_ul a dl dd h3{
+	width: 100%;
+	height: 44px;
+	font-size: 16px;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 500;
+	color: #333333;
+	line-height: 22px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	padding: 17px 14px 7px 15px !important;
 }
-/* 公司动态 */
+.new_ul a dl dd p {
+	width: 100%;
+	text-align: left;
+	height: 17px;
+	font-size: 12px;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #666666;
+	line-height: 17px;
+	padding: 0 14px 0 15px !important;
+}

@@ -21,177 +21,248 @@
             </div>
         </div>
     </div>
-    <!-- 你正在面临的学习问题 -->
-    <section class="pub elearn">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                你正在面临的学习问题
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <section class="elearn_img">
-            <img src="/static/wap/img/WechatIMG250.png" />
-        </section>
-    </section>
-    <!-- AI智能解决方案 -->
-    <section class="pub ai">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                AI智能解决方案
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <h3 class="smallTit">智能学习，轻松提分</h3>
-    </section>
-    <!-- AI智能多维情景教学 -->
-    <section class="pub more">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                AI智能多维情景教学
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <section class="pic_aizndw">
-        </section>
-    </section>
-    <!-- 课程设置 -->
-    <section class="pub setting">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                课程设置
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <section class="setting_con setting_setting_con">
-            <div class="setting_banner">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        {{ range .data.threeBanner}}
-                        <div class="swiper-slide">
-                            <img src="{{.Imgurl}}" alt="">
-                        </div>
-                        {{end}}
-                    </div>
-                </div>
-            </div>
-            <section class="six_aab">
-                <section class="six">
-                    <h3>3-6岁幼儿英语</h3>
-                    <p>激发兴趣，奠定基础</p>
-                </section>
-                <section class="aab">
-                    <img src="/static/wap/img/ico_aab.png" />
-                </section>
+    <!-- 了解更多布罗卡斯智能英语资讯 请填写表单 -->
+    <section class="wap_banner_form">
+        <h3 class="btit">了解更多布罗卡斯智能英语资讯 请填写表单</h3>
+        <p class="bdesc">稍后我们的客服专员将会致电于您</p>
+        <form method="post" action="" name="myform" id="wap_myform">
+            <input type="hidden" name="com" class="c-com" value="">
+            <section class="form_tit">
+                <input  type="text" placeholder="姓名" name="mname" class="c-name">
             </section>
-            <section class="six_con">
-                <h3 class="six_con_tit">中外教面授+智能点读+线上AI小程序+外教直播课</h3>
-                <ul>
-                    <li>互动电子课件、趣味教具，激发孩子学习主动性</li>
-                    <li>智能点读笔，生词拼读释义瞬间get</li>
-                    <li>APP包含海量学习资源，拓展知识结构</li>
-                    <li>课堂游戏式互动其乐无穷，以兴趣为引导</li>
-                </ul>
+            <section class="form_tit">
+                <input type="text" placeholder="电话" name="tel" class="c-tel">
             </section>
-        </section>
-        <!-- 7-15岁少儿英语 -->
-        <section class="setting_con english">
-            <div class="setting_banner2">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        {{ range .data.sevenBanner}}
-                            <div class="swiper-slide">
-                                <img src="{{.Imgurl}}" alt="">
-                            </div>
-                        {{end}}
-                    </div>
-                </div>
-            </div>
-            <section class="six_aab">
-                <section class="six">
-                    <h3>7-15岁少儿英语</h3>
-                    <p>快速提分，一路领先</p>
-                </section>
-                <section class="aab">
-                    <img src="/static/wap/img/ico_ddb@2x.png" />
-                </section>
+            <section class="form_tit">
+                <input type="text" placeholder="地区" name="area" class="c-area">
             </section>
-            <section class="six_con">
-                <h3 class="six_con_tit">英语学练系统+随堂人机双师多维度题库练习</h3>
-                <ul>
-                    <li>专属AI老师，定位孩子学习薄弱点重点提升</li>
-                    <li>专业英语老师+“最强大脑”智能老师，实现1+1>2的教学效果</li>
-                    <li>根据学习数据定制个性化辅导方案，因材施教</li>
-                </ul>
+            <section class="subBtn">
+                <button class="van-button--info btn">提交</button>
             </section>
-        </section>
+        </form>
     </section>
-    <!-- 强大的线上系统 -->
-    <section class="sys pub">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                强大的线上系统
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <section class="sys_warp">
-            <dl>
-                <dt></dt>
-                <dd>
-                    <h3>AI小程序</h3>
-                    <ul>
-                        <li>24小时随时随地学</li>
-                        <li>预习复习双重保障</li>
-                        <li>游戏闯关趣味练习</li>
-                        <li>锻炼孩子自主独立</li>
-                        <li>高效学习家长无忧</li>
-                    </ul>
-                </dd>
-            </dl>
-            <dl class="sys_warp_dl">
-                <dt></dt>
-                <dd>
-                    <h3>BROCA智能学练系统</h3>
-                    <ul>
-                        <li>1v1定制针对性训练</li>
-                        <li>满足个性学习需求</li>
-                        <li>智能分析查漏补缺</li>
-                        <li>定期反馈学情报告</li>
-                        <li>协助老师因材施教</li>
-                    </ul>
-                </dd>
-            </dl>
-        </section>
+    <!-- 布罗卡斯智能英语 孩子信赖 妈妈优选 -->
+    <section class="bg_map pub">
+        <h3>布罗卡斯智能英语 孩子信赖 妈妈优选</h3>
+        <ul>
+            <li>布罗卡斯智能英语在中国100+座城市发展300+家校区，每年都有超过数10万+名儿童在此学习，</li>
+            <li>通过人机互教陪伴孩子快乐地学习英语、轻松提分，并快速提升孩子综合英语能力，</li>
+            <li>受到广大家长和学员的一致好评，已然成为中国精英家庭英语学习的优选。</li>
+        </ul>
     </section>
-    <!-- 选择布罗卡斯的理由 -->
-    <section class="checked pub">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                选择布罗卡斯的理由
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <section class="checked_con checked_con_first">
-        </section>
-        <section class="checked_con checked_con_s">
-        </section>
-    </section>
-    <!-- 品牌介绍 -->
-    <section class="pub brand">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                品牌介绍
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-        <dl class="brand_con">
+    <!--300 -->
+    <section class="broca_dl">
+        <dl>
+            <dt><strong>300</strong>+家校区</dt>
+            <dd class="show_img"><img src="/static/assets/img/ico_education@2x.png"></dd>
         </dl>
+        <dl>
+            <dt><strong>100</strong>+个城市</dt>
+            <dd class="show_img"><img src="/static/assets/img/ico_city@2x.png"></dd>
+        </dl>
+        <dl>
+            <dt><strong>10</strong>万+名儿童</dt>
+            <dd class="show_img"> <img src="/static/assets/img/ico_education.png"></dd>
+        </dl>
+    </section>
+    <!--源于19世纪脑科学 布罗卡斯语言区理论体系 -->
+    <section class="pub subject_warp">
+        <h3>源于19世纪脑科学<br/>布罗卡斯语言区理论体系</h3>
+        <section class="tx_warp">
+            <section class="subject_con_l">
+                <section class="loop">
+                    <h4>Broca’s Area</h4>
+                    <section class="dottedCircle">
+                    </section>
+                    <section class="dottedcircle1">
+                    </section>
+                </section>
+                <section class="pic_brain">
+                    <section class="heart"></section>
+                    <section class="heart_circle"></section>
+                </section>
+            </section>
+            <section class="tx_desc">
+                1861年法国脑科学家布罗卡斯发现“布罗卡斯区” 负责语言的学习和储存，1996年美国康奈尔大学研究证实并发表于《nature》，同年哈佛大学通过科学扫描技术确认布罗卡斯区在幼儿时期3周岁左右开始发育，12岁左右发育基本成熟关闭。
+            </section>
+        </section>
+    </section>
+    <!--联合世界名校和美国优质教育资源倾力打造 -->
+    <section class="make">
+        <h3>联合世界名校和美国优质教育资源倾力打造</h3>
+        <img class="uc" src="http://img.cdn.brocaedu.com/2020102910100429.png" />
+        <img class="uc" src="http://img.cdn.brocaedu.com/2020102910100654.png"/>
+        <section class="ul_img">
+            <img src="http://img.cdn.brocaedu.com/2020102910100521.png" width="130" height="67" />
+            <img src="http://img.cdn.brocaedu.com/2020102910100554.png" width="129" height="67"/>
+            <img src="http://img.cdn.brocaedu.com/2020102910100619.png" width="67" height="67"/>
+        </section>
+    </section>
+    <!--10万+学员家长 选择布罗卡斯智能英语的理由 -->
+    <section class="wan_warp pub">
+        <h3>10万+学员家长<br>选择布罗卡斯智能英语的理由</h3>
+        <section class="wan_con">
+            <section class="cwl">
+                <section class="cwc">
+                    <h4 class="smallTit">布罗卡斯英语</h4>
+                    <p class="smallSlogan">Broca English Course</p>
+                    <ul>
+                        <li>AI智学系统跟进每个孩子学习成果及习惯，因材施教</li>
+                        <li>结合实体课堂人机双师互教，直接提分快速有效</li>
+                        <li>知识点螺旋重叠式递增，注重交流，阅读和运用</li>
+                        <li>电子课件涵盖1000+专属儿童英文游戏</li>
+                        <li>AI小程序植入真人外教辅助复习</li>
+                        <li>AI小程序激励系统锻炼孩子项目管理能力</li>
+                    </ul>
+                </section>
+            </section>
+            <section class="cwm"></section>
+            <section class="cwr">
+                <section class="cwc">
+                    <h4 class="smallTit">其他英语课程</h4>
+                    <p class="smallSlogan">Other English Course</p>
+                    <ul>
+                        <li>没有AI系统</li>
+                        <li>只有老师实体教授，没有人机互动</li>
+                        <li>单纯模块化教学内容，抽象不易理解</li>
+                        <li>课件只是简单的动画、图片或PPT无法实现互动</li>
+                        <li>小程序或APP真人外教视频不多</li>
+                        <li>小程序或APP内容单一</li>
+                    </ul>
+                </section>
+            </section>
+        </section>
+    </section>
+    <!--采用国际前沿技术 第一代出国潮的推动者 -->
+    <section class="pub run_warp_wap">
+        <h3>采用国际前沿技术<br/>第一代出国潮的推动者</h3>
+        <dl>
+            <dt>
+                <img height="258" src="http://img.cdn.brocaedu.com/202010281054509.png" />
+            </dt>
+            <dd>
+                <h5>与CCTV共同拍摄第一档儿童双语布偶剧</h5>
+                <p>与中央电视台共同拍摄中国第一档儿童双语布偶剧《波波嘟的一天》并多轮播出，收视人数过亿，创下CCTV儿童节目收视纪录，推动中国亿万人学习英语热情，直接影响中国第一代出国留学热潮。</p>
+            </dd>
+        </dl>
+        <dl>
+            <dt>
+                <img height="258"  src="http://img.cdn.brocaedu.com/202010281054558.png" />
+            </dt>
+            <dd>
+                <h5>采用国际前沿的AI技术呈现智能英语课堂</h5>
+                <p>结合独特的多维智能情景教学法，打造了集BROCA智能学系统、未来教室应用系统、多媒体助教系统、 云学习小程序、游戏式家庭学习测评系统于一体的学练环境，低龄段采用专业师资面授、课后RAZ阅读欧美外教直播课以及高龄段采用AI人机互教学习方式达成最佳学习效果。</p>
+            </dd>
+        </dl>
+    </section>
+    <!-- 并非改善 而是革新 OMO多维情景授课与学习 让孩子从此更爱说英语 -->
+    <section class="change pub">
+        <h3>
+            并非改善 而是革新<br/>OMO多维情景授课与学习<br/>让孩子从此更爱说英语
+        </h3>
+        <section class="lcf">
+            <dl>
+                <dt>人机双师互教</dt>
+                <dd>
+                    <img height="125" src="http://img.cdn.brocaedu.com/202010281044931.png"/>
+                </dd>
+            </dl>
+            <dl>
+                <dt>AI学习系统</dt>
+                <dd>
+                    <img height="125" src="http://img.cdn.brocaedu.com/202010281045207.png"/>
+                </dd>
+            </dl>
+            <dl>
+                <dt>中外教互动课堂</dt>
+                <dd>
+                    <img height="125" src="http://img.cdn.brocaedu.com/202010281045301.png" /></dd>
+            </dl>
+            <dl>
+                <dt>全情景智能点读</dt>
+                <dd>
+                    <img height="125" src="http://img.cdn.brocaedu.com/202010281045440.png" /></dd>
+            </dl>
+            <dl>
+                <dt>多维度题库练习</dt>
+                <dd>
+                    <img
+                            height="125"
+                            src="http://img.cdn.brocaedu.com/202010281045525.png"
+                    /></dd>
+            </dl>
+            <dl>
+                <dt>美国分级阅读RAZ外教直播课</dt>
+                <dd>
+                    <img
+                            height="125"
+                            src="http://img.cdn.brocaedu.com/202010281045631.png"
+                    /></dd>
+            </dl>
+        </section>
+    </section>
+    <!-- 无缝衔接课前、课中、课后 更符合中国孩子的学习习惯 对标国内英语知识点，接轨国际前沿课程 -->
+    <section class="before pub">
+        <h3>无缝衔接课前、课中、课后<br/>更符合中国孩子的学习习惯<br/>对标国内英语知识点，接轨国际前沿课程</h3>
+        <section class="index_join_con">
+            <dl>
+                <dt>
+                    <img
+                            class="van-image"
+                            height="160"
+                            width="160"
+                            src="http://img.cdn.brocaedu.com/2020102910114655.png" />
+                    <h4>3-6岁幼儿英语</h4>
+                    <p>激发兴趣，奠定基础</p>
+                </dt>
+                <dd>
+                    <ul class="index_ul">
+                        <li>互动电子课件、趣味教具，激发孩子学习主动性。</li>
+                        <li>智能点读笔，生词拼读释义瞬间get APP包含海量学习资源，拓展知识结构。</li>
+                        <li>课堂游戏式互动其乐无穷，以兴趣为引导。</li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <img class="van-image"
+                            height="160"
+                            width="160"
+                            src="http://img.cdn.brocaedu.com/2020102910115014.png"/>
+                    <h4>7-15岁少儿英语</h4>
+                    <p>快速提分，一路领先</p>
+                </dt>
+                <dd>
+                    <ul class="index_ul">
+                        <li>专属AI老师，定位孩子学习薄弱点重点提升。</li>
+                        <li>专业英语老师+“最强大脑”智能老师，实现1+1&gt;2的教学效果。</li>
+                        <li>根据学习数据定制个性化辅导方案，因材施教。</li>
+                    </ul>
+                </dd>
+            </dl>
+        </section>
+    </section>
+    <!-- 布罗卡斯梯度进阶课程体系 夯实基础 循序渐进地综合提升孩子的英语能力 -->
+    <section class="en_warp pub">
+        <h3>
+            布罗卡斯梯度进阶课程体系 夯实基础<br/>循序渐进地综合提升孩子的英语能力
+        </h3>
+        <img
+                width="346"
+                height="302"
+                src="/static/wap/img/pic_kid.png"
+        />
+        <img
+                width="346"
+                height="401"
+                class="child"
+                src="/static/wap/img/pic_pupils.png"
+        />
+    </section>
+    <!--新闻动态-->
+    <section class="pub news">
+        <ul class="new_ul">
+        </ul>
     </section>
     {{template "wap_footer"}}
     <script type="text/javascript" src="/static/wap/js/index.js"></script>
