@@ -30,7 +30,7 @@ $('.van-button--info').on('click',function () {
         return false;
     }
     if ($('.wap_banner_form .c-tel').val()=="") {
-        alert('电话不能为空┖');
+        alert('电话不能为空');
         return false;
     }
     if ($('.wap_banner_form .c-tel').val().length < 11) {
