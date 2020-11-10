@@ -654,10 +654,10 @@
 	margin: 30px auto 20px;
 }
 .en_warp img{
-	width: 91%;
+	padding: 0 10px !important;
 }
-.en_warp .child{
-	margin-top: 30px;
+.en_warp img:first-child{
+	margin-bottom: 30px;
 }
 /*新闻动态*/
 .news {
