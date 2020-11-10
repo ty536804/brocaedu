@@ -304,7 +304,7 @@
     opacity:0.3;
     color: rgba(0,128,203,1);
 }
-.eight_con_six h5{
+.eight_con_six h5,.eight_con_four h5{
     font-size: 14px !important;
 }
 /* 布罗卡斯学习流程 */
