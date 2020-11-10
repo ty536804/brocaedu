@@ -661,8 +661,8 @@
 }
 /*新闻动态*/
 .news {
-	width: 91%;
-	margin: 0 auto 41px auto;
+	width: 100%;
+	margin: 0 auto 41px 15px;
 	height: 227px;
 	position: relative;
 	overflow-x: auto;
@@ -681,7 +681,7 @@
 }
 .new_ul{
 	position: absolute;
-	width:1000px;
+	width:1015px;
 	left: 0;
 	height: 227px;
 }

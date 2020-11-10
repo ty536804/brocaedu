@@ -37,6 +37,9 @@ body {
 }
 .detail_con img{
     max-width: 100%;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100%;
 }
 footer{
     margin-top: -30px;
