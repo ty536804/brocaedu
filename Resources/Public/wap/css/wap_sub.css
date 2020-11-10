@@ -177,7 +177,7 @@
     max-width: 100%;
     max-height: 100%;
 }
-.en_warp img:first-child{
+.en_warp .child{
     margin-bottom: 30px;
 }
 /*M.I.C.多维智能教学法与8大特色教学*/
