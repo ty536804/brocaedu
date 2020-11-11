@@ -662,10 +662,9 @@
 /*新闻动态*/
 .news {
 	width: 100%;
-	margin: 0 auto 41px 15px;
 	height: 227px;
-	position: relative;
 	overflow-x: auto;
+	margin: 0 auto 41px;
 }
 .newTit{
     width: 100%;
@@ -680,9 +679,7 @@
 	justify-content: center;
 }
 .new_ul{
-	position: absolute;
 	width:1015px;
-	left: 0;
 	height: 227px;
 }
 .new_ul a{
@@ -734,4 +731,9 @@
 	font-size: 18px;
 	line-height: 227px !important;
 	text-align: center;
+}
+.news_list{
+    width: 100%;
+	margin-left: 15px;
+    overflow-x: auto;
 }
