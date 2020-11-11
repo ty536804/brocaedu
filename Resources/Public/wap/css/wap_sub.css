@@ -175,15 +175,20 @@
     display: inline-block;
     margin: 30px auto 20px;
 }
+.en_f{
+    height: 302px;
+    width: 100%;
+}
 .en_warp img{
-    /*padding: 0 15px !important;*/
-    /*width: auto;*/
-    /*height: auto;*/
-    /*max-width: 100%;*/
-    /*max-height: 100%;*/
-    /*display: inline-block;*/
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
 }
 .en_warp .child{
+    height: 401px;
+    width: 100%;
     margin: 30px auto 40px;
 }
 /*M.I.C.多维智能教学法与8大特色教学*/
