@@ -1,7 +1,3 @@
-.swiper-slide img {
-    height: 210px;
-    margin: 0 auto;
-}
 /*教师选拔标准*/
 .bz{
     width: 100%;
@@ -97,7 +93,7 @@
 .training_con dl dt{
     width: 100%;
     height:258px;
-    padding: 0 10px !important;
+    padding: 0 15px !important;
     text-align: center;
 }
 
