@@ -21,60 +21,77 @@
             </div>
         </div>
     </div>
-    <!-- 你正在面临的学习问题 -->
-    <section class="pub elearn">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                教研团队
-                <span class="tit_icon"></span>
-            </h3>
+    <!-- 教师选拔标准 -->
+    <section class="pub bz">
+        <h3 class="bzTit">教师选拔标准</h3>
+        <section class="bzImg">
+            <img src="/static/wap/img/pic_teacher.png">
         </section>
-        <section class="leader">
-            {{ range .data.leader}}
-               <img  src="{{.Imgurl}}" />
-            {{end}}
-        </section>
-        <section class="brand_ul">
-            <section class="pc-banner">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        {{ range .data.loop}}
-                            <div class="swiper-slide"><img  src="{{.Imgurl}}" /></div>
-                        {{end}}
-                    </div>
-                </div>
-            </section>
+        <section class="selectL">
+            <dl>
+                <dt>
+                    <img src="/static/assets/images/ico_qualification@2x.png">
+                    <h3 class="zzzy">专业资质</h3>
+                </dt>
+                <dd>
+                    本科以上学历，英语教育专业，持有教师资格证及TESOL/TEFL证书等
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <img src="/static/assets/images/ico_skill@2x.png">
+                    <h3>英语技能</h3>
+                </dt>
+                <dd>
+                    善用英语表达，口语发音纯正具备英语听、说、读、写、思维等多维度能力，精通英语授课技巧，教学经验丰富
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <img src="/static/assets/images/ico_literacy@2x.png">
+                    <h3>职业素养</h3>
+                </dt>
+                <dd>
+                    了解儿童心理及生理特点，懂得因材施教，具有服务意识，善于与家长、孩子沟通
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <img src="/static/assets/images/ico_service@2x.png">
+                    <h3>教育情怀</h3>
+                </dt>
+                <dd>
+                    热爱教育、热爱孩子、有责任感，愿意在教育行业持续深耕，为孩子创造未来
+                </dd>
+            </dl>
         </section>
     </section>
-    <!---教师选拔标准-->
-    <section class="pub selecte">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                教研团队
-                <span class="tit_icon"></span>
-            </h3>
+    <!-- 教师选拔标准 -->
+    <section class="pub training">
+        <h3>培训&考核</h3>
+        <section class="training_con">
+            <dl>
+                <dt>
+                    <img src="/static/assets/images/pic_entry.png">
+                </dt>
+                <dd>
+                    <h4>入职阶段</h4>
+                    <p class="training_con_t">布罗卡斯所有老师在入职后都必须接受系统化的培训，培训内容包括教学方法、教材教案使用、AI智学系统、沟通技巧、幼少儿心理学等。</p>
+                    <p>培训后并成功通过各项考核的老师方能有机会成为带班老师，没有通过考核的老师将面临淘汰。</p>
+                </dd>
+            </dl>
         </section>
-    </section>
-    <!---培训&考核-->
-    <section class="pub check">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                培训&考核
-                <span class="tit_icon"></span>
-            </h3>
-        </section>
-    </section>
-    <!---辅学APP-->
-    <section class="pub auxiliary">
-        <section class="system_list">
-            <h3 class="tit">
-                <span class="tit_icon"></span>
-                辅学APP
-                <span class="tit_icon"></span>
-            </h3>
+        <section class="training_con training_b">
+            <dl>
+                <dt class="training_con_b">
+                    <img src="/static/assets/images/pic_class.png">
+                </dt>
+                <dd>
+                    <h4>带班阶段</h4>
+                    <p class="training_con_t">为了给孩子带来持续性的优质教育，布罗卡斯每月定期举行教师培训会，培训内容覆盖幼少儿心理学、教学方法改进、教学问题提出与解决等多个方面。</p>
+                    <p>公司相关负责人定期对老师进行月度、季度考核，从职业素养、教学能力、服务沟通等多个方面对老师进行打分，保证老师全面、良性发展。</p>
+                </dd>
+            </dl>
         </section>
     </section>
     {{template "wap_footer"}}

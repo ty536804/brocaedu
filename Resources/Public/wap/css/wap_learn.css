@@ -1,271 +1,150 @@
-.brand_ul {
-    width: 100%;
-    margin: 0 auto;
-    height:210px;
-    overflow: hidden;
-    background: #F9FAFC;
-}
-.pc-banner {
-    width: 100%;
-    float: left;
-}
-.elearn{
-    background: url(http://img.cdn.brocaedu.com/bg_red111.png) no-repeat bottom center;
-    background-size: 100% 337px;
-    height: 463px;
-}
-.elearn .system_list{
-    margin-top: 33px;
-    margin-bottom: 18px;
-}
-.leader {
-    height: 167px;
-    width: 100%;
-    display: flex;
-    flex-flow: row;
-    justify-content: space-evenly;
-    margin-bottom: 9px;
-}
-.leader img{
-    height: 167px;
-}
-.swiper-slide img{
+.swiper-slide img {
     height: 210px;
     margin: 0 auto;
 }
 /*教师选拔标准*/
-.selecte .system_list{
-    margin-top: 30px;
-    margin-bottom: 19px;
+.bz{
+    width: 100%;
+    height: 1005px;
 }
-.selecte dl{
-    width: 93%;
-    height: 76px;
-    border-radius: 10px;
-    margin: 0 auto 20px auto;
-    position: relative;
-}
-.dlL{
-    position: absolute;
-    z-index: 1;
-    width: 59px;
-    height: 86px;
-    background: #00A1A7;
-    border-radius: 10px;
-    left: -3px;
-    top: -8px;
-    overflow: hidden;
-}
-.dlR {
-    padding: 18px 12px 18px 68px !important;
-}
-.dlL img{
-    width: 59px;
-    height: 59px;
+.bz .bzTit {
+    width:100%;
+    height: 25px;
+    font-size: 18px;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #333333;
+    line-height: 25px;
+    margin: 40px auto 15px;
+    text-align: center;
     display: inline-block;
 }
-.dlL span{
+.bzImg {
+    width: 100%;
+    height: 330px;
+}
+.bzImg img{
+    width: 100%;
+    height: 100%;
+}
+.selectL dl{
+    width: 93%;
+    margin: 15px auto 0;
+    background: #fff;
+    height: 130px;
+    border-radius: 10px;
+}
+.selectL dl:last-child{
+    margin-bottom: 0;
+}
+.selectL dl dt{
+    width: 100%;
+    height: 67px;
+    display: flex;
+}
+.selectL dl dt img{
+    width: 34px;
+    height: 34px;
+    margin: 26px 10px 7px 15px;
+}
+.selectL dl dd{
     width:100%;
-    height: 17px;
-    font-size: 12px;
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #666666;
+    line-height: 20px;
+    padding: 0 15px !important;
+    box-sizing: border-box;
+}
+.selectL dl dt h3{
+    width: 64px;
+    height: 22px;
+    font-size: 16px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #CB161D;
+    line-height: 22px;
+    display: inline-block;
+    margin-top: 35px;
+}
+.selectL{
+    width: 100%;
+    height: 595px;
+    background: #014B99;
+}
+/*培训&考核*/
+.training h3{
+    width: 100%;
+    height: 25px;
+    font-size: 18px;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #333333;
+    line-height: 25px;
+    margin: 40px auto 15px auto;
+    text-align: center;
+}
+.training_con{
+    width: 100%;
+    margin: 0 auto;
+}
+.training_con dl{
+    height:459px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.training_con dl dt{
+    width: 100%;
+    height:258px;
+    padding: 0 10px !important;
+    text-align: center;
+}
+
+.training_con dl dt img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.training_con dl dd{
+    width: 100%;
+    height: 280px;
+    background: #CB161D;
+    margin-top: -79px;
+}
+
+.training_con h4{
+    width:100%;
+    height: 22px;
+    font-size: 16px;
     font-family: PingFangSC-Medium, PingFang SC;
     font-weight: 500;
     color: #FFFFFF;
-    line-height: 17px;
-    text-align: center;
+    line-height: 22px;
+    padding-left: 15px !important;
+    box-sizing: border-box;
+    margin-top: 100px;
     display: inline-block;
 }
-.abc{
-    border: 3px solid #00A1A7 !important;
-    background: #F0FEFF;
-    color: #00A1A7;;
-}
-.abc .dlR{
-    padding:4px 12px 0 68px !important
-}
-.sy{
-    border: 3px solid #EB6E7D !important;
-    background: #FDF0F2;
-    color: #EB6E7D;
-}
-.sy .dlR{
-    padding:13px 12px 0 68px !important
-}
-.sy .dlL{
-    background: #EB6E7D;
-}
-.zy{
-    background: #FFF5E3;
-    border: 3px solid #DDB876;
-    color: #D3A24A;
-}
-.zy .dlL{
-    background: #DDB876;
-}
-
-.qh{
-    border: 3px solid #0080CB !important;
-    background: #EEF9FF;
-    color: #0080CB;
-}
-.qh .dlR{
-    padding:13px 12px 0 68px !important
-}
-.qh .dlL{
-    background: #0080CB;
-}
-/*培训&考核*/
-.check{
-    width: 100%;
-    height: 645px;
-    background: #F0FEFF;
-}
-.check .system_list{
-    margin-top: 23px;
-    margin-bottom: 37px;
-}
-.join{
-    width: 100%;
-    background: url("http://img.cdn.brocaedu.com/bg_circle%402x.png") no-repeat right bottom;
-    background-size: 248px 277px;
-    height: 273px;
-}
-.join dl{
-    width: 295px;
-    background: #FFFFFF;
-    border-radius: 10px;
-    border: 3px solid #00A1A7;
-    left: 15px;
-    position: relative;
-}
-.join .thumbBox{
-    position: absolute;
-    top: -23px;
-    right: -55px;
-    height: 137px;
-    width: 115px;
-}
-.join .summary{
-    margin: 9px 0 10px 9px;
-}
-.summary{
-    width: 222px;
-    font-size: 14px;
-    font-family: PingFangSC-Regular, PingFang SC;
-    font-weight: 400;
-    color: #666666;
-    line-height: 20px;
-}
-.content{
+.training_con p{
     width: 100%;
     font-size: 14px;
     font-family: PingFangSC-Regular, PingFang SC;
     font-weight: 400;
-    color: #666666;
+    color: #FFFFFF;
     line-height: 20px;
-    padding: 0 9px !important;
+    margin-top: 15px;
+    padding: 0 15px !important;
     box-sizing: border-box;
 }
-.level{
-    width: 100%;
-    background: url(http://img.cdn.brocaedu.com/bg_circle%402x.png) no-repeat left bottom;
-    background-size: 278px 277px;
-    height: 282px;
+.training_con_t{
+    margin-bottom: 20px;
 }
-.thumb_img{
-    height: 137px;
+.training_b dl dd{
+    height: 300px;
 }
-.smallIcon{
-    height: 40px;
-}
-.level img{
-    float: right;
-}
-.titImg{
-    width: 100%;
-    height: 40px;
-    justify-content: right;
-}
-.level .titImg {
-    justify-content: flex-end;
-}
-.level dl{
-    width: 295px;
-    background: #FFFFFF;
-    border-radius: 10px;
-    border: 3px solid #0080CB;
-    right: 15px;
-    position: relative;
-    float: right;
-}
-.level .summary{
-    margin: 9px 0 10px 67px;
-}
-.con{
-    margin-bottom: 10px;
-}
-.level .thumbBox{
-    position: absolute;
-    top: -23px;
-    left: -55px;
-    height: 137px;
-    width: 115px;
-}
-/*辅学APP*/
-.auxiliary .system_list{
-    margin: 33px auto 17px auto;
-}
-.auxiliary_box{
-    width: 345px;
-    height: 256px;
-    border-radius: 10px;
-    border: 3px solid #EB6E7D;
-    margin: 0 auto 100px auto;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-}
-.auxiliaryThumb{
-    width: 100%;
-    height: 42px;
-    justify-content: center;
-    display: flex;
-    margin-top: 11px;
-    margin-bottom: 5px;
-}
-.auxiliaryThumb img{
-    width: 42px;
-    height: 42px;
-}
-.bname{
-    width: 100%;
-    height: 20px;
-    font-size: 14px;
-    font-family: PingFangSC-Regular, PingFang SC;
-    font-weight: 400;
-    color: #666666;
-    line-height: 20px;
-    text-align: center;
-}
-.auxiliary_box dl{
-    width: 152px;
-    height: 108px;
-    background: #FDF0F2;
-}
-.auxiliary_box dl:first-child{
-    margin-top: 15px;
-    border-radius: 10px 0px 0px 0px;
-}
-.auxiliary_box dl:nth-child(2){
-    margin-top: 15px;
-    border-radius: 0px 10px 0px 0px;
-}
-.auxiliary_box dl:nth-child(3){
-    border-radius: 10px 0px 0px 0px;
-}
-.auxiliary_box dl:nth-child(4){
-    border-radius: 0px 10px 0px 0px;
-}
-.footer_right{
-    margin-top: -59px;
+.training_b{
+    margin-bottom: 40px;
 }
