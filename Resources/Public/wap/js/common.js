@@ -18,13 +18,10 @@ $('.home_icon').on('click',function () {
 })
 let _currentUrl = 'http://'+window.location.host
 let currentUrl = window.location.href.substr(_currentUrl.length,window.location.href.length)
-
 $('.home_nav a').each(function () {
-    let _actClass = '/'+$(this).attr('class');
+    let _actClass = $(this).attr('href');
     if (_actClass == currentUrl) {
         $(this).addClass('nav_active').siblings().removeClass('nav_active')
-    } else if (currentUrl == '/') {
-        $('.home_nav a:eq(0)').addClass('nav_active').siblings().removeClass('nav_active')
     }
 })
 
