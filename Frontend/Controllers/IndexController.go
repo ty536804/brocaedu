@@ -107,14 +107,6 @@ func LearnData(c *gin.Context) {
 	e.Success(c, "教研教学", data)
 }
 
-// @Summer OMO模式
-func Omo(c *gin.Context) {
-	Services.AddVisit(c, baseUrl+"omo")
-	c.HTML(e.SUCCESS, "index/omo.html", gin.H{
-		"title": "OMO模式",
-	})
-}
-
 // @Summer全国校区
 func Campus(c *gin.Context) {
 	Services.AddVisit(c, baseUrl+"campus")
@@ -126,8 +118,12 @@ func Campus(c *gin.Context) {
 // @Summer 新闻动态
 func News(c *gin.Context) {
 	Services.AddVisit(c, baseUrl+"news")
+	var data = make(map[string]interface{})
+	data["is_show"] = 1
+	data["list"] = Article.GetArticles(1, setting.PageSize, data)
 	c.HTML(e.SUCCESS, "index/new.html", gin.H{
 		"title": "新闻动态",
+		"list":  Article.GetArticles(1, setting.PageSize, data),
 	})
 }
 
@@ -135,7 +131,7 @@ func News(c *gin.Context) {
 func NewList(c *gin.Context) {
 	page := com.StrTo(c.Query("page")).MustInt()
 	var data = make(map[string]interface{})
-	data["is_show"] = 1
+
 	data["list"] = Article.GetArticles(page, setting.PageSize, data)
 	data["banner"] = Banner.GetBannerData(8, 1) //轮播图
 	data["count"] = e.GetPageNum(Article.GetArticleTotal())
@@ -145,21 +141,11 @@ func NewList(c *gin.Context) {
 // @Summer 新闻详情
 func NewDetail(c *gin.Context) {
 	id := com.StrTo(c.DefaultQuery("id", "0")).MustInt()
-	_url := baseUrl + "detail?id=" + string(id)
-	Services.AddVisit(c, _url)
+	detail := Article.GetArticle(id)
 	c.HTML(e.SUCCESS, "index/detail.html", gin.H{
 		"title":  "新闻详情",
-		"detail": id,
+		"detail": detail,
 	})
-}
-
-// @Summer 新闻详情
-func NewDetailData(c *gin.Context) {
-	c.Request.Body = e.GetBody(c)
-	id := com.StrTo(c.DefaultQuery("id", "0")).MustInt()
-	var data = make(map[string]interface{})
-	data["detail"] = Article.GetArticle(id)
-	e.Success(c, "文章详情", data)
 }
 
 // @Summer 加盟授权

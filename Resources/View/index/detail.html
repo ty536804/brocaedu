@@ -15,14 +15,26 @@
     {{template "nav"}}
 </section>
     <section class="detail">
-        <h1 class="detail_tit"></h1>
-        <p class="detail_date"></p>
+        <h1 class="detail_tit">{{.detail.Title}}</h1>
+        <p class="detail_date">{{.time}}</p>
         <p class="detail_line"></p>
-        <section class="detail_con"></section>
+        <section class="detail_con">
+            {{.detail.Content | unescaped}}
+        </section>
     </section>
-    <input type="hidden" value="{{.detail}}" class="detail_id">
-{{template "footer"}}
-<script type="text/javascript" src="/static/index/detail.js"></script>
+    {{template "footer"}}
+    <script type="text/javascript">
+        var mobileAgent = new Array("iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire");
+        var browser = navigator.userAgent.toLowerCase();
+        var isMobile = false;
+        for (var i=0; i<mobileAgent.length; i++) {
+            if (browser.indexOf(mobileAgent[i])!=-1){
+                isMobile = true;
+                location.href = '/de?id='+{{.detail.ID}};
+                break;
+            }
+        }
+    </script>
 </body>
 </html>
 {{end}}

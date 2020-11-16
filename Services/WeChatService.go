@@ -130,6 +130,7 @@ func GetArticle(begin, count int) {
 					}
 				}
 			}
+			wg.Wait()
 		}
 	}
 }

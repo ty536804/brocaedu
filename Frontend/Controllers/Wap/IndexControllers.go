@@ -7,6 +7,7 @@ import (
 	"brocaedu/Pkg/e"
 	"brocaedu/Pkg/setting"
 	"brocaedu/Services"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
 )
@@ -19,7 +20,7 @@ func Index(c *gin.Context) {
 	data["threeBanner"] = Banner.GetBannerByTag(1, 2, "3-6")
 	data["sevenBanner"] = Banner.GetBannerByTag(1, 2, "7-15")
 	data["banner"] = Banner.GetBannerData(1, 2) //轮播图
-	Services.AddVisit(c, baseUrl+"wap")
+	//Services.AddVisit(c, baseUrl+"wap")
 	c.HTML(e.SUCCESS, "wap/index.html", gin.H{
 		"title": "首页",
 		"data":  data,
@@ -70,6 +71,7 @@ func SubjectInfo(c *gin.Context) {
 func Learn(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["banner"] = Banner.GetBannerData(4, 2) //轮播图
+	fmt.Println(data, 111)
 	data["loop"] = Banner.GetBannerByTag(4, 1, "loop")
 	data["leader"] = Banner.GetBannerByTag(4, 1, "leder")
 	Services.AddVisit(c, baseUrl+"le")
@@ -182,9 +184,10 @@ func NewDetail(c *gin.Context) {
 	id := com.StrTo(c.DefaultQuery("id", "0")).MustInt()
 	_url := baseUrl + "de?id=" + string(id)
 	Services.AddVisit(c, _url)
+	detail := Article.GetArticle(id)
 	c.HTML(e.SUCCESS, "wap/detail.html", gin.H{
 		"title":  "新闻详情",
-		"detail": id,
+		"detail": detail,
 	})
 }
 
