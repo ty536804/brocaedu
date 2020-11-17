@@ -479,14 +479,8 @@ footer{
 
 .swiper-slide img {
 	width: 100%;
-	border-radius: 14px;
+	border-radius: 0 !important;
 	display: block;
-}
-
-@media screen and (max-width: 668px) {
-	.swiper-slide img {
-		border-radius: 7px;
-	}
 }
 
 .swiper-pagination {

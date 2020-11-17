@@ -15,7 +15,7 @@
             <div class="swiper-wrapper">
                 {{ range .data.banner}}
                     <div class="swiper-slide">
-                        <img src="{{.Imgurl}}" alt="">
+                        <a href="{{.TargetLink}}"><img src="{{.Imgurl}}"></a>
                     </div>
                 {{end}}
             </div>
@@ -232,8 +232,12 @@
     <!-- 布罗卡斯梯度进阶课程体系 夯实基础 循序渐进地综合提升孩子的英语能力 -->
     <section class="en_warp pub">
         <h3>布罗卡斯梯度进阶课程体系 夯实基础<br/>循序渐进地综合提升孩子的英语能力</h3>
-        <img width="346" height="302" src="/static/wap/img/pic_kid.png" />
-        <img width="346" height="401" class="child" src="/static/wap/img/pic_pupils.png" />
+        <section class="en_f">
+            <img src="/static/wap/img/pic_kid.png"/>
+        </section>
+        <section class="child">
+            <img  src="/static/wap/img/pic_pupils.png"/>
+        </section>
     </section>
     <!--新闻动态-->
     <section class="newTit pub">新闻动态</section>
