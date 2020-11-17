@@ -9,13 +9,7 @@ $(function () {
             url: "/index",
             success: function (result) {
                 if (Number(result.code) == 200) {
-                    let  _div = "";
                     if (result.data.list.length >=1) {
-                        $.each(result.data.banner,function (k,v) {
-                            _div += '<div class="carousel-item><a href="'+(v.target_link == '' ? '#' : v.target_link)+'"><img src="'+v.imgurl+'"></a></div>'
-                        })
-                        $('.carousel-inner').append(_div)
-
                         let _dl = "";
                         $.each(result.data.list, function (k, v) {
                             if (k<4) {

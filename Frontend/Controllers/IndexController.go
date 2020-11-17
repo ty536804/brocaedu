@@ -14,9 +14,12 @@ import (
 var baseUrl = "http://www.brocaedu.com/"
 
 func Index(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(1, 1)
 	Services.AddVisit(c, baseUrl+"index")
 	c.HTML(e.SUCCESS, "index/index.html", gin.H{
-		"title": "首页",
+		"title":  "首页",
+		"banner": data,
 	})
 }
 
@@ -29,8 +32,7 @@ func FrontEnd(c *gin.Context) {
 		list = list[0:4]
 	}
 	var data = make(map[string]interface{})
-	data["list"] = list                         //新闻列表
-	data["banner"] = Banner.GetBannerData(1, 1) //轮播图
+	data["list"] = list //新闻列表
 	data["learn"] = Banner.GetOneBanner(1, 1, "你正在面临的学习问题")
 	data["plan"] = Banner.GetBannerByTag(1, 1, "解决方案")
 	data["ai"] = Banner.GetOneBanner(1, 1, "ai")

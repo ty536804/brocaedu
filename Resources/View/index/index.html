@@ -17,10 +17,19 @@
         <!-- 轮播（Carousel）指标 -->
         <!-- 轮播（Carousel）项目 -->
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <a href="/detail?id=11"><img src="http://img.cdn.brocaedu.com/202010211035706.jpg"></a>
-            </div>
+            {{ range .banner.banner}}
+                {{if eq .ID 87 }}
+                <div class="carousel-item active">
+                    <a href="{{.TargetLink}}"><img src="{{.Imgurl}}"></a>
+                </div>
+                {{else}}
+                <div class="carousel-item">
+                    <a href="{{.TargetLink}}"><img src="{{.Imgurl}}"></a>
+                </div>
+                {{end}}
+            {{end}}
         </div>
+
     </div>
     <!---布罗卡斯智能英语-->
     <section class="pub brocae_warp">
