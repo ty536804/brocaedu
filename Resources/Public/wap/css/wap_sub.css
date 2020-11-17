@@ -303,15 +303,15 @@
 }
 .eight_con dl dd {
     width: 62px;
-    height: 132px;
+    height: 102px;
     font-size: 100px;
     font-family: MicrosoftYaHei-Bold,MicrosoftYaHei;
     font-weight: bold;
-    line-height: 132px;
+    line-height: 100px;
     position: absolute;
-    top: -14px !important;
+    top: 0px !important;
     right: 8px !important;
-    opacity:0.3;
+    opacity: 0.3;
     color: rgba(0,128,203,1);
 }
 .eight_con_six h5,.eight_con_four h5{
