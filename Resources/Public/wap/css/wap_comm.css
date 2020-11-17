@@ -27,6 +27,19 @@ ol { list-style: none outside none; }
 .esc { position: relative;	width: 100%; height: 1px; clear: both; }
 .clearfix:after {  content: "";  display: table;  clear: both; }
 
+@font-face {
+    font-family: MicrosoftYaHei-Bold;
+    src: url("../../fonts/Microsoft-YaHei-Bold.ttc");
+}
+@font-face {
+    font-family:MicrosoftYaHei;
+    src: url("../../fonts/Microsoft-YaHei-Regular.ttc");
+}
+@font-face {
+    font-family:MicrosoftYaHeiSemibold;
+    url("../../fonts/Microsoft-YaHei-Semibold.ttc");
+}
+
 nav{
 	width: 100%;
 	margin: 10px auto 9px auto;
