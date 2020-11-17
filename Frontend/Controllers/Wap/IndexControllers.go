@@ -20,7 +20,7 @@ func Index(c *gin.Context) {
 	data["threeBanner"] = Banner.GetBannerByTag(1, 2, "3-6")
 	data["sevenBanner"] = Banner.GetBannerByTag(1, 2, "7-15")
 	data["banner"] = Banner.GetBannerData(1, 2) //轮播图
-	//Services.AddVisit(c, baseUrl+"wap")
+	Services.AddVisit(c, baseUrl+"wap")
 	c.HTML(e.SUCCESS, "wap/index.html", gin.H{
 		"title": "首页",
 		"data":  data,
