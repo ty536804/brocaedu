@@ -14,7 +14,7 @@ $(function () {
                         $.each(result.data.banner,function (k,v) {
                             _div += '<div class="carousel-item '+(k==0? 'active' : '')+'"><a href="'+(v.target_link == '' ? '#' : v.target_link)+'"><img src="'+v.imgurl+'"></a></div>'
                         })
-                        $('.carousel-inner').empty().html(_div)
+                        $('.carousel-inner').append(_div)
 
                         let _dl = "";
                         $.each(result.data.list, function (k, v) {
