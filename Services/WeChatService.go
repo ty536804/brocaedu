@@ -107,6 +107,12 @@ func GetArticle(begin, count int) {
 				if res.Title != "" {
 					tit := strings.TrimSpace(res.Title)
 					currentTime := time.Unix(item.Content.CreateTime, 0).Format("2006-01-02 15:04:05")
+
+					lastArticle := Article.GetLastArticle()
+					if lastArticle.CreatedAt[0:10] == currentTime {
+						continue
+					}
+
 					if strings.Contains("练脑时刻", tit) {
 						currentTime = Article.SubTime(item.Content.UpdateTime)
 					}
@@ -136,8 +142,7 @@ func GetArticle(begin, count int) {
 }
 
 func GetArt() {
-	total := Article.GetArticleTotal()
-	GetArticle(total+1, 1)
+	GetArticle(0, 1)
 }
 
 func ResolveUrl(offset, count int) ([]byte, error) {

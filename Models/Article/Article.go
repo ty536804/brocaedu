@@ -175,6 +175,12 @@ func GetArticle(id int) (article Article) {
 	return
 }
 
+// @Summer 获取单篇文章
+func GetLastArticle() (article Article) {
+	db.Db.Limit(1).Order("id desc").First(&article)
+	return
+}
+
 // @Summer 统计
 func GetArticleTotal() (count int) {
 	db.Db.Model(&Article{}).Count(&count)
