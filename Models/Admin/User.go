@@ -95,7 +95,7 @@ func ExistsByTel(tel string) bool {
 
 // @Summer 添加用户
 func AddUser(data map[string]interface{}) bool {
-	err := db.Db.Create(&SysAdminUser{
+	user := &SysAdminUser{
 		LoginName:    data["login_name"].(string),
 		NickName:     data["nick_name"].(string),
 		Email:        data["email"].(string),
@@ -106,7 +106,8 @@ func AddUser(data map[string]interface{}) bool {
 		Avatar:       "#",
 		CityId:       "10000",
 		Statues:      data["statues"].(int64),
-	})
+	}
+	err := db.Db.Create(user)
 	if err.Error != nil {
 		log.Printf("添加用户失败,%v", err)
 		return false
@@ -143,5 +144,10 @@ func GetAdminUserList(page int, where interface{}) (admin []SysAdminUser) {
 // @Summer 统计管理员信息
 func GetTotalAdmin() (count int) {
 	db.Db.Where(&SysAdminUser{}).Count(&count)
+	return
+}
+
+func GetLastUserId() (admin SysAdminUser) {
+	db.Db.Select("id").Order("id desc").Limit(1).Find(&admin)
 	return
 }

@@ -9,11 +9,6 @@ import (
 )
 
 // @Summer列表
-func List(c *gin.Context) {
-	c.HTML(e.SUCCESS, "banner/list.html", gin.H{
-		"title": "banner列表",
-	})
-}
 
 // @Summer 获取所有图片
 func GetBanners(c *gin.Context) {
@@ -23,15 +18,6 @@ func GetBanners(c *gin.Context) {
 	data["list"] = Banner.GetBanners(page)
 
 	e.Success(c, "获取banner列表", data)
-}
-
-// @Summer 详情
-func Detail(c *gin.Context) {
-	id := com.StrTo(c.Query("id")).MustInt()
-	c.HTML(e.SUCCESS, "banner/detail.html", gin.H{
-		"title": "banner详情",
-		"id":    id,
-	})
 }
 
 func GetBanner(c *gin.Context) {

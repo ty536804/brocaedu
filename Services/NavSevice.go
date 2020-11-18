@@ -47,7 +47,7 @@ func AddNav(c *gin.Context) (code int, err string) {
 		}
 		if isOK {
 			SaveMenu()
-			return e.SUCCESS, "操作失败"
+			return e.SUCCESS, "操作成功"
 		}
 		return e.ERROR, "操作失败"
 	}

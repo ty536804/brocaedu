@@ -15,6 +15,10 @@ import (
 
 //登录验证
 func Login(c *gin.Context) (code int, err string) {
+	isOk, tokVal := e.GetVal("token")
+	if isOk {
+		return e.SUCCESS, tokVal
+	}
 	c.Request.Body = e.GetBody(c)
 	loginName := e.Trim(c.PostForm("uname"))
 	pwd := e.Trim(c.PostForm("pword"))
@@ -25,16 +29,13 @@ func Login(c *gin.Context) (code int, err string) {
 	if !valid.HasErrors() {
 		err, uuid := Admin.GetUserInfo(loginName, pwd)
 		if err != nil {
-			fmt.Println("err")
 			return e.ERROR, err.Error()
 		}
-		token, err := util.GenerateToken(loginName, pwd)
-		if isOk, _ := e.GetVal("token"); !isOk {
-			e.SetCookie(c, uuid, 10800)
-			e.SetVal("token", token)
-			SaveUserInfo(uuid)
-		}
-		return e.SUCCESS, "登录成功"
+		token := util.GetSignContent(c)
+		e.SetCookie(c, uuid, 10800)
+		e.SetVal("loginuid", string(uuid))
+		SaveUserInfo(uuid)
+		return e.SUCCESS, token
 	}
 	return ViewErr(valid)
 }
@@ -47,7 +48,7 @@ func AddUser(c *gin.Context) (code int, err string) {
 	loginName := com.StrTo(c.PostForm("login_name")).String()
 	email := com.StrTo(c.PostForm("email")).String()
 	pwd := com.StrTo(c.PostForm("pwd")).String()
-	statues := com.StrTo(c.PostForm("status")).MustInt64()
+	statues := com.StrTo(c.PostForm("statues")).MustInt64()
 	tel := e.Trim(com.StrTo(c.PostForm("tel")).String())
 
 	valid := validation.Validation{}
@@ -56,7 +57,6 @@ func AddUser(c *gin.Context) (code int, err string) {
 	valid.Required(email, "email").Message("邮箱不能为空")
 	valid.Required(tel, "tel").Message("手机号码不能为空")
 	valid.Required(statues, "statues").Message("状态必选")
-
 	if id < 1 {
 		valid.Required(pwd, "pwd").Message("密码不能为空")
 	}
@@ -263,4 +263,8 @@ func DetailsUser(c *gin.Context) (err error, admins Admin.SysAdminUser) {
 		admins = Admin.Find(int64(uid))
 	}
 	return nil, admins
+}
+
+func GetLastUser() (id int) {
+	return Admin.GetLastUserId().ID
 }
