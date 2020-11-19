@@ -28,7 +28,7 @@ type Article struct {
 	Admin     string `json:"admin" gorm:"type:varchar(190);not null;default '';comment:'发布者'"`
 	Com       string `json:"com" gorm:"type:varchar(190);not null;default '';comment:'来源'"`
 	IsShow    int    `json:"is_show" gorm:"not null;default '1';comment:'是否展示 1展示 2不展示'"`
-	Content   string `json:"content" gorm:"type:text;not null;default '';comment:'内容'"`
+	Content   string `json:"content" gorm:"type:longtext;not null;default '';comment:'内容'"`
 	Hot       int    `json:"hot" gorm:"not null;default '2';comment:'是否热点 1是 2否'"`
 	Sort      int    `json:"sort" gorm:"not null;default '0';comment:'优先级 数字越大，排名越前'"`
 	NavId     int    `json:"nav_id" gorm:"default '0';comment:'栏目ID'"`
