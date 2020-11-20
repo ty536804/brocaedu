@@ -12,7 +12,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-	"time"
+	"sync"
 )
 
 var (
@@ -20,6 +20,8 @@ var (
 	_password = "" //查看密码请登录用户中心->国际短信->产品总览->APIKEY
 	_url      = ""
 )
+
+var wgD sync.WaitGroup
 
 func init() {
 	smsConfig := Admin.GetSmsConfig()
@@ -30,6 +32,7 @@ func init() {
 
 // @Summer 调用第三方
 func SendSms(mobile, msg string) {
+	defer wgD.Done()
 	v := url.Values{}
 
 	v.Set("account", _account)
@@ -63,9 +66,11 @@ func SendSmsToClient(area, name, tel string) {
 			} else {
 				msg = area + "的" + name + "留言了。联系" + tel + "留言来源布罗卡斯"
 			}
-			SendSms(telItem, msg)
-			time.Sleep(1000)
+			wgD.Add(1)
+			fmt.Println(telItem, "电话")
+			go SendSms(telItem, msg)
 		}
+		wgD.Wait()
 	}
 }
 
