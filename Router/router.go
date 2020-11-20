@@ -88,6 +88,11 @@ func InitRouter() *gin.Engine {
 
 	r.POST("/AddMessage", m.AddMessage)
 	r.POST("/getNavList", nav.GetNavList) //添加导航API
+	r.GET("/login", func(c *gin.Context) {
+		c.HTML(e.SUCCESS, "admin/login.html", gin.H{
+			"title": "登录",
+		})
+	})
 	//Backend
 	apiv1 := r.Group("/api/v1")
 	apiv1.Use(jwt.JWT())
