@@ -72,6 +72,7 @@ func InitRouter() *gin.Engine {
 	r.GET("/down", frontend.Down)
 	r.GET("/weChat", frontend.GetWeChat)
 	r.GET("/search", Wap.Search)
+	r.GET("/newList", frontend.NewList)
 	//移动端
 	r.GET("/wap", Wap.Index)
 	r.GET("/wapInfo", Wap.IndexInfo)
@@ -88,7 +89,6 @@ func InitRouter() *gin.Engine {
 	r.GET("/ai", Wap.AiLearn)
 	r.GET("/list", Wap.News)
 	r.GET("/de", Wap.NewDetail)
-
 	r.POST("/AddMessage", m.AddMessage)
 	r.POST("/getNavList", nav.GetNavList) //添加导航API
 	r.GET("/login", func(c *gin.Context) {
