@@ -3,6 +3,7 @@ package Admin
 import (
 	"brocaedu/Models/Admin"
 	"brocaedu/Pkg/e"
+	"brocaedu/Pkg/setting"
 	"brocaedu/Services"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
@@ -27,7 +28,8 @@ func UserData(c *gin.Context) {
 	page := com.StrTo(c.Query("page")).MustInt()
 	data := make(map[string]interface{})
 	data["list"] = Admin.Users(page)
-	data["count"] = e.GetPageNum(Admin.GetUserTotal())
+	data["count"] = Admin.GetUserTotal()
+	data["size"] = setting.PageSize
 	e.Success(c, "用户列表", data)
 }
 

@@ -3,6 +3,7 @@ package Banner
 import (
 	"brocaedu/Models/Banner"
 	"brocaedu/Pkg/e"
+	"brocaedu/Pkg/setting"
 	"brocaedu/Services"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
@@ -14,9 +15,9 @@ import (
 func GetBanners(c *gin.Context) {
 	page := com.StrTo(c.Query("page")).MustInt()
 	var data = make(map[string]interface{})
-	data["count"] = e.GetPageNum(Banner.GetBannerTotal())
+	data["count"] = Banner.GetBannerTotal()
 	data["list"] = Banner.GetBanners(page)
-
+	data["size"] = setting.PageSize
 	e.Success(c, "获取banner列表", data)
 }
 
