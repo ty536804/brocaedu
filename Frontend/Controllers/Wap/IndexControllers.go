@@ -171,7 +171,10 @@ func AiLearn(c *gin.Context) {
 // @Summer 新闻资讯
 func News(c *gin.Context) {
 	var data = make(map[string]interface{})
+	data["is_show"] = 1
+	data["list"] = Article.GetArticles(1, setting.PageSize, data)
 	data["banner"] = Banner.GetBannerData(8, 2) //轮播图
+	data["count"] = e.GetPageNum(Article.GetArticleTotal())
 	Services.AddVisit(c, baseUrl+"list")
 	c.HTML(e.SUCCESS, "wap/new.html", gin.H{
 		"title": "新闻资讯",

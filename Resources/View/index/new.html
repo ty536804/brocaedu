@@ -19,12 +19,31 @@
         {{template "nav"}}
     </section>
     <section class="new_banner">
+        <img src="{{.banner.Imgurl}}">
     </section>
     <section class="new_ul">
+        {{ range .list}}
+            <a href="/detail?id={{.ID}}">
+                <dl>
+                    <dt><img src="{{.ThumbImg}}"></dt>
+                    <dd>
+                        <section class='new_left'>
+                            <p class="date">{{.CreatedAt | subDate}} <span class="new_left_line"></span></p>
+                            <p class="year">{{.CreatedAt | subYear}}</p>
+                        </section>
+                        <section class="new_right">
+                            <h3>{{.Title}}</h3>
+                            <p>{{.Summary}}</p>
+                            <span class="read">阅读原文</span>
+                        </section>
+                    </dd>
+                </dl>
+            </a>
+        {{end}}
     </section>
     <!--分页-->
     <section style="width: 1200px;margin: 0 auto">
-        <input type="hidden" id="PageCount" value="0">
+        <input type="hidden" id="PageCount" value="{{.count}}">
         <div id="example" style="text-align: center"> <ul id="pageLimit"></ul>
         </div>
     </section>

@@ -24,7 +24,21 @@
         </div>
     </div>
     <section class="new_ul">
+    {{ range .data.list}}
+        <a href="/de?id={{.ID}}">
+            <dl>
+                <dt><img src="{{.ThumbImg}}"></dt>
+                <dd>
+                    <section class="new_right">
+                        <h3>{{.Title}}</h3>
+                        <span class="read">{{.CreatedAt | subTime}}</span>
+                     </section>
+                </dd>
+            </dl>
+        </a>
+    {{end}}
     </section>
+    <input type="hidden" value="{{.data.count}}" id="countNum">
     <!--分页-->
     <section style="margin: 0 auto">
         <input type="hidden" id="PageCount" value="0">

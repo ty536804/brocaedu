@@ -28,6 +28,9 @@ func subYear(x string) interface{} {
 func subDate(x string) interface{} {
 	return x[5:10]
 }
+func subTime(x string) interface{} {
+	return x[0:10]
+}
 
 func InitRouter() *gin.Engine {
 	// 禁用控制台颜色，将日志写入文件时不需要控制台颜色。
@@ -41,6 +44,7 @@ func InitRouter() *gin.Engine {
 		"unescaped": unescaped,
 		"subYear":   subYear,
 		"subDate":   subDate,
+		"subTime":   subTime,
 	})
 	r.Use(gin.Logger(), gin.Recovery())
 
@@ -61,7 +65,6 @@ func InitRouter() *gin.Engine {
 	r.GET("/learn", frontend.Learn)
 	r.GET("/learnData", frontend.LearnData)
 	r.GET("/news", frontend.News)
-	r.GET("/newList", frontend.NewList)
 	r.GET("/detail", frontend.NewDetail)
 	r.GET("/join", frontend.Authorize)
 	r.GET("/joinData", frontend.JoinData)

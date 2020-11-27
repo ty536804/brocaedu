@@ -122,10 +122,11 @@ func News(c *gin.Context) {
 	Services.AddVisit(c, baseUrl+"news")
 	var data = make(map[string]interface{})
 	data["is_show"] = 1
-	data["list"] = Article.GetArticles(1, setting.PageSize, data)
 	c.HTML(e.SUCCESS, "index/new.html", gin.H{
-		"title": "新闻动态",
-		"list":  Article.GetArticles(1, setting.PageSize, data),
+		"title":  "新闻动态",
+		"list":   Article.GetArticles(1, setting.PageSize, data),
+		"count":  e.GetPageNum(Article.GetArticleTotal()),
+		"banner": Banner.GetBannerData(8, 1)[0], //轮播图
 	})
 }
 
@@ -136,7 +137,8 @@ func NewList(c *gin.Context) {
 
 	data["list"] = Article.GetArticles(page, setting.PageSize, data)
 	data["banner"] = Banner.GetBannerData(8, 1) //轮播图
-	data["count"] = e.GetPageNum(Article.GetArticleTotal())
+	data["count"] = Article.GetArticleTotal()
+	data["size"] = setting.PageSize
 	e.Success(c, "新闻列表", data)
 }
 

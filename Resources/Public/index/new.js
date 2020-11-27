@@ -1,4 +1,3 @@
-getAjax(1)
 //请求数据
 function getAjax(page)
 {
@@ -17,18 +16,18 @@ function getAjax(page)
                     _html += '<section class="new_right"><h3>'+v.title+'</h3><p>'+v.summary+'</p><span class="read">阅读原文</span>'
                     _html += '</section></dd></dl></a>'
                 })
-                $('.new_banner').empty().html('<img src="'+result.data.banner[0].imgurl+'">')
-                pageList(page,result.data.count)
+                pageList(page)
             }
             $(".new_ul").empty().append(_html)
         }
     });
 }
 //分页
-function pageList(page,PageCount) {
+pageList(1)
+function pageList(page) {
     $('#pageLimit').bootstrapPaginator({
         currentPage: page,//当前页。
-        totalPages: PageCount,//总页数。
+        totalPages: $('#PageCount').val(),//总页数。
         size:"normal",//应该是页眉的大小。
         bootstrapMajorVersion: 3,//bootstrap的版本要求。
         alignment:"right",
