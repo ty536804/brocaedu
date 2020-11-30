@@ -7,7 +7,6 @@ import (
 	"brocaedu/Pkg/e"
 	"brocaedu/Pkg/setting"
 	"brocaedu/Services"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
 )
@@ -71,7 +70,6 @@ func SubjectInfo(c *gin.Context) {
 func Learn(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["banner"] = Banner.GetBannerData(4, 2) //轮播图
-	fmt.Println(data, 111)
 	data["loop"] = Banner.GetBannerByTag(4, 1, "loop")
 	data["leader"] = Banner.GetBannerByTag(4, 1, "leder")
 	Services.AddVisit(c, baseUrl+"le")
@@ -143,6 +141,7 @@ func Campus(c *gin.Context) {
 	data["banner"] = Banner.GetBannerData(6, 2)       //轮播图
 	data["map"] = Banner.GetOneBanner(6, 2, "地图")     //
 	data["offline"] = Banner.GetOneBanner(6, 2, "线下") //
+	Services.AddVisit(c, baseUrl+"cam")
 	c.HTML(e.SUCCESS, "wap/campus.html", gin.H{
 		"title": "全国中心",
 		"data":  data,
@@ -156,6 +155,7 @@ func AiLearn(c *gin.Context) {
 	data["ai"] = Banner.GetBannerByTag(5, 2, "imgList")    //
 	data["school"] = Banner.GetOneBanner(5, 2, "school")   //
 	data["aiAuto"] = Banner.GetBannerByTag(5, 2, "aiAuto") //
+	Services.AddVisit(c, baseUrl+"ai")
 	c.HTML(e.SUCCESS, "wap/ai.html", gin.H{
 		"title": "AI学习平台",
 		"data":  data,
