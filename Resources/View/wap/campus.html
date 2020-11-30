@@ -21,18 +21,28 @@
             </div>
         </div>
     </div>
-    <!-- 线下 -->
+    <!-- 线上线下 -->
     <section class="campus pub">
         <img src="{{.data.offline.Imgurl}}">
+    </section>
+    <!--300 -->
+    <section class="broca_dl">
+        <dl>
+            <dt><strong>300</strong>+家校区</dt>
+            <dd class="show_img"><img src="/static/assets/img/ico_education@2x.png"></dd>
+        </dl>
+        <dl>
+            <dt><strong>100</strong>+个城市</dt>
+            <dd class="show_img"><img src="/static/assets/img/ico_city@2x.png"></dd>
+        </dl>
+        <dl>
+            <dt><strong>10</strong>万+名儿童</dt>
+            <dd class="show_img"> <img src="/static/assets/img/ico_education.png"></dd>
+        </dl>
     </section>
     <!-- 地图 -->
     <section class="map pub">
         <img src="{{.data.map.Imgurl}}">
-    </section>
-    <!-- 200 -->
-    <section class="all pub">
-        <img src="{{.data.hundred.Imgurl}}" class="hundred">
-        <img src="{{.data.thousand.Imgurl}}" class="thousand">
     </section>
     {{template "wap_footer"}}
 {{end}}

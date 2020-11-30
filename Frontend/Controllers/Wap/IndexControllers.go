@@ -140,11 +140,9 @@ func Map(c *gin.Context) {
 // 全国中心
 func Campus(c *gin.Context) {
 	var data = make(map[string]interface{})
-	data["banner"] = Banner.GetBannerData(6, 2)            //轮播图
-	data["map"] = Banner.GetOneBanner(6, 2, "地图")          //
-	data["hundred"] = Banner.GetOneBanner(6, 2, "200")     //
-	data["thousand"] = Banner.GetOneBanner(6, 2, "100000") //
-	data["offline"] = Banner.GetOneBanner(6, 2, "线下")      //
+	data["banner"] = Banner.GetBannerData(6, 2)       //轮播图
+	data["map"] = Banner.GetOneBanner(6, 2, "地图")     //
+	data["offline"] = Banner.GetOneBanner(6, 2, "线下") //
 	c.HTML(e.SUCCESS, "wap/campus.html", gin.H{
 		"title": "全国中心",
 		"data":  data,
@@ -154,14 +152,10 @@ func Campus(c *gin.Context) {
 // AI学习平台
 func AiLearn(c *gin.Context) {
 	var data = make(map[string]interface{})
-	data["banner"] = Banner.GetBannerData(5, 2)          //轮播图
-	data["ai"] = Banner.GetOneBanner(5, 2, "AI自适应")      //
-	data["auto"] = Banner.GetOneBanner(5, 2, "AI自适应系统")  //
-	data["more"] = Banner.GetOneBanner(5, 2, "多维度梯度式练习") //
-	data["zd"] = Banner.GetOneBanner(5, 2, "针对性突破练习")    //
-	data["fx"] = Banner.GetOneBanner(5, 2, "智能分析反馈学情")   //
-	data["js"] = Banner.GetOneBanner(5, 2, "教师调整教学")     //
-	data["fc"] = Banner.GetOneBanner(5, 2, "分层次学习")      //
+	data["banner"] = Banner.GetBannerData(5, 2)            //轮播图
+	data["ai"] = Banner.GetBannerByTag(5, 2, "imgList")    //
+	data["school"] = Banner.GetOneBanner(5, 2, "school")   //
+	data["aiAuto"] = Banner.GetBannerByTag(5, 2, "aiAuto") //
 	c.HTML(e.SUCCESS, "wap/ai.html", gin.H{
 		"title": "AI学习平台",
 		"data":  data,
