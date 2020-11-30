@@ -11,7 +11,7 @@ function getAjax(page)
             if (Number(result.code) == 200) {
                 $.each(result.data.list,function (k,v) {
                     let timeStr = v.created_at;
-                    _html += "<a href='/de?id="+v.id+"'><dl><dt><img src='"+v.thumb_img+"'></dt><dd>"
+                    _html += "<a href='/de?id="+v.id+"'><dl><dt class='DR'><img src='"+v.thumb_img+"'></dt><dd class='DL'>"
                     _html += '<section class="new_right"><h3>'+v.title+'</h3><span class="read">'+timeStr.substring(0,10)+'</span>'
                     _html += '</section></dd></dl></a>'
                 })
