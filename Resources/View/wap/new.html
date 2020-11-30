@@ -27,8 +27,8 @@
     {{ range .data.list}}
         <a href="/de?id={{.ID}}">
             <dl>
-                <dt><img src="{{.ThumbImg}}"></dt>
-                <dd>
+                <dt class="DR"><img src="{{.ThumbImg}}"></dt>
+                <dd class="DL">
                     <section class="new_right">
                         <h3>{{.Title}}</h3>
                         <span class="read">{{.CreatedAt | subTime}}</span>

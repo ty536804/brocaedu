@@ -5,11 +5,15 @@
     flex-wrap: wrap;
 }
 .new_ul a{
-    float: left;
-    width: 100%;
-    background: #F9FAFC;
-    padding: 10px 0 !important;
+    width: 93%;
+    margin: 0  auto 20px auto;
     border-bottom: 1px solid #EFEFEF;
+}
+.new_ul a:first-child{
+    margin-top: 20px;
+}
+.new_ul a:last-child{
+    margin-bottom: 0;
 }
 .new_ul a:last-child{
     border-bottom:none;
@@ -27,16 +31,18 @@
 }
 .new_ul a dl{
     height: 103px;
-    width: 93%;
+    width: 100%;
     margin: 0 auto !important;
+    display: flex;
+    justify-content: space-between;
 }
-.new_ul a dl dt{
-    width: 130px;
-    height: 103px;
+.new_ul .DR{
+    width: 160px;
+    height: 90px;
     border-radius: 10px;
-    float: left;
+    float: right;
 }
-.new_ul a dl dd{
+.new_ul .DL{
     float: right;
 }
 .new_left{
@@ -79,7 +85,7 @@
 }
 .new_right h3{
     width: 195px;
-    height: 67px;
+    height: 59px;
     font-size: 16px;
     font-family: PingFangSC-Medium, PingFang SC;
     font-weight: 500;
