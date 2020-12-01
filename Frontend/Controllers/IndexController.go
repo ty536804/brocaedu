@@ -154,9 +154,12 @@ func NewDetail(c *gin.Context) {
 
 // @Summer 加盟授权
 func Authorize(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(7, 1) //轮播图
 	Services.AddVisit(c, baseUrl+"join")
 	c.HTML(e.SUCCESS, "index/join.html", gin.H{
 		"title": "加盟授权",
+		"data":  data,
 	})
 }
 
