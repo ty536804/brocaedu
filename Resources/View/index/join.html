@@ -20,12 +20,17 @@
         </ol>
         <!-- 轮播（Carousel）项目 -->
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="http://img.cdn.mofashuxue.com/banner11.png?imageslim">
-            </div>
-            <div class="carousel-item">
-                <img src="http://img.cdn.mofashuxue.com/banner22.png?imageslim" class="lazy">
-            </div>
+            {{ range .data.banner}}
+                {{if eq .ID 136 }}
+                    <div class="carousel-item active">
+                        <img src="{{.Imgurl}}" alt="{{.Bname}}">
+                    </div>
+                {{else}}
+                    <div class="carousel-item">
+                        <img src="{{.Imgurl}}" alt="{{.Bname}}">
+                    </div>
+                {{end}}
+            {{end}}
         </div>
     </div>
     <!--加盟资料-->
