@@ -617,3 +617,12 @@
 .layui-m-layer-msg .layui-m-layercont {
     padding: 10px 20px !important;
 }
+footer{
+    background-size:contain;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background: url("../img/bg_red.png") no-repeat top center !important;
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+    padding-bottom: 45px !important;
+}
