@@ -4,7 +4,6 @@ import (
 	db "brocaedu/Database"
 )
 
-//权限
 // @Summer 权限表
 type SysAdminPower struct {
 	Id        int    `json:"id" gorm:"primary_key:true;unique;"`
