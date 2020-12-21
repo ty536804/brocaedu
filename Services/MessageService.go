@@ -1,6 +1,7 @@
 package Services
 
 import (
+	"brocaedu/Models/Elearn"
 	"brocaedu/Models/Message"
 	"brocaedu/Pkg/e"
 	"fmt"
@@ -47,8 +48,8 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 		data["client"] = webClient
 		data["ip"] = strings.Split(c.Request.RemoteAddr, ":")[0]
 		data["channel"] = 1
-		SendSmsToClient(area, mname, tel) //发送短信
-		//Elearn.AddMessage(c, mname, area, tel) //elearn100
+		SendSmsToClient(area, mname, tel)      //发送短信
+		Elearn.AddMessage(c, mname, area, tel) //elearn100
 		if Message.AddMessage(data) {
 			return e.SUCCESS, "提交成功"
 		}
