@@ -251,7 +251,8 @@ footer{
 	font-family: MicrosoftYaHei-Bold,MicrosoftYaHei;
 	font-weight: bold;
 	line-height: 25px;
-	display: inline-block;
+	display:block;
+	width: 130px;
 }
 .zbdz{
 	margin-top: 6px;
