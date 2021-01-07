@@ -422,15 +422,6 @@ footer{
 	display: inline-block;
 	margin-top: 2.5px;
 }
-
-.bottom_phone p{
-	height: 25px;
-	font-size: 18px;
-	font-family: MicrosoftYaHei-Bold,MicrosoftYaHei;
-	font-weight: bold;
-	line-height: 25px;
-	display: inline-block;
-}
 .layui-m-layer-msg .layui-m-layercont {
 	padding: 10px 20px !important;
 }
