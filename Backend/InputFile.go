@@ -33,15 +33,19 @@ func UploadFile(c *gin.Context) {
 	}
 
 	lastIndex := strings.LastIndex(file.Filename, ".")
+	prefix := file.Filename[lastIndex:]
 	filePath := time.Now().Format("20060102130405") + file.Filename[lastIndex:]
 	err = c.SaveUploadedFile(file, fileDir+filePath)
 	if err != nil {
 		e.Error(c, "上传失败", "")
 		return
 	} else {
-		filePath = QiNiu(filePath)
+		//filePath = QiNiu(filePath)
+		if prefix != ".mp4" {
+			filePath = QiNiu(filePath)
+		}
 	}
-	if filePath == "" {
+	if filePath == "" || prefix == ".mp4" {
 		filePath = "/static/upload/" + time.Now().Format("20060102") + "/" + filePath
 	} else {
 		filePath = "http://img.cdn.brocaedu.com/" + filePath + "?imageslim"

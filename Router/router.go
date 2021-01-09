@@ -5,6 +5,7 @@ import (
 	v1 "brocaedu/Backend/Controllers/Admin"
 	v3 "brocaedu/Backend/Controllers/Article"
 	v2 "brocaedu/Backend/Controllers/Banner"
+	material "brocaedu/Backend/Controllers/Material"
 	m "brocaedu/Backend/Controllers/Message"
 	nav "brocaedu/Backend/Controllers/Navs"
 	v4 "brocaedu/Backend/Controllers/Single"
@@ -91,6 +92,10 @@ func InitRouter() *gin.Engine {
 	r.GET("/de", Wap.NewDetail)
 	r.POST("/AddMessage", m.AddMessage)
 	r.POST("/getNavList", nav.GetNavList) //添加导航API
+	r.GET("/video", Wap.VideoList)
+	r.GET("/videoList", Wap.VideoList)
+	r.GET("/videoDetail", Wap.Video)
+	r.POST("/checkVideo", Wap.CheckVideoPwd)
 	r.GET("/login", func(c *gin.Context) {
 		c.HTML(e.SUCCESS, "admin/login.html", gin.H{
 			"title": "登录",
@@ -146,6 +151,10 @@ func InitRouter() *gin.Engine {
 		apiv1.POST("/singleList", v4.ListData) //文章列表API
 		apiv1.POST("/getSingle", v4.GetSingle) //文章详情API
 		apiv1.POST("/addSingle", v4.AddSingle) //添加单页详情API
+		//素材管理
+		apiv1.POST("/materialList", material.Index)         //素材管理列表API
+		apiv1.POST("/addMaterial", material.AddMaterial)    //素材管理 添加/编辑 API
+		apiv1.POST("/materialDetail", material.GetMaterial) //素材管理单个API
 	}
 
 	return r
