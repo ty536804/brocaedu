@@ -45,7 +45,7 @@ $('.bottom_btn').on('click',function () {
         return false;
     }
     let carea = $.trim($('.footer_right .c-area').val())
-    if (carea=="" || reg.test(carea)) {
+    if (carea=="" || !reg.test(carea)) {
         alert('地区不能为空');
         return false;
     }
