@@ -28,19 +28,24 @@ $('.home_nav a').each(function () {
 $('.c-com').val(window.location.href);
 
 $('.bottom_btn').on('click',function () {
-    if ($('.footer_right .c-name').val()=="") {
+    var reg =/[^u4e00-u9fa5]/
+    let cname = $.trim($('.footer_right .c-name').val())
+    if (cname=="" || !reg.test(cname)) {
         alert('姓名不能为空');
         return false;
     }
-    if ($('.footer_right .c-tel').val()=="") {
+    var pattern = /^1\d{10}$/;
+    let phone = $.trim($('.footer_right .c-tel').val())
+    if (phone=="") {
         alert('电话不能为空');
         return false;
     }
-    if ($('.footer_right .c-tel').val().length < 11) {
+    if (!pattern.test(phone)) {
         alert('手机号码格式不正确');
         return false;
     }
-    if ($('.footer_right .c-area').val()=="") {
+    let carea = $.trim($('.footer_right .c-area').val())
+    if (carea=="" || reg.test(carea)) {
         alert('地区不能为空');
         return false;
     }
