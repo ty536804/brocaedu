@@ -10,6 +10,7 @@ import (
 	"github.com/unknwon/com"
 	"regexp"
 	"strings"
+	"time"
 )
 
 // @Summer提交留言
@@ -19,10 +20,23 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 		fmt.Println(err)
 		return e.ERROR, "操作失败"
 	}
+	tel := com.StrTo(c.PostForm("tel")).String()
+	re := regexp.MustCompile(`^1\d{10}$`)
+
+	fmt.Println(re.MatchString(tel), tel, len(tel))
+	if !re.MatchString(tel) || len(tel) < 11 {
+		return e.SUCCESS, "请填写有效的手机号码"
+	}
+
+	ip := strings.Split(c.Request.RemoteAddr, ":")[0]
+	initTime := time.Now().Format("2006-01-02")
+	total := Message.GetTotalMessage(ip, initTime+" 00:00:00", initTime+" 23:59:59")
+	if total >= 5 {
+		return e.SUCCESS, "提交成功"
+	}
 
 	mname := TrimHtml(com.StrTo(c.PostForm("mname")).String())
 	area := TrimHtml(com.StrTo(c.PostForm("area")).String())
-	tel := TrimHtml(com.StrTo(c.PostForm("tel")).String())
 	webCom := com.StrTo(c.PostForm("com")).String()
 	webClient := com.StrTo(c.PostForm("client")).String()
 
@@ -46,7 +60,7 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 		data["content"] = ""
 		data["com"] = webCom
 		data["client"] = webClient
-		data["ip"] = strings.Split(c.Request.RemoteAddr, ":")[0]
+		data["ip"] = ip
 		data["channel"] = 1
 		SendSmsToClient(area, mname, tel)      //发送短信
 		Elearn.AddMessage(c, mname, area, tel) //elearn100
