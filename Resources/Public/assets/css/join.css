@@ -943,6 +943,9 @@ body{
     padding: 0 19px 0 20px !important;
     box-sizing: border-box;
 }
+.ncet_hun .ncet_center {
+    line-height: 15px;
+}
 .lon_hun{
     float: left;
     height:56px;
