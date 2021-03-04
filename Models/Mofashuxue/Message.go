@@ -3,17 +3,21 @@ package Mofashuxue
 import (
 	"fmt"
 	"strings"
+	"time"
 )
 
-type Info struct {
-	MName   string
-	Area    string
-	Tel     string
-	Client  string
-	Ip      string
-	Uid     string
-	Com     string
-	MsgType int
+type Message struct {
+	ID        int       `gorm:"primary_key" json:"id"`
+	CreatedAt time.Time `json:"created_at" time_format:"2006-01-02 15:04:05"`
+	UpdatedAt time.Time `json:"updated_at" time_format:"2006-01-02 15:04:05"`
+	Mname     string    `json:"mname" gorm:"type:varchar(100);not null; default ''; comment:'留言姓名' "`
+	Area      string    `json:"area" gorm:"type:varchar(100);not null; default ''; comment:'区域' "`
+	Tel       string    `json:"tel" gorm:"type:varchar(20);not null; default ''; comment:'留言电话' "`
+	Client    string    `json:"client" gorm:"type:varchar(190);not null; default ''; comment:'客户端' "`
+	Ip        string    `json:"ip" gorm:"type:varchar(50);not null; default ''; comment:'ip地址' "`
+	VisitUuid string    `json:"visit_uuid" gorm:"type:varchar(32);not null; default ''; comment:'用户ID' "`
+	MsgType   int       `json:"msg_type" gorm:"type:not null; default '0'; comment:'1 魔法数学 2布卢卡斯' "`
+	Com       string    `json:"com" gorm:"type:varchar(190);not null; default ''; comment:'留言来源页' "`
 }
 
 // @Desc 表单提交到队列
@@ -21,14 +25,14 @@ func SendMessageForMq(MName, area, tel, webType, ip, webCom string) {
 	if ipIndex := strings.LastIndex(ip, ":"); ipIndex != -1 {
 		ip = ip[0:ipIndex]
 	}
-	word := new(Info)
-	word.MName = MName
+	word := new(Message)
+	word.Mname = MName
 	word.Area = area
 	word.Tel = tel
 	word.Client = webType
 	word.Ip = ip
 	word.Com = webCom
-	word.Uid = strings.Split(strings.Replace(ip, ".", "", -1), ":")[0]
+	word.VisitUuid = strings.Split(strings.Replace(ip, ".", "", -1), ":")[0]
 	word.MsgType = 3
 	result := magicDb.Create(&word)
 	if result.Error != nil {
