@@ -81,3 +81,15 @@ func ReplaceSiteUrl(url string) string {
 		return url
 	}
 }
+
+func MoReplaceSiteUrl(url, first, reqURI string) string {
+	if !strings.Contains("127.0.0.1", url) || url == "" || url == "/" {
+		if reqURI == "" {
+			return first
+		} else {
+			return first + reqURI
+		}
+	} else {
+		return url
+	}
+}

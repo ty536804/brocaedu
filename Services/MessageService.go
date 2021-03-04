@@ -1,8 +1,8 @@
 package Services
 
 import (
-	"brocaedu/Models/Elearn"
 	"brocaedu/Models/Message"
+	"brocaedu/Models/Mofashuxue"
 	"brocaedu/Pkg/e"
 	"fmt"
 	"github.com/astaxie/beego/validation"
@@ -62,8 +62,9 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 		data["client"] = webClient
 		data["ip"] = ip
 		data["channel"] = 1
-		SendSmsToClient(area, mname, tel)      //发送短信
-		Elearn.AddMessage(c, mname, area, tel) //elearn100
+		SendSmsToClient(area, mname, tel) //发送短信
+		Mofashuxue.SendMessageForMq(mname, area, tel, webClient, ip, webCom)
+		//Elearn.AddMessage(c, mname, area, tel) //elearn100
 		if Message.AddMessage(data) {
 			return e.SUCCESS, "提交成功"
 		}
