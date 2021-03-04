@@ -100,13 +100,13 @@ func MoFaAddVisit(c *gin.Context, url string) {
 	uid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")[0]
 	visitHistory := c.Request.Referer()
 
-	var visit Mofashuxue.MoVisit
+	var visit Mofashuxue.Visit
 	visit.Uuid = uid
 	visit.FirstUrl = GetFirstUrl(c.Request.Referer(), c.Request.Host, url, reqURI)
 	visit.FromUrl = c.Request.Host + reqURI //来源页
 	visit.CreateTime = time.Now().Format("2006-01-02 15:04:05")
 
-	var history Mofashuxue.MoHistory
+	var history Mofashuxue.History
 	history.Uuid = uid
 	history.VisitHistory = visitHistory
 
