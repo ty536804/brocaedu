@@ -64,12 +64,6 @@ func AddVisit(c *gin.Context, url string) {
 	data["FromUrl"] = FromUrl
 	data["visit_history"] = c.Request.Referer()
 
-	var visit Mofashuxue.Visit
-	visit.Uuid = uid
-	visit.FirstUrl = GetFirstUrl(c.Request.Referer(), c.Request.Host, url, reqURI)
-	visit.FromUrl = c.Request.Host + reqURI //来源页
-	visit.CreateTime = time.Now().Format("2006-01-02 15:04:05")
-
 	if c.Request.RemoteAddr != "" {
 		wg.Add(3)
 		go AddBrocasVisit(data)
