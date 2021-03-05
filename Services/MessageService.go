@@ -98,6 +98,7 @@ func AddMsg(c *gin.Context) (code int, msg string) {
 	area := TrimHtml(com.StrTo(c.PostForm("area")).String())
 	webCom := com.StrTo(c.PostForm("com")).String()
 	webClient := com.StrTo(c.PostForm("client")).String()
+	msgType := com.StrTo(c.PostForm("msg_type")).MustInt()
 
 	valid := validation.Validation{}
 	valid.Required(mname, "mname").Message("姓名不能为空")
@@ -114,7 +115,7 @@ func AddMsg(c *gin.Context) (code int, msg string) {
 
 	if !valid.HasErrors() {
 		SendSmsToClient(area, mname, tel) //发送短信
-		Mofashuxue.SendMessageForMq(mname, area, tel, webClient, ip, webCom)
+		Mofashuxue.SendMessageForMq(mname, area, tel, webClient, ip, webCom, msgType)
 		if Mofashuxue.SendMessage(mname, area, tel, webClient, ip, webCom) {
 			return e.SUCCESS, "提交成功"
 		}
