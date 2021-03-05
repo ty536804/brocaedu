@@ -89,7 +89,7 @@ func AddMsg(c *gin.Context) (code int, msg string) {
 
 	ip := strings.Split(c.Request.RemoteAddr, ":")[0]
 	initTime := time.Now().Format("2006-01-02")
-	total := Message.GetTotalMessage(ip, initTime+" 00:00:00", initTime+" 23:59:59")
+	total := Mofashuxue.GetTotalMessage(ip, initTime+" 00:00:00", initTime+" 23:59:59")
 	if total >= 5 {
 		return e.SUCCESS, "提交成功"
 	}
