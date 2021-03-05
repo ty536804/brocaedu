@@ -21,7 +21,7 @@ type Message struct {
 }
 
 // @Desc 表单提交到队列
-func SendMessageForMq(MName, area, tel, webType, ip, webCom string) {
+func SendMessageForMq(MName, area, tel, webType, ip, webCom string, msgType int) {
 	if ipIndex := strings.LastIndex(ip, ":"); ipIndex != -1 {
 		ip = ip[0:ipIndex]
 	}
@@ -33,7 +33,7 @@ func SendMessageForMq(MName, area, tel, webType, ip, webCom string) {
 	word.Ip = ip
 	word.Com = webCom
 	word.VisitUuid = strings.Split(strings.Replace(ip, ".", "", -1), ":")[0]
-	word.MsgType = 3
+	word.MsgType = msgType
 	result := magicDb.Create(&word)
 	if result.Error != nil {
 		fmt.Print("魔法添加留言失败", result)
