@@ -91,6 +91,7 @@ func InitRouter() *gin.Engine {
 	r.GET("/list", Wap.News)
 	r.GET("/de", Wap.NewDetail)
 	r.POST("/AddMessage", m.AddMessage)
+	r.POST("/addMsg", m.AddMsg)
 	r.POST("/getNavList", nav.GetNavList) //添加导航API
 	r.GET("/video", Wap.VideoList)
 	r.GET("/videoList", Wap.VideoList)

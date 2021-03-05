@@ -74,6 +74,55 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 	return ViewErr(valid)
 }
 
+func AddMsg(c *gin.Context) (code int, msg string) {
+	if err := c.Bind(&c.Request.Body); err != nil {
+		fmt.Println(err)
+		return e.ERROR, "操作失败"
+	}
+	tel := com.StrTo(c.PostForm("tel")).String()
+	re := regexp.MustCompile(`^1\d{10}$`)
+
+	fmt.Println(re.MatchString(tel), tel, len(tel))
+	if !re.MatchString(tel) || len(tel) < 11 {
+		return e.SUCCESS, "请填写有效的手机号码"
+	}
+
+	ip := strings.Split(c.Request.RemoteAddr, ":")[0]
+	initTime := time.Now().Format("2006-01-02")
+	total := Message.GetTotalMessage(ip, initTime+" 00:00:00", initTime+" 23:59:59")
+	if total >= 5 {
+		return e.SUCCESS, "提交成功"
+	}
+
+	mname := TrimHtml(com.StrTo(c.PostForm("mname")).String())
+	area := TrimHtml(com.StrTo(c.PostForm("area")).String())
+	webCom := com.StrTo(c.PostForm("com")).String()
+	webClient := com.StrTo(c.PostForm("client")).String()
+
+	valid := validation.Validation{}
+	valid.Required(mname, "mname").Message("姓名不能为空")
+	valid.Required(area, "area").Message("地区不能为空")
+	valid.Required(tel, "tel").Message("选择是否展示")
+
+	if len(tel) < 11 {
+		return e.ERROR, "手机号码格式不正确"
+	}
+	result, _ := regexp.MatchString(`^(1\d{10})$`, tel)
+	if !result {
+		return e.ERROR, "手机号码格式不正确"
+	}
+
+	if !valid.HasErrors() {
+		SendSmsToClient(area, mname, tel) //发送短信
+		Mofashuxue.SendMessageForMq(mname, area, tel, webClient, ip, webCom)
+		if Mofashuxue.SendMessage(mname, area, tel, webClient, ip, webCom) {
+			return e.SUCCESS, "提交成功"
+		}
+		return e.ERROR, "提交失败"
+	}
+	return ViewErr(valid)
+}
+
 func TrimHtml(src string) string {
 	//将HTML标签全转换成小写
 	re, _ := regexp.Compile("\\<[\\S\\s]+?\\>")
