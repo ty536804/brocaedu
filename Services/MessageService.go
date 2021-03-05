@@ -23,8 +23,6 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 	}
 	tel := com.StrTo(c.PostForm("tel")).String()
 	re := regexp.MustCompile(`^1\d{10}$`)
-
-	fmt.Println(re.MatchString(tel), tel, len(tel))
 	if !re.MatchString(tel) || len(tel) < 11 {
 		return e.SUCCESS, "请填写有效的手机号码"
 	}
@@ -45,14 +43,6 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 	valid.Required(mname, "mname").Message("姓名不能为空")
 	valid.Required(area, "area").Message("地区不能为空")
 	valid.Required(tel, "tel").Message("选择是否展示")
-
-	if len(tel) < 11 {
-		return e.ERROR, "手机号码格式不正确"
-	}
-	result, _ := regexp.MatchString(`^(1\d{10})$`, tel)
-	if !result {
-		return e.ERROR, "手机号码格式不正确"
-	}
 
 	if !valid.HasErrors() {
 		data["mname"] = mname
@@ -82,7 +72,6 @@ func AddMsg(c *gin.Context) (code int, msg string) {
 	tel := com.StrTo(c.PostForm("tel")).String()
 	re := regexp.MustCompile(`^1\d{10}$`)
 
-	fmt.Println(re.MatchString(tel), tel, len(tel))
 	if !re.MatchString(tel) || len(tel) < 11 {
 		return e.SUCCESS, "请填写有效的手机号码"
 	}
@@ -104,14 +93,6 @@ func AddMsg(c *gin.Context) (code int, msg string) {
 	valid.Required(mname, "mname").Message("姓名不能为空")
 	valid.Required(area, "area").Message("地区不能为空")
 	valid.Required(tel, "tel").Message("选择是否展示")
-
-	if len(tel) < 11 {
-		return e.ERROR, "手机号码格式不正确"
-	}
-	result, _ := regexp.MatchString(`^(1\d{10})$`, tel)
-	if !result {
-		return e.ERROR, "手机号码格式不正确"
-	}
 
 	if !valid.HasErrors() {
 		SendSmsToClient(area, mname, tel) //发送短信
