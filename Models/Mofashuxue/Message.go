@@ -61,3 +61,8 @@ func SendMessage(MName, area, tel, webType, ip, webCom string) bool {
 	}
 	return true
 }
+
+func GetTotalMessage(uid string, ftime, ltime string) (count int) {
+	magicDb.Model(&Message{}).Where("ip = ? AND created_at >= ? AND created_at <= ?", uid, ftime, ltime).Count(&count)
+	return
+}
