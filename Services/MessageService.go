@@ -54,7 +54,7 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 		data["ip"] = ip
 		data["channel"] = 1
 		SendSmsToClient(area, mname, tel) //发送短信
-		Mofashuxue.SendMessageForMq(mname, area, tel, webClient, ip, webCom, 3)
+		Mofashuxue.SendMessageForMq(mname, area, tel, webClient, ip, webCom, "", 3)
 		Elearn.AddMessage(c, mname, area, tel) //elearn100
 		if Message.AddMessage(data) {
 			return e.SUCCESS, "提交成功"
@@ -88,6 +88,7 @@ func AddMsg(c *gin.Context) (code int, msg string) {
 	webCom := com.StrTo(c.PostForm("com")).String()
 	webClient := com.StrTo(c.PostForm("client")).String()
 	msgType := com.StrTo(c.PostForm("msg_type")).MustInt()
+	orgName := com.StrTo(c.PostForm("content")).MustInt()
 
 	valid := validation.Validation{}
 	valid.Required(mname, "mname").Message("姓名不能为空")
@@ -96,7 +97,7 @@ func AddMsg(c *gin.Context) (code int, msg string) {
 
 	if !valid.HasErrors() {
 		SendSmsToClient(area, mname, tel) //发送短信
-		Mofashuxue.SendMessageForMq(mname, area, tel, webClient, ip, webCom, msgType)
+		Mofashuxue.SendMessageForMq(mname, area, tel, webClient, ip, webCom, orgName, msgType)
 		if Mofashuxue.SendMessage(mname, area, tel, webClient, ip, webCom) {
 			return e.SUCCESS, "提交成功"
 		}

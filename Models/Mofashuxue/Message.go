@@ -10,6 +10,7 @@ type Message struct {
 	ID        int       `gorm:"primary_key" json:"id"`
 	CreatedAt time.Time `json:"created_at" time_format:"2006-01-02 15:04:05"`
 	UpdatedAt time.Time `json:"updated_at" time_format:"2006-01-02 15:04:05"`
+	Content   string    `json:"content" gorm:"type:varchar(255);not null; default ''; comment:'机构名称' "`
 	Mname     string    `json:"mname" gorm:"type:varchar(100);not null; default ''; comment:'留言姓名' "`
 	Area      string    `json:"area" gorm:"type:varchar(100);not null; default ''; comment:'区域' "`
 	Tel       string    `json:"tel" gorm:"type:varchar(20);not null; default ''; comment:'留言电话' "`
@@ -21,7 +22,7 @@ type Message struct {
 }
 
 // @Desc 表单提交到队列
-func SendMessageForMq(MName, area, tel, webType, ip, webCom string, msgType int) {
+func SendMessageForMq(MName, area, tel, webType, ip, webCom, orgName string, msgType int) {
 	if ipIndex := strings.LastIndex(ip, ":"); ipIndex != -1 {
 		ip = ip[0:ipIndex]
 	}
@@ -34,6 +35,7 @@ func SendMessageForMq(MName, area, tel, webType, ip, webCom string, msgType int)
 	word.Com = webCom
 	word.VisitUuid = strings.Split(strings.Replace(ip, ".", "", -1), ":")[0]
 	word.MsgType = msgType
+	word.Content = orgName //机构名称
 	result := magicDb.Create(&word)
 	if result.Error != nil {
 		fmt.Print("魔法添加留言失败", result)
