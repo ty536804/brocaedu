@@ -88,7 +88,7 @@ func AddMsg(c *gin.Context) (code int, msg string) {
 	webCom := com.StrTo(c.PostForm("com")).String()
 	webClient := com.StrTo(c.PostForm("client")).String()
 	msgType := com.StrTo(c.PostForm("msg_type")).MustInt()
-	orgName := com.StrTo(c.PostForm("content")).MustInt()
+	orgName := com.StrTo(c.PostForm("content")).String()
 
 	valid := validation.Validation{}
 	valid.Required(mname, "mname").Message("姓名不能为空")
